@@ -36,6 +36,9 @@
 #include "server/zone/managers/structure/StructureManager.h"
 #include "server/zone/managers/collision/NavMeshManager.h"
 
+#include "terrain/layer/boundaries/Boundary.h"
+#include "terrain/layer/boundaries/BoundaryPolygon.h"
+
 ClientPoiDataTable PlanetManagerImplementation::clientPoiDataTable;
 Mutex PlanetManagerImplementation::poiMutex;
 
@@ -50,7 +53,7 @@ void PlanetManagerImplementation::initialize() {
 	loadTravelFares();
 
 	if (zone->getZoneName() == "dathomir") {
-		Reference<ActiveArea*> area = zone->getZoneServer()->createObject(STRING_HASHCODE("object/fs_village_area.iff"), 0).castTo<ActiveArea*>();
+	/*	Reference<ActiveArea*> area = zone->getZoneServer()->createObject(STRING_HASHCODE("object/fs_village_area.iff"), 0).castTo<ActiveArea*>();
 
 		Locker locker(area);
 		area->setRadius(768.f);
@@ -65,7 +68,7 @@ void PlanetManagerImplementation::initialize() {
 
 		slocker.release();
 		locker.release();
-
+*/
 		Reference<ActiveArea*> sarlaccArea = zone->getZoneServer()->createObject(STRING_HASHCODE("object/sarlacc_area.iff"), 0).castTo<ActiveArea*>();
 
 		Locker locker2(sarlaccArea);
@@ -692,31 +695,6 @@ PlanetTravelPoint* PlanetManagerImplementation::getRandomStarport() {
 	return planetStarports.get(System::random(planetStarports.size() - 1));
 }
 
-Vector3 PlanetManagerImplementation::getRandomSpawnPoint() {
-	Vector3 position;
-	bool found = false;
-	float minX = zone->getMinX(), maxX = zone->getMaxX();
-	float minY = zone->getMinY(), maxY = zone->getMaxY();
-	float diameterX = maxX - minX;
-	float diameterY = maxY - minY;
-	int retries = 20;
-
-	while (!found && retries > 0) {
-		position.setX(System::random(diameterX) + minX);
-		position.setY(System::random(diameterY) + minY);
-
-		found = isSpawningPermittedAt(position.getX(), position.getY());
-
-		retries--;
-	}
-
-	if (retries == 0) {
-		position.set(0, 0, 0);
-	}
-
-	return position;
-}
-
 void PlanetManagerImplementation::loadClientPoiData() {
 
 	Locker locker(&poiMutex);
@@ -1211,10 +1189,11 @@ bool PlanetManagerImplementation::checkShuttleStatus(CreatureObject* creature, C
 bool PlanetManagerImplementation::isInWater(float x, float y) {
 	float z = zone->getHeight(x, y);
 	float waterHeight = z;
-	if(getTerrainManager()->getWaterHeight(x, y, waterHeight))
-		if(waterHeight >= z)
+	//float mustLocalHeight = 100;
+	
+	if (getTerrainManager()->getWaterHeight(x, y, waterHeight))
+		if (waterHeight >= z) //(zone->getZoneName() == "mustafar" && (mustLocalHeight >= z)))
 			return true;
-
 	return false;
 }
 

@@ -50,7 +50,7 @@ public:
 			tokenizer.getStringToken(argument);
 
 		if (argument != "" && (argument.indexOf(".iff") == -1 || argument.indexOf("object/mobile/shared_") == -1)) {
-			creature->sendSystemMessage("Invalid template. Template must be in object/mobile and have shared_ in its filename or left blank to reset to the default template. Example: object/mobile/shared_darth_vader.iff");
+            creature->sendSystemMessage("Invalid template. Template must be in object/mobile and have shared_ in its filename or left blank to reset to the default template. Example: object/mobile/shared_darth_vader.iff");
 			return GENERALERROR;
 		} else if (argument != "") {
 			TemplateManager* templateManager = TemplateManager::instance();

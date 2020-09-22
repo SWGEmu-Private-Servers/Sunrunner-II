@@ -282,7 +282,7 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 
 			if (dice >= 0 && dice < 160) {
 				lootGroup = "forage_food";
-			} else if (dice > 159 && dice < 200) {
+			} else if (dice > 159 && dice < 199) {
 				lootGroup = "forage_bait";
 			} else {
 				lootGroup = "forage_rare";

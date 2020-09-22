@@ -877,12 +877,16 @@ bool CreatureObjectImplementation::setState(uint64 state, bool notifyClient) {
 				break;
 			}
 			case CreatureState::POISONED:
+				playEffect("clienteffect/dot_poisoned.cef");
 				break;
 			case CreatureState::DISEASED:
+				playEffect("clienteffect/dot_diseased.cef");
 				break;
 			case CreatureState::ONFIRE:
+				playEffect("clienteffect/dot_fire.cef");
 				break;
 			case CreatureState::BLEEDING:
+				playEffect("clienteffect/dot_bleeding.cef");
 				break;
 			case CreatureState::INTIMIDATED:
 				playEffect("clienteffect/combat_special_defender_intimidate.cef");
@@ -1967,7 +1971,7 @@ void CreatureObjectImplementation::activateQueueAction() {
 
 	// Remove element from queue after it has been executed in order to ensure that other commands are enqueued and not activated at immediately.
 	for (int i = 0; i < commandQueue->size(); i++) {
-		Reference<CommandQueueAction*> actionToDelete = commandQueue->get(i);
+	Reference<CommandQueueAction*> actionToDelete = commandQueue->get(i);
 		if (action->getCommand() == actionToDelete->getCommand() && action->getActionCounter() == actionToDelete->getActionCounter() && action->getCompareToCounter() == actionToDelete->getCompareToCounter()) {
 			commandQueue->remove(i);
 			break;
@@ -2138,16 +2142,51 @@ void CreatureObjectImplementation::notifyLoadFromDatabase() {
 void CreatureObjectImplementation::notifyInsert(QuadTreeEntry* obj) {
 	auto linkedCreature = getLinkedCreature().get();
 
+	float x = 0, y = 0, z = 0;
+
 	if (linkedCreature != nullptr && linkedCreature->getParent() == asCreatureObject()) {
 #if DEBUG_COV
 		linkedCreature->info("proxy notifyInsert(" + String::valueOf(obj->getObjectID()) + ")");
 #endif // DEBUG_COV
+		float x = linkedCreature->getWorldPositionX();
+		float y = linkedCreature->getWorldPositionY();
+		float z = linkedCreature->getWorldPositionZ();
+		if (!isInRange(linkedCreature, 16.0f) && hasRidingCreature())
+			teleport(x, z, y, 0);
 
 		if (linkedCreature->getCloseObjects() != nullptr)
 			linkedCreature->addInRangeObject(obj);
 
 		if (obj->getCloseObjects() != nullptr)
 			obj->addInRangeObject(linkedCreature);
+
+		for (int i = 1; i < 8; ++i) {
+			String text = "rider";
+			text += String::valueOf(i);
+			CreatureObject* seat = getSlottedObject(text).castTo<CreatureObject*>();
+			if (seat != nullptr) {
+				seat->setPosition(x, z, y);
+				CreatureObject* rider = seat->getSlottedObject("rider").castTo<CreatureObject*>();
+				if (rider != nullptr) {
+					rider->setPosition(x, z, y);
+					if (rider->getCloseObjects() != nullptr)
+						rider->addInRangeObject(obj);
+					if (obj->getCloseObjects() != nullptr)
+						obj->addInRangeObject(rider);
+				}
+			}
+		}
+
+	}
+
+	if (hasRidingCreature()) {
+		CreatureObject* rider = getSlottedObject("rider").castTo<CreatureObject*>();
+		if (rider != nullptr){
+			rider->addInRangeObject(obj);
+			if (obj->getCloseObjects() != nullptr)
+				obj->addInRangeObject(rider);
+		}
+		
 	}
 
 	TangibleObjectImplementation::notifyInsert(obj);
@@ -2160,11 +2199,46 @@ void CreatureObjectImplementation::notifyDissapear(QuadTreeEntry* obj) {
 #if DEBUG_COV
 		linkedCreature->info("proxy notifyDissapear(" + String::valueOf(obj->getObjectID()) + ")");
 #endif // DEBUG_COV
+
+		float x = linkedCreature->getWorldPositionX();
+		float y = linkedCreature->getWorldPositionY();
+		float z = linkedCreature->getWorldPositionZ();
+
+		if (!isInRange(linkedCreature, 16.0f) && hasRidingCreature())
+			teleport(x, z, y, 0);
+
 		if (linkedCreature->getCloseObjects() != nullptr)
 			linkedCreature->removeInRangeObject(obj);
 
 		if (obj->getCloseObjects() != nullptr)
 			obj->removeInRangeObject(linkedCreature);
+
+		for (int i = 1; i < 8; ++i) {
+			String text = "rider";
+			text += String::valueOf(i);
+			CreatureObject* seat = getSlottedObject(text).castTo<CreatureObject*>();
+			if (seat != nullptr) {
+				seat->setPosition(x, z, y);
+				CreatureObject* rider = seat->getSlottedObject("rider").castTo<CreatureObject*>();
+				if (rider != nullptr) {
+					rider->setPosition(x, z, y);
+					if (rider->getCloseObjects() != nullptr)
+						rider->removeInRangeObject(obj);
+					if (obj->getCloseObjects() != nullptr)
+						obj->removeInRangeObject(rider);
+				}
+
+			}
+		}
+	}
+
+	if (hasRidingCreature()) {
+		CreatureObject* rider = getSlottedObject("rider").castTo<CreatureObject*>();
+		if (rider != nullptr) {
+			rider->removeInRangeObject(obj);
+			if (obj->getCloseObjects() != nullptr)
+				obj->removeInRangeObject(rider);
+		}
 	}
 
 	TangibleObjectImplementation::notifyDissapear(obj);
@@ -2177,11 +2251,45 @@ void CreatureObjectImplementation::notifyPositionUpdate(QuadTreeEntry* entry) {
 #if DEBUG_COV
 		linkedCreature->info("proxy notifyPositionUpdate(" + String::valueOf(entry->getObjectID()) + ")");
 #endif // DEBUG_COV
+		float x = linkedCreature->getWorldPositionX();
+		float y = linkedCreature->getWorldPositionY();
+		float z = linkedCreature->getWorldPositionZ();
+		if (!isInRange(linkedCreature, 16.0f) && hasRidingCreature())
+			teleport(x, z, y, 0);
+
 		if (linkedCreature->getCloseObjects() != nullptr)
 			linkedCreature->addInRangeObject(entry);
 
 		if (entry->getCloseObjects() != nullptr)
 			entry->addInRangeObject(linkedCreature);
+
+		for (int i = 1; i < 8; ++i) {
+			String text = "rider";
+			text += String::valueOf(i);
+			CreatureObject* seat = getSlottedObject(text).castTo<CreatureObject*>();
+			if (seat != nullptr) {
+				seat->setPosition(x, z, y);
+				CreatureObject* rider = seat->getSlottedObject("rider").castTo<CreatureObject*>();
+				if (rider != nullptr) {
+					rider->setPosition(x, z, y);
+					if (rider->getCloseObjects() != nullptr)
+						rider->addInRangeObject(entry);
+					if (entry->getCloseObjects() != nullptr)
+						entry->addInRangeObject(rider);
+				}
+			}
+		}
+
+	}
+
+	if (hasRidingCreature()) {
+		CreatureObject* rider = getSlottedObject("rider").castTo<CreatureObject*>();
+		if (rider != nullptr) {
+			rider->addInRangeObject(entry);
+
+			if (entry->getCloseObjects() != nullptr)
+				entry->addInRangeObject(rider);
+		}		
 	}
 
 	TangibleObjectImplementation::notifyPositionUpdate(entry);
@@ -2736,17 +2844,17 @@ void CreatureObjectImplementation::notifySelfPositionUpdate() {
 				CreatureObject* creature = asCreatureObject();
 
 				if (parent == nullptr && terrainManager->getWaterHeight(getPositionX(), getPositionY(), waterHeight)) {
-					if ((getPositionZ() + getSwimHeight() - waterHeight < 0.2)) {
+					if ((getPositionZ() + getSwimHeight() - waterHeight < 0.2) && (zone->getZoneName() != "mustafar")) {
 						Reference<CreatureObject*> strongRef = asCreatureObject();
 
 						Core::getTaskManager()->executeTask([strongRef] () {
 							Locker locker(strongRef);
-
-							if (strongRef->hasState(CreatureState::ONFIRE))
+							
+							if (strongRef->hasState(CreatureState::ONFIRE))					
 								strongRef->healDot(CreatureState::ONFIRE, 100);
 						}, "CreoPositionUpdateHealFireLambda");
-					}
-				}
+					} 
+				}  
 			}
 		}
 	}
@@ -2772,9 +2880,9 @@ void CreatureObjectImplementation::activateHAMRegeneration(int latency) {
 	float modifier = (float)latency/1000.f;
 
 	if (isKneeling())
-		modifier *= 1.25f;
-	else if (isSitting())
 		modifier *= 1.75f;
+	else if (isSitting())
+		modifier *= 3.5f;
 
 	// this formula gives the amount of regen per second
 	uint32 healthTick = (uint32) ceil((float) Math::max(0, getHAM(
@@ -3214,10 +3322,6 @@ bool CreatureObjectImplementation::isHealableBy(CreatureObject* object) {
 	return true;
 }
 
-bool CreatureObjectImplementation::isInvulnerable()  {
-	return isPlayerCreature() && (getPvpStatusBitmask() & CreatureFlag::PLAYER) == 0;
-}
-
 bool CreatureObjectImplementation::hasBountyMissionFor(CreatureObject* target) {
 	if (target == nullptr)
 		return false;
@@ -3247,6 +3351,12 @@ int CreatureObjectImplementation::notifyObjectDestructionObservers(TangibleObjec
 		PlayerManager* playerManager = getZoneServer()->getPlayerManager();
 
 		playerManager->notifyDestruction(attacker, asCreatureObject(), condition, isCombatAction);
+	}
+
+	if (hasRidingCreature()) {
+		CreatureObject* rider = getSlottedObject("rider").castTo<CreatureObject*>();
+		Locker locker(rider);
+		rider->dismount();		
 	}
 
 	if (attacker->isAiAgent()) {
@@ -3935,4 +4045,27 @@ void CreatureObjectImplementation::setHue(int hueIndex) {
 
 void CreatureObjectImplementation::setClient(ZoneClientSession* cli) {
 	owner = cli;
+}
+
+void CreatureObjectImplementation::setBankCredits(int credits,
+		bool notifyClient) {
+
+	Locker locker(creditObject);
+	creditObject->setBankCredits(credits, notifyClient);
+}
+
+void CreatureObjectImplementation::setCashCredits(int credits,
+		bool notifyClient) {
+
+	Locker locker(creditObject);
+	creditObject->setCashCredits(credits, notifyClient);
+}
+
+int CreatureObjectImplementation::getPassengerCapacity() {
+	SharedCreatureObjectTemplate* tmpl = cast<SharedCreatureObjectTemplate*>(getObjectTemplate());
+
+	if(tmpl == NULL)
+		return 1;
+
+	return tmpl->getPassengerCapacity();
 }

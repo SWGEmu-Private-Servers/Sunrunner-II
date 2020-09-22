@@ -107,10 +107,17 @@ int CellObjectImplementation::canAddObject(SceneObject* object, int containmentT
 	if (strongParent != nullptr && strongParent->isBuildingObject()) {
 		BuildingObject* building = strongParent->asBuildingObject();
 
+
+		if (object->getClientObjectCRC() == 0x999BE158 || object->getClientObjectCRC() == 0xE1EDCE54 || object->getClientObjectCRC() == 0x3AFA66C3 || object->getClientObjectCRC() == 0x73F7014E || object->getClientObjectCRC() == 0xB6C0ABA0 || object->getClientObjectCRC() == 0x6DD70337 || object->getClientObjectCRC() == 0x24DA64BA || object->getClientObjectCRC() == 0x3C468C44 || object->getClientObjectCRC() == 0xE75124D3 || object->getClientObjectCRC() == 0xAE5C435E || object->getClientObjectCRC() == 0xD6027E68 || object->getClientObjectCRC() == 0xD15D6FF || object->getClientObjectCRC() == 0x4418B172 || object->getClientObjectCRC() == 0x3675DA3D || object->getClientObjectCRC() == 0xED6272AA || object->getClientObjectCRC() == 0xA46F1527 || object->getClientObjectCRC() == 0xE4662624 || object->getClientObjectCRC() == 0x3F718EB3 || object->getClientObjectCRC() == 0x767CE93E || object->getClientObjectCRC() == 0x6EE001C0 || object->getClientObjectCRC() == 0xB5F7A957 || object->getClientObjectCRC() == 0xFCFACEDA || object->getClientObjectCRC() == 0x84A4F3EC || object->getClientObjectCRC() == 0x5FB35B7B || object->getClientObjectCRC() == 0x16BE3CF6)
+
+			return TransferErrorCode::CANTADD;
+
+
 		int count = 1;
 
 		if (object->isVendor())
 			count = 0;
+
 		else if (object->isContainerObject())
 			count += object->getCountableObjectsRecursive();
 
@@ -118,6 +125,7 @@ int CellObjectImplementation::canAddObject(SceneObject* object, int containmentT
 			errorDescription = "@container_error_message:container13";
 
 			return TransferErrorCode::TOOMANYITEMSINHOUSE;
+
 		}
 	}
 

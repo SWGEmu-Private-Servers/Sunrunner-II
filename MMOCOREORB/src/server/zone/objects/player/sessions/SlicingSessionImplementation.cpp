@@ -96,7 +96,7 @@ void SlicingSessionImplementation::initalizeSlicingMenu(CreatureObject* pl, Tang
 	slicingSuiBox = new SuiListBox(player, SuiWindowType::SLICING_MENU, 2);
 	slicingSuiBox->setCallback(new SlicingSessionSuiCallback(player->getZoneServer()));
 
-	if (tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTCRATE)
+	if (tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTCRATE || tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTBRIEFCASE)
 		// Don't close the window when we remove PlayerLootContainer from the player's inventory.
 		slicingSuiBox->setForceCloseDisabled();
 
@@ -468,12 +468,12 @@ void SlicingSessionImplementation::handleSlice(SuiListBox* suiBox) {
 	player->getPlayerObject()->addSuiBox(suiBox);
 	player->sendMessage(suiBox->generateMessage());
 
-	if (tangibleObject->isContainerObject() || tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTCRATE) {
+	if (tangibleObject->isContainerObject() || tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTCRATE || tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTBRIEFCASE) {
 		handleContainerSlice();
 		playerManager->awardExperience(player, "slicing", 250, true); // Container Slice XP
 	} else if (tangibleObject->isMissionTerminal()) {
 		MissionTerminal* term = cast<MissionTerminal*>( tangibleObject.get());
-		playerManager->awardExperience(player, "slicing", 100, true); // Terminal Slice XP
+		playerManager->awardExperience(player, "slicing", 250, true); // Terminal Slice XP
 		term->addSlicer(player);
 		player->sendSystemMessage("@slicing/slicing:terminal_success");
 	} else if (tangibleObject->isWeaponObject()) {
@@ -741,6 +741,38 @@ void SlicingSessionImplementation::handleContainerSlice() {
 
 		tangibleObject->destroyObjectFromDatabase(true);
 
+	} else if (tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTBRIEFCASE) {
+		Reference<SceneObject*> containerSceno = player->getZoneServer()->createObject(STRING_HASHCODE("object/tangible/container/loot/loot_briefcase_open.iff"), 1);
+
+		if (containerSceno == nullptr)
+			return;
+
+		Locker clocker(containerSceno, player);
+
+		Container* container = dynamic_cast<Container*>(containerSceno.get());
+
+		if (container == nullptr) {
+			containerSceno->destroyObjectFromDatabase(true);
+			return;
+		}
+
+		TransactionLog trx(TrxCode::PLAYERLOOTBRIEFCASE, player, container);
+
+		if (System::random(5) != 4)
+			lootManager->createLoot(trx, container, "looted_container_hard");
+
+		inventory->transferObject(container, -1);
+		container->sendTo(player, true);
+
+		trx.commit();
+
+		if (inventory->hasObjectInContainer(tangibleObject->getObjectID())) {
+			//inventory->removeObject(tangibleObject, true);
+			tangibleObject->destroyObjectFromWorld(true);
+		}
+
+		tangibleObject->destroyObjectFromDatabase(true);
+
 	} else if (tangibleObject->isContainerObject()) {
 
 		Container* container = dynamic_cast<Container*>(tangibleObject.get());
@@ -774,7 +806,7 @@ void SlicingSessionImplementation::handleSliceFailed() {
 		player->sendSystemMessage("@slicing/slicing:fail_weapon");
 	else if (tangibleObject->isArmorObject())
 		player->sendSystemMessage("@slicing/slicing:fail_armor");
-	else if (tangibleObject->isContainerObject() || tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTCRATE)
+	else if (tangibleObject->isContainerObject() || tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTCRATE || tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTBRIEFCASE)
 		player->sendSystemMessage("@slicing/slicing:container_fail");
 	else if (isBaseSlice())
 		player->sendSystemMessage("@slicing/slicing:hq_security_fail"); // Unable to sucessfully slice the terminal, you realize that the only away

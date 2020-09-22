@@ -159,10 +159,10 @@ public:
 
 	int doQueueCommand(CreatureObject* creature, const uint64& target, const UnicodeString& arguments) const {
 
-		if (!creature->hasSkill("crafting_droidengineer_novice")) {
-			creature->sendSystemMessage("@error_message:droid_repair_not_droid_engineer"); //You must be a droid engineer to use this tool kit.
-			return GENERALERROR;
-		}
+//		if (!creature->hasSkill("crafting_droidengineer_novice")) {
+//			creature->sendSystemMessage("@error_message:droid_repair_not_droid_engineer"); //You must be a droid engineer to use this tool kit.
+//			return GENERALERROR;
+//		}
 
 		int result = doCommonMedicalCommandChecks(creature);
 

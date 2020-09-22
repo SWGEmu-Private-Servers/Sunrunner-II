@@ -38,8 +38,8 @@ PlayerCreationManager::PlayerCreationManager() :
 	professionDefaultsInfo.setNoDuplicateInsertPlan();
 	hairStyleInfo.setNoDuplicateInsertPlan();
 
-	startingCash = 100;
-	startingBank = 1000;
+	startingCash = 1000;
+	startingBank = 5000;
 
 	freeGodMode = false;
 
@@ -328,8 +328,8 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 
 	auto client = callback->getClient();
 
-	if (client->getCharacterCount(zoneServer.get()->getGalaxyID()) >= 10) {
-		ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are limited to 10 characters per galaxy.", 0x0);
+	if (client->getCharacterCount(zoneServer.get()->getGalaxyID()) >= 4) {
+		ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are limited to 4 characters per galaxy.", 0x0);
 		client->sendMessage(errMsg);
 
 		return false;
@@ -467,6 +467,28 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 
 				if (accountPermissionLevel > 0 && (accountPermissionLevel == 9 || accountPermissionLevel == 10 || accountPermissionLevel == 12 || accountPermissionLevel == 15)) {
 					playerManager->updatePermissionLevel(playerCreature, accountPermissionLevel);
+
+					
+					Reference<ShipControlDevice*> shipControlDevice = zoneServer->createObject(STRING_HASHCODE("object/intangible/ship/arc170_pcd.iff"), 1).castTo<ShipControlDevice*>();
+					//ShipObject* ship = (ShipObject*) server->createObject(STRING_HASHCODE("object/ship/player/player_basic_tiefighter.iff"), 1);
+					Reference<ShipObject*> ship = zoneServer->createObject(STRING_HASHCODE("object/ship/player/player_arc170.iff"), 1).castTo<ShipObject*>();
+
+					shipControlDevice->setControlledObject(ship);
+
+					if (!shipControlDevice->transferObject(ship, 4))
+						info("Adding of ship to device failed");
+
+					ManagedReference<SceneObject*> datapad = playerCreature->getSlottedObject("datapad");
+
+					if (datapad != nullptr) {
+						if (!datapad->transferObject(shipControlDevice, -1)) {
+							shipControlDevice->destroyObjectFromDatabase(true);
+						}
+					} else {
+						shipControlDevice->destroyObjectFromDatabase(true);
+						error("could not get datapad from player");
+					}
+					
 				}
 
 				if (accountPermissionLevel < 9) {
@@ -535,6 +557,26 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 		ghost->setBiography(bio);
 
 		ghost->setLanguageID(playerTemplate->getDefaultLanguage());
+
+					Reference<ShipControlDevice*> shipControlDevice = zoneServer->createObject(STRING_HASHCODE("object/intangible/ship/arc170_pcd.iff"), 1).castTo<ShipControlDevice*>();
+					//ShipObject* ship = (ShipObject*) server->createObject(STRING_HASHCODE("object/ship/player/player_basic_tiefighter.iff"), 1);
+					Reference<ShipObject*> ship = zoneServer->createObject(STRING_HASHCODE("object/ship/player/player_arc170.iff"), 1).castTo<ShipObject*>();
+
+					shipControlDevice->setControlledObject(ship);
+
+					if (!shipControlDevice->transferObject(ship, 4))
+						info("Adding of ship to device failed");
+
+					ManagedReference<SceneObject*> datapad = playerCreature->getSlottedObject("datapad");
+
+					if (datapad != nullptr) {
+						if (!datapad->transferObject(shipControlDevice, -1)) {
+							shipControlDevice->destroyObjectFromDatabase(true);
+						}
+					} else {
+						shipControlDevice->destroyObjectFromDatabase(true);
+						error("could not get datapad from player");
+					}
 	}
 
 	ClientCreateCharacterSuccess* msg = new ClientCreateCharacterSuccess(
@@ -573,13 +615,21 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 
 	//Join auction chat room
 	ghost->addChatRoom(chatManager->getAuctionRoom()->getRoomID());
+    //Join GalaxyChat
+	ghost->addChatRoom(chatManager->getChatRoomByFullPath("SWG." + zoneServer->getGalaxyName() + ".GalaxyChat")->getRoomID());
 
 	ManagedReference<SuiMessageBox*> box = new SuiMessageBox(playerCreature, SuiWindowType::NONE);
 	box->setPromptTitle("PLEASE NOTE");
 	box->setPromptText("You are limited to creating one character per hour. Attempting to create another character or deleting your character before the 1 hour timer expires will reset the timer.");
-
+   	 //Broadcast to Server
+	String playerName = playerCreature->getFirstName();
+	StringBuffer zBroadcast;
+	zBroadcast << "\\#00ace6" << playerName << " \\#ffb90f Has Joined Sunrunner 2!";
+	playerCreature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 	ghost->addSuiBox(box);
 	playerCreature->sendMessage(box->generateMessage());
+	
+	
 
 	return true;
 }
@@ -790,14 +840,14 @@ void PlayerCreationManager::addHair(CreatureObject* creature,
 		return;
 	}
 
-	if (hairAssetData->getServerPlayerTemplate()
+	/*if (hairAssetData->getServerPlayerTemplate()
 			!= creature->getObjectTemplate()->getFullTemplateString()) {
 		error(
 				"hair " + hairTemplate
 						+ " is not compatible with this creature player "
 						+ creature->getObjectTemplate()->getFullTemplateString());
 		return;
-	}
+	}*/
 
 	if (!hairAssetData->isAvailableAtCreation()) {
 		error("hair " + hairTemplate + " not available at creation");

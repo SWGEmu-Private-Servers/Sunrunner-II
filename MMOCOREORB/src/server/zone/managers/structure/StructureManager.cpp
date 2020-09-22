@@ -1157,7 +1157,7 @@ void StructureManager::promptPayUncondemnMaintenance(CreatureObject* creature, S
 }
 
 void StructureManager::promptPayMaintenance(StructureObject* structure, CreatureObject* creature, SceneObject* terminal) {
-	int availableCredits = creature->getCashCredits();
+	int availableCredits = creature->getCashCredits() + creature->getBankCredits();
 
 	if (availableCredits <= 0) {
 		creature->sendSystemMessage("@player_structure:no_money"); //You do not have any money to pay maintenance.
@@ -1182,7 +1182,10 @@ void StructureManager::promptPayMaintenance(StructureObject* structure, Creature
 	sui->setUsingObject(structure);
 	sui->setPromptText(
 			"@player_structure:select_maint_amount \n@player_structure:current_maint_pool "
-					+ String::valueOf(surplusMaintenance));
+					+ String::valueOf(surplusMaintenance) 
+			+ " \nCash Credits Available: " + String::valueOf(creature->getCashCredits()) 
+			+ " \nBank Credits Available: " + String::valueOf(creature->getBankCredits()) 
+			+ "\nCredits are taken from your cash available first.");
 	sui->addFrom("@player_structure:total_funds",
 			String::valueOf(availableCredits),
 			String::valueOf(availableCredits), "1");
@@ -1327,8 +1330,9 @@ void StructureManager::payMaintenance(StructureObject* structure,
 	}
 
 	int cash = creature->getCashCredits();
+	int bank = creature->getBankCredits();
 
-	if (cash < amount) {
+	if (cash + bank < amount) {
 		creature->sendSystemMessage("@player_structure:insufficient_funds"); //You have insufficient funds to make this deposit.
 		return;
 	}
@@ -1339,11 +1343,21 @@ void StructureManager::payMaintenance(StructureObject* structure,
 
 	creature->sendSystemMessage(params);
 
-	{
-		TransactionLog trx(creature, structure, TrxCode::STRUCTUREMAINTANENCE, amount, true);
-		creature->subtractCashCredits(amount);
-		structure->addMaintenance(amount);
+{
+	TransactionLog trx(creature, structure, TrxCode::STRUCTUREMAINTANENCE, amount, true);
+    
+	if (cash < amount) {	// If the player chose to pay more credits than they had in their hands...
+		int remainingAmount = amount - cash; // Calculate how much needs to be removed from their bank.
+		creature->subtractCashCredits(cash); // Player doesn't have enough cash on hand to make the payment, so subtract all their credits.
+		creature->subtractBankCredits(remainingAmount);	// Now remove the remainder from their bank.
+		creature->sendSystemMessage("You did not have enough cash on hand to cover the maintenance payment, so any remaining amount was deducted from your bank account as well.");	// Give the player a heads-up.
 	}
+	else {
+		creature->subtractCashCredits(amount);
+	}
+}
+	
+	structure->addMaintenance(amount);
 
 	PlayerObject* ghost = creature->getPlayerObject();
 

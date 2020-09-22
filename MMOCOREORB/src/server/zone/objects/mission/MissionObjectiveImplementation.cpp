@@ -204,6 +204,8 @@ void MissionObjectiveImplementation::awardReward() {
 
 				if (groupMember->getWorldPosition().distanceTo(missionEndPoint) < 128) {
 					players.add(groupMember);
+				} else {
+				playerCount = playerCount - 1;
 				}
 			}
 		}

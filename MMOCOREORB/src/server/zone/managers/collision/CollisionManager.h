@@ -83,3 +83,4 @@ public:
 };
 
 #endif /* COLLISIONMANAGER_H_ */
+

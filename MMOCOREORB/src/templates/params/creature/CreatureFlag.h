@@ -17,6 +17,8 @@ public:
 		ENEMY                   = 0x20,
 		WILLBEDECLARED          = 0x40,
 		WASDECLARED             = 0x80,
+ 		COMBATVEHICLE           = 0x200,
+		TEMPVEHICLE             = 0x400,
 
 		PACK                    = 0x01,
 		HERD                    = 0x02,

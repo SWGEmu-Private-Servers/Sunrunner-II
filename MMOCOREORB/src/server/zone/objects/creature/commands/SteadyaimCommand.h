@@ -38,7 +38,7 @@ public:
 		ManagedReference<GroupObject*> group = player->getGroup();
 
 		if (!checkGroupLeader(player, group))
-			return GENERALERROR;
+			return GENERALERROR;	
 
 		float skillMod = (float) creature->getSkillMod("steadyaim");
 		int hamCost = (int) (100.0f * (1.0f - (skillMod / 100.0f))) * calculateGroupModifier(group);
@@ -73,7 +73,8 @@ public:
 		for (int i = 0; i < group->getGroupSize(); i++) {
 			ManagedReference<CreatureObject*> member = group->getGroupMember(i);
 
-			if (member == nullptr || !member->isPlayerCreature())
+			if (member == nullptr || member->getZone() != leader->getZone() || !member->isInRange(leader, 128.0) || !member->isPlayerCreature())
+		
 				continue;
 
 			if (!isValidGroupAbilityTarget(leader, member, false))

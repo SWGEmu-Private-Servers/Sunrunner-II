@@ -85,7 +85,7 @@ public:
 		//Player is in the tutorial zone and is allowed to migrate stats.
 		Zone* zone = creature->getZone();
 
-		if (zone != nullptr && zone->getZoneName() == "tutorial")
+		if (zone != nullptr && !player->isInCombat() && !player->hasState(CreatureState::PILOTINGSHIP))
 			session->migrateStats();
 
 

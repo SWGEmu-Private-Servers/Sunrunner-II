@@ -261,22 +261,177 @@ float ArmorObjectImplementation::getTypeValue(int type, float value) const {
 	if (vulnerabilites & type)
 		newValue = value;
 
-	else if (isSpecial(type)) {
+	else if(isSpecial(type)) {
+		
 		newValue = specialProtection + value;
 
-		if (newValue > 80)
-			newValue = 80;
+		if(templateObject->getClientTemplateFileName().contains("armor_ris_")) {
+
+		    if(newValue > 84)
+			   newValue = 84;		
+		}
+		
+
+
+		else if(newValue > 80)
+			    newValue = 80;
+
 	} else {
 		newValue = baseProtection + value;
 		newValue *= effectivenessSlice;
 
 		if(sliced && effectivenessSlice > 1) {
-			if(newValue > 90)
-				newValue = 90;
+			if(newValue > 84)
+				newValue = 84;
 		} else {
-			if(newValue > 80)
-				newValue = 80;
-		}
+			if(newValue > 84)
+				newValue = 84; // TODO: Sort stun
+		} 
+
+			if(templateObject->getClientTemplateFileName().contains("armor_clone_trooper_")) {
+				//if(newValue > 40)
+					newValue = 65;
+				//if(stun < 15)
+					//stun = 15;		
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_stormtrooper_")) {
+				//if(newValue > 40)
+					newValue = 68;
+				//if(stun < 20)
+					//stun = 20;		
+			}			
+			if(templateObject->getClientTemplateFileName().contains("armor_marine_")) {
+				//if(newValue > 40)
+					newValue = 68;
+				//if(stun < 20)
+					//stun = 20;		
+			}		
+			if(templateObject->getClientTemplateFileName().contains("armor_assault_trooper_")) {
+				//if(newValue > 40)
+					newValue = 72;	
+				//if(stun > 23)
+					//stun = 23;
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_rebel_battle_")) {
+				//if(newValue > 40)
+					newValue = 72;	
+				//if(stun < 23)
+					//stun = 23;	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_rebel_assault_")) {
+				//if(newValue > 40)
+					newValue = 72;	
+				//if(stun < 23)
+					//stun = 23;	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_scout_trooper_")) {
+				//if(newValue > 40)
+					newValue = 72;	
+				//if(stun < 23)
+					//stun = 23;	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_snowtrooper_")) {
+				//if(newValue > 40)
+					newValue = 72;	
+				//if(stun < 23)
+					//stun = 23;	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_rebel_snow_")) {
+				//if(newValue > 40)
+					newValue = 72;	
+				//if(stun < 23)
+					//stun = 23;	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_galactic_marine_")) {
+				//if(newValue > 40)
+					newValue = 77;	
+				//if(stun < 27)
+					//stun = 27;	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_rebel_spec_force_")) {
+				//if(newValue > 40)
+					newValue = 77;	
+				//if(stun < 27)
+					//stun = 27;	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_mandalorian_imperial_")) {
+				//if(newValue > 40)
+					newValue = 78;	
+				//if(stun < 25)
+					//stun = 25;	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_mandalorian_rebel_")) {
+				//if(newValue > 40)
+					newValue = 78;	
+				//if(stun < 25)
+					//stun = 25;	
+			}		
+			if(templateObject->getClientTemplateFileName().contains("_gcw")) {
+				//if(newValue > 40)
+					newValue = 76;
+				//if(stun < 27)
+					//stun = 27;		
+			}
+			if(templateObject->getClientTemplateFileName().contains("invisible_helmet")) {
+			
+					newValue = 68;			
+					//stun = 20;	
+			}
+			if(templateObject->getClientTemplateFileName().contains("invisible_helmet_imperial")) {
+				//if(newValue > 40)
+					newValue = 68;
+				// if(stun < 21)
+				// 	stun = 30;		
+			}
+			if(templateObject->getClientTemplateFileName().contains("invisible_helmet_rebel")) {
+				//if(newValue > 40)
+					newValue = 68;
+				// if(stun < 21)
+				// 	stun = 30;			
+			}
+			if(templateObject->getClientTemplateFileName().contains("invisible_helmet_imperial_quartermaster")) {
+				//if(newValue > 40)
+					newValue = 76;
+				// if(stun < 21)
+				// 	stun = 36;		
+			}
+			if(templateObject->getClientTemplateFileName().contains("invisible_helmet_rebel_quartermaster")) {
+				//if(newValue > 40)
+					newValue = 76;
+				// if(stun < 21)
+				// 	stun = 36;			
+			}
+			if(templateObject->getClientTemplateFileName().contains("_pvp_officer_")) {
+				//if(newValue > 40)
+					newValue = 74;
+				// if(stun < 24)
+				// 	stun = 24;		
+			}
+			if(templateObject->getClientTemplateFileName().contains("_groupleader_gcw")) {
+				//if(newValue > 40)
+					newValue = 77;
+				//if(stun < 28)
+					//stun = 28;		
+			}
+			if(templateObject->getClientTemplateFileName().contains("shield_generator_pvp")) {
+				//if(newValue > 25)
+					newValue = 25;
+				//if(stun < 10)
+					//stun = 10;		
+			}
+			if(templateObject->getClientTemplateFileName().contains("riot_shield_pvp")) {
+				//if(newValue > 25)
+					newValue = 25;
+				//if(stun < 10)
+					//stun = 10;		
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_stormtrooper_leggings_quest") || templateObject->getClientTemplateFileName().contains("armor_stormtrooper_helmet_quest") || templateObject->getClientTemplateFileName().contains("armor_stormtrooper_chest_plate_quest")) {
+				//if(newValue > 25)
+					newValue = 70;
+				//if(stun < 10)
+					//stun = 10;		
+			}
+			
 	}
 
 	return newValue;
@@ -432,8 +587,80 @@ float ArmorObjectImplementation::getElectricity() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::ELECTRICITY, electricity);
 	return value - getConditionReduction(value);
 }
-
 float ArmorObjectImplementation::getStun() const {
+			if(templateObject->getClientTemplateFileName().contains("invisible_neutral_clone_")) {
+				return 25 - getConditionReduction(25);
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_clone_trooper_")) {
+				return 25 - getConditionReduction(25);	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_stormtrooper_")) {
+				return 30 - getConditionReduction(30);		
+			}			
+			if(templateObject->getClientTemplateFileName().contains("armor_marine_")) {
+				return 30 - getConditionReduction(30);		
+			}		
+			if(templateObject->getClientTemplateFileName().contains("armor_assault_trooper_")) {
+				return 33 - getConditionReduction(33);
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_rebel_battle_")) {
+				return 33 - getConditionReduction(33);	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_rebel_assault_")) {
+				return 33 - getConditionReduction(33);	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_scout_trooper_")) {
+				return 33 - getConditionReduction(33);	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_snowtrooper_")) {
+				return 33 - getConditionReduction(33);	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_rebel_snow_")) {
+				return 33 - getConditionReduction(33);	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_galactic_marine_")) {
+				return 37 - getConditionReduction(37);	
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_rebel_spec_force_")) {
+				return 37 - getConditionReduction(37);
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_mandalorian_imperial_")) {
+				return 35 - getConditionReduction(35);
+			}
+			if(templateObject->getClientTemplateFileName().contains("armor_mandalorian_rebel_")) {
+				return 35 - getConditionReduction(35);	
+			}		
+			if(templateObject->getClientTemplateFileName().contains("_gcw")) {
+				return 37 - getConditionReduction(37);		
+			}
+			if(templateObject->getClientTemplateFileName().contains("invisible_helmet")) {
+				return 30 - getConditionReduction(30);	
+			}
+			if(templateObject->getClientTemplateFileName().contains("invisible_helmet_imperial")) {
+				return 30 - getConditionReduction(30);			
+			}
+			if(templateObject->getClientTemplateFileName().contains("invisible_helmet_rebel")) {
+				return 30 - getConditionReduction(30);			
+			}
+			if(templateObject->getClientTemplateFileName().contains("invisible_helmet_imperial_quartermaster")) {
+				return 36 - getConditionReduction(36);			
+			}
+			if(templateObject->getClientTemplateFileName().contains("invisible_helmet_rebel_quartermaster")) {
+				return 36 - getConditionReduction(36);			
+			}
+			if(templateObject->getClientTemplateFileName().contains("_pvp_officer_")) {
+				return 34 - getConditionReduction(34);			
+			}
+			if(templateObject->getClientTemplateFileName().contains("_groupleader_gcw")) {
+				return 38 - getConditionReduction(38);			
+			}
+			if(templateObject->getClientTemplateFileName().contains("shield_generator_pvp")) {
+				return 10 - getConditionReduction(10);			
+			}
+			if(templateObject->getClientTemplateFileName().contains("riot_shield_pvp")) {
+				return 10 - getConditionReduction(10);	
+			}
+
 	float value = getTypeValue(SharedWeaponObjectTemplate::STUN, stun);
 	return value - getConditionReduction(value);
 }

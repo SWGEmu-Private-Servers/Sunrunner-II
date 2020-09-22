@@ -84,10 +84,10 @@ void VehicleControlDeviceImplementation::generateObject(CreatureObject* player) 
 		Reference<CallMountTask*> callMount = new CallMountTask(_this.getReferenceUnsafeStaticCast(), player, "call_mount");
 
 		StringIdChatParameter message("pet/pet_menu", "call_vehicle_delay");
-		message.setDI(15);
+		message.setDI(5);
 		player->sendSystemMessage(message);
 
-		player->addPendingTask("call_mount", callMount, 15 * 1000);
+		player->addPendingTask("call_mount", callMount, 5 * 1000);
 
 		if (vehicleControlObserver == nullptr) {
 			vehicleControlObserver = new VehicleControlObserver(_this.getReferenceUnsafeStaticCast());
@@ -120,7 +120,7 @@ void VehicleControlDeviceImplementation::spawnObject(CreatureObject* player) {
 		return;
 	}
 
-	ManagedReference<TradeSession*> tradeContainer = player->getActiveSession(SessionFacadeType::TRADE).castTo<TradeSession*>();
+ManagedReference<TradeSession*> tradeContainer = player->getActiveSession(SessionFacadeType::TRADE).castTo<TradeSession*>();
 
 	if (tradeContainer != nullptr) {
 		server->getZoneServer()->getPlayerManager()->handleAbortTradeMessage(player);
@@ -140,12 +140,46 @@ void VehicleControlDeviceImplementation::spawnObject(CreatureObject* player) {
 	if (zone == nullptr)
 		return;
 
+	
+	if (zone->getZoneName() == "dungeon4" || zone->getZoneName() == "kessel" || zone->getZoneName() == "coruscant") {
+
+		if (zone->getZoneName() == "dungeon4") {
+			if (vehicle != nullptr && controlledObject->getServerObjectCRC() == 0x14E30427) {
+				zone->transferObject(controlledObject, -1, true);
+				Reference<VehicleDecayTask*> decayTask = new VehicleDecayTask(controlledObject);
+				decayTask->execute();
+				return;	
+			}
+		}
+
+		player->sendSystemMessage("@pet/pet_menu:cant_call_planet_restriction");
+		return;
+	}
+	if (zone->getZoneName() != "dungeon4") {
+		if (vehicle != nullptr && controlledObject->getServerObjectCRC() == 0x14E30427) {
+			player->sendSystemMessage("You can't call this vehicle here.");
+			return;	
+		}
+	}
+
 	//controlledObject->insertToZone(player->getZone());
 	zone->transferObject(controlledObject, -1, true);
 	Reference<VehicleDecayTask*> decayTask = new VehicleDecayTask(controlledObject);
 	decayTask->execute();
 
 	if (vehicle != nullptr && controlledObject->getServerObjectCRC() == 0x32F87A54) // Jetpack
+	{
+		controlledObject->setCustomizationVariable("/private/index_hover_height", 40, true); // Illusion of flying.
+		player->executeObjectControllerAction(STRING_HASHCODE("mount"), controlledObject->getObjectID(), ""); // Auto mount.
+	}
+
+	if (vehicle != nullptr && controlledObject->getServerObjectCRC() == 0x3A19A20D) // HK Jetpack
+	{
+		controlledObject->setCustomizationVariable("/private/index_hover_height", 40, true); // Illusion of flying.
+		player->executeObjectControllerAction(STRING_HASHCODE("mount"), controlledObject->getObjectID(), ""); // Auto mount.
+	}
+
+	if (vehicle != nullptr && controlledObject->getServerObjectCRC() == 0x5C3FA920) // Merr Sonn Jetpack
 	{
 		controlledObject->setCustomizationVariable("/private/index_hover_height", 40, true); // Illusion of flying.
 		player->executeObjectControllerAction(STRING_HASHCODE("mount"), controlledObject->getObjectID(), ""); // Auto mount.

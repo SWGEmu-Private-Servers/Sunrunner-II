@@ -83,6 +83,11 @@ public:
 			String meshFile;
 			iffStream->getString(meshFile);
 
+			if (meshFile.contains(".prt")) {
+                iffStream->closeChunk('PART');
+                break;
+            }
+
 			AppearanceTemplate* templ = TemplateManager::instance()->getAppearanceTemplate("appearance/" + meshFile);
 
 			if (templ == nullptr) {

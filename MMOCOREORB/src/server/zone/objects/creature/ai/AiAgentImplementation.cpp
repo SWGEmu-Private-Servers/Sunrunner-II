@@ -1212,6 +1212,11 @@ void AiAgentImplementation::runAway(CreatureObject* target, float range) {
 		return;
 	}
 
+	if (getPvpStatusBitmask() & CreatureFlag::COMBATVEHICLE) {
+		initializePosition(homeLocation.getPositionX(), homeLocation.getPositionZ(), homeLocation.getPositionY());	
+		return;
+	}
+
 	setTargetObject(target);
 
 	// TODO (dannuic): do we need to check threatmap for other players in range at this point, or just have the mob completely drop aggro?
@@ -1241,6 +1246,11 @@ void AiAgentImplementation::runAway(CreatureObject* target, float range) {
 }
 
 void AiAgentImplementation::leash() {
+	if (getPvpStatusBitmask() & CreatureFlag::COMBATVEHICLE) {
+		initializePosition(homeLocation.getPositionX(), homeLocation.getPositionZ(), homeLocation.getPositionY());	
+		return;
+	}
+
 	setFollowState(AiAgent::LEASHING);
 	setTargetObject(nullptr);
 	storeFollowObject();
@@ -2190,6 +2200,11 @@ int AiAgentImplementation::setDestination() {
 			setOblivious();
 		clearPatrolPoints();
 
+		if (getPvpStatusBitmask() & CreatureFlag::COMBATVEHICLE) {
+			initializePosition(homeLocation.getPositionX(), homeLocation.getPositionZ(), homeLocation.getPositionY());	
+			break;
+		}
+
 		if (!homeLocation.isInRange(asAiAgent(), 1.5)) {
 			homeLocation.setReached(false);
 			addPatrolPoint(homeLocation);
@@ -2397,6 +2412,16 @@ void AiAgentImplementation::activateMovementEvent() {
 	const static uint64 minScheduleTime = 100;
 
 	Locker locker(&movementEventMutex);
+
+	if (getPvpStatusBitmask() & CreatureFlag::COMBATVEHICLE){
+		if (moveEvent != nullptr) {
+			moveEvent->clearCreatureObject();
+			moveEvent = nullptr;
+		}
+
+		return;
+	}
+
 
 	if (isWaiting() && moveEvent != nullptr)
 		moveEvent->cancel();
@@ -2802,10 +2827,6 @@ bool AiAgentImplementation::isAggressiveTo(CreatureObject* target) {
 	// grab the GCW faction
 	uint32 targetFaction = target->getFaction();
 	PlayerObject* ghost = target->getPlayerObject();
-
-	if (ghost != nullptr && ghost->hasCrackdownTefTowards(getFaction())) {
-		return true;
-	}
 
 	// check the GCW factions if both entities have one
 	if (getFaction() != 0 && targetFaction != 0) {
@@ -3294,13 +3315,6 @@ bool AiAgentImplementation::isAttackableBy(CreatureObject* object) {
 
 	if (pvpStatusBitmask == 0) {
 		return false;
-	}
-
-	if (object->isPlayerCreature()) {
-		Reference<PlayerObject*> ghost = object->getPlayerObject();
-		if (ghost != nullptr && ghost->hasCrackdownTefTowards(getFaction())) {
-			return true;
-		}
 	}
 
 	unsigned int targetFaction = object->getFaction();

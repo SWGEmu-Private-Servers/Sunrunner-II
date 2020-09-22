@@ -57,8 +57,6 @@ enum class TrxCode {
 	// SWGEmu Specific Codes
 	ACCESSFEE            = 100, // Access Fee
 	ADMINCOMMAND,               // From an admin command
-	ADKAPPLY,                   // Apply and ADK to item
-	ADKREMOVE,                  // Remove ADK from item
 	AUCTIONADDSALE,             // addSaleItem()
 	AUCTIONBID,                 // Auction Bid Escrow
 	AUCTIONEXPIRED,             // Never retrieved and expired
@@ -84,6 +82,7 @@ enum class TrxCode {
 	RECYCLED,                   // Recycled Items
 	SERVERDESTROYOBJECT,        // /serverDestroyObject command
 	SLICECONTAINER,             // Slicing session on a container
+	PLAYERLOOTBRIEFCASE,        // Slicing session on a briefcase
 	STRUCTUREDEED,              // Structure deed trxs
 	TRANSFERITEMMISC,           // /transferitemmisc command
 	TRANSFERSTRUCT,             // Transfer Structure
@@ -120,9 +119,6 @@ class TransactionLog {
 	bool mAborted = false;
 	bool mExportRelated = false;
 	StringBuffer mError;
-	Vector3 mWorldPosition;
-	String mZoneName;
-	String mWorldPositionContext;
 	Vector<uint64> mRelatedObjects;
 	SortedVector<uint64> mChildObjects;
 	JSONSerializationType mState = JSONSerializationType::object();
@@ -182,9 +178,6 @@ public:
 		mAborted = rhs.mAborted;
 		mExportRelated = rhs.mExportRelated;
 		mError << rhs.mError;
-		mWorldPosition = rhs.mWorldPosition;
-		mWorldPositionContext = rhs.mWorldPositionContext;
-		mZoneName = rhs.mZoneName;
 		mRelatedObjects = rhs.mRelatedObjects;
 		mChildObjects = rhs.mChildObjects;
 		mState = rhs.mState;
@@ -300,7 +293,7 @@ public:
 		catchAndLog(__FUNCTION__, [&]() -> void { mState[key] = value; });
 	}
 
-	void addWorldPosition(String context, SceneObject* scno);
+	void addStateWorldPosition(String baseKeyName, SceneObject* scno);
 
 	static const String getNewTrxID();
 

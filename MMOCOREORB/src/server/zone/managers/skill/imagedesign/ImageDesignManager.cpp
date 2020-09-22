@@ -235,20 +235,20 @@ void ImageDesignManager::updateColorCustomization(CreatureObject* imageDesigner,
 }
 
 int ImageDesignManager::getSkillLevel(CreatureObject* imageDesigner, const String& skillMod) {
-	if (imageDesigner->hasSkill("social_imagedesigner_master")) {
+	if (imageDesigner->hasSkill("social_entertainer_master")) {
 		return 5;
 	}
 
-	String skillName = "social_imagedesigner_";
+	String skillName = "social_entertainer_hairstyle_";
 
 	if (skillMod == "body")
-		skillName += "bodyform_0";
+		skillName += "_0";
 	else if (skillMod == "face")
-		skillName += "exotic_0";
+		skillName += "_0";
 	else if (skillMod == "hair")
-		skillName += "hairstyle_0";
+		skillName += "_0";
 	else {
-		skillName += skillMod;
+		//skillName += skillMod;
 		skillName += "_0";
 	}
 
@@ -264,7 +264,7 @@ int ImageDesignManager::getSkillLevel(CreatureObject* imageDesigner, const Strin
 		}
 	}
 
-	if (imageDesigner->hasSkill("social_imagedesigner_novice")) {
+	if (imageDesigner->hasSkill("social_entertainer_novice")) {
 		return 0;
 	}
 
@@ -370,11 +370,11 @@ TangibleObject* ImageDesignManager::createHairObject(CreatureObject* imageDesign
 	if (imageDesigner->getSkillMod("hair") < skillMod)
 		return oldHair;
 
-	if (hairAssetData->getServerPlayerTemplate() != targetObject->getObjectTemplate()->getFullTemplateString()) {
+/*	if (hairAssetData->getServerPlayerTemplate() != targetObject->getObjectTemplate()->getFullTemplateString()) {
 		error("hair " + hairTemplate + " is not compatible with this creature player " + targetObject->getObjectTemplate()->getFullTemplateString());
 		return oldHair;
 	}
-
+*/
 	ManagedReference<SceneObject*> hair = imageDesigner->getZoneServer()->createObject(hairTemplate.hashCode(), 1);
 
 	//TODO: Validate hairCustomization
@@ -557,3 +557,4 @@ bool ImageDesignManager::validateCustomizationString(CustomizationVariables* dat
 
 ImageDesignManager::~ImageDesignManager() {
 }
+

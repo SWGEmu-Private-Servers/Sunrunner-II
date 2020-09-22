@@ -51,9 +51,24 @@ public:
 		if (pet->hasRidingCreature())
 			return GENERALERROR;
 
-		if (emoteid == CreatureEmote::PET || emoteid == CreatureEmote::REASSURE ||
-				emoteid == CreatureEmote::NUZZLE || emoteid == CreatureEmote::HUG) {
+		if (emoteid == CreatureEmote::REASSURE || emoteid == CreatureEmote::NUZZLE || emoteid == CreatureEmote::HUG) {
 			return praise(pet);
+		} else if (emoteid == CreatureEmote::PET) {
+			return lay(pet);
+		} else if (emoteid == CreatureEmote::GULP) {
+			return drink(pet);
+		} else if (emoteid == CreatureEmote::PREEN) {
+			return preen(pet);
+		} else if (emoteid == CreatureEmote::STRETCH) {
+			return stretch(pet);
+		} else if (emoteid == CreatureEmote::SMELL) {
+			return sniff(pet);
+		} else if (emoteid == CreatureEmote::SCRATCH) {
+			return scratch(pet);
+		} else if (emoteid == CreatureEmote::YAWN) {
+			return sleep(pet);
+		} else if (emoteid == CreatureEmote::FLEX || emoteid == CreatureEmote::POUND) {
+			return threaten(pet);
 		} else if (emoteid == CreatureEmote::BONK || emoteid == CreatureEmote::WHAP ||
 				 emoteid == CreatureEmote::SCOLD || emoteid == CreatureEmote::BAD ||
 				 emoteid == CreatureEmote::SLAP) {
@@ -68,38 +83,54 @@ public:
 	}
 
 	int praise(AiAgent* pet) const {
-		Zone* creoZone = pet->getZone();
+		pet->doAnimation("happy");
+		pet->setPosture(CreaturePosture::UPRIGHT);
+		return SUCCESS;
+	}
 
-		if (creoZone == nullptr)
-			return GENERALERROR;
-
-		ManagedReference<CreatureManager*> creoManager = creoZone->getCreatureManager();
-		int speciesID = pet->getSpecies();
-		AiSpeciesData* speciesData = creoManager->getAiSpeciesData(speciesID);
-
-		if (speciesData == nullptr)
-			return GENERALERROR;
-
-		if (System::random(100) > 50) {
-			if (speciesData->canSitDown()) {
-				if (System::random(100) > 50) {
-					pet->setPosture(CreaturePosture::SITTING);
-				} else {
-					pet->setPosture(CreaturePosture::LYINGDOWN);
-				}
-			} else if (speciesData->canLieDown()) {
-				pet->setPosture(CreaturePosture::LYINGDOWN);
-			}
-		} else {
-			pet->doAnimation("happy");
-			pet->setPosture(CreaturePosture::UPRIGHT);
-		}
-
+	int lay(AiAgent* pet) const {
+		pet->setPosture(CreaturePosture::LYINGDOWN);
 		return SUCCESS;
 	}
 
 	int shame(AiAgent* pet) const {
 		pet->doAnimation("ashamed");
+		return SUCCESS;
+	}
+
+	int drink(AiAgent* pet) const {
+		pet->doAnimation("drink");
+		return SUCCESS;
+	}
+
+	int preen(AiAgent* pet) const {
+		pet->doAnimation("preen");
+		return SUCCESS;
+	}
+
+	int stretch(AiAgent* pet) const {
+		pet->doAnimation("stretch");
+		return SUCCESS;
+	}
+
+	int sniff(AiAgent* pet) const {
+		pet->doAnimation("sniff");
+		return SUCCESS;
+	}
+
+	int scratch(AiAgent* pet) const {
+		pet->doAnimation("scratch");
+		return SUCCESS;
+	}
+
+	int sleep(AiAgent* pet) const {
+		pet->doAnimation("sleep");
+		pet->setPosture(CreaturePosture::LYINGDOWN);
+		return SUCCESS;
+	}
+
+	int threaten(AiAgent* pet) const {
+		pet->doAnimation("threaten");
 		return SUCCESS;
 	}
 

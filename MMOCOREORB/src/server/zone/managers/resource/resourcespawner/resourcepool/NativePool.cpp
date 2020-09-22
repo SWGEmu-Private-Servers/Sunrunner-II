@@ -106,9 +106,9 @@ bool NativePool::update() {
 
 					VectorMapEntry<String, ManagedReference<ResourceSpawn*> > newEntry(resourceType, newSpawn);
 					spawnZone->setElementAt(j, newEntry);
-				} else {
-					warning("Couldn't spawn resource type in NativePool: " + resourceType);
-				}
+				}// else {
+					//warning("Couldn't spawn resource type in NativePool: " + resourceType);
+				//}
 			}
 		}
 	}

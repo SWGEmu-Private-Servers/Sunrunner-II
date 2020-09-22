@@ -21,7 +21,7 @@ public:
 	int doQueueCommand(CreatureObject* player, const uint64& target, const UnicodeString& arguments) const {
 
 		int cooldownMilli = 300000; // 5 min
-		int durationSec =  60; // 1 min
+		int durationSec =  300; // 5 min
 		int mindCost = player->calculateCostAdjustment(CreatureAttribute::FOCUS, 100 );
 		unsigned int buffCRC = STRING_HASHCODE("emboldenPet");
 

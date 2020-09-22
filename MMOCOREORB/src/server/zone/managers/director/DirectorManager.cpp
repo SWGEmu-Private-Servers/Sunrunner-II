@@ -493,6 +493,8 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	luaEngine->setGlobalInt("TUNEDCRYSTAL", ObserverEventType::TUNEDCRYSTAL);
 	luaEngine->setGlobalInt("PROTOTYPECREATED", ObserverEventType::PROTOTYPECREATED);
 	luaEngine->setGlobalInt("SLICED", ObserverEventType::SLICED);
+	luaEngine->setGlobalInt("MOUNTED", ObserverEventType::MOUNTED);
+	luaEngine->setGlobalInt("DISMOUNTED", ObserverEventType::DISMOUNTED);
 
 	luaEngine->setGlobalInt("UPRIGHT", CreaturePosture::UPRIGHT);
 	luaEngine->setGlobalInt("PRONE", CreaturePosture::PRONE);
@@ -3702,3 +3704,4 @@ int DirectorManager::getBadgeListByType(lua_State* L) {
 
 	return 1;
 }
+

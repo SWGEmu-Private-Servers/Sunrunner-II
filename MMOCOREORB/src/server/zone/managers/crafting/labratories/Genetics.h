@@ -433,8 +433,8 @@ public:
 		int armorLevel2 = calculateArmorValue(pet, armorLevel, baseLevel, armorBase) * 2;
 		if (defenseLevel < baseLevel)
 			defenseLevel = baseLevel;
-		int level = round((((float)(statLevel + damageLevel + hitLevel + defenseLevel + armorLevel + regenerationLevel ))/22.0) + 0.5);
-		return level;
+        	int level = round((((float)(statLevel + damageLevel + hitLevel + defenseLevel + armorLevel + regenerationLevel ))/22.0) + 0.5);
+return level;
 	}
 
 	// Calculate the input creature levels

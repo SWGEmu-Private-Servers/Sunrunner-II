@@ -28,9 +28,10 @@ public:
 			return GENERALERROR;
 
 		CombatManager::instance()->attemptPeace(pet);
-
+		
 		pet->setOblivious();
-		pet->storeFollowObject();
+		pet->storeFollowObject(); 
+		pet->setPosture(CreaturePosture::SITTING);
 
 		Locker clocker(controlDevice, creature);
 		controlDevice->setLastCommand(PetManager::STAY);

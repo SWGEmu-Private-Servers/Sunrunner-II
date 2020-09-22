@@ -180,7 +180,45 @@
 #include "server/zone/objects/creature/commands/InspacereloadCommand.h"
 #include "server/zone/objects/creature/commands/InspacerrCommand.h"
 #include "server/zone/objects/creature/commands/RequestSpaceTrainerCommand.h"
-
+#include "server/zone/objects/creature/commands/UnarmedBleedCommand.h"
+#include "server/zone/objects/creature/commands/CreatureAreaBurnCommand.h"
+#include "server/zone/objects/creature/commands/DroidOverclockCommand.h"
+#include "server/zone/objects/creature/commands/StayFocusedCommand.h"
+#include "server/zone/objects/creature/commands/CommandersForceCommand.h"
+#include "server/zone/objects/creature/commands/DroidPhaserOverclockCommand.h"
+#include "server/zone/objects/creature/commands/DroidRebootCommand.h"
+#include "server/zone/objects/creature/commands/DizzyShotCommand.h"
+#include "server/zone/objects/creature/commands/BarrageShotCommand.h"
+#include "server/zone/objects/creature/commands/PunishingShotCommand.h"
+#include "server/zone/objects/creature/commands/LethalExertionCommand.h"
+#include "server/zone/objects/creature/commands/BuffetingOnslaughtCommand.h"
+#include "server/zone/objects/creature/commands/RuthlessSurgeCommand.h"
+#include "server/zone/objects/creature/commands/DestructiveOverchargeCommand.h"
+#include "server/zone/objects/creature/commands/CommandosGambitCommand.h"
+#include "server/zone/objects/creature/commands/EngulfingFlameCommand.h"
+#include "server/zone/objects/creature/commands/HastyGetawayCommand.h"
+#include "server/zone/objects/creature/commands/BurgeoningWallopCommand.h"
+#include "server/zone/objects/creature/commands/UnyieldingBatterCommand.h"
+#include "server/zone/objects/creature/commands/MercilessSlashCommand.h"
+#include "server/zone/objects/creature/commands/WbossAreaAttackCommand.h"
+#include "server/zone/objects/creature/commands/WbossAreaComboCommand.h"
+#include "server/zone/objects/creature/commands/WbossAreaKnockdownCommand.h"
+#include "server/zone/objects/creature/commands/UnarmedMaelstromCommand.h"
+#include "server/zone/objects/creature/commands/FullAutoAssaultCommand.h"
+#include "server/zone/objects/creature/commands/CrownShotCommand.h"
+#include "server/zone/objects/creature/commands/DisablingShotCommand.h"
+#include "server/zone/objects/creature/commands/EncouragePetsCommand.h"
+#include "server/zone/objects/creature/commands/OutragePetsCommand.h"
+#include "server/zone/objects/creature/commands/DazingShockCommand.h"
+#include "server/zone/objects/creature/commands/CripplingSurgeCommand.h"
+#include "server/zone/objects/creature/commands/DebilitatingJoltCommand.h"
+#include "server/zone/objects/creature/commands/CarbineBashCommand.h"
+#include "server/zone/objects/creature/commands/FocusedFireCommand.h"
+#include "server/zone/objects/creature/commands/RapidBombardmentCommand.h"
+#include "server/zone/objects/creature/commands/SingleBurnCommand.h"
+#include "server/zone/objects/creature/commands/MindBurnCommand.h"
+#include "server/zone/objects/creature/commands/WbossAreaTremorCommand.h"
+#include "server/zone/objects/creature/commands/WbossAreaMindBashCommand.h"
 
 using namespace server::zone::managers::objectcontroller::command;
 
@@ -325,4 +363,43 @@ void CommandConfigManager::registerCommands4() {
 	commandFactory.registerCommand<InspacereloadCommand>(String("inspacereload").toLowerCase());
 	commandFactory.registerCommand<InspacerrCommand>(String("inspacerr").toLowerCase());
 	commandFactory.registerCommand<RequestSpaceTrainerCommand>(String("requestSpaceTrainer").toLowerCase());
+	commandFactory.registerCommand<UnarmedBleedCommand>(String("unarmedbleed").toLowerCase());
+	commandFactory.registerCommand<CreatureAreaBurnCommand>(String("creatureareaburn").toLowerCase());
+	commandFactory.registerCommand<DroidOverclockCommand>(String("droidoverclock").toLowerCase());
+	commandFactory.registerCommand<StayFocusedCommand>(String("stayfocused").toLowerCase());	
+	commandFactory.registerCommand<CommandersForceCommand>(String("commandersforce").toLowerCase());	
+	commandFactory.registerCommand<DroidPhaserOverclockCommand>(String("droidphaseroverclock").toLowerCase());	
+	commandFactory.registerCommand<DroidRebootCommand>(String("droidreboot").toLowerCase());	
+	commandFactory.registerCommand<DizzyShotCommand>(String("dizzyshot").toLowerCase());
+	commandFactory.registerCommand<BarrageShotCommand>(String("barrageshot").toLowerCase());
+	commandFactory.registerCommand<PunishingShotCommand>(String("punishingshot").toLowerCase());
+	commandFactory.registerCommand<LethalExertionCommand>(String("lethalexertion").toLowerCase());
+	commandFactory.registerCommand<BuffetingOnslaughtCommand>(String("buffetingonslaught").toLowerCase());
+	commandFactory.registerCommand<RuthlessSurgeCommand>(String("ruthlesssurge").toLowerCase());
+	commandFactory.registerCommand<DestructiveOverchargeCommand>(String("destructiveovercharge").toLowerCase());
+	commandFactory.registerCommand<CommandosGambitCommand>(String("commandosgambit").toLowerCase());
+	commandFactory.registerCommand<EngulfingFlameCommand>(String("engulfingflame").toLowerCase());
+	commandFactory.registerCommand<HastyGetawayCommand>(String("hastygetaway").toLowerCase());
+	commandFactory.registerCommand<BurgeoningWallopCommand>(String("burgeoningwallop").toLowerCase());
+	commandFactory.registerCommand<UnyieldingBatterCommand>(String("unyieldingbatter").toLowerCase());
+	commandFactory.registerCommand<MercilessSlashCommand>(String("mercilessslash").toLowerCase());
+	commandFactory.registerCommand<WbossAreaAttackCommand>(String("wbossareaattack").toLowerCase());
+	commandFactory.registerCommand<WbossAreaComboCommand>(String("wbossareacombo").toLowerCase());
+	commandFactory.registerCommand<WbossAreaKnockdownCommand>(String("wbossareaknockdown").toLowerCase());
+	commandFactory.registerCommand<UnarmedMaelstromCommand>(String("unarmedmaelstrom").toLowerCase());
+	commandFactory.registerCommand<FullAutoAssaultCommand>(String("fullautoassault").toLowerCase());
+	commandFactory.registerCommand<CrownShotCommand>(String("crownshot").toLowerCase());
+	commandFactory.registerCommand<DisablingShotCommand>(String("disablingshot").toLowerCase());
+	commandFactory.registerCommand<EncouragePetsCommand>(String("encouragepets").toLowerCase());
+	commandFactory.registerCommand<OutragePetsCommand>(String("outragepets").toLowerCase());	
+	commandFactory.registerCommand<DazingShockCommand>(String("dazingshock").toLowerCase());
+	commandFactory.registerCommand<CripplingSurgeCommand>(String("cripplingsurge").toLowerCase());
+	commandFactory.registerCommand<DebilitatingJoltCommand>(String("debilitatingjolt").toLowerCase());
+	commandFactory.registerCommand<CarbineBashCommand>(String("carbinebash").toLowerCase());
+	commandFactory.registerCommand<FocusedFireCommand>(String("focusedfire").toLowerCase());
+	commandFactory.registerCommand<RapidBombardmentCommand>(String("rapidbombardment").toLowerCase());	
+	commandFactory.registerCommand<SingleBurnCommand>(String("singleburn").toLowerCase());
+	commandFactory.registerCommand<MindBurnCommand>(String("mindburn").toLowerCase());		
+	commandFactory.registerCommand<WbossAreaTremorCommand>(String("wbossareatremor").toLowerCase());	
+	commandFactory.registerCommand<WbossAreaMindBashCommand>(String("wbossareamindbash").toLowerCase());	
 }

@@ -28,6 +28,7 @@ public:
 
 		ManagedReference<CreatureObject*> player = cast<CreatureObject*>(creature);
 		ManagedReference<GroupObject*> group = player->getGroup();
+		ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
 
 		if (!checkGroupLeader(player, group))
 			return GENERALERROR;
@@ -65,8 +66,9 @@ public:
 
 		for (int i = 0; i < group->getGroupSize(); i++) {
 			ManagedReference<CreatureObject*> member = group->getGroupMember(i);
+		
+			if (member == nullptr || member->getZone() != leader->getZone() || !member->isInRange(leader, 128.0))
 
-			if (member == nullptr)
 				continue;
 
 			if (!isValidGroupAbilityTarget(leader, member, true))

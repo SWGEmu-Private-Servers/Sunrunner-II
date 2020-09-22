@@ -47,7 +47,7 @@ bool CombatManager::startCombat(CreatureObject* attacker, TangibleObject* defend
 			return false;
 	}
 
-	if (attacker->hasRidingCreature())
+	if ((attacker->hasRidingCreature()) && !attacker->isWalkerSpecies())
 		return false;
 
 	if (!defender->isAttackableBy(attacker))
@@ -517,7 +517,7 @@ int CombatManager::doTargetCombatAction(TangibleObject* attacker, WeaponObject* 
 void CombatManager::applyDots(CreatureObject* attacker, CreatureObject* defender, const CreatureAttackData& data, int appliedDamage, int unmitDamage, int poolsToDamage) const {
 	const Vector<DotEffect>* dotEffects = data.getDotEffects();
 
-	if (defender->isInvulnerable())
+	if (defender->isPlayerCreature() && defender->getPvpStatusBitmask() == CreatureFlag::NONE)
 		return;
 
 	for (int i = 0; i < dotEffects->size(); i++) {
@@ -566,7 +566,7 @@ void CombatManager::applyDots(CreatureObject* attacker, CreatureObject* defender
 }
 
 void CombatManager::applyWeaponDots(CreatureObject* attacker, CreatureObject* defender, WeaponObject* weapon) const {
-	if (defender->isInvulnerable())
+	if (defender->getPvpStatusBitmask() == CreatureFlag::NONE)
 		return;
 
 	if (!weapon->isCertifiedFor(attacker))
@@ -1191,7 +1191,7 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		float armorReduction =  getArmorObjectReduction(psg, damageType);
 		float dmgAbsorbed = damage;
 
-		damage *= getArmorPiercing(psg, armorPiercing);
+		//damage *= getArmorPiercing(psg, armorPiercing);
 
         if (armorReduction > 0) damage *= 1.f - (armorReduction / 100.f);
 
@@ -1201,7 +1201,7 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 
 		Locker plocker(psg);
 
-		psg->inflictDamage(psg, 0, damage * 0.2, true, true);
+		psg->inflictDamage(psg, 0, damage * 0.05, true, true);
 
 	}
 
@@ -1226,7 +1226,7 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		// inflict condition damage
 		Locker alocker(armor);
 
-		armor->inflictDamage(armor, 0, damage * 0.2, true, true);
+		armor->inflictDamage(armor, 0, damage * 0.1, true, true);
 	}
 
 	return damage;
@@ -1319,7 +1319,7 @@ float CombatManager::calculateDamage(CreatureObject* attacker, WeaponObject* wea
 }
 
 float CombatManager::doDroidDetonation(CreatureObject* droid, CreatureObject* defender, float damage) const {
-	if (defender->isInvulnerable()) {
+	if (defender->isPlayerCreature() && defender->getPvpStatusBitmask() == CreatureFlag::NONE) {
 		return 0;
 	}
 	if (defender->isCreatureObject()) {
@@ -1448,6 +1448,7 @@ void CombatManager::getFrsModifiedForceAttackDamage(CreatureObject* attacker, fl
 float CombatManager::calculateDamage(CreatureObject* attacker, WeaponObject* weapon, CreatureObject* defender, const CreatureAttackData& data) const {
 	float damage = 0;
 	int diff = 0;
+	int damageType = 0;
 
 	if (data.getMinDamage() > 0 && data.getMaxDamage() > 0) { // this is a special attack (force, etc)
 		float minDmg = data.getMinDamage();
@@ -1510,8 +1511,11 @@ float CombatManager::calculateDamage(CreatureObject* attacker, WeaponObject* wea
 	}
 
 	// PvP Damage Reduction.
-	if (attacker->isPlayerCreature() && defender->isPlayerCreature() && !data.isForceAttack())
+	if (attacker->isPlayerCreature() && defender->isPlayerCreature() && !data.isForceAttack())  {		
 		damage *= 0.25;
+	} else if (weapon->getDamageType() == SharedWeaponObjectTemplate::STUN) {
+		damage *= 0.75;
+	}	
 
 	if (damage < 1) damage = 1;
 
@@ -1655,15 +1659,15 @@ int CombatManager::getHitChance(TangibleObject* attacker, CreatureObject* target
 
 			debug() << "Secondaries defenses prevailed";
 			// defense acuity returns random: case 0 BLOCK, case 1 DODGE or default COUNTER
-			if (targetWeapon == nullptr || def == "unarmed_passive_defense") {
-				int randRoll = System::random(2);
-				switch (randRoll) {
-				case 0: return BLOCK;
-				case 1: return DODGE;
-				case 2:
-				default: return COUNTER;
-				}
-			}
+                       if (targetWeapon == nullptr || def == "unarmed_passive_defense") {
+                               int randRoll = System::random(2);
+                               switch (randRoll) {
+                               case 0: return BLOCK;
+                               case 1: return DODGE;
+                               case 2:
+                               default: return COUNTER;
+                               }
+                       }
 
 			if (def == "block")
 				return BLOCK;
@@ -1781,6 +1785,26 @@ bool CombatManager::applySpecialAttackCost(CreatureObject* attacker, WeaponObjec
 	action = attacker->calculateCostAdjustment(CreatureAttribute::QUICKNESS, action);
 	mind = attacker->calculateCostAdjustment(CreatureAttribute::FOCUS, mind);
 
+
+	
+	if (attacker->getWeapon()->getServerObjectCRC() == 0xCC7CBF77 || attacker->getWeapon()->getServerObjectCRC() == 0x583185E0 || attacker->getWeapon()->getServerObjectCRC() == 0x87F7B842 || attacker->getWeapon()->getServerObjectCRC() == 0xDFD1557D || attacker->getWeapon()->getServerObjectCRC() == 0x5436BDDC || attacker->getWeapon()->getServerObjectCRC() == 0x6C4B889A || attacker->getWeapon()->getServerObjectCRC() == 0x7E1C5E28 || attacker->getWeapon()->getServerObjectCRC() == 0x760DCB52 || attacker->getWeapon()->getServerObjectCRC() == 0xB627091E || attacker->getWeapon()->getServerObjectCRC() == 0xD8DFFB24 || attacker->getWeapon()->getServerObjectCRC() == 0xFBF9679B || attacker->getWeapon()->getServerObjectCRC() == 0x48E62690 || attacker->getWeapon()->getServerObjectCRC() == 0xF3C0024B || attacker->getWeapon()->getServerObjectCRC() == 0x8D00D892 || attacker->getWeapon()->getServerObjectCRC() == 0x17B7D9B9 || attacker->getWeapon()->getServerObjectCRC() == 0xE6459FAC || attacker->getWeapon()->getServerObjectCRC() == 0x271DA372) {
+
+		int thrownSpeed = attacker->getSkillMod("thrown_speed");
+
+		if (thrownSpeed >= 80) {
+
+      	  if (data.getHealthCostMultiplier() == 0) {
+      	  		health = 20;
+				action = 18;
+				mind = 14;
+			} else {
+				int thrownSpeed = attacker->getSkillMod("thrown_speed");
+				health = (thrownSpeed / 2) * data.getHealthCostMultiplier();
+				action = (thrownSpeed / 2) * data.getActionCostMultiplier();
+				mind = (thrownSpeed / 2) * data.getMindCostMultiplier();
+			}
+		}
+	}
 	if (attacker->getHAM(CreatureAttribute::HEALTH) <= health)
 		return false;
 
@@ -1806,7 +1830,7 @@ void CombatManager::applyStates(CreatureObject* creature, CreatureObject* target
 	const VectorMap<uint8, StateEffect>* stateEffects = data.getStateEffects();
 	int stateAccuracyBonus = data.getStateAccuracyBonus();
 
-	if (targetCreature->isInvulnerable())
+	if (targetCreature->isPlayerCreature() && targetCreature->getPvpStatusBitmask() == CreatureFlag::NONE)
 		return;
 
 	int playerLevel = 0;
@@ -1968,7 +1992,7 @@ int CombatManager::applyDamage(TangibleObject* attacker, WeaponObject* weapon, C
 	float ratio = weapon->getWoundsRatio();
 	float healthDamage = 0.f, actionDamage = 0.f, mindDamage = 0.f;
 
-	if (defender->isInvulnerable()) {
+	if (defender->isPlayerCreature() && defender->getPvpStatusBitmask() == CreatureFlag::NONE) {
 		return 0;
 	}
 
@@ -2107,7 +2131,7 @@ int CombatManager::applyDamage(CreatureObject* attacker, WeaponObject* weapon, T
 	if (poolsToDamage == 0)
 		return 0;
 
-	if (defender->getPvpStatusBitmask() == CreatureFlag::NONE) {
+	if (defender->isPlayerCreature() && defender->getPvpStatusBitmask() == CreatureFlag::NONE) {
 		return 0;
 	}
 

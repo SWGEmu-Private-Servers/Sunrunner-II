@@ -79,6 +79,10 @@
 #include "server/login/SessionAPIClient.h"
 #endif // WITH_SESSION_API
 
+#include "server/zone/objects/intangible/ShipControlDevice.h"
+
+#include "server/zone/packets/object/ObjectMenuResponse.h"
+
 void PlayerObjectImplementation::initializeTransientMembers() {
 	playerLogLevel = ConfigManager::instance()->getPlayerLogLevel();
 
@@ -257,9 +261,9 @@ void PlayerObjectImplementation::unload() {
 
 	notifyOffline();
 
-	if (creature->isRidingMount()) {
-		creature->executeObjectControllerAction(STRING_HASHCODE("dismount"));
-	}
+	
+	creature->executeObjectControllerAction(STRING_HASHCODE("dismount"));
+	
 
 	unloadSpawnedChildren();
 
@@ -280,6 +284,11 @@ void PlayerObjectImplementation::unload() {
 	}
 
 	creature->clearCombatState(true);
+
+	if  (creature->hasState(CreatureState::PILOTINGSHIP)) {
+	creature->switchZone("dungeon2", 62.7, 0.8, 34.3, 14200836);
+	creature->clearState(CreatureState::PILOTINGSHIP);
+	}
 
 	creature->setAlternateAppearance("", false);
 
@@ -1812,6 +1821,7 @@ void PlayerObjectImplementation::logout(bool doLock) {
 				disconnectEvent->schedule(1000);
 				setLoggingOut();
 			}
+
 		}
 	} catch (Exception& e) {
 		error("unreported exception caught in PlayerCreatureImplementation::logout(boolean doLock)");
@@ -2086,6 +2096,7 @@ void PlayerObjectImplementation::setLinkDead(bool isSafeLogout) {
 	if(!isSafeLogout) {
 		info("went link dead");
 		logoutTimeStamp.addMiliTime(ConfigManager::instance()->getInt("Core3.Tweaks.PlayerObject.LinkDeadDelay", 3 * 60) * 1000); // 3 minutes if unsafe
+
 	}
 
 	setCharacterBit(PlayerObjectImplementation::LD, true);
@@ -2093,6 +2104,7 @@ void PlayerObjectImplementation::setLinkDead(bool isSafeLogout) {
 	activateRecovery();
 
 	creature->clearQueueActions(false);
+
 }
 
 void PlayerObjectImplementation::setOnline() {
@@ -2178,6 +2190,8 @@ void PlayerObjectImplementation::disconnect(bool closeClient, bool doLock) {
 		owner->closeConnection(false, true);
 
 	creature->setClient(nullptr);
+
+
 }
 
 void PlayerObjectImplementation::clearDisconnectEvent() {
@@ -2398,7 +2412,7 @@ void PlayerObjectImplementation::setCrackdownTefTowards(unsigned int factionCrc,
 }
 
 bool PlayerObjectImplementation::hasCrackdownTefTowards(unsigned int factionCrc) const {
-	return !lastCrackdownGcwCombatActionTimestamp.isPast() && factionCrc != 0 && crackdownFactionTefCrc == factionCrc;
+	return !lastCrackdownGcwCombatActionTimestamp.isPast() && crackdownFactionTefCrc == factionCrc;
 }
 
 bool PlayerObjectImplementation::hasCrackdownTef() const {
@@ -3032,3 +3046,4 @@ String PlayerObjectImplementation::getPlayedTimeString(bool verbose) const {
 
 	return buf.toString();
 }
+

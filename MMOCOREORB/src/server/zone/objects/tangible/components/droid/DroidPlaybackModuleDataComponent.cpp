@@ -96,8 +96,8 @@ void DroidPlaybackModuleDataComponent::doFlourish(int number) {
 	int actionDrain = (int)round((flourishActionDrain * 10 + 0.5) / 10.0); // Round to nearest dec for actual int cost
 	actionDrain = droid->calculateCostAdjustment(CreatureAttribute::QUICKNESS, actionDrain);
 
-	if (droid->getHAM(CreatureAttribute::ACTION) > actionDrain) {
-		droid->inflictDamage(droid, CreatureAttribute::ACTION, actionDrain, false, true);
+	if (droid->getHAM(CreatureAttribute::ACTION) > 5) {
+		droid->inflictDamage(droid, CreatureAttribute::ACTION, 5, false, true);
 		Flourish* flourish = new Flourish(droid, number);
 		droid->broadcastMessage(flourish, true);
 	}
@@ -131,7 +131,7 @@ void DroidPlaybackModuleDataComponent::fillObjectMenuResponse(SceneObject* droid
 		return;
 
 	// Novice Musician required to utilize this module
-	if (player->hasSkill("social_musician_novice")) {
+	if (player->hasSkill("social_entertainer_music_03")) {
 		menuResponse->addRadialMenuItem(PLAYBACK_ACCESS_MENU, 3, "@pet/droid_modules:playback_menu_playback" );
 		menuResponse->addRadialMenuItem(PLAYBACK_STOP_MENU, 3, "@pet/droid_modules:playback_menu_stop_playback");
 	}

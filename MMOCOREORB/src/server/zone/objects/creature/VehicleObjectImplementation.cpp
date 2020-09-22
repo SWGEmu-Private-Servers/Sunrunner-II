@@ -16,10 +16,26 @@
 #include "server/zone/objects/region/CityRegion.h"
 #include "server/zone/objects/region/Region.h"
 #include "server/zone/objects/creature/sui/RepairVehicleSuiCallback.h"
+#include "server/zone/objects/creature/sui/RestoreVehicleSuiCallback.h"
 #include "templates/customization/AssetCustomizationManagerTemplate.h"
+#include "server/zone/objects/group/GroupObject.h"
+#include "templates/creature/VehicleObjectTemplate.h"
+#include "server/zone/managers/creature/CreatureManager.h"
+
 
 
 void VehicleObjectImplementation::fillObjectMenuResponse(ObjectMenuResponse* menuResponse, CreatureObject* player) {
+			
+ 	if (linkedCreature != player) {
+		ManagedReference<GroupObject*> group = player->getGroup();
+		if (group != nullptr) {
+			CreatureObject* vehicleOwner = this->linkedCreature.get();
+			if (vehicleOwner != nullptr)
+				if (group->hasMember(this->linkedCreature.get()) && hasRidingCreature() && hasOpenSeat()) 
+					menuResponse->addRadialMenuItem(205, 1, "@pet/pet_menu:menu_enter_exit");
+		}
+	}
+	
 	if (!player->getPlayerObject()->isPrivileged() && linkedCreature != player)
 		return;
 
@@ -28,6 +44,11 @@ void VehicleObjectImplementation::fillObjectMenuResponse(ObjectMenuResponse* men
 
 	if (player->getPlayerObject()->isPrivileged() || (checkInRangeGarage() && !isDisabled()))
 		menuResponse->addRadialMenuItem(62, 3, "@pet/pet_menu:menu_repair_vehicle"); //Repair Vehicle
+
+	if ((checkInRangeGarage() && isDisabled()))
+		menuResponse->addRadialMenuItem(63, 3, "Restore Disabled Vehicle"); 
+	
+	
 }
 
 void VehicleObjectImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object){
@@ -75,6 +96,9 @@ void VehicleObjectImplementation::fillAttributeList(AttributeListMessage* alm, C
 		return;
 
 	alm->insertAttribute("@obj_attr_n:owner", linkedCreature->getFirstName());
+
+	alm->insertAttribute("@obj_attr_n:riders", getPassengerCapacity() + 1);
+
 
 }
 
@@ -148,6 +172,8 @@ int VehicleObjectImplementation::handleObjectMenuSelect(CreatureObject* player, 
 		wlock(player);
 	} else if (selectedID == 62) {
 		repairVehicle(player);
+	} else if (selectedID == 63) {
+		restoreVehicle(player);
 	}
 
 	return 0;
@@ -205,16 +231,48 @@ void VehicleObjectImplementation::repairVehicle(CreatureObject* player) {
 	sendRepairConfirmTo(player);
 }
 
+void VehicleObjectImplementation::restoreVehicle(CreatureObject* player) {
+	if (!player->getPlayerObject()->isPrivileged()) {
+		//Need to check if they are city banned.
+
+		ManagedReference<ActiveArea*> activeArea = getActiveRegion();
+
+		if (activeArea != nullptr && activeArea->isRegion()) {
+			Region* region = cast<Region*>( activeArea.get());
+
+			ManagedReference<CityRegion*> gb = region->getCityRegion().get();
+
+			if (gb == nullptr)
+				return;
+
+			if (gb->isBanned(player->getObjectID()))  {
+				player->sendSystemMessage("@city/city:garage_banned"); //You are city banned and cannot use this garage.
+				return;
+			}
+
+		if (!isDisabled()) {
+			return;
+		}
+
+		if (!checkInRangeGarage()) {
+			player->sendSystemMessage("@pet/pet_menu:repair_unrecognized_garages"); //Your vehicle does not recognize any local garages. Try again in a garage repair zone.
+			return;
+			}
+		}
+	}
+	sendRestoreConfirmTo(player);
+}
+
 void VehicleObjectImplementation::sendRepairConfirmTo(CreatureObject* player) {
 	ManagedReference<SuiListBox*> listbox = new SuiListBox(player, SuiWindowType::GARAGE_REPAIR);
     listbox->setCallback(new RepairVehicleSuiCallback(getZoneServer()));
 	listbox->setPromptTitle("@pet/pet_menu:confirm_repairs_t"); //Confirm Vehicle Repairs
-	listbox->setPromptText("@pet/pet_menu:vehicle_repair_d"); //You have chosen to repair your vehicle. Please review the listed details and confirm your selection.
+	listbox->setPromptText("You have chosen to repair your vehicle.  Please review the listed details and confirm.\nCredits will be taken from your bank account first, and any balance remaining will be deducted from cash on hand."); //You have chosen to repair your vehicle. Please review the listed details and confirm your selection.
 	listbox->setUsingObject(_this.getReferenceUnsafeStaticCast());
 	listbox->setCancelButton(true, "@cancel");
 
 	int repairCost = calculateRepairCost(player);
-	int totalFunds = player->getBankCredits();
+	int totalFunds = player->getBankCredits() + player->getCashCredits();
 	int tax = 0;
 
 	ManagedReference<CityRegion*> city = getCityRegion().get();
@@ -224,10 +282,39 @@ void VehicleObjectImplementation::sendRepairConfirmTo(CreatureObject* player) {
 
 	listbox->addMenuItem("@pet/pet_menu:vehicle_prompt " + getDisplayedName()); //Vehicle:
 	listbox->addMenuItem("@pet/pet_menu:repair_cost_prompt " + String::valueOf(repairCost)); //Repair Cost:
+	listbox->addMenuItem("Bank Funds Available: " + String::valueOf(player->getBankCredits()));
+	listbox->addMenuItem("Cash Funds Available: " + String::valueOf(player->getCashCredits()));
 	listbox->addMenuItem("@pet/pet_menu:total_funds_prompt " + String::valueOf(totalFunds)); //Total Funds Available:
 
 	player->getPlayerObject()->addSuiBox(listbox);
 	player->sendMessage(listbox->generateMessage());
+}
+
+void VehicleObjectImplementation::sendRestoreConfirmTo(CreatureObject* player) {
+	ManagedReference<SuiListBox*> listbox2 = new SuiListBox(player, SuiWindowType::GARAGE_REPAIR);
+    listbox2->setCallback(new RestoreVehicleSuiCallback(getZoneServer()));
+	listbox2->setPromptTitle("Confirm Vehicle Restoration"); 
+	listbox2->setPromptText("You have chosen to restore your vehicle.  Please review the listed details and confirm.\nCredits will be taken from your bank account first, and any balance remaining will be deducted from cash on hand."); 
+	listbox2->setUsingObject(_this.getReferenceUnsafeStaticCast());
+	listbox2->setCancelButton(true, "@cancel");
+
+	int restoreCost = 100000;
+	int totalFunds = player->getBankCredits() + player->getCashCredits();
+	int tax = 0;
+
+	ManagedReference<CityRegion*> city = getCityRegion().get();
+	if(city != nullptr && city->getGarageTax() > 0){
+		restoreCost += restoreCost * city->getGarageTax() / 100;
+	}
+
+	listbox2->addMenuItem("@pet/pet_menu:vehicle_prompt " + getDisplayedName()); //Vehicle:
+	listbox2->addMenuItem("Restoration Cost: " + String::valueOf(restoreCost));
+	listbox2->addMenuItem("Bank Funds Available: " + String::valueOf(player->getBankCredits()));
+	listbox2->addMenuItem("Cash Funds Available: " + String::valueOf(player->getCashCredits()));
+	listbox2->addMenuItem("@pet/pet_menu:total_funds_prompt " + String::valueOf(totalFunds)); //Total Funds Available:
+
+	player->getPlayerObject()->addSuiBox(listbox2);
+	player->sendMessage(listbox2->generateMessage());
 }
 
 int VehicleObjectImplementation::calculateRepairCost(CreatureObject* player) {
@@ -290,5 +377,107 @@ bool VehicleObject::isVehicleObject() {
 }
 
 bool VehicleObjectImplementation::isVehicleObject() {
+	return true;
+}
+
+int VehicleObjectImplementation::getPassengerCapacity() {
+	ManagedReference<TangibleObject*> vehicle = _this.getReferenceUnsafeStaticCast();
+
+	if (vehicle == nullptr)
+		return 10;
+
+	Reference<VehicleObjectTemplate*> vehicleTemplate = cast<VehicleObjectTemplate*>(vehicle->getObjectTemplate());
+
+	if (vehicleTemplate == nullptr)
+		return 10;
+
+	return vehicleTemplate->getPassengerCapacity();
+
+}
+
+String VehicleObjectImplementation::getPassengerSeatName() {
+	ManagedReference<TangibleObject*> vehicle = _this.getReferenceUnsafeStaticCast();
+
+	if (vehicle == nullptr)
+		return "default";
+
+	Reference<VehicleObjectTemplate*> vehicleTemplate = cast<VehicleObjectTemplate*>(vehicle->getObjectTemplate());
+
+	if (vehicleTemplate == nullptr)
+		return "error";
+
+	return vehicleTemplate->getPassengerSeatString();
+
+}
+
+bool VehicleObjectImplementation::hasOpenSeat() {
+	int passengerSeats = getPassengerCapacity();
+
+	if (passengerSeats == 0)
+		return false;
+
+	bool openSeat = false;
+
+	for (int i = 1; i <= passengerSeats; ++i){
+		String text = "rider";
+		text += String::valueOf(i);
+		CreatureObject* seat = this->getSlottedObject(text).castTo<CreatureObject*>();
+		if (seat == nullptr) {
+			openSeat = true;
+		}
+	}
+
+	return openSeat;
+}
+
+int VehicleObjectImplementation::getOpenSeat() {
+	int passengerSeats = getPassengerCapacity();
+
+	if (passengerSeats == 0)
+		return 0;
+
+	for (int i = 1; i <= passengerSeats; ++i){
+		String text = "rider";
+		text += String::valueOf(i);
+		CreatureObject* seat = this->getSlottedObject(text).castTo<CreatureObject*>();
+		if (seat == nullptr) {
+			return i;
+		}
+	}
+
+	return 0;
+}
+
+bool VehicleObjectImplementation::slotPassenger(CreatureObject* passenger) {
+	Locker plocker(passenger);
+	int seatNumber = getOpenSeat();
+	String seat = "passenger_" + getPassengerSeatName() + "_" + String::valueOf(seatNumber);
+	Zone* zone = getZone();
+	float x = getWorldPositionX();
+	float y = getWorldPositionY();
+	float z = getWorldPositionZ();
+	CreatureManager* creatureManager = zone->getCreatureManager();
+	CreatureObject* seatObject = creatureManager->spawnCreature(seat.hashCode(), 0, x, z, y, 0);
+	transferObject(seatObject, 4 + seatNumber, true);
+	Locker slocker(seatObject);
+	uint32 crcSaddle = String("saddle").hashCode();
+	ManagedReference<Buff*> saddleBuff = new Buff(seatObject, crcSaddle, 36000, BuffType::OTHER);
+	Locker blocker(saddleBuff);
+	saddleBuff->setSpeedMultiplierMod(0.01f);
+	saddleBuff->setAccelerationMultiplierMod(0.01f);
+	seatObject->addBuff(saddleBuff);
+	seatObject->setPosition(x, z, y);
+	seatObject->transferObject(passenger, 4, true);
+	passenger->setState(CreatureState::RIDINGMOUNT);
+	passenger->teleport(x, z, y, 0);
+	passenger->setPosition(x, z, y);
+	passenger->synchronizeCloseObjects();
+	uint32 crc = String("passenger").hashCode();
+	ManagedReference<Buff*> buff = new Buff(passenger, crc, 36000, BuffType::OTHER);
+	Locker locker(buff);
+	buff->setSpeedMultiplierMod(0.01f);
+	buff->setAccelerationMultiplierMod(0.01f);
+	passenger->addBuff(buff);
+	synchronizeCloseObjects();
 	return true;
 }

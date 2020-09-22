@@ -28,7 +28,7 @@
 #include "server/zone/managers/frs/FrsManager.h"
 
 void PetControlDeviceImplementation::callObject(CreatureObject* player) {
-	if (player->isInCombat() || player->isDead() || player->isIncapacitated() || player->getPendingTask("tame_pet") != nullptr) {
+	if (player->isDead() || player->isIncapacitated() || player->getPendingTask("tame_pet") != nullptr) {
 		player->sendSystemMessage("@pet/pet_menu:cant_call"); // You cannot call this pet right now.
 		return;
 	}
@@ -137,7 +137,7 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 	int currentlySpawned = 0;
 	int spawnedLevel = 0;
 	int maxPets = 1;
-	int maxLevelofPets = 10;
+	int maxLevelofPets = 13;
 	int level = pet->getLevel();
 
 	if (pet->getCreatureTemplate() == nullptr) {
@@ -155,6 +155,8 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 		if (ch) {
 			maxPets = player->getSkillMod("keep_creature");
 			maxLevelofPets = player->getSkillMod("tame_level");
+			if (maxLevelofPets > 120)
+				maxLevelofPets = 120;
 		}
 
 		if (creaturePet->getAdultLevel() > maxLevelofPets) {
@@ -209,6 +211,14 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 					return;
 				}
 			} else if (object->isDroidObject() && petType == PetManager::DROIDPET) {
+				
+				if (player->hasSkill("crafting_droidengineer_production_04")) {
+				maxPets = 2;
+					if (player->hasSkill("crafting_droidengineer_master")) {
+					maxPets = 3;
+					}
+				}
+
 				if (++currentlySpawned >= maxPets) {
 					player->sendSystemMessage("@pet/pet_menu:at_max"); // You already have the maximum number of pets of this type that you can call.
 					return;
@@ -229,10 +239,10 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 		Reference<CallPetTask*> callPet = new CallPetTask(_this.getReferenceUnsafeStaticCast(), player, "call_pet");
 
 		StringIdChatParameter message("pet/pet_menu", "call_pet_delay"); // Calling pet in %DI seconds. Combat will terminate pet call.
-		message.setDI(15);
+		message.setDI(5);
 		player->sendSystemMessage(message);
 
-		player->addPendingTask("call_pet", callPet, 15 * 1000);
+		player->addPendingTask("call_pet", callPet, 5 * 1000);
 
 		if (petControlObserver == nullptr) {
 			petControlObserver = new PetControlObserver(_this.getReferenceUnsafeStaticCast());
@@ -376,6 +386,11 @@ void PetControlDeviceImplementation::spawnObject(CreatureObject* player) {
 	}
 
 	Zone* zone = player->getZone();
+
+	if (zone->getZoneName() == "dungeon4") {
+		player->sendSystemMessage("@pet/pet_menu:cant_call"); // You cannot call this pet right now.
+		return;
+	}
 
 	if (zone == nullptr)
 		return;
@@ -544,7 +559,8 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 
 	Time currentTime;
 	uint32 timeDelta = currentTime.getTime() - lastGrowth.getTime();
-	int stagesToGrow = timeDelta / 43200; // 12 hour
+	int stagesToGrow = timeDelta / 21600; // 6 hour
+	//int stagesToGrow = timeDelta / 43200; // 12 hour
 
 	if (adult)
 		stagesToGrow = 10;
@@ -1066,7 +1082,7 @@ void PetControlDeviceImplementation::setDefaultCommands() {
 	if (droid != nullptr) {
 		int species = droid->getSpecies();
 
-		if (droid->isCombatDroid() && (species == DroidObject::PROBOT || species == DroidObject::DZ70))
+		if (droid->isCombatDroid() && (species == DroidObject::PROBOT || species == DroidObject::DZ70 || species == DroidObject::DROIDECA || species == DroidObject::ASSASSIN_DROID))
 			trainedCommands.put(PetManager::RANGED_ATTACK, "ranged attack");
 	} else {
 		trainedCommands.put(PetManager::RANGED_ATTACK, "ranged attack");

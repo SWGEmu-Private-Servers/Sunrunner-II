@@ -23,7 +23,7 @@ public:
 	}
 
 	void deactivateInjuryTreatment(CreatureObject* creature) const {
-		int delay = 20;
+		int delay = 10;
 
 		StringIdChatParameter message("healing_response", "healing_response_58"); //You are now ready to heal more damage.
 		Reference<InjuryTreatmentTask*> task = new InjuryTreatmentTask(creature, message, "injuryTreatment");

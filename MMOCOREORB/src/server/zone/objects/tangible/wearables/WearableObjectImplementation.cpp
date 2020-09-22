@@ -65,6 +65,9 @@ void WearableObjectImplementation::fillAttributeList(AttributeListMessage* alm,
 		CreatureObject* object) {
 	TangibleObjectImplementation::fillAttributeList(alm, object);
 
+    if  (conditionDamage == maxCondition) {
+		return;
+	}
 	if (socketsLeft() > 0)
 		alm->insertAttribute("sockets", socketsLeft());
 
@@ -208,6 +211,10 @@ void WearableObjectImplementation::applySkillModsTo(CreatureObject* creature) co
 		return;
 	}
 
+    if  (conditionDamage == maxCondition) {
+		return;
+	}
+
 	for (int i = 0; i < wearableSkillMods.size(); ++i) {
 		String name = wearableSkillMods.elementAt(i).getKey();
 		int value = wearableSkillMods.get(name);
@@ -226,7 +233,9 @@ void WearableObjectImplementation::removeSkillModsFrom(CreatureObject* creature)
 	if (creature == nullptr) {
 		return;
 	}
-
+    if  (conditionDamage == maxCondition) {
+		return;
+	}
 	for (int i = 0; i < wearableSkillMods.size(); ++i) {
 		String name = wearableSkillMods.elementAt(i).getKey();
 		int value = wearableSkillMods.get(name);

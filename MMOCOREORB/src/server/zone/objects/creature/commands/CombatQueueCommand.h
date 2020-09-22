@@ -200,7 +200,7 @@ public:
 								}
 							} else {
 								if (creature->getFactionStatus() == FactionStatus::ONLEAVE)
-									ghost->doFieldFactionChange(FactionStatus::COVERT);
+									ghost->doFieldFactionChange(FactionStatus::OVERT);
 							}
 						}
 					} else {

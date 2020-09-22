@@ -117,27 +117,6 @@ void TangibleObjectImplementation::notifyLoadFromDatabase() {
 	}
 }
 
-void TangibleObjectImplementation::destroyObjectFromDatabase(bool destroyContainedObjects) {
-	if (hasAntiDecayKit()) {
-		AntiDecayKit* adk = antiDecayKitObject.castTo<AntiDecayKit*>();
-
-		if (adk != nullptr) {
-			auto strongAdkParent = adk->getParent().get();
-			error()
-				<< "destroyObjectFromDatabase oid: " << getObjectID()
-				<< " has AntiDecayKit(" << adk->getObjectID()
-				<< ") with parent: " << (strongAdkParent != nullptr ? strongAdkParent->getObjectID() : 0)
-				<< ", removing adk from database."
-				;
-			Locker lock(adk);
-			adk->destroyObjectFromDatabase(true);
-			antiDecayKitObject = nullptr;
-		}
-	}
-
-	SceneObjectImplementation::destroyObjectFromDatabase(destroyContainedObjects);
-}
-
 void TangibleObjectImplementation::sendBaselinesTo(SceneObject* player) {
 	debug("sending tano baselines");
 
@@ -543,16 +522,6 @@ void TangibleObjectImplementation::fillAttributeList(AttributeListMessage* alm, 
 		StringBuffer cond;
 		cond << (maxCondition-(int)conditionDamage) << "/" << maxCondition;
 
-		auto config = ConfigManager::instance();
-
-		if (isForceNoTrade()) {
-			cond << config->getForceNoTradeMessage();
-		} else if (antiDecayKitObject != nullptr && antiDecayKitObject->isForceNoTrade()) {
-			cond << config->getForceNoTradeADKMessage();
-		} else if (isNoTrade() || containsNoTradeObjectRecursive()) {
-			cond << config->getNoTradeMessage();
-		}
-
 		alm->insertAttribute("condition", cond);
 	}
 
@@ -573,7 +542,7 @@ void TangibleObjectImplementation::fillAttributeList(AttributeListMessage* alm, 
 			alm->insertAttribute("quantity", useCount);
 	}
 
-	if (gameObjectType == SceneObjectType::PLAYERLOOTCRATE) {
+	if (gameObjectType == SceneObjectType::PLAYERLOOTCRATE || gameObjectType == SceneObjectType::PLAYERLOOTBRIEFCASE) {
 		if (isSliceable()) {
 			alm->insertAttribute( "lock_mechanism", "@obj_attr_n:slicable" );
 		}
@@ -1100,22 +1069,19 @@ bool TangibleObjectImplementation::isAttackableBy(TangibleObject* object) {
 }
 
 bool TangibleObjectImplementation::isAttackableBy(CreatureObject* object) {
-	if (object->isPlayerCreature()) {
-		Reference<PlayerObject*> ghost = object->getPlayerObject();
-		if (ghost != nullptr && ghost->hasCrackdownTefTowards(getFaction())) {
-			return true;
-		}
-		if (isImperial() && (!object->isRebel() || object->getFactionStatus() == 0)) {
-			return false;
-		}
-
-		if (isRebel() && (!object->isImperial() || object->getFactionStatus() == 0)) {
-			return false;
-		}
-	} else if (isImperial() && !(object->isRebel())) {
+	if (isImperial() && !(object->isRebel())) {
 		return false;
 	} else if (isRebel() && !(object->isImperial())) {
 		return false;
+	} else if (object->isPlayerCreature()) {
+		if (isImperial() && object->getFactionStatus() == 0) {
+			return false;
+		}
+
+		if (isRebel() && object->getFactionStatus() == 0) {
+			return false;
+		}
+
 	} else if (object->isAiAgent()) {
 		AiAgent* ai = object->asAiAgent();
 
@@ -1158,7 +1124,7 @@ void TangibleObjectImplementation::sendTo(SceneObject* player, bool doClose, boo
 }
 
 bool TangibleObjectImplementation::isCityStreetLamp() const {
-	return (templateObject != nullptr && templateObject->getFullTemplateString().contains("object/tangible/furniture/city/streetlamp"));
+	return (templateObject != nullptr && templateObject->getFullTemplateString().contains("object/tangible/furniture/city/streetlamp")) || (templateObject != nullptr && templateObject->getFullTemplateString().contains("object/tangible/furniture/city/road"));
 }
 
 bool TangibleObjectImplementation::isCityStatue() const {

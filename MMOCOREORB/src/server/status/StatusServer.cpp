@@ -4,6 +4,8 @@
 
 #include "StatusServer.h"
 #include "StatusHandler.h"
+#include "server/zone/managers/player/PlayerManager.h"
+
 
 StatusServer::StatusServer(ConfigManager* conf, ZoneServer* server)
 		: StreamServiceThread("StatusServer") {

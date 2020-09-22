@@ -28,7 +28,7 @@ public:
 		insertFloat(0.907571f); //11 Roll Acceleration
 
 
-		insertFloat(50.f); //12 max speed
+		insertFloat(100.f); //12 max speed
 
 		insertLong(0); //13 const Archive::AutoDeltaVariableCallback<CachedNetworkId,ShipObject::Callbacks::DefaultCallback<ShipObject::Messages::LookAtTargetChanged,CachedNetworkId>,ShipObject>::`vftable'
 

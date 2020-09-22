@@ -77,7 +77,7 @@ void LightsaberCrystalComponentImplementation::generateCrystalStats() {
 
 	setMaxCondition(getRandomizedStat(minStat, maxStat, itemLevel));
 
-	if (color == 31) {
+	if (color == 31 ) {
 		int minStat = crystalData->getMinDamage();
 		int maxStat = crystalData->getMaxDamage();
 
@@ -113,7 +113,7 @@ void LightsaberCrystalComponentImplementation::generateCrystalStats() {
 
 		attackSpeed = Math::getPrecision(getRandomizedStat(minFloatStat, maxFloatStat, itemLevel), 2);
 	}
-
+	
 	quality = getCrystalQuality();
 }
 
@@ -449,7 +449,7 @@ void LightsaberCrystalComponentImplementation::updateCraftingValues(CraftingValu
 	int color = values->getCurrentValue("color");
 
 	if (colorMax != 31) {
-		int finalColor = Math::min(color, 11);
+		int finalColor = Math::min(color, 30);
 		setColor(finalColor);
 		updateCrystal(finalColor);
 	} else {
@@ -483,7 +483,7 @@ int LightsaberCrystalComponentImplementation::inflictDamage(TangibleObject* atta
 				weapon->setWoundsRatio(weapon->getWoundsRatio() - getWoundChance());
 				weapon->setForceCost(weapon->getForceCost() - getForceCost());
 			}
-
+			
 			if (getColor() != 31) {
 				weapon->setBladeColor(31);
 				weapon->setCustomizationVariable("/private/index_color_blade", 31, true);

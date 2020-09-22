@@ -44,7 +44,9 @@ public:
 			return;
 
 		int repairCost = vehicle->calculateRepairCost(player);
-		int totalFunds = player->getBankCredits();
+		int bankFunds = player->getBankCredits();
+		int cashFunds = player->getCashCredits();
+		int totalFunds = bankFunds + cashFunds;
 		int tax = 0;
 
 		ManagedReference<CityRegion*> city =vehicle->getCityRegion().get();
@@ -58,14 +60,28 @@ public:
 			return;
 		}
 
-		{
-			TransactionLog trx(player, TrxCode::VEHICLEREPAIRS, repairCost);
-			player->subtractBankCredits(repairCost);
-		}
+	{
+		TransactionLog trx(player, TrxCode::VEHICLEREPAIRS, repairCost);
+					
+		if (repairCost > bankFunds) {	// Player has enough credits, but not enough in their bank account
+			int diff = repairCost - bankFunds;	// 10000 - num less than 10000
 
-		StringIdChatParameter params("@base_player:prose_pay_success_no_target"); //You successfully make a payment of %DI credits.
-		params.setDI(repairCost);
-		player->sendSystemMessage(params);
+			player->setBankCredits(bankFunds - bankFunds, true);	// Subtract all the credits - player doesn't have enough
+			player->setCashCredits(cashFunds - diff, true);	// Now subtract the spillover from their cash on hand
+
+			StringIdChatParameter params("@base_player:prose_pay_success_no_target"); //You successfully make a payment of %DI credits.
+			params.setDI(repairCost);
+			player->sendSystemMessage(params);
+			player->sendSystemMessage("You did not have enough credits in your bank account, so cash on hand was used to finish the payment.");
+		}
+		else {
+			player->setBankCredits(bankFunds - repairCost, true);
+
+			StringIdChatParameter params("@base_player:prose_pay_success_no_target"); //You successfully make a payment of %DI credits.
+			params.setDI(repairCost);
+			player->sendSystemMessage(params);
+		}
+	}
 
 		vehicle->healDamage(player, 0, vehicle->getConditionDamage(), true);
 

@@ -19,44 +19,44 @@ class ShipControlDevice extends ControlDevice {
 
 	@preLocked
 	@arg1preLocked
-	public native void storeObject(CreatureObject player, boolean force = false);
-
-	@preLocked
-	@arg1preLocked
-	public native void generateObject(CreatureObject player);
-
-	@preLocked
-	@arg1preLocked
 	public int handleObjectMenuSelect(CreatureObject player, byte selectedID) {
 		Logger.info("selected call");
 
-		if (selectedID == RadialOptions.VEHICLE_GENERATE) {
-
+		if (selectedID == RadialOptions.HYPER_CPS) {
 			if (!super.controlledObject) {
 				Logger.error("null controlled object in vehicle control device");
 				return 1;
 			} else {
-				SceneObject parent = player.getParent();
-
-				if (!parent) {
-					this.generateObject(player);
-				}
+				this.playHyperCenterpointEffectTask(player);
 			}
-		} else if (selectedID == RadialOptions.VEHICLE_STORE) {
+		} else if (selectedID == RadialOptions.HYPER_TPS) {
 			if (!super.controlledObject) {
 				Logger.error("null controlled object in vehicle control device");
 				return 1;
 			} else {
-				if (super.status == 1 && !super.controlledObject.isInQuadTree()) {
-					this.generateObject(player);
-				} else {
-					this.storeObject(player);
-				}
+				this.playHyperTansariiEffectTask(player);
+			}
+		} else if (selectedID == RadialOptions.HYPER_NOS) {
+			if (!super.controlledObject) {
+				Logger.error("null controlled object in vehicle control device");
+				return 1;
+			} else {
+				this.playHyperNovaEffectTask(player);
 			}
 		}
 
 		return 0;
+
 	}
+
+	@dirty
+	public native void playHyperCenterpointEffectTask(CreatureObject player);
+
+	@dirty
+	public native void playHyperTansariiEffectTask(CreatureObject player);
+
+	@dirty
+	public native void playHyperNovaEffectTask(CreatureObject player);
 
 	/**
 	 * Fills the radial options, needs to be overriden
@@ -76,3 +76,5 @@ class ShipControlDevice extends ControlDevice {
 		return true;
 	}
 }
+
+

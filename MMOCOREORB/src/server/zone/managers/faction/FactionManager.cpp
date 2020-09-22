@@ -9,6 +9,7 @@
 #include "FactionMap.h"
 #include "server/zone/objects/player/PlayerObject.h"
 #include "templates/manager/TemplateManager.h"
+#include "server/zone/objects/group/GroupObject.h"
 
 FactionManager::FactionManager() {
 	setLoggingName("FactionManager");
@@ -147,6 +148,28 @@ void FactionManager::awardFactionStanding(CreatureObject* player, const String& 
 		if (!enemyFaction.isPlayerAllowed())
 			continue;
 
+		if (enemy == "rebel" || enemy == "imperial") {
+
+			if (player->isGrouped()) {
+		
+				ManagedReference<GroupObject*> group = player->getGroup();
+				int groupSize = group->getGroupSize();
+
+				for (int i = 0; i < groupSize; i++) {
+					ManagedReference<CreatureObject*> groupMember = group->getGroupMember(i);
+
+					ManagedReference<PlayerObject*> groupMemberPlayer = groupMember->getPlayerObject();
+
+					if (groupMember->isInRange(player, 72.0) && (groupMember != player)) {	
+						if (groupMember->isPlayerCreature()) {			
+							groupMemberPlayer->increaseFactionStanding(enemy, (gain * 0.3));
+						} 			
+					}	
+				}	
+		    
+			}
+		}
+
 		ghost->increaseFactionStanding(enemy, gain);
 	}
 }
@@ -160,12 +183,12 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 		ManagedReference<PlayerObject*> killedGhost = destructedObject->getPlayerObject();
 
 		if (killer->isRebel() && destructedObject->isImperial()) {
-			ghost->increaseFactionStanding("rebel", 30);
+			ghost->increaseFactionStanding("rebel", 120);
 			ghost->decreaseFactionStanding("imperial", 45);
 
 			killedGhost->decreaseFactionStanding("imperial", 45);
 		} else if (killer->isImperial() && destructedObject->isRebel()) {
-			ghost->increaseFactionStanding("imperial", 30);
+			ghost->increaseFactionStanding("imperial", 120);
 			ghost->decreaseFactionStanding("rebel", 45);
 
 			killedGhost->decreaseFactionStanding("rebel", 45);

@@ -118,7 +118,7 @@ public:
 								Locker adkLocker(adk);
 								adk->setUsed(false);
 
-								TransactionLog trxADK(object, creature, adk, TrxCode::ADKREMOVE);
+								TransactionLog trxADK(object, creature, adk, TrxCode::SERVERDESTROYOBJECT);
 								trxADK.groupWith(trx);
 
 								inventory->transferObject(adk, -1, false);

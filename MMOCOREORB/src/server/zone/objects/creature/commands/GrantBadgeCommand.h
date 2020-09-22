@@ -64,8 +64,8 @@ public:
 						range = badgeId;
 						badgeId = args.getFloatToken();
 
-						if (range <= 0 || range > 192) {
-							creature->sendSystemMessage("Invalid range, must be between 1 and 192.");
+						if (range <= 0 || range > 249) {
+							creature->sendSystemMessage("Invalid range, must be between 1 and 249.");
 							return INVALIDPARAMETERS;
 						}
 					}

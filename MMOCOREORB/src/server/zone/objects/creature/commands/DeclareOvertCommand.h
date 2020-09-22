@@ -21,6 +21,24 @@ public:
 		if (!checkInvalidLocomotions(creature))
 			return INVALIDLOCOMOTION;
 
+		int curStatus = creature->getFactionStatus();
+
+
+		if (creature->getFaction() != Factions::FACTIONREBEL && creature->getFaction() != Factions::FACTIONIMPERIAL) {
+			creature->sendSystemMessage("You are not a member of a GCW faction.");
+			return GENERALERROR;
+		}
+
+		if (curStatus == FactionStatus::ONLEAVE)
+			creature->setFactionStatus(FactionStatus::OVERT);
+
+		//if (curStatus == FactionStatus::COVERT)
+		//	creature->setFactionStatus(FactionStatus::OVERT);
+
+		if (curStatus == FactionStatus::OVERT)
+			creature->sendSystemMessage("You are already overt.");
+
+
 		return SUCCESS;
 	}
 

@@ -380,7 +380,7 @@ void FishingManagerImplementation::success(CreatureObject* player, int fish, Sce
 
 	Zone* zone = player->getZone();
 
-	if (fish > 93){ // NON-FISH ITEM WAS CAUGHT!
+	if (fish > 90){ // NON-FISH ITEM WAS CAUGHT!
 		int chance = System::random(99)/*+(luck/10)*/;
 
 		if (chance > 94) { // RARE ITEM WAS CAUGHT!
@@ -432,19 +432,19 @@ void FishingManagerImplementation::success(CreatureObject* player, int fish, Sce
 				int factor = 1;
 
 				if (player->hasSkill("outdoors_ranger_tracking_04"))
-					factor = 8;
+					factor = 16;
 				else if (player->hasSkill("outdoors_ranger_tracking_03"))
-					factor = 7;
+					factor = 14;
 				else if (player->hasSkill("outdoors_ranger_tracking_02"))
-					factor = 6;
+					factor = 12;
 				else if (player->hasSkill("outdoors_ranger_tracking_01"))
-					factor = 5;
+					factor = 10;
 				else if (player->hasSkill("outdoors_scout_camp_04"))
-					factor = 4;
+					factor = 8;
 				else if (player->hasSkill("outdoors_scout_camp_03"))
-					factor = 3;
+					factor = 6;
 				else if (player->hasSkill("outdoors_scout_camp_02"))
-					factor = 2;
+					factor = 4;
 
 				float length = fishLength.get(fish)*factor;
 
@@ -456,9 +456,9 @@ void FishingManagerImplementation::success(CreatureObject* player, int fish, Sce
 				int xp;
 
 				if (fish == 1)
-					xp = length * 5;
+					xp = length * 10;
 				else
-					xp = length * 2;
+					xp = length * 4;
 
 				ManagedReference<PlayerManager*> playerManager = zone->getZoneServer()->getPlayerManager();
 
@@ -484,7 +484,7 @@ void FishingManagerImplementation::success(CreatureObject* player, int fish, Sce
 
 				String resourceString = zone->getZoneName();
 				resourceString = "seafood_fish_" + resourceString;
-				int amount = System::random(50)+factor;
+				int amount = System::random(50) * 2+factor;
 				ManagedReference<ResourceManager*> resourceManager = zone->getZoneServer()->getResourceManager();
 				ManagedReference<SceneObject*> resource = cast<SceneObject*>(resourceManager->harvestResource(player, resourceString, amount));
 

@@ -150,6 +150,11 @@
 #include "server/zone/objects/tangible/components/droid/DroidTrapModuleDataComponent.h"
 #include "server/zone/objects/tangible/components/droid/DroidHarvestModuleDataComponent.h"
 #include "server/zone/objects/tangible/components/droid/DroidPersonalityModuleDataComponent.h"
+#include "server/zone/objects/tangible/components/generic/SmugglerCrateMenuComponent.h"
+#include "server/zone/objects/tangible/components/generic/PodracerCrateMenuComponent.h"
+#include "server/zone/objects/tangible/components/generic/CloneArmorCrateMenuComponent.h"
+#include "server/zone/objects/tangible/components/generic/ShipDeedMenuComponent.h"
+#include "server/zone/objects/tangible/components/generic/NewArtCrateMenuComponent.h"
 
 ComponentManager::ComponentManager() {
 	components.put("ContainerComponent", new ContainerComponent());
@@ -343,4 +348,10 @@ ComponentManager::ComponentManager() {
 	dataObjectFactory.registerObject<DroidTrapModuleDataComponent>("DroidTrapModuleDataComponent");
 	dataObjectFactory.registerObject<DroidHarvestModuleDataComponent>("DroidHarvestModuleDataComponent");
 	dataObjectFactory.registerObject<DroidPersonalityModuleDataComponent>("DroidPersonalityModuleDataComponent");
+
+	components.put("SmugglerCrateMenuComponent", new SmugglerCrateMenuComponent());
+	components.put("PodracerCrateMenuComponent", new PodracerCrateMenuComponent());
+	components.put("CloneArmorCrateMenuComponent", new CloneArmorCrateMenuComponent());
+	components.put("ShipDeedMenuComponent", new ShipDeedMenuComponent());
+	components.put("NewArtCrateMenuComponent", new NewArtCrateMenuComponent());
 }

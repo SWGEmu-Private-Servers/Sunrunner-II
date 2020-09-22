@@ -26,7 +26,7 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 		bool hasSkill = true;
 		ManagedReference<SceneObject*> inventory = player->getSlottedObject("inventory");
 
-		if ((gameObjectType == SceneObjectType::PLAYERLOOTCRATE) && !player->hasSkill("combat_smuggler_novice"))
+		if ((gameObjectType == SceneObjectType::PLAYERLOOTCRATE || gameObjectType == SceneObjectType::PLAYERLOOTBRIEFCASE) && !player->hasSkill("combat_smuggler_novice"))
 			hasSkill = false;
 		else if (sceneObject->isContainerObject())
 			hasSkill = false; // Let the container handle our slice menu

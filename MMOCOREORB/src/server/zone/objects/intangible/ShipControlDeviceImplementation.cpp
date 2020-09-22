@@ -9,73 +9,270 @@
 #include "server/zone/packets/object/ObjectMenuResponse.h"
 #include "server/zone/Zone.h"
 #include "server/zone/managers/player/PlayerManager.h"
+#include "server/zone/packets/scene/PlayClientEffectLocMessage.h"
+#include "templates/params/creature/CreatureFlag.h"
+#include "server/zone/objects/region/CityRegion.h"
 
-void ShipControlDeviceImplementation::generateObject(CreatureObject* player) {
-	//info("generating ship", true);
-	//return;
+//#include "server/zone/objects/intangible/tasks/CallShipTask.h"
+#include "server/zone/objects/intangible/tasks/CenterpointTravelTask.h"
+#include "server/zone/objects/intangible/tasks/TansariiTravelTask.h"
+#include "server/zone/objects/intangible/tasks/NovaOrionTravelTask.h"
 
-	ZoneServer* zoneServer = getZoneServer();
+#include "server/zone/objects/scene/SceneObject.h"
 
-	ManagedReference<TangibleObject*> controlledObject = this->controlledObject.get();
 
-	Locker clocker(controlledObject, player);
+void ShipControlDeviceImplementation::playHyperCenterpointEffectTask(CreatureObject* player) {
+		if (!player->checkCooldownRecovery("quickTravelCooldown")) {
 
-	controlledObject->initializePosition(player->getPositionX(), player->getPositionZ() + 10, player->getPositionY());
+			const Time* cdTime = player->getCooldownTime("quickTravelCooldown");
 
-	player->getZone()->transferObject(controlledObject, -1, true);
-	//controlledObject->insertToZone(player->getZone());
+			int timeLeft = (floor((float)cdTime->miliDifference() / 1000) * -1) / 60;
+			
+			StringIdChatParameter stringId;
 
-	//removeObject(controlledObject, true);
+			stringId.setStringId("@skl_use:sys_quicktravel_delay"); // You must wait %DI minutes to call your ship again.
+			
+			stringId.setDI(timeLeft);
 
-	controlledObject->transferObject(player, 5, true);
-	player->setState(CreatureState::PILOTINGSHIP);
-	//controlledObject->inflictDamage(player, 0, System::random(50), true);
+			player->sendSystemMessage(stringId);
 
-	updateStatus(1);
+			return;
+		}
 
-	PlayerObject* ghost = player->getPlayerObject();
+		if (player->isInCombat()) {
+			player->sendSystemMessage("You cannot call a ship while in combat");
+			return;
+		}
 
-	if (ghost != nullptr)
-		ghost->setTeleporting(true);
+		if (player->isIncapacitated() || player->isDead()) {
+			player->sendSystemMessage("You cannot call a ship while dead or incapacitated");
+			return;
+		}
+
+		PlayerObject* ghost = player->getPlayerObject();
+
+		if (ghost->hasPvpTef() || ghost->hasBhTef()) {
+			player->sendSystemMessage("You cannot call a ship while flagged!");
+			return;
+		}
+
+		if (player->getCityRegion() != nullptr) {
+			player->sendSystemMessage("You cannot call your ship in a municipal zone!");
+			return;
+		}
+
+		if (player->isRidingMount()) {
+			player->sendSystemMessage("You cannot call your ship while riding a mount!");
+			return;
+		}
+
+		ManagedReference<TangibleObject*> controlledObject = this->controlledObject.get();
+
+		if (controlledObject->getServerObjectCRC() == 0xD1D6DA4A) {
+			PlayClientEffectLoc* ArcLaunch = new PlayClientEffectLoc("clienteffect/arc170_landing.cef", player->getZone()->getZoneName(), player->getPositionX(), player->getPositionZ() + 5, player->getPositionY());
+			player->broadcastMessage(ArcLaunch, true);
+	
+			//player->playEffect("clienteffect/arc170_landing.cef");
+		}
+		if (controlledObject->getServerObjectCRC() == 0x225C1758) {
+			PlayClientEffectLoc* HavocLaunch = new PlayClientEffectLoc("clienteffect/havoc_landing.cef", player->getZone()->getZoneName(), player->getPositionX(), player->getPositionZ() + 5, player->getPositionY());
+			player->broadcastMessage(HavocLaunch, true);
+	
+			//player->playEffect("clienteffect/havoc_landing.cef");
+		}
+		if (controlledObject->getServerObjectCRC() == 0x4735F720) {
+		
+			PlayClientEffectLoc* TwingLaunch = new PlayClientEffectLoc("clienteffect/twing_landing.cef", player->getZone()->getZoneName(), player->getPositionX(), player->getPositionZ() + 5, player->getPositionY());
+			player->broadcastMessage(TwingLaunch, true);
+	
+			//player->playEffect("clienteffect/twing_landing.cef");
+
+		}
+
+		player->playMusicMessage("sound/veh_transport_landing.snd");
+
+		Reference<CenterpointTravelTask*> centerpointTravel = new CenterpointTravelTask(_this.getReferenceUnsafeStaticCast(), player, "centerpoint_travel");
+
+		player->addCooldown("quickTravelCooldown", 300 * 1000); 
+
+		player->addPendingTask("centerpoint_travel", centerpointTravel, 10 * 1000);
+
 }
 
-void ShipControlDeviceImplementation::storeObject(CreatureObject* player, bool force) {
-	player->clearState(CreatureState::PILOTINGSHIP);
+void ShipControlDeviceImplementation::playHyperTansariiEffectTask(CreatureObject* player) {
+		if (!player->checkCooldownRecovery("quickTravelCooldown")) {
 
-	ManagedReference<TangibleObject*> controlledObject = this->controlledObject.get();
+			const Time* cdTime = player->getCooldownTime("quickTravelCooldown");
 
-	if (controlledObject == nullptr)
-		return;
+			int timeLeft = (floor((float)cdTime->miliDifference() / 1000) * -1) / 60;
 
-	Locker clocker(controlledObject, player);
+			StringIdChatParameter stringId;
 
-	if (!controlledObject->isInQuadTree())
-		return;
+			stringId.setStringId("@skl_use:sys_quicktravel_delay"); // You must wait %DI minutes to call your ship again.
+			
+			stringId.setDI(timeLeft);
 
-	Zone* zone = player->getZone();
+			player->sendSystemMessage(stringId);
 
-	if (zone == nullptr)
-		return;
+			return;
+		}
 
-	zone->transferObject(player, -1, false);
+		if (player->isInCombat()) {
+			player->sendSystemMessage("You cannot call a ship while in combat");
+			return;
+		}
+
+		if (player->isIncapacitated() || player->isDead()) {
+			player->sendSystemMessage("You cannot call a ship while dead or incapacitated");
+			return;
+		}
+
+		PlayerObject* ghost = player->getPlayerObject();
+
+		if (ghost->hasPvpTef() || ghost->hasBhTef()) {
+			player->sendSystemMessage("You cannot call a ship while flagged!");
+			return;
+		}
+
+		if (player->getCityRegion() != nullptr) {
+			player->sendSystemMessage("You cannot call your ship in a municipal zone!");
+			return;
+		}
+
+		if (player->isRidingMount()) {
+			player->sendSystemMessage("You cannot call your ship while riding a mount!");
+			return;
+		}
+
+		ManagedReference<TangibleObject*> controlledObject = this->controlledObject.get();
+
+		if (controlledObject->getServerObjectCRC() == 0xD1D6DA4A) {
+			PlayClientEffectLoc* ArcLaunch = new PlayClientEffectLoc("clienteffect/arc170_landing.cef", player->getZone()->getZoneName(), player->getPositionX(), player->getPositionZ() + 5, player->getPositionY());
+			player->broadcastMessage(ArcLaunch, true);
 	
-	controlledObject->destroyObjectFromWorld(true);
-
-	transferObject(controlledObject, 4, true);
+			//player->playEffect("clienteffect/arc170_landing.cef");
+		}
+		if (controlledObject->getServerObjectCRC() == 0x225C1758) {
+			PlayClientEffectLoc* HavocLaunch = new PlayClientEffectLoc("clienteffect/havoc_landing.cef", player->getZone()->getZoneName(), player->getPositionX(), player->getPositionZ() + 5, player->getPositionY());
+			player->broadcastMessage(HavocLaunch, true);
 	
-	updateStatus(0);
+			//player->playEffect("clienteffect/havoc_landing.cef");
+		}
+		if (controlledObject->getServerObjectCRC() == 0x4735F720) {
+		
+			PlayClientEffectLoc* TwingLaunch = new PlayClientEffectLoc("clienteffect/twing_landing.cef", player->getZone()->getZoneName(), player->getPositionX(), player->getPositionZ() + 5, player->getPositionY());
+			player->broadcastMessage(TwingLaunch, true);
+	
+			//player->playEffect("clienteffect/twing_landing.cef");
+
+		}
+
+		player->playMusicMessage("sound/veh_transport_landing.snd");
+
+		Reference<TansariiTravelTask*> tansariiTravel = new TansariiTravelTask(_this.getReferenceUnsafeStaticCast(), player, "tansarii_travel");
+
+		player->addCooldown("quickTravelCooldown", 300 * 1000); 
+
+		player->addPendingTask("tansarii_travel", tansariiTravel, 10 * 1000);
+
+}
+
+void ShipControlDeviceImplementation::playHyperNovaEffectTask(CreatureObject* player) {
+		
+		if (!player->checkCooldownRecovery("quickTravelCooldown")) {
+
+			const Time* cdTime = player->getCooldownTime("quickTravelCooldown");
+
+			int timeLeft = (floor((float)cdTime->miliDifference() / 1000) * -1) / 60;
+
+			StringIdChatParameter stringId;
+
+			stringId.setStringId("@skl_use:sys_quicktravel_delay"); // You must wait %DI minutes to call your ship again.
+			
+			stringId.setDI(timeLeft);
+
+			player->sendSystemMessage(stringId);
+
+			return;
+		}
+
+		if (player->isInCombat()) {
+			player->sendSystemMessage("You cannot call a ship while in combat");
+			return;
+		}
+
+		if (player->isIncapacitated() || player->isDead()) {
+			player->sendSystemMessage("You cannot call a ship while dead or incapacitated");
+			return;
+		}
+
+		PlayerObject* ghost = player->getPlayerObject();
+
+		if (ghost->hasPvpTef() || ghost->hasBhTef()) {
+			player->sendSystemMessage("You cannot call a ship while flagged!");
+			return;
+		}
+
+		if (player->getCityRegion() != nullptr) {
+			player->sendSystemMessage("You cannot call your ship in a municipal zone!");
+			return;
+		}
+
+		if (player->isRidingMount()) {
+			player->sendSystemMessage("You cannot call your ship while riding a mount!");
+			return;
+		}
+
+		ManagedReference<TangibleObject*> controlledObject = this->controlledObject.get();
+
+		if (controlledObject->getServerObjectCRC() == 0xD1D6DA4A) {
+			PlayClientEffectLoc* ArcLaunch = new PlayClientEffectLoc("clienteffect/arc170_landing.cef", player->getZone()->getZoneName(), player->getPositionX(), player->getPositionZ() + 5, player->getPositionY());
+			player->broadcastMessage(ArcLaunch, true);
+	
+			//player->playEffect("clienteffect/arc170_landing.cef");
+		}
+		if (controlledObject->getServerObjectCRC() == 0x225C1758) {
+			PlayClientEffectLoc* HavocLaunch = new PlayClientEffectLoc("clienteffect/havoc_landing.cef", player->getZone()->getZoneName(), player->getPositionX(), player->getPositionZ() + 5, player->getPositionY());
+			player->broadcastMessage(HavocLaunch, true);
+	
+			//player->playEffect("clienteffect/havoc_landing.cef");
+		}
+		if (controlledObject->getServerObjectCRC() == 0x4735F720) {
+		
+			PlayClientEffectLoc* TwingLaunch = new PlayClientEffectLoc("clienteffect/twing_landing.cef", player->getZone()->getZoneName(), player->getPositionX(), player->getPositionZ() + 5, player->getPositionY());
+			player->broadcastMessage(TwingLaunch, true);
+	
+			//player->playEffect("clienteffect/twing_landing.cef");
+
+		}
+
+		player->playMusicMessage("sound/veh_transport_landing.snd");
+
+		Reference<NovaOrionTravelTask*> novaorionTravel = new NovaOrionTravelTask(_this.getReferenceUnsafeStaticCast(), player, "novaorion_travel");
+
+		player->addCooldown("quickTravelCooldown", 300 * 1000); 
+
+		player->addPendingTask("novaorion_travel", novaorionTravel, 10 * 1000);
+
 }
 
 void ShipControlDeviceImplementation::fillObjectMenuResponse(ObjectMenuResponse* menuResponse, CreatureObject* player) {
+
 	//ControlDeviceImplementation::fillObjectMenuResponse(menuResponse, player);
 
 	ManagedReference<TangibleObject*> controlledObject = this->controlledObject.get();
 
-	if (!controlledObject->isInQuadTree()) {
-		menuResponse->addRadialMenuItem(60, 3, "Launch Ship"); //Launch
-	} else
-		menuResponse->addRadialMenuItem(61, 3, "Land Ship"); //Launch
-	//menuResponse->addRadialMenuItem(61, 3, "Launch Ship"); //Launch
+	Zone* zone = player->getZone();
+
+	//if (!zone->getZoneName().contains("space_")) {
+//	if (!controlledObject->isInQuadTree()) {
+//		menuResponse->addRadialMenuItem(60, 3, "Call Ship"); //Launch -
+//	} else {
+		menuResponse->addRadialMenuItem(240, 3, "Quick Travel Locations");
+		menuResponse->addRadialMenuItemToRadialID(240, 241, 3, "Centerpoint Station");
+		menuResponse->addRadialMenuItemToRadialID(240, 242, 3, "Tansarii Point Station");
+		menuResponse->addRadialMenuItemToRadialID(240, 243, 3, "Nova Orion Station"); 
+//	}	  
 }
 
 bool ShipControlDeviceImplementation::canBeTradedTo(CreatureObject* player, CreatureObject* receiver, int numberInTrade) {
@@ -105,3 +302,4 @@ bool ShipControlDeviceImplementation::canBeTradedTo(CreatureObject* player, Crea
 
 	return true;
 }
+

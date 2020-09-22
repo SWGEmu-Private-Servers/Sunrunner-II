@@ -677,6 +677,8 @@ void AuctionManagerImplementation::addSaleItem(CreatureObject* player, uint64 ob
 
 		VendorDataComponent* vendorData = nullptr;
 		DataObjectComponentReference* data = vendor->getDataObjectComponent();
+		ChatManager* chatManager = zoneServer.get()->getChatManager();
+        chatManager->addPlayer(player);
 		if(data != nullptr && data->get() != nullptr && data->get()->isVendorData())
 			vendorData = cast<VendorDataComponent*>(data->get());
 
@@ -689,6 +691,7 @@ void AuctionManagerImplementation::addSaleItem(CreatureObject* player, uint64 ob
 				if(strongOwnerRef->isOnline()) {
 					strongOwnerRef->sendSystemMessage(player->getFirstName() + " has offered an item to " + vendor->getDisplayedName());
 				}
+			chatManager->sendMail("system", "New vendor offer", player->getFirstName() + " has offered item: " + item->getItemName() +  " to " + vendor->getDisplayedName(), strongOwnerRef->getFirstName());
 			}
 		}
 	}
@@ -729,6 +732,7 @@ String AuctionManagerImplementation::getVendorUID(SceneObject* vendor) {
 }
 
 int AuctionManagerImplementation::checkSaleItem(CreatureObject* player, SceneObject* object, SceneObject* vendor, int price, bool premium, bool stockroomSale) {
+
 	if (vendor == nullptr) {
 		error() << "checkSaleItem(player=" << player->getObjectID() << ", object=" << object->getObjectID() << ", vendor=nullptr): Vendor is null";
 		return ItemSoldMessage::UNKNOWNERROR;
@@ -740,21 +744,8 @@ int AuctionManagerImplementation::checkSaleItem(CreatureObject* player, SceneObj
 	if (player->getPlayerObject()->getVendorCount() > player->getSkillMod("manage_vendor"))
 		return ItemSoldMessage::TOOMANYITEMS;
 
-	auto itemParent = object->getParent().get();
-
-	if (itemParent == nullptr && !stockroomSale) {
-		error() << "checkSaleItem(player=" << player->getObjectID() << ", object=" << object->getObjectID() << ", vendor=" << vendor->getObjectID()
-				<< "): itemParent is null; stockroomSale=" << stockroomSale;
-		return ItemSoldMessage::UNKNOWNERROR;
-	}
-
-	if (itemParent != nullptr && !itemParent->checkContainerPermission(player, ContainerPermissions::MOVEOUT)) {
-		error() << "checkSaleItem(player=" << player->getObjectID() << ", object=" << object->getObjectID() << ", vendor=" << vendor->getObjectID()
-				<< "): No MOVEOUT permission from " << itemParent->getObjectID() << " (" << itemParent->getObjectName()->getFullPath() << ") stockroomSale=" << stockroomSale;
-		return ItemSoldMessage::INVALIDITEM;
-	}
-
 	if (vendor->isVendor()) {
+
 		VendorDataComponent* vendorData = cast<VendorDataComponent*>(vendor->getDataObjectComponent()->get());
 
 		if (vendorData == nullptr) {
@@ -790,6 +781,7 @@ int AuctionManagerImplementation::checkSaleItem(CreatureObject* player, SceneObj
 
 		if (premium && player->getBankCredits() < SALESFEE * 5)
 			return ItemSoldMessage::NOTENOUGHCREDITS;
+
 	}
 
 	if (object->isIntangibleObject() && !object->isManufactureSchematic())
@@ -1100,15 +1092,18 @@ void AuctionManagerImplementation::doInstantBuy(CreatureObject* player, AuctionI
 	locker.release();
 
 	Locker slocker(seller);
-	seller->addBankCredits(item->getPrice());
+	seller->addBankCredits(item->getPrice() - tax);
+	slocker.release();
+
+	//seller->addBankCredits(item->getPrice());
 	trx.commit();
 
-	if (tax > 0) {
-		TransactionLog trxFee(seller, TrxCode::CITYSALESTAX, tax, false);
-		trxFee.groupWith(trx);
-		seller->subtractBankCredits(item->getPrice());
-	}
-	slocker.release();
+	//if (tax > 0) {
+	//	TransactionLog trxFee(seller, TrxCode::CITYSALESTAX, tax, false);
+	//	trxFee.groupWith(trx);
+	//	seller->subtractBankCredits(item->getPrice());
+	//}
+	//slocker.release();
 
 	if(city != nullptr && !city->isClientRegion() && tax){
 		Locker clock(city);

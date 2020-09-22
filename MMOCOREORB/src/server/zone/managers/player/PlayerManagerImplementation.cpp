@@ -110,8 +110,12 @@
 #include "server/zone/objects/transaction/TransactionLog.h"
 #include "server/zone/objects/creature/commands/TransferItemMiscCommand.h"
 
+#include "templates/params/creature/CreatureAttribute.h"
+#include "server/zone/managers/visibility/VisibilityManager.h"
+#include "server/zone/managers/mission/MissionManager.h"
+
 PlayerManagerImplementation::PlayerManagerImplementation(ZoneServer* zoneServer, ZoneProcessServer* impl,
-					bool trackOnlineUsers) : Logger("PlayerManager") {
+		bool trackOnlineUsers) : Logger("PlayerManager") {
 
 	playerLoggerFilename = "log/player.log";
 	playerLoggerLines = ConfigManager::instance()->getMaxLogLines();
@@ -1184,6 +1188,8 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 
 	player->setPosture(CreaturePosture::DEAD, !isCombatAction, !isCombatAction);
 
+	player->clearState(CreatureState::SWIMMING, true);
+
 	sendActivateCloneRequest(player, typeofdeath);
 
 	stringId.setStringId("base_player", "prose_victim_dead");
@@ -1265,7 +1271,23 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 				doPvpDeathRatingUpdate(playerRef, copyThreatMap);
 			}
 		}, "PvpDeathRatingUpdateLambda");
+
+		CreatureObject* attackerCreature = attacker->asCreatureObject();
+			if (attackerCreature != playerRef) {		
+				MissionManager* missionManager = attackerCreature->getZoneServer()->getMissionManager();
+				int reward = 100000;
+				missionManager->addPlayerToBountyList(attackerCreature->getObjectID(), reward);	
+			
+				VisibilityManager::instance()->increaseVisibility(attackerCreature, 600);
+				//VisibilityManager::instance()->addToVisibilityList(attackerCreature);
+
+				attackerCreature->sendSystemMessage("Your deeds have been observed.");
+			}
+		
 	}
+
+
+	
 
 	threatMap->removeAll(true);
 
@@ -1542,7 +1564,10 @@ void PlayerManagerImplementation::sendPlayerToCloner(CreatureObject* player, uin
 
 	}
 
+    PlayerObject* playerObject = player->getPlayerObject();
 
+    playerObject->setFoodFilling(0, false);
+    playerObject->setDrinkFilling(0, false);
 
 	Reference<Task*> task = new PlayerIncapacitationRecoverTask(player, true);
 	task->schedule(3 * 1000);
@@ -1729,7 +1754,10 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 				String xpType = entry->elementAt(j).getKey();
 				float xpAmount = baseXp;
 
-				xpAmount *= (float) damage / totalDamage;
+				if (damage <= totalDamage * 0.2) 
+					xpAmount *= 0.2;
+				else
+					xpAmount *= (float) damage / totalDamage;
 
 				//Cap xp based on level
 				xpAmount = Math::min(xpAmount, calculatePlayerLevel(attacker, xpType) * 300.f);
@@ -1958,12 +1986,6 @@ void PlayerManagerImplementation::awardBadge(PlayerObject* ghost, const Badge* b
 	player->notifyObservers(ObserverEventType::BADGEAWARDED, player, badgeId);
 	BadgeList* badgeList = BadgeList::instance();
 	switch (ghost->getNumBadges()) {
-	case 5:
-		awardBadge(ghost, badgeList->get("count_5"));
-		break;
-	case 10:
-		awardBadge(ghost, badgeList->get("count_10"));
-		break;
 	case 25:
 		awardBadge(ghost, badgeList->get("count_25"));
 		break;
@@ -1976,8 +1998,14 @@ void PlayerManagerImplementation::awardBadge(PlayerObject* ghost, const Badge* b
 	case 100:
 		awardBadge(ghost, badgeList->get("count_100"));
 		break;
-	case 125:
-		awardBadge(ghost, badgeList->get("count_125"));
+	case 150:
+		awardBadge(ghost, badgeList->get("count_150"));
+		break;
+	case 200:
+		awardBadge(ghost, badgeList->get("count_200"));
+		break;
+	case 250:
+		awardBadge(ghost, badgeList->get("count_250"));
 		break;
 	default:
 		break;
@@ -3284,34 +3312,76 @@ void PlayerManagerImplementation::updatePermissionName(CreatureObject* player, i
 
 void PlayerManagerImplementation::updateSwimmingState(CreatureObject* player, float newZ, IntersectionResults* intersections, CloseObjectsVector* closeObjectsVector) {
 	player->notifySelfPositionUpdate();
+
+	Zone* zone = player->getZone();
+
+	PlanetManager* planetManager = zone->getPlanetManager();
+
+	TerrainManager* terrainManager = planetManager->getTerrainManager();
+
+	float landHeight = zone->getHeight(player->getPositionX(), player->getPositionY());
+	float waterHeight = landHeight;
+	bool waterIsDefined = terrainManager->getWaterHeight(player->getPositionX(), player->getPositionY(), waterHeight);
+
+	if (player->getParent() != NULL && zone->getZoneName() == "mustafar" && waterIsDefined && (waterHeight > landHeight) && (landHeight + player->getSwimHeight() - waterHeight < 0.2)) {
+			Reference<IntersectionResults*> ref;
+
+			if (intersections == NULL) {
+				ref = intersections = new IntersectionResults();
+				CollisionManager::getWorldFloorCollisions(player->getPositionX(), player->getPositionY(), zone, intersections, closeObjectsVector);
+			}
+			for (int i = 0; i < intersections->size(); i++) {
+				if (fabs(16384 - intersections->get(i).getIntersectionDistance() - newZ) < 0.2) {
+					//Player is on terrain above the water.
+					player->clearState(CreatureState::SWIMMING, true);
+					return;
+				}
+			}
+
+			ManagedReference<SceneObject*> parent = player->getParent().get();
+
+			if (parent->isVehicleObject()) {
+				if (parent->getServerObjectCRC() == 0x32F87A54 || parent->getServerObjectCRC() == 0x7BEEB58F || parent->getServerObjectCRC() == 0x3A19A20D || parent->getServerObjectCRC() == 0x5C3FA920) {  //jetpacks,lava skiff
+				return;
+				}
+			player->sendSystemMessage("Your vehicle malfunctions!");		
+			player->updateCooldownTimer("mount_dismount", 0);
+			player->executeObjectControllerAction(STRING_HASHCODE("dismount"));
+
+			} else if (parent->isMount()) {
+				if (parent->getServerObjectCRC() == 0x36432E29 || parent->getServerObjectCRC() == 0xD4C5D346 || parent->getServerObjectCRC() == 0x6C17E26A || parent->getServerObjectCRC() == 0x68866E5F || parent->getServerObjectCRC() == 0xE7824996 || parent->getServerObjectCRC() == 0xC353633 || parent->getServerObjectCRC() == 0x2ADBD450 || parent->getServerObjectCRC() == 0x8A258418 || parent->getServerObjectCRC() == 0xF0BCD3C2 || parent->getServerObjectCRC() == 0xD73DD1BF || parent->getServerObjectCRC() == 0xAD77C23 || parent->getServerObjectCRC() == 0x7118916F || parent->getServerObjectCRC() == 0x54562B0B || parent->getServerObjectCRC() == 0x4BC3460 || parent->getServerObjectCRC() == 0x42AC58BB || parent->getServerObjectCRC() == 0x7D735054|| parent->getServerObjectCRC() == 0xA69430BC || parent->getServerObjectCRC() == 0x48945376 || parent->getServerObjectCRC() == 0x843DD6E4) {  //lava flea,perleks,kai toks,lantern birds,whisper birds,peko pekos,reptilian fliers,gulginaws
+				return;
+				}
+			player->sendSystemMessage("Your mount refuses to enter the lava!");		
+			player->updateCooldownTimer("mount_dismount", 0);
+			player->executeObjectControllerAction(STRING_HASHCODE("dismount"));
+			}		
+	}
+
 	if (player->getParent() != nullptr) {
 		return;
 	}
 
-	Zone* zone = player->getZone();
+	//Zone* zone = player->getZone();
 
 	if (zone == nullptr) {
 		player->info("No zone.", true);
 		return;
 	}
 
-	PlanetManager* planetManager = zone->getPlanetManager();
+	//PlanetManager* planetManager = zone->getPlanetManager();
 
 	if (planetManager == nullptr) {
 		player->info("No planet manager.", true);
 		return;
 	}
 
-	TerrainManager* terrainManager = planetManager->getTerrainManager();
+	//TerrainManager* terrainManager = planetManager->getTerrainManager();
 
 	if (terrainManager == nullptr) {
 		player->info("No terrain manager.", true);
 		return;
 	}
-
-	float landHeight = zone->getHeight(player->getPositionX(), player->getPositionY());
-	float waterHeight = landHeight;
-	bool waterIsDefined = terrainManager->getWaterHeight(player->getPositionX(), player->getPositionY(), waterHeight);
 
 	if (waterIsDefined && (waterHeight > landHeight) && (landHeight + player->getSwimHeight() - waterHeight < 0.2)) {
 		//Water level is higher than the terrain level and is deep enough for the player to be swimming.
@@ -3335,7 +3405,39 @@ void PlayerManagerImplementation::updateSwimmingState(CreatureObject* player, fl
 
 		//Player is in the water.
 		player->setState(CreatureState::SWIMMING, true);
-		return;
+
+		if (zone->getZoneName() == "mustafar") {
+
+		//player->addDotState(player, CreatureState::ONFIRE, 0, 100 + System::random(50), CreatureAttribute::HEALTH, 30 * 60, 60, 0);
+		player->inflictDamage(NULL, CreatureAttribute::HEALTH, 200, true, true);
+		}
+
+		if (zone->getZoneName() == "kessel") {
+
+		//player->addDotState(player, CreatureState::POISONED, 0, 200 + System::random(50), CreatureAttribute::HEALTH, 30 * 60, 60, 0);
+		player->inflictDamage(NULL, CreatureAttribute::HEALTH, 20, true, true);
+		}
+
+		
+		if (zone->getZoneName() == "dungeon4") {
+
+
+				uint32 crc;
+				ManagedReference<SceneObject*> hat = player->getSlottedObject("eyes");
+					if (hat != nullptr) {
+						crc = hat->getServerObjectCRC();
+						if (crc == 0x824AE877) //rebreather
+						return;
+					}
+					if (player->getSpeciesName() == "moncal" || player->getServerObjectCRC() == 0x1F6D671F || player->getServerObjectCRC() == 0x40FA4830 || player->getServerObjectCRC() == 0x250D5020 || player->getServerObjectCRC() == 0x8A59655C) {
+						return;
+					}	
+				player->sendSystemMessage("You need a rebreather!");
+				player->inflictDamage(NULL, CreatureAttribute::HEALTH, 50, true, true);
+	
+		}
+
+		return;		
 	}
 
 	//Terrain is above water level.

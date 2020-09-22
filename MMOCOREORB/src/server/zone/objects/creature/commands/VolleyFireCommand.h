@@ -28,9 +28,10 @@ public:
 
 		ManagedReference<CreatureObject*> player = creature;
 		ManagedReference<GroupObject*> group = player->getGroup();
+		ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
 
 		if (!checkGroupLeader(player, group))
-			return GENERALERROR;
+			return GENERALERROR;	
 
 		float skillMod = (float) creature->getSkillMod("volley");
 		int hamCost = (int) (100.0f * (1.0f - (skillMod / 100.0f))) * calculateGroupModifier(group);

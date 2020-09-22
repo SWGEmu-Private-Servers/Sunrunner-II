@@ -28,6 +28,7 @@ public:
 	}
 
 	void parseFromIffStream(engine::util::IffStream* iffStream);
+	void parseFromIffStream(engine::util::IffStream* iffStream, Version<'0004'>);
 	void parseFromIffStream(engine::util::IffStream* iffStream, Version<'0005'>);
 
 	float process(float x, float y, float transformValue, float& baseValue, TerrainGenerator* terrainGenerator, FilterRectangle* rect);

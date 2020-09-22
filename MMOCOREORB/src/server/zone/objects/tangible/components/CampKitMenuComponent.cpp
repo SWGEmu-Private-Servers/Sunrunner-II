@@ -74,6 +74,11 @@ int CampKitMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject,
 			return 0;
 		}
 
+		if ((campKitData->getSpawnObjectTemplate() == "object/building/poi/player_camp_s07.iff" && zone->getZoneName() != "hoth") || (zone->getZoneName() == "hoth" && campKitData->getSpawnObjectTemplate() != "object/building/poi/player_camp_s07.iff") || (campKitData->getSpawnObjectTemplate() == "object/building/poi/player_camp_kashyyyk.iff" && zone->getZoneName() != "kashyyyk") || (zone->getZoneName() == "kashyyyk" && campKitData->getSpawnObjectTemplate() != "object/building/poi/player_camp_kashyyyk.iff") || (campKitData->getSpawnObjectTemplate() == "object/building/poi/player_camp_mustafar.iff" && zone->getZoneName() != "mustafar") || (zone->getZoneName() == "mustafar" && campKitData->getSpawnObjectTemplate() != "object/building/poi/player_camp_mustafar.iff"))  {
+			player->sendSystemMessage("You cannot place this camp here.");
+			return 0;
+		}
+
 		ManagedReference<PlanetManager*> planetManager = zone->getPlanetManager();
 		if (planetManager == nullptr) {
 			error("Unable to get PlanetManager when placing camp");

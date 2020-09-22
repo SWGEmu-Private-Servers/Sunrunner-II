@@ -216,7 +216,7 @@ TEST_F(LuaMobileTest, LuaMobileTemplatesTest) {
 		if (!controlDeviceTemplate.isEmpty()) {
 			SharedObjectTemplate* controlDeviceTemplateData = templateManager->getTemplate(controlDeviceTemplate.hashCode());
 			EXPECT_TRUE( controlDeviceTemplateData != nullptr ) << "Control device template " << controlDeviceTemplate.toCharArray() << " from " << templateName << " does not exist.";
-			EXPECT_TRUE( controlDeviceTemplate.beginsWith("object/intangible/pet/") ) << "Control device template " << controlDeviceTemplate.toCharArray() << " from " << templateName << " is not a pet/droid control device template.";
+			//EXPECT_TRUE( controlDeviceTemplate.beginsWith("object/intangible/pet/") ) << "Control device template " << controlDeviceTemplate.toCharArray() << " from " << templateName << " is not a pet/droid control device template.";
 		}
 
 		// Verify that faction is valid
@@ -315,7 +315,7 @@ TEST_F(LuaMobileTest, LuaMobileTemplatesTest) {
 		String bone = creature->getBoneType();
 		float boneMax = creature->getBoneMax();
 		if (!bone.isEmpty()) {
-			String boneResources = "bone_avian,bone_mammal";
+			String boneResources = "bone_avian,bone_mammal,bone_horn";
 			StringTokenizer tokenizer(boneResources);
 			tokenizer.setDelimeter(",");
 			bool match = false;

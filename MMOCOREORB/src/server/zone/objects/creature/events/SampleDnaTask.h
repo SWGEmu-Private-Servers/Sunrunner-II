@@ -130,7 +130,7 @@ public:
 			else if (sampleRoll < 5) {
 				// Critical failure, this can always occur
 				result = 1;
-			} else if ( (35 + rollMod) < sampleRoll) { // failure your roll < 50%
+			} else if ( (25 + rollMod) < sampleRoll) { // failure your roll < 50%
 				result = 2;
 			} else { // success
 				int maxSamples = (int)(ceil((double)skillMod / (double)25));

@@ -45,7 +45,10 @@ void FilterFractal::parseFromIffStream(engine::util::IffStream* iffStream) {
 
 	iffStream->openForm(version);
 
-	switch (version) {
+	switch (version) {	
+	case '0004':
+		parseFromIffStream(iffStream, Version<'0004'>());
+		break;
 	case '0005':
 		parseFromIffStream(iffStream, Version<'0005'>());
 		break;
@@ -56,6 +59,27 @@ void FilterFractal::parseFromIffStream(engine::util::IffStream* iffStream) {
 
 	iffStream->closeForm(version);
 }
+
+void FilterFractal::parseFromIffStream(engine::util::IffStream* iffStream, Version<'0004'>) {
+	informationHeader.readObject(iffStream);
+
+	iffStream->openForm('DATA');
+
+	iffStream->openChunk('PARM');
+
+	//5 vars
+	fractalId = iffStream->getInt();
+	featheringType = iffStream->getInt();
+	featheringAmount = iffStream->getFloat();
+	min = iffStream->getFloat();
+	max = iffStream->getFloat();
+
+	iffStream->closeChunk('PARM');
+
+	iffStream->closeForm('DATA');
+}
+
+
 
 void FilterFractal::parseFromIffStream(engine::util::IffStream* iffStream, Version<'0005'>) {
 	informationHeader.readObject(iffStream);

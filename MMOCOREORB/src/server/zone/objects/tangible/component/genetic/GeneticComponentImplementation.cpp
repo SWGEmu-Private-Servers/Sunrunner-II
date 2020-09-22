@@ -97,7 +97,7 @@ void GeneticComponentImplementation::updateCraftingValues(CraftingValues* values
 	if (values->getCurrentValue("lightsabereffectiveness") > 0)
 		setSpecialResist(SharedWeaponObjectTemplate::LIGHTSABER);
 
-	if (fortitude > 500) {
+	if (fortitude > 460) {
 		armorRating = 1;
 	}
 	// min - max values
@@ -190,17 +190,17 @@ void GeneticComponentImplementation::updateCraftingValues(CraftingValues* values
 	// Quickness: dex,dep
 
 	health = (hardiness * 15)    + (dexterity * 3);
-	action = (dexterity * 15)    + (intelligence * 3);
-	mind   = (intelligence * 15) + (hardiness * 3);
-	stamina = (dexterity*15)     + (endurance * 3);
-	willPower = (intelligence * 15) + (cleverness * 3);
+	action = (dexterity * 17)    + (intelligence * 3);
+	mind   = (intelligence * 17) + (hardiness * 3);
+	stamina = (dexterity*17)     + (endurance * 3);
+	willPower = (intelligence * 17) + (cleverness * 3);
 	constitution = (hardiness * 15)    + (fortitude * 3);
-	focus = (intelligence * 15) + (dependency * 3);
+	focus = (intelligence * 17) + (dependency * 3);
 	strength = (hardiness * 15)    + (dependency * 3);
-	quickness = (dexterity * 15)    + (dependency * 3);
-	hit = 0.19 + (0.55 * ((float)cleverness/1000.0));
+	quickness = (dexterity * 17)    + (dependency * 3);
+	hit = 0.9 + (0.35 * ((float)cleverness/1000.0));
 	// dps of pet use to determien min and max value.
-	int dps = ceil((ceil(15.0 + (775.0 * ( ((float)power)/1000.0))))/3.5);
+	int dps = ceil((ceil(15.0 + (1100.0 * ( ((float)power)/1000.0))))/3.5);
 	speed = 2.5-((ceil(((float)courage)/10)*10)/1000);
 	maxDam = round(((float)dps * speed) * 1.5);
 	//minDam = round(((float)dps * speed) * 0.5);

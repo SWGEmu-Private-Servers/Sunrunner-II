@@ -32,10 +32,10 @@ void BankTerminalMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject,
 
 	//if (location = "") {
 		// Join Bank
-		menuResponse->addRadialMenuItemToRadialID(20, 71, 3, "@sui:bank_join");
+		//menuResponse->addRadialMenuItemToRadialID(20, 71, 3, "@sui:bank_join");
 	//} else {
 		// Quit Bank - no checks here since there are error message stfs
-		menuResponse->addRadialMenuItemToRadialID(20, 72, 3, "@sui:bank_quit");
+		//menuResponse->addRadialMenuItemToRadialID(20, 72, 3, "@sui:bank_quit");
 
 		/*SceneObject* deposit = player->getSlottedObject("bank");
 		if (deposit->getContainerObjectsSize() == 0) {

@@ -817,3 +817,4 @@ bool CollisionManager::checkLineOfSightInParentCell(SceneObject* object, Vector3
 
 	return true;
 }
+

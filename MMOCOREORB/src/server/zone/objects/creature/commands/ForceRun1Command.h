@@ -50,3 +50,4 @@ public:
 };
 
 #endif //FORCERUN1COMMAND_H_
+

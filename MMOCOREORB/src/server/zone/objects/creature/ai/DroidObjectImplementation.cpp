@@ -362,7 +362,7 @@ bool DroidObjectImplementation::isCombatDroid() {
 	}
 
 	// inante comabt ability, regardless of module installed
-	if (getSpecies() == PROBOT || getSpecies() == DZ70)
+	if (getSpecies() == PROBOT || getSpecies() == DZ70 || getSpecies() == DROIDECA)
 		return true;
 
 	return false;

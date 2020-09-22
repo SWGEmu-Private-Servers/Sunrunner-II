@@ -69,7 +69,7 @@ void DroidEffectsModuleDataComponent::fillObjectMenuResponse(SceneObject* droidO
 		return;
 
 	// Novice Musician or Novice Dancer required to utilize this module
-	if (player->hasSkill("social_musician_novice") || player->hasSkill("social_dancer_novice")){
+	if (player->hasSkill("social_entertainer_novice")){
 
 		menuResponse->addRadialMenuItem(EFFECTS_MODULE_TOGGLE, 3, "@pet/droid_modules:toggle_effects" );
 		menuResponse->addRadialMenuItem(EFFECTS_MODULE_CONFIGURE, 3, "@pet/droid_modules:effects_set_up");

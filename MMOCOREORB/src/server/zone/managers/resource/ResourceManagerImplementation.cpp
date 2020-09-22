@@ -152,8 +152,15 @@ void ResourceManagerImplementation::loadDefaultConfig() {
 	resourceSpawner->addZone("yavin4");
 	resourceSpawner->addZone("dantooine");
 	resourceSpawner->addZone("dathomir");
+	resourceSpawner->addZone("hoth");
+	resourceSpawner->addZone("kashyyyk");
+	resourceSpawner->addZone("kuat");
+	resourceSpawner->addZone("mustafar");
 	resourceSpawner->addZone("naboo");
+	resourceSpawner->addZone("nalhutta");
+	resourceSpawner->addZone("ordmantell");
 	resourceSpawner->addZone("rori");
+	resourceSpawner->addZone("taanab");
 	resourceSpawner->addZone("talus");
 	resourceSpawner->addZone("tatooine");
 	resourceSpawner->addZone("endor");
@@ -194,6 +201,8 @@ void ResourceManagerImplementation::shiftResources() {
 
 	Reference<ResourceShiftTask*> resourceShift = new ResourceShiftTask(_this.getReferenceUnsafeStaticCast());
 	resourceShift->schedule(shiftInterval);
+
+	resourceSpawner->ghDump();
 }
 
 int ResourceManagerImplementation::getResourceRecycleType(ResourceSpawn* resource) {
@@ -437,6 +446,12 @@ String ResourceManagerImplementation::dumpResources() {
 	return resourceSpawner->dumpResources();
 }
 
+String ResourceManagerImplementation::ghDump() {
+ 	Locker locker(_this.getReferenceUnsafeStaticCast());
+ 
+ 	return resourceSpawner->ghDump();
+ }
+
 String ResourceManagerImplementation::despawnResource(String& resourceName) {
 
 	ManagedReference<ResourceSpawn*> spawn = getResourceSpawn(resourceName);
@@ -444,10 +459,9 @@ String ResourceManagerImplementation::despawnResource(String& resourceName) {
 		return "Spawn not Found";
 	}
 
-	Locker locker(spawn);
-
 	spawn->setDespawned(time(0) - 1);
 	resourceSpawner->shiftResources();
 
 	return resourceName + " despawned.";
 }
+

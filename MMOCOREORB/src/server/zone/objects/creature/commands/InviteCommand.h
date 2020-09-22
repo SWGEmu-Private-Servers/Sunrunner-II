@@ -40,7 +40,8 @@ public:
 
 		ManagedReference<SceneObject*> object = server->getZoneServer()->getObject(target);
 
-		if (object == nullptr)
+
+/*		if (object == nullptr)
 			return GENERALERROR;
 
 
@@ -49,7 +50,32 @@ public:
 
 			if (!player->getPlayerObject()->isIgnoring(creature->getFirstName().toLowerCase()) || godMode)
 				groupManager->inviteToGroup(creature, player);
+		}*/
+
+		CreatureObject* player = nullptr;
+		ManagedReference<PlayerManager*> playerManager = server->getPlayerManager();
+
+		StringTokenizer args(arguments.toString());
+
+		if (object == nullptr || !object->isPlayerCreature()) {
+			String firstName;
+
+			if (args.hasMoreTokens()) {
+				args.getStringToken(firstName);
+				player = playerManager->getPlayer(firstName);
+				}
 		}
+
+
+		if (object != nullptr && object->isPlayerCreature())
+			player = cast<CreatureObject*>( object.get());
+
+		if (player == nullptr)
+			return GENERALERROR;
+
+		if (!player->getPlayerObject()->isIgnoring(creature->getFirstName().toLowerCase()) || godMode)
+				groupManager->inviteToGroup(creature, player);
+
 
 		return SUCCESS;
 	}

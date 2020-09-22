@@ -18,6 +18,9 @@
 #include "server/zone/managers/skill/SkillManager.h"
 #include "server/zone/objects/tangible/threat/ThreatMap.h"
 #include "server/zone/objects/transaction/TransactionLog.h"
+#include "server/zone/objects/creature/VehicleObject.h"
+#include "server/zone/objects/creature/ai/Creature.h"
+
 
 const char LuaCreatureObject::className[] = "LuaCreatureObject";
 
@@ -143,6 +146,7 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "getGender", &LuaCreatureObject::getGender },
 		{ "isRidingMount", &LuaCreatureObject::isRidingMount },
 		{ "dismount", &LuaCreatureObject::dismount },
+		{ "slotPassenger", &LuaCreatureObject::slotPassenger },
 		{ 0, 0 }
 };
 
@@ -1127,4 +1131,38 @@ int LuaCreatureObject::isRidingMount(lua_State* L) {
 int LuaCreatureObject::dismount(lua_State* L) {
 	realObject->dismount();
 	return 0;
+}
+
+int LuaCreatureObject::slotPassenger(lua_State* L) {
+	CreatureObject* passenger = (CreatureObject*) lua_touserdata(L, -1);
+
+	SceneObject* vehicle = realObject->getParent().get().get();
+	if (!vehicle->isCreatureObject()) {
+		lua_pushboolean(L, false);
+		return 1;
+	}
+
+
+	if (vehicle->isVehicleObject()) {
+		VehicleObject* speeder = static_cast<VehicleObject*>(vehicle);
+		if (!speeder->hasOpenSeat()) {
+			lua_pushboolean(L, false);
+			return 1;
+		} else {
+			speeder->slotPassenger(passenger);
+			lua_pushboolean(L, true);
+			return 1;
+		}
+	} else {
+		Creature* mount = static_cast<Creature*>(vehicle);
+		if (!mount->hasOpenSeat()) {
+			lua_pushboolean(L, false);
+			return 1;
+		} else {
+			mount->slotPassenger(passenger);
+			lua_pushboolean(L, true);
+			return 1;
+		}
+
+	}
 }

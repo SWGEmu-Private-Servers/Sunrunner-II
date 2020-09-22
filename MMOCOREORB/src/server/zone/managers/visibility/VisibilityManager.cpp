@@ -26,7 +26,7 @@ float VisibilityManager::calculateVisibilityIncrease(CreatureObject* creature) {
 	SortedVector<QuadTreeEntry*> closeObjects;
 	CloseObjectsVector* closeObjectsVector = (CloseObjectsVector*) creature->getCloseObjects();
 	if (closeObjectsVector == nullptr) {
-		zone->getInRangeObjects(creature->getWorldPositionX(), creature->getWorldPositionY(), 32, &closeObjects, true);
+		zone->getInRangeObjects(creature->getWorldPositionX(), creature->getWorldPositionY(), 64, &closeObjects, true);
 	} else {
 		closeObjectsVector->safeCopyReceiversTo(closeObjects, CloseObjectsVector::CREOTYPE);
 	}
@@ -48,7 +48,7 @@ float VisibilityManager::calculateVisibilityIncrease(CreatureObject* creature) {
 		if (c->isDead() || c->isIncapacitated() || (c->isPlayerCreature() && c->getPlayerObject()->hasGodMode()))
 			continue;
 
-		if (!creature->isInRange(c, 32) || !CollisionManager::checkLineOfSight(creature, c))
+		if (!creature->isInRange(c, 64) || !CollisionManager::checkLineOfSight(creature, c))
 			continue;
 
 		if (creature->getFaction() == 0 || (c->getFaction() != factionImperial && c->getFaction() != factionRebel)) {
@@ -138,8 +138,7 @@ void VisibilityManager::increaseVisibility(CreatureObject* creature, int visibil
 	if (ghost != nullptr  && !ghost->hasGodMode()) {
 		Locker locker(ghost);
 		decreaseVisibility(creature);
-
-		float newVis = ghost->getVisibility() + (calculateVisibilityIncrease(creature) * visibilityMultiplier); // Calculate new total vis
+		float newVis = ghost->getVisibility() + visibilityMultiplier; // Calculate new total vis
 		newVis = Math::min(maxVisibility,  newVis); // Cap visibility
 
 		ghost->setVisibility(newVis);

@@ -129,20 +129,20 @@ public:
 
 		Vector3 collisionPoint, targetPosition(positionX, positionY, positionZ);
 
-		if (CollisionManager::checkShipCollision(ship, targetPosition, collisionPoint)) {
+		//if (CollisionManager::checkShipCollision(ship, targetPosition, collisionPoint)) {
 			//ship->teleport(ship->getPositionX(), ship->getPositionZ(), ship->getPositionY());
 			//ship->info("colliding with terrain", true);
 			//ship->setDirection(directionW, directionX, directionY, directionZ);
-			ship->setMovementCounter(counter);
+		//	ship->setMovementCounter(counter);
 
-			ShipUpdateTransformCollisionMessage* msg = new ShipUpdateTransformCollisionMessage(ship);
-			object->broadcastMessage(msg, true);
+			//ShipUpdateTransformCollisionMessage* msg = new ShipUpdateTransformCollisionMessage(ship);
+			//object->broadcastMessage(msg, true);
 
-			PlayClientEffectObjectMessage* effect = new PlayClientEffectObjectMessage(ship, "clienteffect/space_collision.cef", "");
-			object->broadcastMessage(effect, true);
+			//PlayClientEffectObjectMessage* effect = new PlayClientEffectObjectMessage(ship, "clienteffect/space_collision.cef", "");
+			//object->broadcastMessage(effect, true);
 
-			return;
-		}
+		//	return;
+		//}
 
 		ship->setMovementCounter(counter);
 		ship->setPosition(positionX, positionZ, positionY);
@@ -150,7 +150,7 @@ public:
 		ship->updateZone(false, false);
 
 		object->setPosition(positionX, positionZ, positionY);
-		//object->setDirection(directionW, directionX, directionY, directionZ);
+		object->setDirection(directionW, directionX, directionY, directionZ);
 
 		object->updateZone(false, false);
 

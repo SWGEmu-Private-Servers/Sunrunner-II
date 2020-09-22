@@ -903,7 +903,7 @@ void BuildingObjectImplementation::onExit(CreatureObject* player, uint64 parenti
 
 uint32 BuildingObjectImplementation::getMaximumNumberOfPlayerItems() {
 	if (isCivicStructure() )
-		return 250;
+		return 500;
 
 	SharedStructureObjectTemplate* ssot = dynamic_cast<SharedStructureObjectTemplate*> (templateObject.get());
 
@@ -919,7 +919,7 @@ uint32 BuildingObjectImplementation::getMaximumNumberOfPlayerItems() {
 
 	auto maxItems = MAXPLAYERITEMS;
 
-	return Math::min(maxItems, lots * 100);
+	return Math::min(maxItems, lots * 150);
 }
 
 int BuildingObjectImplementation::notifyObjectInsertedToChild(SceneObject* object, SceneObject* child, SceneObject* oldParent) {
@@ -1141,7 +1141,7 @@ void BuildingObjectImplementation::promptPayAccessFee(CreatureObject* player) {
 
 	ManagedReference<SuiMessageBox*> box = new SuiMessageBox(player, SuiWindowType::STRUCTURE_CONSENT_PAY_ACCESS_FEE);
 	box->setPromptTitle("@player_structure:access_fee_t");
-	box->setPromptText("You must pay a fee of " + String::valueOf(accessFee) + " credits to enter this building");
+	box->setPromptText("You must pay a fee of " + String::valueOf(accessFee) + " credits to enter this building.\nCredits will be taken from your cash first, or bank account otherwise.\nPress \'Ok\' to confirm payment, or close this window to cancel.");
 	box->setUsingObject(asBuildingObject());
 	box->setForceCloseDistance(30.f);
 	box->setCallback(new StructurePayAccessFeeSuiCallback(server->getZoneServer()));
