@@ -1,0 +1,18 @@
+-- Server Objects
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_varactyl.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_bolotaur.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_kashyyyk_bantha.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_lava_flea.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_blistmok.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_pharple.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_spined_snake.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_hawk_bat.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_peko_peko.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_reptilian_flier.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_urnsoris.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_nerf.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_gackle_bat.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_walluga.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_horned_platile.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/dna_template/dna_template_capper_spineflap.lua")
+

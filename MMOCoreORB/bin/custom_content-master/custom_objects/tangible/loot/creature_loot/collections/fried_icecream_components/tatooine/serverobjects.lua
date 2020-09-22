@@ -1,0 +1,7 @@
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/tatooine/banthaweed.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/tatooine/bestinnian.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/tatooine/bloddle.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/tatooine/bristlemelon.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/tatooine/tatoes.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/tatooine/wyykmelons.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/tatooine/zog.lua")

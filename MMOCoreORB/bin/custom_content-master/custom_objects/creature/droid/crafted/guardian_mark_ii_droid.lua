@@ -1,0 +1,5 @@
+object_creature_npc_droid_crafted_guardian_mark_ii_droid = object_creature_npc_droid_crafted_shared_guardian_mark_ii_droid:new {
+
+}
+
+ObjectTemplates:addTemplate(object_creature_npc_droid_crafted_guardian_mark_ii_droid, "object/creature/npc/droid/crafted/guardian_mark_ii_droid.iff")

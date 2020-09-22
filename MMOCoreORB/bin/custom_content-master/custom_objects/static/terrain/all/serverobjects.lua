@@ -1,0 +1,12 @@
+-- Server Objects
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_blistmok.lua")
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_bones.lua")
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_bones_large.lua")
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_bramble_large.lua")
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_bramble_light.lua")
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_dead_log_large.lua")
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_dead_log_small.lua")
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_garbage_large.lua")
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_garbage_small.lua")
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_trash_dark.lua")
+includeFile("../mobile/custom_content/custom_objects/static/terrain/all/poi_all_lair_trash_dark_large.lua")

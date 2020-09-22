@@ -1,0 +1,6 @@
+
+
+object_building_general_star_destroyer_construction = object_building_general_shared_star_destroyer_construction:new {
+}
+
+ObjectTemplates:addTemplate(object_building_general_star_destroyer_construction, "object/building/general/star_destroyer_construction.iff")

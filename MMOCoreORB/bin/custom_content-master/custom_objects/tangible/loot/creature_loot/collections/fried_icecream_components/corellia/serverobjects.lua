@@ -1,0 +1,7 @@
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/corellia/charbote.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/corellia/goldfruit.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/corellia/kavasa_fruit.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/corellia/salthia.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/corellia/sunfruit.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/corellia/vweilu.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/corellia/yam.lua")

@@ -1,0 +1,10 @@
+-- Server Objects
+includeFile("../mobile/custom_content/custom_objects/static/worldbuilding/art/must_jedi_relic_statue_aqua.lua")
+includeFile("../mobile/custom_content/custom_objects/static/worldbuilding/art/must_jedi_relic_statue_black.lua")
+includeFile("../mobile/custom_content/custom_objects/static/worldbuilding/art/must_jedi_relic_statue_blue.lua")
+includeFile("../mobile/custom_content/custom_objects/static/worldbuilding/art/must_jedi_relic_statue_green.lua")
+includeFile("../mobile/custom_content/custom_objects/static/worldbuilding/art/must_jedi_relic_statue_pink.lua")
+includeFile("../mobile/custom_content/custom_objects/static/worldbuilding/art/must_jedi_relic_statue_purple.lua")
+includeFile("../mobile/custom_content/custom_objects/static/worldbuilding/art/must_jedi_relic_statue_red.lua")
+includeFile("../mobile/custom_content/custom_objects/static/worldbuilding/art/must_jedi_relic_statue_yellow.lua")
+includeFile("../mobile/custom_content/custom_objects/static/worldbuilding/art/star_destroyer_hologram.lua")

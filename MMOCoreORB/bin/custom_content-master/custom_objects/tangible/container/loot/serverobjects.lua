@@ -1,0 +1,5 @@
+includeFile("../mobile/custom_content/custom_objects/tangible/container/loot/npe_loot_crate_high.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/container/loot/npe_loot_crate_low.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/container/loot/reverse_engineer_tool.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/container/loot/socket_retrofit_tool.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/container/loot/som_cube.lua")

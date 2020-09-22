@@ -1,0 +1,7 @@
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/endor/acorns.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/endor/blumfruit.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/endor/burr_ball.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/endor/gin_jang_berry.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/endor/honey_melon.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/endor/sunberries.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/loot/creature_loot/collections/fried_icecream_components/endor/yubnut.lua")

@@ -1,0 +1,36 @@
+ig106 = Creature:new {
+	customName = "IG-106",
+	socialGroup = "townsperson",
+	faction = "",
+	level = 107,
+	chanceHit = 0.55,
+	damageMin = 670,
+	damageMax = 1050,
+	baseXp = 10081,
+	baseHAM = 29000,
+	baseHAMmax = 36000,
+	armor = 1,
+	resists = {55,55,70,45,75,80,55,45,-1},
+	meatType = "",
+	meatAmount = 0,
+	hideType = "",
+	hideAmount = 0,
+	boneType = "",
+	boneAmount = 0,
+	milk = 0,
+	tamingChance = 0,
+	ferocity = 0,
+	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
+	creatureBitmask = KILLER,
+	optionsBitmask = AIENABLED,
+	diet = HERBIVORE,
+	scale = 1.15,
+
+	templates = {"object/mobile/som/ig106.iff"},
+	lootGroups = {},
+	weapons = {"ig106_weapons"},
+	conversationTemplate = "",
+	attacks = merge(marksmanmaster)
+}
+
+CreatureTemplates:addCreatureTemplate(ig106, "ig106")

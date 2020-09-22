@@ -1,0 +1,36 @@
+subduer_drone = Creature:new {
+	customName = "a subduer drone",
+	socialGroup = "cybernetic",
+	faction = "",
+	level = 70,
+	chanceHit = 5,
+	damageMin = 575,
+	damageMax = 700,
+	baseXp = 7100,
+	baseHAM = 13700,
+	baseHAMmax = 16500,
+	armor = 1,
+	resists = {160,160,145,35,155,40,170,150,-1},
+	meatType = "",
+	meatAmount = 0,
+	hideType = "",
+	hideAmount = 0,
+	boneType = "",
+	boneAmount = 0,
+	milk = 0,
+	tamingChance = 0,
+	ferocity = 0,
+	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
+	creatureBitmask = KILLER,
+	optionsBitmask = AIENABLED,
+	diet = HERBIVORE,
+
+	templates = {"object/mobile/probot.iff"},
+	lootGroups = {},
+	conversationTemplate = "",
+	weapons = {"droid_probot_ranged"},
+	defaultAttack = "attack",
+
+}
+
+CreatureTemplates:addCreatureTemplate(subduer_drone, "subduer_drone")

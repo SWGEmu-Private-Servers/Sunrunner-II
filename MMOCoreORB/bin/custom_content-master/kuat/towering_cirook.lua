@@ -1,0 +1,41 @@
+towering_cirook = Creature:new {
+	objectName = "@mob/creature_names:towering_cirook",
+	socialGroup = "cirook",
+	faction = "",
+	level = 55,
+	chanceHit = 1,
+	damageMin = 420,
+	damageMax = 590,
+	baseXp = 5443,
+	baseHAM = 12550,
+	baseHAMmax = 14700,
+	armor = 1,
+	resists = {160,150,170,40,145,150,145,40,-1},
+	meatType = "meat_wild",
+	meatAmount = 200,
+	hideType = "hide_wooly",
+	hideAmount = 75,
+	boneType = "bone_mammal",
+	boneAmount = 50,
+	milk = 0,
+	tamingChance = 0.15,
+	ferocity = 0,
+	pvpBitmask = ATTACKABLE,
+	creatureBitmask = PACK + HERD,
+	optionsBitmask = AIENABLED,
+	diet = CARNIVORE,
+
+	templates = {"object/mobile/mamien_hue.iff"},
+	hues = { 32, 34, 35, 37, 45 },
+	controlDeviceTemplate = "object/intangible/pet/mamien_hue.iff",
+	scale = 3,
+	lootGroups = {},
+	weapons = {},
+	conversationTemplate = "",
+	attacks = {
+		{"creatureareaknockdown","stateAccuracyBonus=50"},
+		{"dizzyattack","stateAccuracyBonus=50"},
+	}
+}
+
+CreatureTemplates:addCreatureTemplate(towering_cirook, "towering_cirook")

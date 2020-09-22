@@ -1,0 +1,35 @@
+ddffred = Creature:new {
+	customName = "3D-FX (Decrepit Droid Factory)",
+	socialGroup = "townsperson",
+	faction = "",
+	level = 70,
+	chanceHit = 0.27,
+	damageMin = 550,
+	damageMax = 800,
+	baseXp = 235,
+	baseHAM = 16000,
+	baseHAMmax = 19000,
+	armor = 0,
+	resists = {0,0,0,0,0,0,0,-1,-1},
+	meatType = "",
+	meatAmount = 0,
+	hideType = "",
+	hideAmount = 0,
+	boneType = "",
+	boneAmount = 0,
+	milk = 0,
+	tamingChance = 0,
+	ferocity = 0,
+	pvpBitmask = NONE,
+	creatureBitmask = NONE,
+	optionsBitmask = AIENABLED + CONVERSABLE,
+	diet = HERBIVORE,
+
+	templates = {"object/mobile/ra7_bug_droid.iff"},
+	lootGroups = {},
+	weapons = {},
+	conversationTemplate = "ddffred_template",
+	attacks = {}
+}
+
+CreatureTemplates:addCreatureTemplate(ddffred, "ddffred")

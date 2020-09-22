@@ -1,0 +1,5 @@
+object_creature_npc_droid_crafted_mark_iv_sentry = object_creature_npc_droid_crafted_shared_mark_iv_sentry:new {
+
+}
+
+ObjectTemplates:addTemplate(object_creature_npc_droid_crafted_mark_iv_sentry, "object/creature/npc/droid/crafted/mark_iv_sentry.iff")

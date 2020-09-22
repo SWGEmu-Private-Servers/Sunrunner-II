@@ -1,0 +1,1 @@
+object_mobile_hoth_hog = object_mobile_shared_hoth_hog:new {}ObjectTemplates:addTemplate(object_mobile_hoth_hog, "object/mobile/hoth_hog.iff")

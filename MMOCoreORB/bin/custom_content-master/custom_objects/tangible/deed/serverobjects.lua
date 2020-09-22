@@ -1,0 +1,5 @@
+includeFile("../mobile/custom_content/custom_objects/tangible/deed/pet_deed/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/deed/player_house_deed/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/deed/vehicle_deed/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/deed/city_deed/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/deed/guild_deed/serverobjects.lua")

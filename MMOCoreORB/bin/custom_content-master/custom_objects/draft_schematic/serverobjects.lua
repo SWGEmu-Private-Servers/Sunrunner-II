@@ -1,0 +1,25 @@
+--Children folder includes
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/armor/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/bio_engineer/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/camp/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/chemistry/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/clothing/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/dance_prop/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/droid/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/furniture/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/genetic_engineering/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/instrument/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/item/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/munition/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/ranger/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/reverse_engineering/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/scout/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/space/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/spices/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/structure/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/vehicle/serverobjects.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/weapon/serverobjects.lua")
+
+-- Server Objects
+

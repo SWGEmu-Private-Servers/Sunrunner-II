@@ -1,0 +1,17 @@
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/eow_imperial_power_gen.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/eow_power_transformer_imperial.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/poi_all_lair_ice_shelter_small.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/poi_all_lair_ice_shelter_large.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_blistmok.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_lava_beetle.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_lava_flea.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_lava_lizard.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_lava_monster.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_mouf.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_tulrus.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_uller.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_walluga.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_web.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/lair/base/lair_xandank.lua")
+
+

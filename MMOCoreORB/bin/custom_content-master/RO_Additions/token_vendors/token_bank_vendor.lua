@@ -1,0 +1,39 @@
+-- Token System
+tokenBankVendor = Creature:new {
+	objectName = "",
+	customName = "Bank Of Skynet",
+	socialGroup = "",
+	faction = "",
+	level = 4,
+	chanceHit = 0.24,
+	damageMin = 40,
+	damageMax = 45,
+	baseXp = 0,
+	baseHAM = 113,
+	baseHAMmax = 138,
+	armor = 0,
+	resists = {0,0,0,0,0,0,0,-1,-1},
+	meatType = "",
+	meatAmount = 0,
+	hideType = "",
+	hideAmount = 0,
+	boneType = "",
+	boneAmount = 0,
+	milk = 0,
+	tamingChance = 0,
+	ferocity = 0,
+	pvpBitmask = NONE,
+	creatureBitmask = NONE,
+	optionsBitmask = INVULNERABLE + CONVERSABLE,
+	diet = HERBIVORE,
+
+	--templates = {"object/mobile/dressed_commoner_tatooine_devaronian_male_03.iff"},
+	templates = {"object/mobile/3po_protocol_droid_red.iff"},
+	lootGroups = {},
+	weapons = {},
+	conversationTemplate = "tokenBankVendorTemplate",
+	attacks = {
+	}
+}
+
+CreatureTemplates:addCreatureTemplate(tokenBankVendor, "tokenBankVendor")

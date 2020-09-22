@@ -1,0 +1,11 @@
+-- Server Objects
+includeFile("../mobile/custom_content/custom_objects/tangible/furniture/terminal/terminal_bank_floor_off_01.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/furniture/terminal/terminal_bank_floor_off_02.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/furniture/terminal/terminal_bank_floor_on_01.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/furniture/terminal/terminal_bank_floor_on_02.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/furniture/terminal/terminal_bank_wall_off_01.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/furniture/terminal/terminal_bank_wall_off_02.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/furniture/terminal/terminal_bank_wall_on_01.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/furniture/terminal/terminal_bank_wall_on_02.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/furniture/terminal/terminal_mini_vehicle.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/furniture/terminal/terminal_serving_droid.lua")

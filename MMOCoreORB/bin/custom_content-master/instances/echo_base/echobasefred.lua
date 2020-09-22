@@ -1,0 +1,35 @@
+echobasefred = Creature:new {
+	customName = "Mork (Echo Base)",
+	socialGroup = "imperial",
+	faction = "imperial",
+	level = 70,
+	chanceHit = 0.27,
+	damageMin = 550,
+	damageMax = 800,
+	baseXp = 235,
+	baseHAM = 16000,
+	baseHAMmax = 19000,
+	armor = 0,
+	resists = {0,0,0,0,0,0,0,-1,-1},
+	meatType = "",
+	meatAmount = 0,
+	hideType = "",
+	hideAmount = 0,
+	boneType = "",
+	boneAmount = 0,
+	milk = 0,
+	tamingChance = 0,
+	ferocity = 0,
+	pvpBitmask = NONE,
+	creatureBitmask = NONE,
+	optionsBitmask = AIENABLED + CONVERSABLE,
+	diet = HERBIVORE,
+
+	templates = {"object/mobile/dressed_brigade_sergeant_zabrak_male_01.iff"},
+	lootGroups = {},
+	weapons = {},
+	conversationTemplate = "echobasefred_template",
+	attacks = {}
+}
+
+CreatureTemplates:addCreatureTemplate(echobasefred, "echobasefred")

@@ -1,0 +1,5 @@
+includeFile("../mobile/custom_content/custom_objects/tangible/component/bio/base_bio_component_armor.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/component/bio/bio_component_armor_adenine.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/component/bio/bio_component_armor_cytosine.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/component/bio/bio_component_armor_guanine.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/component/bio/bio_component_armor_thymine.lua")

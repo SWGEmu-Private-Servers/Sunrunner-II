@@ -1,0 +1,5 @@
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/furniture/city/wod_floating_stones_city.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/furniture/city/wod_ns_wall.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/furniture/city/wod_sm_wall.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/furniture/city/wod_tower.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/furniture/city/wod_trilithon.lua")

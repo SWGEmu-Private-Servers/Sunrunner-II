@@ -1,0 +1,37 @@
+hoth_turret_s2 = Creature:new {
+	customName = "Echo Base Turret",
+	--objectName = "",
+	--randomNameType = NAME_GENERIC_TAG,
+	socialGroup = "townsperson",
+	faction = "rebel",
+	level = 1870,
+	chanceHit = 1,
+	damageMin = 1245,
+	damageMax = 1800,
+	baseXp = 9429,
+	baseHAM = 124000,
+	baseHAMmax = 150000,
+	armor = 0,
+	resists = {0,0,0,0,0,0,0,0,-1},
+	meatType = "",
+	meatAmount = 0,
+	hideType = "",
+	hideAmount = 0,
+	boneType = "",
+	boneAmount = 0,
+	milk = 0,
+	tamingChance = 0,
+	ferocity = 0,
+	pvpBitmask = ATTACKABLE + OVERT,
+	creatureBitmask = 0,
+	optionsBitmask = AIENABLED,
+	diet = HERBIVORE,
+
+	templates = {"object/mobile/hoth_turret_s2.iff"},
+	lootGroups = {},
+	defaultAttack = "defaultdroidattack",
+	defaultWeapon = "object/weapon/ranged/vehicle/vehicle_atst_ranged.iff",
+}
+
+CreatureTemplates:addCreatureTemplate(hoth_turret_s2, "hoth_turret_s2")
+

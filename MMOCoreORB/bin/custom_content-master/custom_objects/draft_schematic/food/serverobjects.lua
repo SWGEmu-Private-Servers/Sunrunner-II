@@ -1,0 +1,23 @@
+--Children folder includes
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/component/serverobjects.lua")
+
+-- Server Objects
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/bantha_surprise.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_blubbery_fish_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_coarse_fish_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_cooked_fish_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_cooked_meat_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_dry_fruit_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_fatty_fish_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_fatty_meat_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_juicy_fruit_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_sour_fruit_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_stringy_meat_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_sweet_fruit_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/beastfood_tender_meat_substitute.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/dish_kommerken_steak.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/dish_meat_jerky.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/drink_newbie_tea.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/drink_rancoraid.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/meatlump_lumps.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/food/synthetic_bait.lua")

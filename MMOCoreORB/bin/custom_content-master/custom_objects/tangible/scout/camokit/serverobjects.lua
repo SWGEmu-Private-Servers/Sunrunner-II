@@ -1,0 +1,8 @@
+includeFile("../mobile/custom_content/custom_objects/tangible/scout/camokit/camokit_kashyyyk.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/scout/camokit/camokit_kuat.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/scout/camokit/camokit_taanab.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/scout/camokit/camokit_nalhutta.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/scout/camokit/camokit_ordmantell.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/scout/camokit/camokit_hoth.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/scout/camokit/camokit_dagobah.lua")
+includeFile("../mobile/custom_content/custom_objects/tangible/scout/camokit/camokit_mustafar.lua")

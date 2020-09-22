@@ -1,0 +1,5 @@
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/space/armor/adv_mandal_armor_plating.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/space/armor/elite_armor.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/space/armor/gunship_armor_mk1.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/space/armor/gunship_armor_mk2.lua")
+includeFile("../mobile/custom_content/custom_objects/draft_schematic/space/armor/gunship_armor_mk3.lua")

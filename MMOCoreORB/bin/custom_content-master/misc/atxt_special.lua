@@ -1,0 +1,36 @@
+atxt_special = Creature:new {
+	objectName = "@mob/creature_names:at_xt",
+	socialGroup = "walker",
+	faction = "walker",
+	level = 100,
+	chanceHit = 35.75,
+	damageMin = 4650,
+	damageMax = 5000,
+	baseXp = 21728,
+	baseHAM = 12000,
+	baseHAMmax = 15000,
+	armor = 3,
+	resists = {95,95,-1,95,95,95,95,95,95},
+	meatType = "",
+	meatAmount = 0,
+	hideType = "",
+	hideAmount = 0,
+	boneType = "",
+	boneAmount = 0,
+	milk = 0,
+	tamingChance = 0,
+	ferocity = 0,
+	pvpBitmask = COMBATVEHICLE,
+	creatureBitmask = KILLER + PACK,
+	optionsBitmask = AIENABLED,
+	diet = HERBIVORE,
+
+	templates = {"object/mobile/atxt.iff"},
+	lootGroups = {},
+	conversationTemplate = "",
+	defaultAttack = "defaultdroidattack",
+	defaultWeapon = "object/weapon/ranged/vehicle/vehicle_atst_ranged.iff",
+
+}
+
+CreatureTemplates:addCreatureTemplate(atxt_special, "atxt_special")

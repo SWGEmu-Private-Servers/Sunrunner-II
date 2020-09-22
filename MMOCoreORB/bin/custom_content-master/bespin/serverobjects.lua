@@ -1,0 +1,11 @@
+includeFile("custom_content/bespin/lando.lua")
+includeFile("custom_content/bespin/ugnaught.lua")
+includeFile("custom_content/bespin/ugnaught_rebellious.lua")
+includeFile("custom_content/bespin/ugnaught_insane.lua")
+includeFile("custom_content/bespin/ugnaught_boss_01.lua")
+includeFile("custom_content/bespin/ugnaught_boss_02.lua")
+includeFile("custom_content/bespin/ugnaught_boss_03.lua")
+includeFile("custom_content/bespin/ugnaught_boss_04.lua")
+includeFile("custom_content/bespin/ugnaught_boss_05.lua")
+includeFile("custom_content/bespin/ugnaught_boss_06.lua")
+

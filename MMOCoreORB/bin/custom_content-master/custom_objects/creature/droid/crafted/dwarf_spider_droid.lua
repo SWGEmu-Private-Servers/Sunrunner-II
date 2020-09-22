@@ -1,0 +1,5 @@
+object_creature_npc_droid_crafted_dwarf_spider_droid = object_creature_npc_droid_crafted_shared_dwarf_spider_droid:new {
+
+}
+
+ObjectTemplates:addTemplate(object_creature_npc_droid_crafted_dwarf_spider_droid, "object/creature/npc/droid/crafted/dwarf_spider_droid.iff")
