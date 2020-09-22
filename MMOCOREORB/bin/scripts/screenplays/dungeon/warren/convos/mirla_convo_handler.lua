@@ -26,7 +26,7 @@ function MirlaConversationHandler:runScreenHandlers(pConvTemplate, pPlayer, pNpc
 				local pGhost = CreatureObject(pPlayer):getPlayerObject()
 
 				if (pGhost ~= nil) then
-					PlayerObject(pGhost):awardBadge(38) --Warren Compassion
+					PlayerObject(pGhost):awardBadge(155) --Warren Compassion
 				end
 			end
 		end
@@ -52,8 +52,8 @@ function MirlaConversationHandler:getInitialScreen(pPlayer, pNpc, pConvTemplate)
 		return convoTemplate:getScreen("mirla_start")
 	end
 
-	if (PlayerObject(pGhost):hasBadge(38)) then -- Compassion
-		if (PlayerObject(pGhost):hasBadge(39)) then -- Hero
+	if (PlayerObject(pGhost):hasBadge(155)) then -- Compassion
+		if (PlayerObject(pGhost):hasBadge(156)) then -- Hero
 			return convoTemplate:getScreen("mirla_done")
 		else
 			return convoTemplate:getScreen("mirla_get_teraud")

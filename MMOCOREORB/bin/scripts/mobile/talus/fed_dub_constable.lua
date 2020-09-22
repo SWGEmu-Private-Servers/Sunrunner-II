@@ -33,7 +33,8 @@ fed_dub_constable = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 3000000},
+				{group = "junk", chance = 2500000},
+				{group = "g_rigor_necklace", chance = 500000},
 				{group = "wearables_common", chance = 2000000},
 				{group = "carbines", chance = 2000000},
 				{group = "tailor_components", chance = 1500000},

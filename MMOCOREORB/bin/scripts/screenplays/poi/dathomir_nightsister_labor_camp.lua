@@ -9,17 +9,19 @@ NightSisterLaborCampScreenPlay = ScreenPlay:new {
 		164440
 	},
 	
-	lootLevel = 38,	
+	lootLevel = 48,	
 
 	lootGroups = {
 		{
 			groups = {
+				
 				{group = "color_crystals", chance = 3500000},
-				{group = "junk", chance = 3500000},
-				{group = "rifles", chance = 1000000},
-				{group = "pistols", chance = 1000000},
-				{group = "clothing_attachments", chance = 500000},
-				{group = "armor_attachments", chance = 500000}
+				{group = "nightsister_common", chance = 3500000},
+				{group = "power_crystals", chance = 1000000},
+				{group = "armor_attachments", chance = 800000},
+				{group = "clothing_attachments", chance = 900000},
+				{group = "g_magseal_accessories", chance = 210000},
+				--{group = "g_axkva_key", chance = 100000}
 			},
 			lootChance = 8000000
 		}					

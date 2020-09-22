@@ -3,20 +3,20 @@ deadly_hooded_rawl = Creature:new {
 	socialGroup = "rawl",
 	faction = "",
 	level = 12,
-	chanceHit = 0.29,
-	damageMin = 130,
-	damageMax = 140,
-	baseXp = 609,
-	baseHAM = 1200,
-	baseHAMmax = 1400,
+	chanceHit = 1.25,
+	damageMin = 140,
+	damageMax = 150,
+	baseXp = 1218,
+	baseHAM = 1500,
+	baseHAMmax = 1700,
 	armor = 0,
-	resists = {0,0,0,120,-1,0,0,0,-1},
+	resists = {135,130,120,120,135,120,170,130,-1},
 	meatType = "meat_reptilian",
-	meatAmount = 25,
+	meatAmount = 50,
 	hideType = "hide_scaley",
-	hideAmount = 15,
+	hideAmount = 30,
 	boneType = "bone_mammal",
-	boneAmount = 7,
+	boneAmount = 14,
 	milk = 0,
 	tamingChance = 0.05,
 	ferocity = 0,
@@ -32,8 +32,8 @@ deadly_hooded_rawl = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"posturedownattack",""},
-		{"mildpoison",""}
+		{"posturedownattack","stateAccuracyBonus=100"},
+		{"mildpoison","stateAccuracyBonus=100"}
 	}
 }
 

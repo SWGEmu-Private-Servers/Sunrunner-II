@@ -31,7 +31,8 @@ trandoshan_sif_02 = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 5000000},
+				{group = "junk", chance = 4500000},
+				{group = "g_precise_necklace", chance = 500000},
 				{group = "rifles", chance = 1000000},
 				{group = "pistols", chance = 1000000},
 				{group = "melee_weapons", chance = 1000000},

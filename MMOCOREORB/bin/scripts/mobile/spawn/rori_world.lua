@@ -1189,6 +1189,17 @@ rori_world = {
 			weighting = 15,
 			size = 25
 		},
+		
+		{		
+			lairTemplateName = "rori_torton_colossus",
+			spawnLimit = -1,
+			minDifficulty = 52,
+			maxDifficulty = 58,
+			numberToSpawn = 0,
+			weighting = 15,
+			size = 25
+		},
+
 	}
 }
 

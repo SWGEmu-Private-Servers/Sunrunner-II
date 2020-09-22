@@ -3,7 +3,7 @@ probot_crafted = Creature:new {
 	socialGroup = "",
 	faction = "",
 	level = 4,
-	chanceHit = 0.24,
+	chanceHit = 1.24,
 	damageMin = 147,
 	damageMax = 155,
 	baseXp = 0,
@@ -29,8 +29,9 @@ probot_crafted = Creature:new {
 		"object/creature/npc/droid/crafted/probe_droid.iff"
 	},
 	lootGroups = {},
-	defaultAttack = "attack",
+	defaultAttack = "creaturerangedattack",
 	weapons = {"droid_probot_ranged"},
+	attacks = merge(brawlernovice,marksmannovice,pistoleernovice),
 	conversationTemplate = "",
 }
 

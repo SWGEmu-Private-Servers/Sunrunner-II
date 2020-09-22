@@ -15,7 +15,7 @@ WoolamanderTempleScreenPlay = ScreenPlay:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "color_crystals", chance = 100000},
+				{group = "g_magseal_accessories", chance = 100000},
 				{group = "junk", chance = 8600000},
 				{group = "melee_weapons", chance = 1000000},
 				{group = "clothing_attachments", chance = 100000},

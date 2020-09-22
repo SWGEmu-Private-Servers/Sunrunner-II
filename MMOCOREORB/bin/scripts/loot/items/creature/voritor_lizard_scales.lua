@@ -3,15 +3,16 @@
 voritor_lizard_scales = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Voritor Tantel Armor Scale Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_enhancement_voritor_lizard.iff",
+	--tantel 1
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"energyeffectiveness",1,6,10},
-		{"kineticeffectiveness",1,7,10},
-		{"armor_action_encumbrance",4,0,0},
-		{"armor_mind_encumbrance",4,0,0},
-		{"useCount",1,10,0},
+		{"armor_effectiveness",4,12,10},
+		{"electricaleffectiveness",2,4,10},
+		{"heateffectiveness",2,4,10},
+		{"energyeffectiveness",2,4,10},
+		{"useCount",1,32,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

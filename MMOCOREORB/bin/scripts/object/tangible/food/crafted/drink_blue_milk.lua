@@ -50,12 +50,12 @@ object_tangible_food_crafted_drink_blue_milk = object_tangible_food_crafted_shar
 
 	effectType = 6,
 
-	fillingMin = 36,
-	fillingMax = 22,
+	fillingMin = 12,
+	fillingMax = 7,
 	flavorMin = 0,
 	flavorMax = 0,
-	nutritionMin = 295,
-	nutritionMax = 495,
+	nutritionMin = 395,
+	nutritionMax = 635,
 	quantityMin = 4,
 	quantityMax = 7,
 
@@ -70,8 +70,8 @@ object_tangible_food_crafted_drink_blue_milk = object_tangible_food_crafted_shar
 	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1},
 	experimentalGroupTitles = {"null", "null", "null", "null", "exp_nutrition", "exp_quantity", "exp_filling", "null"},
 	experimentalSubGroupTitles = {"null", "null", "hitpoints", "quantity_bonus", "nutrition", "quantity", "filling", "stomach"},
-	experimentalMin = {0, 0, 1000, 0, 75, 60, 80, 1},
-	experimentalMax = {0, 0, 1000, 0, 120, 100, 120, 1},
+	experimentalMin = {0, 0, 1000, 0, 100, 60, 80, 1},
+	experimentalMax = {0, 0, 1000, 0, 160, 100, 120, 1},
 	experimentalPrecision = {0, 0, 0, 0, 10, 10, 10, 0},
 	experimentalCombineType = {0, 0, 4, 1, 1, 1, 1, 1},
 }

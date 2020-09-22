@@ -58,7 +58,7 @@ object_draft_schematic_furniture_furniture_couch_blue = object_draft_schematic_f
 
    assemblySkill = "structure_assembly", 
    experimentingSkill = "structure_experimentation", 
-   customizationSkill = "structure_customization", 
+   customizationSkill = "structure_experimentation", 
 
    customizationOptions = {},
    customizationStringNames = {},
@@ -72,7 +72,7 @@ object_draft_schematic_furniture_furniture_couch_blue = object_draft_schematic_f
    contribution = {100, 100},
 
 
-   targetTemplate = "object/tangible/furniture/all/frn_all_couch_lg_s2.iff",
+   targetTemplate = "object/tangible/furniture/all/frn_all_couch_lg_hue_s2.iff",
 
    additionalTemplates = {
              }

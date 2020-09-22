@@ -3,13 +3,17 @@
 janta_hides = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Janta Chitin Armor Hide Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_enhancement_janta.iff",
+	--chitin 2
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"armor_effectiveness",3,8,10},
-		{"hitpoints",0,0,0,0},
-		{"useCount",1,7,0},
+		{"armor_effectiveness",2,15,10},
+		{"armor_integrity",1000,3000,0},
+		{"electricaleffectiveness",9,11,10},
+		{"heateffectiveness",9,15,10},
+		{"kineticeffectiveness",9,15,10},
+		{"useCount",1,24,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

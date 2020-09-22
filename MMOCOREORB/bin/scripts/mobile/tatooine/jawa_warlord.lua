@@ -31,7 +31,8 @@ jawa_warlord = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 5000000},
+				{group = "junk", chance = 4500000},
+				{group = "g_droid_assem_ring", chance = 500000},
 				{group = "jawa_common", chance = 1500000},
 				{group = "armor_all", chance = 800000},
 				{group = "tailor_components", chance = 1000000},

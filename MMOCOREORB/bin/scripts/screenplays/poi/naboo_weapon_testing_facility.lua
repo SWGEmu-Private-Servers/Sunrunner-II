@@ -194,6 +194,7 @@ function WeaponFacilityScreenPlay:spawnImperials(pBuilding)
 	BuildingObject(pBuilding):spawnChildCreature("dark_trooper", 300, -7.0, -20.0, 76.0, 124, 6335659)
 	BuildingObject(pBuilding):spawnChildCreature("imperial_colonel", 300, 2.3, -20.0, 74.5, -136, 6335659)
 	BuildingObject(pBuilding):spawnChildCreature("dark_trooper", 300, 2.2, -20.0, 67.2, -56, 6335659)
+	BuildingObject(pBuilding):spawnChildCreature("dark_trooper", 300, -8.6, -20.0, 71.1, 88, 6335659)
 
 	--Cell [6335650]
 	BuildingObject(pBuilding):spawnChildCreature("dark_trooper", 300, 73.7, -12.0, 58.6, 89, 6335650)
@@ -378,9 +379,10 @@ function WeaponFacilityScreenPlay:spawnRebels(pBuilding)
 
 	--Cell [6335659]
 	BuildingObject(pBuilding):spawnChildCreature("rebel_warrant_officer_i", 300, -3.7, -20.0, 64.8, 163, 6335659)
-	BuildingObject(pBuilding):spawnChildCreature("senior_specforce_infiltrator", 300, -4.0, -20.0, 72.8, -158, 6335659)
+	BuildingObject(pBuilding):spawnChildCreature("rebel_second_lieutenant", 300, -4.0, -20.0, 72.8, -158, 6335659)
 	BuildingObject(pBuilding):spawnChildCreature("rebel_colonel", 300, 1.1, -20.0, 76.4, 31, 6335659)
-	BuildingObject(pBuilding):spawnChildCreature("senior_specforce_infiltrator", 300, 3.4, -20.0, 64.8, 166, 6335659)
+	BuildingObject(pBuilding):spawnChildCreature("rebel_second_lieutenant", 300, 3.4, -20.0, 64.8, 166, 6335659)
+	BuildingObject(pBuilding):spawnChildCreature("rebel_second_lieutenant", 300, -8.6, -20.0, 71.1, 88, 6335659)
 
 	--Cell [6335650]
 	BuildingObject(pBuilding):spawnChildCreature("senior_specforce_infiltrator", 300, 69.4, -12.0, 59.7, -15, 6335650)

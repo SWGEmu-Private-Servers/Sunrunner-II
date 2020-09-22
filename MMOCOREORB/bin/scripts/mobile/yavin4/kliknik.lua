@@ -14,7 +14,7 @@ kliknik = Creature:new {
 	meatType = "meat_carnivore",
 	meatAmount = 5,
 	hideType = "hide_scaley",
-	hideAmount = 4,
+	hideAmount = 80,
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
@@ -28,13 +28,13 @@ kliknik = Creature:new {
 	templates = {"object/mobile/kliknik_hue.iff"},
 	hues = { 0, 1, 2, 3, 4, 5, 6, 7 },
 	controlDeviceTemplate = "object/intangible/pet/kliknik_hue.iff",
-	scale = 0.9,
+	scale = 1.4,
 	lootGroups = {
 	    {
 	        groups = {
 				{group = "kliknik_common", chance = 10000000}
 			},
-			lootChance = 1360000
+			lootChance = 5360000
 		}
 	},
 	weapons = {"creature_spit_small_yellow"},

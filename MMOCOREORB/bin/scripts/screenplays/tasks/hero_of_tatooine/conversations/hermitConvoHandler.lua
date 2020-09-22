@@ -81,7 +81,7 @@ function heroOfTatHermitConvoHandler:runScreenHandlers(pConvTemplate, pPlayer, p
 			end
 		end
 
-		PlayerObject(pGhost):awardBadge(11)
+		PlayerObject(pGhost):awardBadge(148)
 		CreatureObject(pPlayer):setScreenPlayState(64, "hero_of_tatooine")
 		CreatureObject(pNpc):doAnimation("worship")
 	elseif (screenID == "return_intro") then

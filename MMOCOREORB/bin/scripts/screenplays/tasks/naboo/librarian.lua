@@ -85,7 +85,7 @@ function librarian_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc, selec
 	end
 
 	if (screenID == "done") then
-		PlayerObject(pGhost):awardBadge(111)
+		PlayerObject(pGhost):awardBadge(165)
 	end
 
 	return pConvScreen

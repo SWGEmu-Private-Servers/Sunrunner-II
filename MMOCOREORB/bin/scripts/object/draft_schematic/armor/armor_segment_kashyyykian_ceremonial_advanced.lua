@@ -50,7 +50,7 @@ object_draft_schematic_armor_armor_segment_kashyyykian_ceremonial_advanced = obj
 	craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 21,
 	size = 0,
-	factoryCrateSize = 50,
+	factoryCrateSize = 1000,
 
 	xpType = "crafting_clothing_armor",
 	xp = 60,
@@ -66,7 +66,7 @@ object_draft_schematic_armor_armor_segment_kashyyykian_ceremonial_advanced = obj
 	ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
 	ingredientTitleNames = {"armor_segment_ceremonial", "segment_mounting_tabs", "segment_enhancement"},
 	ingredientSlotType = {0, 0, 3},
-	resourceTypes = {"hide_leathery_yavin4", "wood_deciduous_endor", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
+	resourceTypes = {"hide_leathery_yavin4", "wood_deciduous_endor", "object/tangible/component/armor/shared_base_armor_segment_enhancement_wook.iff"},
 	resourceQuantities = {8, 25, 1},
 	contribution = {100, 100, 100},
 

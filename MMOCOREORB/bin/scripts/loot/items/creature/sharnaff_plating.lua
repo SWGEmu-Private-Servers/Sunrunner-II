@@ -3,16 +3,16 @@
 sharnaff_plating = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Sharnaff Composite Armor Plate Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_enhancement_sharnaff.iff",
+	--composite 1
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"acideffectiveness",2,4,10},
-		{"heateffectiveness",2,4,10},
-		{"coldeffectiveness",2,4,10},
-		{"armor_action_encumbrance",5,0,0},
-		{"armor_mind_encumbrance",4,-1,0},
-		{"useCount",1,10,0},
+		{"armor_effectiveness",2,12,10},
+		{"electricaleffectiveness",2,8,10},
+		{"energyeffectiveness",2,8,10},
+		{"kineticeffectiveness",2,8,10},
+		{"useCount",1,32,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

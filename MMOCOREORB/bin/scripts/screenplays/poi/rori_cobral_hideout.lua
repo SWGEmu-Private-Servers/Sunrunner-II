@@ -17,7 +17,7 @@ CobralHideoutScreenPlay = ScreenPlay:new {
         lootGroups = {
                 {
                         groups = {
-                                {group = "color_crystals", chance = 100000},
+                                {group = "g_magseal_accessories", chance = 100000},
                                 {group = "junk", chance = 5500000},
                                 {group = "melee_weapons", chance = 1500000},
 				{group = "heavy_weapons_consumable", chance = 800000},

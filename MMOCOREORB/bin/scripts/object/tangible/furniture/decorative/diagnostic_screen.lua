@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_decorative_diagnostic_screen = object_tangible_furniture_decorative_shared_diagnostic_screen:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_furniture_decorative_diagnostic_screen, "object/tangible/furniture/decorative/diagnostic_screen.iff")

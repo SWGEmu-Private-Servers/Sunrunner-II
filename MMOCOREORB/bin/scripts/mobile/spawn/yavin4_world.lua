@@ -2,6 +2,24 @@ yavin4_world = {
 
 	lairSpawns = {
 		{
+			lairTemplateName = "yavin4_acklay",
+			spawnLimit = 3,
+			minDifficulty = 68,
+			maxDifficulty = 72,
+			numberToSpawn = 0,
+			weighting = 2,
+			size = 20
+		},
+		{
+			lairTemplateName = "yavin_geonosians",
+			spawnLimit = 3,
+			minDifficulty = 64,
+			maxDifficulty = 72,
+			numberToSpawn = 0,
+			weighting = 5,
+			size = 20
+		},
+		{
 			lairTemplateName = "yavin4_tanc_herd_neutral_none",
 			spawnLimit = -1,
 			minDifficulty = 2,

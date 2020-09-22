@@ -14,7 +14,7 @@ kliknik_hunter = Creature:new {
 	meatType = "meat_carnivore",
 	meatAmount = 6,
 	hideType = "hide_scaley",
-	hideAmount = 4,
+	hideAmount = 60,
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
@@ -34,7 +34,7 @@ kliknik_hunter = Creature:new {
 	        groups = {
 				{group = "kliknik_common", chance = 10000000}
 			},
-			lootChance = 1640000
+			lootChance = 5640000
 		}
 	},
 	weapons = {"creature_spit_small_yellow"},

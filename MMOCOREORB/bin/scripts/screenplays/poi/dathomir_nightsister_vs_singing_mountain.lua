@@ -19,8 +19,9 @@ NightSisterVsSingingMountainClanScreenPlay = ScreenPlay:new {
 				{group = "junk", chance = 3500000},
 				{group = "rifles", chance = 1000000},
 				{group = "pistols", chance = 1000000},
-				{group = "clothing_attachments", chance = 500000},
-				{group = "armor_attachments", chance = 500000}
+				{group = "clothing_attachments", chance = 400000},
+				{group = "armor_attachments", chance = 400000},
+				{group = "g_magseal_accessories", chance = 200000}
 			},
 			lootChance = 8000000
 		}					

@@ -39,9 +39,10 @@ singing_mountain_clan_rancor_tamer = Creature:new {
 				{group = "melee_weapons", chance = 2800000},
 				{group = "rifles", chance = 1000000},
 				{group = "pistols", chance = 1000000},
-				{group = "carbines", chance = 1000000},
-				{group = "wearables_uncommon", chance = 500000},
-				{group = "tailor_components", chance = 500000}
+				{group = "carbines", chance = 500000},
+				{group = "g_smc_vibro_unit", chance = 500000},
+				{group = "g_smc_clothes", chance = 500000},
+				{group = "g_tamer_bracelet_r", chance = 500000}
 			}
 		}
 	},

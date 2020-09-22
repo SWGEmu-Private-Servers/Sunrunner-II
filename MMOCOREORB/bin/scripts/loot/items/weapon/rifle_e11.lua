@@ -10,7 +10,7 @@ rifle_e11 = {
 		{"maxdamage",76,144,0},
 		{"attackspeed",7.4,5.1,0},
 		{"woundchance",14,36,0},
-		{"hitpoints",750,750,0},
+		{"hitpoints",750,1500,0},
 		{"attackhealthcost",19,12,0},
 		{"attackactioncost",31,23,0},
 		{"attackmindcost",47,28,0},
@@ -24,7 +24,7 @@ rifle_e11 = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 750,
+	randomDotChance = 999,
 	junkDealerTypeNeeded = JUNKARMS,
 	junkMinValue = 25,
 	junkMaxValue = 45

@@ -3,18 +3,16 @@
 sharnaff_plating_segment = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Sharnaff Padded Armor Plate Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_chitin_sharnaff.iff",
+	--padded 1
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"armor_effectiveness",7,15,10},
-		{"armor_integrity",800,1500,0},
-		{"acideffectiveness",3,11,10},
-		{"heateffectiveness",3,11,10},
-		{"coldeffectiveness",3,11,10},
-		{"armor_action_encumbrance",22,18,0},
-		{"armor_mind_encumbrance",23,10,0},
-		{"useCount",1,10,0},
+		{"armor_effectiveness",4,12,10},
+		{"electricaleffectiveness",2,4,10},
+		{"blasteffectiveness",2,4,10},
+		{"kineticeffectiveness",2,8,10},
+		{"useCount",1,32,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

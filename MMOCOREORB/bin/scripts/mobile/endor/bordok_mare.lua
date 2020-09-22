@@ -19,7 +19,7 @@ bordok_mare = Creature:new {
 	boneAmount = 125,
 	milkType = "milk_wild",
 	milk = 135,
-	tamingChance = 0,
+	tamingChance = 0.01,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -27,6 +27,7 @@ bordok_mare = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/bordok_hue.iff"},
+	controlDeviceTemplate = "object/intangible/pet/bordok_hue.iff",
 	hues = { 8, 9, 10, 11, 12, 13, 14, 15 },
 	lootGroups = {},
 	weapons = {},

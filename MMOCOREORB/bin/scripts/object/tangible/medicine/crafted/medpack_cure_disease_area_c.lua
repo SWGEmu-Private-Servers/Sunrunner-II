@@ -44,9 +44,9 @@
 object_tangible_medicine_crafted_medpack_cure_disease_area_c = object_tangible_medicine_crafted_shared_medpack_cure_disease_area_c:new {
 	gameObjectType = 8239,
 	templateType = CUREPACK,
-	useCount = 10,
+	useCount = 50,
 	medicineUse = 5,
-	effectiveness = 100,
+	effectiveness = 500,
 	state = DISEASED,
 	commandToExecute = "curedisease",
 	area = 5,

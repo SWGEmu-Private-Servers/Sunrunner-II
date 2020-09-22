@@ -53,7 +53,7 @@ object_draft_schematic_bio_engineer_creature_creature_fambaa = object_draft_sche
    size = 1, 
 
    xpType = "crafting_bio_engineer_creature", 
-   xp = 380, 
+   xp = 480, 
 
    assemblySkill = "bio_engineer_assembly", 
    experimentingSkill = "bio_engineer_experimentation", 
@@ -66,8 +66,8 @@ object_draft_schematic_bio_engineer_creature_creature_fambaa = object_draft_sche
    ingredientTemplateNames = {"craft_creature_ingredients_n", "craft_creature_ingredients_n", "craft_creature_ingredients_n"},
    ingredientTitleNames = {"dna_template", "protein_base", "organic_nutrition_materials"},
    ingredientSlotType = {1, 0, 0},
-   resourceTypes = {"object/tangible/component/dna/shared_dna_template_generic.iff", "creature_food", "flora_food"},
-   resourceQuantities = {1, 85, 125},
+   resourceTypes = {"object/tangible/component/dna/shared_dna_template_generic.iff", "meat_herbivore_naboo", "wheat_domesticated_naboo"},
+   resourceQuantities = {1, 485, 325},
    contribution = {100, 100, 100},
 
 

@@ -3,14 +3,16 @@
 brackaset_plates = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Brackaset Ubese Armor Plate Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_enhancement_brackaset.iff",
+	--ubese 1
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"blasteffectiveness",4,12,10},
-		{"armor_action_encumbrance",17,6,0},
-		{"armor_mind_encumbrance",20,5,0},
-		{"useCount",1,7,0},
+		{"armor_effectiveness",2,12,10},
+		{"electricaleffectiveness",2,4,10},
+		{"energyeffectiveness",2,4,10},
+		{"coldeffectiveness",2,4,10},
+		{"useCount",1,32,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

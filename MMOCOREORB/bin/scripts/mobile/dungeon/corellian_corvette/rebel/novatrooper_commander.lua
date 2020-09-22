@@ -31,19 +31,16 @@ novatrooper_commander = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "color_crystals", chance = 100000},
-				{group = "junk", chance = 6200000},
-				{group = "rifles", chance = 550000},
-				{group = "pistols", chance = 550000},
-				{group = "melee_weapons", chance = 550000},
-				{group = "carbines", chance = 550000},
-				{group = "clothing_attachments", chance = 25000},
-				{group = "armor_attachments", chance = 25000},
-				{group = "imperial_officer_common", chance = 450000},
-				{group = "wearables_rare", chance = 1000000}
+				{group = "g_rifle_deathtroopers", chance = 1500000},
+				{group = "g_pistol_deathhammer", chance = 1500000},
+				{group = "carbines", chance = 1500000},
+				{group = "clothing_attachments", chance = 2000000},
+				{group = "armor_attachments", chance = 2000000},
+				{group = "imperial_officer_common", chance = 1500000},
 			}
 		}
 	},
+
 	weapons = {"stormtrooper_weapons"},
 	conversationTemplate = "",
 	reactionStf = "@npc_reaction/stormtrooper",

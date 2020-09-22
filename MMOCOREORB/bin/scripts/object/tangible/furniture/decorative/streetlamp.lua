@@ -42,6 +42,7 @@
 
 
 object_tangible_furniture_decorative_streetlamp = object_tangible_furniture_decorative_shared_streetlamp:new {
+	objectMenuComponent = "CityDecorationMenuComponent",
 	numberExperimentalProperties = {1, 1, 1, 2},
 	experimentalProperties = {"XX", "XX", "XX", "DR", "OQ"},
 	experimentalWeights = {1, 1, 1, 1, 1},

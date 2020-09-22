@@ -10,20 +10,18 @@ CanyonCorsairsStrongholdScreenPlay = ScreenPlay:new {
 		568665
 	},
 	
-	lootLevel = 32,	
+	lootLevel = 42,	
 
 	lootGroups = {
 		{
 			groups = {
-				{group = "color_crystals", chance = 2500000},
-				{group = "junk", chance = 2500000},
-				{group = "melee_two_handed", chance = 800000},
-				{group = "heavy_weapons_consumable", chance = 800000},
-				{group = "rifles", chance = 800000},
-				{group = "carbines", chance = 800000},
-				{group = "pistols", chance = 800000},
-				{group = "clothing_attachments", chance = 500000},
-				{group = "armor_attachments", chance = 500000}
+				{group = "rifles", chance = 3500000},
+				{group = "canyon_corsair_common", chance = 3500000},
+				{group = "heavy_weapons_consumable", chance = 1000000},
+				{group = "armor_attachments", chance = 800000},
+				{group = "clothing_attachments", chance = 900000},
+				{group = "g_ig_key", chance = 100000},
+				{group = "g_magseal_accessories", chance = 200000}
 			},
 			lootChance = 8000000
 		}					

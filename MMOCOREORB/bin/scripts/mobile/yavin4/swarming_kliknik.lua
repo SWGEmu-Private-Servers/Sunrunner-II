@@ -12,9 +12,9 @@ swarming_kliknik = Creature:new {
 	armor = 0,
 	resists = {120,0,0,-1,0,-1,0,-1,-1},
 	meatType = "meat_carnivore",
-	meatAmount = 5,
+	meatAmount = 64,
 	hideType = "hide_scaley",
-	hideAmount = 4,
+	hideAmount = 44,
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
@@ -33,7 +33,7 @@ swarming_kliknik = Creature:new {
 	        groups = {
 				{group = "kliknik_common", chance = 10000000}
 			},
-			lootChance = 1200000
+			lootChance = 4200000
 		}
 	},
 	weapons = {"creature_spit_small_yellow"},

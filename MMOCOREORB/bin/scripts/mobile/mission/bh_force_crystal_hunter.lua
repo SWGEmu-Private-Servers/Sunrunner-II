@@ -31,8 +31,10 @@ bh_force_crystal_hunter = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 2500000},
-				{group = "tailor_components", chance = 500000},
+				{group = "junk", chance = 1500000},
+				{group = "g_tempest_ring", chance = 500000},
+				{group = "g_blistering_ring", chance = 500000},
+				{group = "g_blistering_necklace", chance = 500000},
 				{group = "loot_kit_parts", chance = 500000},
 				{group = "color_crystals", chance = 500000},
 				{group = "power_crystals", chance = 1000000},
@@ -46,8 +48,10 @@ bh_force_crystal_hunter = Creature:new {
 		},
 		{
 			groups = {
-				{group = "junk", chance = 2500000},
-				{group = "tailor_components", chance = 500000},
+				{group = "junk", chance = 1500000},
+				{group = "g_tempest_ring", chance = 500000},
+				{group = "g_blistering_ring", chance = 500000},
+				{group = "g_blistering_necklace", chance = 500000},
 				{group = "loot_kit_parts", chance = 500000},
 				{group = "color_crystals", chance = 500000},
 				{group = "power_crystals", chance = 1000000},
@@ -61,8 +65,10 @@ bh_force_crystal_hunter = Creature:new {
 		},
 		{
 			groups = {
-				{group = "junk", chance = 2500000},
-				{group = "tailor_components", chance = 500000},
+				{group = "junk", chance = 1500000},
+				{group = "g_tempest_ring", chance = 500000},
+				{group = "g_blistering_ring", chance = 500000},
+				{group = "g_blistering_necklace", chance = 500000},
 				{group = "loot_kit_parts", chance = 500000},
 				{group = "color_crystals", chance = 500000},
 				{group = "power_crystals", chance = 500000},

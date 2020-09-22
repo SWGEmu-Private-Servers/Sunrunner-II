@@ -33,7 +33,7 @@ trainer_imagedesigner = Creature:new {
 	},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "imagedesignerTrainerConvoTemplate",
+	conversationTemplate = "entertainerTrainerConvoTemplate",
 	attacks = {}
 }
 CreatureTemplates:addCreatureTemplate(trainer_imagedesigner,"trainer_imagedesigner")

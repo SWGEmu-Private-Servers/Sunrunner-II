@@ -3,14 +3,14 @@ king_merek_harvester = Creature:new {
 	socialGroup = "merek",
 	faction = "",
 	level = 50,
-	chanceHit = 0.5,
+	chanceHit = 1.5,
 	damageMin = 395,
 	damageMax = 500,
 	baseXp = 4916,
-	baseHAM = 10000,
-	baseHAMmax = 13000,
+	baseHAM = 11000,
+	baseHAMmax = 14000,
 	armor = 1,
-	resists = {160,-1,5,200,150,5,150,5,-1},
+	resists = {160,145,155,200,150,145,150,150,-1},
 	meatType = "meat_wild",
 	meatAmount = 65,
 	hideType = "hide_leathery",
@@ -18,7 +18,7 @@ king_merek_harvester = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.03,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + HERD + KILLER,
@@ -27,13 +27,14 @@ king_merek_harvester = Creature:new {
 
 	templates = {"object/mobile/king_merek_harvester.iff"},
 	hues = { 8, 9, 10, 11, 12, 13, 14, 15 },
+	controlDeviceTemplate = "object/intangible/pet/merek_hue.iff",
 	scale = 1.1,
 	lootGroups = {},
 	weapons = {"creature_spit_small_red"},
 	conversationTemplate = "",
 	attacks = {
-		{"creatureareapoison",""},
-		{"blindattack",""}
+		{"creatureareapoison","stateAccuracyBonus=50"},
+		{"blindattack","stateAccuracyBonus=50"}
 	}
 }
 

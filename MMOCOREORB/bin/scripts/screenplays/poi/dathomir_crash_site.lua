@@ -15,7 +15,7 @@ DathomirCrashSiteScreenPlay = ScreenPlay:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "color_crystals", chance = 700000},
+				{group = "g_magseal_accessories", chance = 700000},
 				{group = "junk", chance = 6300000},
 				{group = "heavy_weapons_consumable", chance = 600000},
 				{group = "rifles", chance = 600000},

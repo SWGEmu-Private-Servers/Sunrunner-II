@@ -45,6 +45,7 @@ object_installation_generators_power_generator_photo_bio_style_1 = object_instal
 	lotSize = 1,
 	baseMaintenanceRate = 60,
 	basePowerRate = 0,
+	allowedZones = {"corellia", "dantooine", "dathomir", "endor", "lok", "naboo", "rori", "talus", "tatooine", "yavin4", "taanab", "nalhutta", "kuat", "ordmantell", "ghomrassen", "mustafar", "kashyyyk", "hoth"},
 	width = 3,
 	length = 3,
 	objectMenuComponent = "InstallationObjectMenuComponent"

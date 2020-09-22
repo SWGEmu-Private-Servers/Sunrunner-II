@@ -3,20 +3,20 @@ toxic_slasher = Creature:new {
 	socialGroup = "vir_vur",
 	faction = "",
 	level = 15,
-	chanceHit = 0.31,
-	damageMin = 170,
+	chanceHit = 1.25,
+	damageMin = 180,
 	damageMax = 180,
-	baseXp = 831,
-	baseHAM = 1200,
-	baseHAMmax = 1400,
+	baseXp = 1731,
+	baseHAM = 1500,
+	baseHAMmax = 1700,
 	armor = 0,
-	resists = {110,0,0,0,0,-1,0,-1,-1},
+	resists = {130,120,130,120,140,140,0,110,-1},
 	meatType = "meat_avian",
-	meatAmount = 10,
+	meatAmount = 20,
 	hideType = "hide_wooly",
-	hideAmount = 10,
+	hideAmount = 20,
 	boneType = "bone_mammal",
-	boneAmount = 2,
+	boneAmount = 4,
 	milk = 0,
 	tamingChance = 0.05,
 	ferocity = 0,
@@ -32,8 +32,8 @@ toxic_slasher = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"mildpoison",""},
-		{"posturedownattack",""}
+		{"mildpoison","stateAccuracyBonus=100"},
+		{"posturedownattack","stateAccuracyBonus=100"}
 	}
 }
 

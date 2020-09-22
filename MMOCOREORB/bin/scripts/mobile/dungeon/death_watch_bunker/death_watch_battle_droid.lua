@@ -33,9 +33,11 @@ death_watch_battle_droid = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "death_watch_bunker_commoners", chance = 10000000}
+				{group = "death_watch_bunker_commoners", chance = 9400000},
+				{group = "g_carbine_e5", chance = 500000},
+				{group = "g_stap_speeder", chance = 50000},
+				{group = "g_power_plant_stap", chance = 50000},
 			},
-			lootChance = 500000
 		}
 	},
 	weapons = {"battle_droid_weapons"},

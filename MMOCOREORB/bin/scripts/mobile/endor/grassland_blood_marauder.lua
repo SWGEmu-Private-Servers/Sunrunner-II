@@ -36,15 +36,16 @@ grassland_blood_marauder = Creature:new {
 				{group = "carbines", chance = 750000},
 				{group = "rifles", chance = 750000},
 				{group = "melee_baton", chance = 1000000},
-				{group = "loot_kit_parts", chance = 1000000},
+				{group = "g_sword_marauder", chance = 1000000},
 				{group = "armor_attachments", chance = 500000},
 				{group = "clothing_attachments", chance = 500000},
-				{group = "bone_armor", chance = 800000},
-				{group = "chitin_armor", chance = 800000},
-				{group = "mabari_armor", chance = 800000},
-				{group = "tantel_armor", chance = 800000},
-				{group = "ubese_armor", chance = 800000},
-				{group = "color_crystals", chance = 750000},
+				{group = "bone_armor", chance = 700000},
+				{group = "chitin_armor", chance = 700000},
+				{group = "mabari_armor", chance = 700000},
+				{group = "tantel_armor", chance = 700000},
+				{group = "marauder_armor", chance = 950000},
+				{group = "g_balance_bracelet_r", chance = 500000},
+				{group = "g_balance_bracelet_l", chance = 500000}
 			}
 		}
 	},

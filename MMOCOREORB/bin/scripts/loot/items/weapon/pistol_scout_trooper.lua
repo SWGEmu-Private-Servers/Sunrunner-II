@@ -10,7 +10,7 @@ pistol_scout_trooper = {
 		{"maxdamage",46,98,0},
 		{"attackspeed",5.6,3,0},
 		{"woundchance",3.6,8.7,0},
-		{"hitpoints",750,750,0},
+		{"hitpoints",750,1500,0},
 		{"attackhealthcost",20,11,0},
 		{"attackactioncost",31,19,0},
 		{"attackmindcost",20,11,0},
@@ -24,7 +24,7 @@ pistol_scout_trooper = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 625,
+	randomDotChance = 999,
 	junkDealerTypeNeeded = JUNKARMS,
 	junkMinValue = 20,
 	junkMaxValue = 60

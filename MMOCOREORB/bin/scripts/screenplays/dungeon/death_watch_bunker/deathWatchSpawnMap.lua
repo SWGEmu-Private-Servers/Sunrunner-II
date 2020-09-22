@@ -72,7 +72,7 @@ deathWatchPatrolPoints = {
 }
 
 deathWatchStaticSpawns = {
-	{"death_watch_overlord", 300, 118, -64, -94, -135, 5996349},
+	--{"death_watch_overlord", 300, 118, -64, -94, -135, 5996349},
 	{"death_watch_s_battle_droid", 300, 110, -64, -92, 150, 5996349},
 	{"death_watch_ghost", 300, 116, -64, -101, -156, 5996349},
 	{"death_watch_wraith", 300, 113, -64, -100.7, -36, 5996349},

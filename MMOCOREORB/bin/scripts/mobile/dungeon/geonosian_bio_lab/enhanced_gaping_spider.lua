@@ -3,13 +3,13 @@ enhanced_gaping_spider = Creature:new {
 	customName = "Fire Breathing Spider",
 	socialGroup = "geonosian_creature",
 	faction = "",
-	level = 108,
-	chanceHit = 2.5,
-	damageMin = 715,
-	damageMax = 1140,
-	baseXp = 10267,
-	baseHAM = 32000,
-	baseHAMmax = 39000,
+	level = 187,
+	chanceHit = 90.5,
+	damageMin = 1215,
+	damageMax = 1940,
+	baseXp = 12267,
+	baseHAM = 122000,
+	baseHAMmax = 139000,
 	armor = 2,
 	resists = {150,10,-1,195,-1,10,10,10,-1},
 	meatType = "meat_insect",
@@ -32,8 +32,15 @@ enhanced_gaping_spider = Creature:new {
 		{
 			groups = {
 				{group = "fire_breathing_spider", chance = 10000000}
-			}
-		}
+			},
+			lootchance = 10000000
+		},
+		{
+			groups = {
+				{group = "fire_breathing_spider", chance = 10000000}
+			},
+			lootchance = 7500000
+		},
 	},
 	weapons = {"creature_spit_heavy_flame"},
 	conversationTemplate = "",

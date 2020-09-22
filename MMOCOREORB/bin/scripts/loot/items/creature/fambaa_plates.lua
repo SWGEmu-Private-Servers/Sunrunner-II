@@ -3,15 +3,17 @@
 fambaa_plates = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Fambaa Mabari Armor Plate Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_enhancement_fambaa.iff",
+	--mabari 2
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"coldeffectiveness",2,4,10},
-		{"armor_health_encumbrance",2,-2,0},
-		{"armor_action_encumbrance",2,-2,0},
-		{"armor_mind_encumbrance",2,-2,0},
-		{"useCount",1,10,0},
+		{"armor_effectiveness",4,17,10},
+		{"armor_integrity",1000,5000,0},
+		{"electricaleffectiveness",2,12,10},
+		{"heateffectiveness",2,12,10},
+		{"kineticeffectiveness",2,16,10},
+		{"useCount",1,24,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

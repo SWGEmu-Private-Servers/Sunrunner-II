@@ -6,8 +6,8 @@ jagged_vibroblade = {
 	customObjectName = "",
 	directObjectTemplate = "object/weapon/melee/knife/knife_vibroblade_quest.iff",
 	craftingValues = {
-		{"mindamage",15,15,0},
-		{"maxdamage",90,90,0},
+		{"mindamage",15,42,0},
+		{"maxdamage",120,195,0},
 		{"attackspeed",3.2,3.2,1},
 		{"woundchance",8,8,1},
 		{"zerorangemod",5,5,0},
@@ -20,7 +20,7 @@ jagged_vibroblade = {
 		{"attackmindcost",5,5,0},
 	},
 	skillMods = {
-		{ "berserk", 5 }
+		{ "berserk", 15 }
 	},
 	customizationStringNames = {},
 	customizationValues = {},
@@ -37,9 +37,9 @@ jagged_vibroblade = {
 	-- staticDotValues: Object map that can randomly or statically generate a dot (used for weapon objects.)
 	staticDotValues = {
 		{"attribute", 0, 0}, -- See CreatureAttributes.h in src for numbers.
-		{"strength", 75, 75},
+		{"strength", 115, 115},
 		{"duration", 80, 80},
-		{"potency", 60, 60},
+		{"potency", 90, 90},
 		{"uses", 9999, 9999}
 	}
 

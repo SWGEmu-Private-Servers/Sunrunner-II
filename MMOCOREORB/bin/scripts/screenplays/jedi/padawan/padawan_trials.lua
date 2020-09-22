@@ -233,11 +233,11 @@ function PadawanTrials:startTrial(pPlayer, trialNum, skipNotification)
 	end
 
 	if (trialData.trialName == "artist") then
-		planetName = "naboo"
+		planetName = "dagobah"
 	end
 
 	local randomCityTable = trialsCivilizedPlanetCities[planetName]
-	local randomCity = randomCityTable[getRandomNumber(1, #randomCityTable)]
+	local randomCity = randomCityTable
 
 	if (trialData.trialLoc ~= nil) then
 		local locData = trialData.trialLoc
@@ -250,7 +250,7 @@ function PadawanTrials:startTrial(pPlayer, trialNum, skipNotification)
 			randomCity = locData[5]
 		else
 			randomCityTable = trialsCivilizedPlanetCities[planetName]
-			randomCity = randomCityTable[getRandomNumber(1, #randomCityTable)]
+			randomCity = randomCityTable
 		end
 	end
 

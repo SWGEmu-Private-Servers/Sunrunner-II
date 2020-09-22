@@ -44,7 +44,8 @@ meatlump_stooge = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 2900000},
+				{group = "junk", chance = 2400000},
+				{group = "g_brisk_ring", chance = 500000},
 				{group = "loot_kit_parts", chance = 1500000},
 				{group = "color_crystals", chance = 100000},
 				{group = "tailor_components", chance = 500000},

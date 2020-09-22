@@ -10,7 +10,7 @@ pistol_striker = {
 		{"maxdamage",44,73,0},
 		{"attackspeed",4.9,3.5,0},
 		{"woundchance",4,11,0},
-		{"hitpoints",750,750,0},
+		{"hitpoints",750,1500,0},
 		{"attackhealthcost",18,11,0},
 		{"attackactioncost",39,23,0},
 		{"attackmindcost",26,17,0},
@@ -24,7 +24,7 @@ pistol_striker = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 625,
+	randomDotChance = 999,
 	junkDealerTypeNeeded = JUNKARMS,
 	junkMinValue = 25,
 	junkMaxValue = 45

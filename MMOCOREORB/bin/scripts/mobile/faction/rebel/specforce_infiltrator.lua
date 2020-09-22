@@ -4,15 +4,15 @@ specforce_infiltrator = Creature:new {
 	randomNameTag = true,
 	socialGroup = "rebel",
 	faction = "rebel",
-	level = 18,
-	chanceHit = 0.32,
-	damageMin = 170,
-	damageMax = 180,
-	baseXp = 1426,
-	baseHAM = 4100,
-	baseHAMmax = 5000,
+	level = 30,
+	chanceHit = 1,
+	damageMin = 250,
+	damageMax = 410,
+	baseXp = 2706,
+	baseHAM = 7100,
+	baseHAMmax = 9050,
 	armor = 0,
-	resists = {0,0,0,0,0,0,0,-1,-1},
+	resists = {30,30,20,20,25,20,30,15,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -53,7 +53,7 @@ specforce_infiltrator = Creature:new {
 	conversationTemplate = "",
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster)
+	attacks = merge(brawlermaster,marksmanmaster,tkanovice,riflemanmaster,carbineermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(specforce_infiltrator, "specforce_infiltrator")

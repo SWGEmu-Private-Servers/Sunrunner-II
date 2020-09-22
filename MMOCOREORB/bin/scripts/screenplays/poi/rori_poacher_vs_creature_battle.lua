@@ -57,6 +57,20 @@ function RoriPoacherVsCreatureBattleScreenPlay:spawnMobiles()
 
 	local pBull = spawnMobile("rori", "vrobal_bull", 300, 779.5, 82.2, -2066.0, -160, 0)
 	createObserver(OBJECTDESTRUCTION, "RoriPoacherVsCreatureBattleScreenPlay", "notifyBullDead", pBull)
+	
+	spawnMobile("rori", "poacher", 300, 763, 86.5, -2063, 171, 0)
+	spawnMobile("rori", "poacher", 300, 770.5, 84, -2070.1, 137, 0)
+	spawnMobile("rori", "poacher", 300, 766.4, 84.3, -2074.7, -154, 0)
+	spawnMobile("rori", "poacher", 300, 762.7, 84.1, -2080, 155, 0)
+	spawnMobile("rori", "poacher", 300, 771, 82.6, -2080.8, 95, 0)
+	spawnMobile("rori", "poacher", 300, 776.2, 82.5, -2075.2, -92, 0)
+	spawnMobile("rori", "poacher", 300, 776, 82.8, -2070.7, -103, 0)
+	spawnMobile("rori", "torton_colossus", 300, 757.4, 83.7, -2096.4, 17, 0)
+	spawnMobile("rori", "torton_colossus", 300, 763.9, 87.7, -2057.5, 162, 0)
+	spawnMobile("rori", "poacher", 300, 777, 82.5, -2073.7, -127, 0)
+	spawnMobile("rori", "poacher", 300, 749, 88.6, -2069.3, 55, 0)
+	spawnMobile("rori", "poacher", 300, 757.1, 85.7, -2077.4, 39, 0)
+
 
 end
 

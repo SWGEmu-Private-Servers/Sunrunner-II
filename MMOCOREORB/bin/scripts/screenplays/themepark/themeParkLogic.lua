@@ -1540,6 +1540,7 @@ function ThemeParkLogic:notifyEnteredEscortArea(pActiveArea, pCreature)
 		deleteData(areaID .. ":escortNpcID")
 		deleteData(CreatureObject(pPlayer):getObjectID() .. ":escortAreaID")
 		SceneObject(pActiveArea):destroyObjectFromWorld()
+		dropObserver(MOUNTED, pPlayer)
 		return 1
 	end
 
@@ -2028,6 +2029,7 @@ function ThemeParkLogic:cleanUpMission(pConversingPlayer)
 	end
 	deleteData(questAreaID .. ":ownerID")
 	deleteData(playerID .. ":questAreaID")
+	dropObserver(MOUNTED, pConversingPlayer)
 end
 
 function ThemeParkLogic:removeDeliverItem(pConversingPlayer)
@@ -2106,6 +2108,8 @@ function ThemeParkLogic:followPlayer(pConversingNpc, pConversingPlayer)
 	end
 
 	AiAgent(pConversingNpc):setAiTemplate("escort")
+	createObserver(MOUNTED, self.className, "escortMount", pConversingPlayer)
+
 end
 
 function ThemeParkLogic:getMissionType(activeNpcNumber, pConversingPlayer)
@@ -2136,6 +2140,20 @@ function ThemeParkLogic:escortedNpcCloseEnough(pConversingPlayer)
 	local pNpc = getSceneObject(objectID)
 
 	return pNpc ~= nil and SceneObject(pConversingPlayer):getDistanceTo(pNpc) < 64
+end
+
+function ThemeParkLogic:escortMount(pConversingPlayer)
+	if pConversingPlayer == nil then
+		return false
+	end
+	local objectID = readData(CreatureObject(pConversingPlayer):getObjectID() .. ":missionSpawn:no1")
+	local pNpc = getSceneObject(objectID)
+
+	if CreatureObject(pConversingPlayer):isInRangeWithObject(pNpc, 16) then
+		CreatureObject(pConversingPlayer):slotPassenger(pNpc)
+	end
+	
+	return 0
 end
 
 function ThemeParkLogic:resetThemePark(pConversingPlayer)

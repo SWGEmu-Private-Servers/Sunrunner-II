@@ -228,8 +228,236 @@ yavin4 = {
 	weatherStability = 70, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 }
 
+-----------------
+--    Taanab
+-----------------
+taanab = {
+
+	defaultWeather = 0, -- Sunny
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 80, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+}
+
+-----------------
+--    Hoth
+-----------------
+hoth = {
+
+	defaultWeather = 5, -- Random
+
+	averageWeatherDuration = 2400, -- In seconds
+
+	weatherStability = 40, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+	hasDamagingSandstorms = 1,
+
+	sandstormDamage = 70, -- 30 = Annoying, 50 = deadly
+
+}
+
+-----------------
+--    Nal Hutta
+-----------------
+nalhutta = {
+
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 2400, -- In seconds
+
+	weatherStability = 80, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
+
+-----------------
+--    Kashyyyk
+-----------------
+kashyyyk = {
+
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 80, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
 
 
 
+-----------------
+--    Mustafar
+-----------------
+mustafar = {
 
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 100, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
+
+-----------------
+--    Dagobah
+-----------------
+dagobah = {
+
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 80, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
+
+
+-----------------
+--    Coruscant
+-----------------
+coruscant = {
+
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 100, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
+
+
+-----------------
+--    Bespin
+-----------------
+bespin = {
+
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 100, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
+
+-----------------
+ --   Ghomrassen
+-----------------
+--ghomrassen = {
+
+	--defaultWeather = 0, -- Gloomy
+
+	--averageWeatherDuration = 3600, -- In seconds
+
+	--weatherStability = 100, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+--}
+
+-----------------
+--    Kuat
+-----------------
+kuat = {
+
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 100, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
+
+-----------------
+--    Mon Calamari
+-----------------
+moncal = {
+
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 100, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
+
+
+-----------------
+--    Ord Mantell
+-----------------
+ordmantell = {
+
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 100, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
+
+
+-----------------
+--    Kessel
+-----------------
+kessel = {
+
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 100, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
+
+
+-----------------
+--    Myrkr
+-----------------
+--myrkr = {
+
+--	defaultWeather = 0, -- Gloomy
+
+--	averageWeatherDuration = 3600, -- In seconds
+
+--	weatherStability = 100, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+--}
+
+-----------------
+--    dungeon4
+-----------------
+dungeon4 = {
+
+	defaultWeather = 0, -- Gloomy
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 100, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+
+}
+
+-----------------
+--   Mandalore 
+-----------------
+mandalore = {
+
+	defaultWeather = 0, -- Sunny
+
+	averageWeatherDuration = 3600, -- In seconds
+
+	weatherStability = 70, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+
+	hasDamagingSandstorms = 0,
+
+	sandstormDamage = 70, -- 40 = Annoying, 100 = deadly
+}
 

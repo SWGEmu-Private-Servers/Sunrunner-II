@@ -33,7 +33,8 @@ binayre_scalawag = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 2450000},
+				{group = "junk", chance = 1950000},
+				{group = "g_rifle_moving_bracelet_r", chance = 500000},
 				{group = "tailor_components", chance = 1500000},
 				{group = "loot_kit_parts", chance = 1500000},
 				{group = "binayre_common", chance = 4550000}

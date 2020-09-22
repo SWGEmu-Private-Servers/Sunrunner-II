@@ -49,7 +49,7 @@ object_tangible_medicine_crafted_medpack_grenade_area_a = object_tangible_medici
 	rangeMod = 0.6,
 	area = 10,
 	range = 10,
-	effectiveness = 100,
+	effectiveness = 200,
 	medicineClass = STIM_A,
 	attributes = {0, 3},
 

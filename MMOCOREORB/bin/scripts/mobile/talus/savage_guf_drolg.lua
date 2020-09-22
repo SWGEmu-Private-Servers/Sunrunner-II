@@ -2,15 +2,15 @@ savage_guf_drolg = Creature:new {
 	objectName = "@mob/creature_names:savage_guf_drolg",
 	socialGroup = "guf_drolg",
 	faction = "",
-	level = 15,
-	chanceHit = 0.31,
-	damageMin = 170,
-	damageMax = 180,
-	baseXp = 831,
-	baseHAM = 2400,
-	baseHAMmax = 3000,
-	armor = 0,
-	resists = {110,5,5,-1,-1,-1,-1,-1,-1},
+	level = 40,
+	chanceHit = 1.5,
+	damageMin = 340,
+	damageMax = 445,
+	baseXp = 3915,
+	baseHAM = 9300,
+	baseHAMmax = 11900,
+	armor = 1,
+	resists = {160,150,165,145,145,150,150,140,-1},
 	meatType = "meat_reptilian",
 	meatAmount = 550,
 	hideType = "hide_leathery",
@@ -18,7 +18,7 @@ savage_guf_drolg = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 320,
 	milk = 0,
-	tamingChance = 0.25,
+	tamingChance = 0.1,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK,
@@ -33,9 +33,10 @@ savage_guf_drolg = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"",""},
-		{"intimidationattack",""}
+		{"blindattack","stateAccuracyBonus=25"},
+		{"intimidationattack","stateAccuracyBonus=50"}
 	}
 }
 
 CreatureTemplates:addCreatureTemplate(savage_guf_drolg, "savage_guf_drolg")
+

@@ -29,9 +29,10 @@ r2_crafted = Creature:new {
 		"object/creature/npc/droid/crafted/r2_droid.iff"
 	},
 	lootGroups = {},
-	defaultAttack = "attack",
+	defaultAttack = "creaturerangedattack",
 	defaultWeapon = "object/weapon/ranged/droid/droid_astromech_ranged.iff",
 	conversationTemplate = "",
+	attacks = merge(marksmannovice,brawlernovice)
 }
 
 CreatureTemplates:addCreatureTemplate(r2_crafted, "r2_crafted")

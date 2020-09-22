@@ -3,14 +3,14 @@ rancor_pygmy = Creature:new {
 	socialGroup = "rancor",
 	faction = "",
 	level = 50,
-	chanceHit = 0.5,
+	chanceHit = 1.5,
 	damageMin = 420,
 	damageMax = 550,
 	baseXp = 4370,
 	baseHAM = 10000,
 	baseHAMmax = 12000,
 	armor = 1,
-	resists = {130,130,-1,160,160,160,-1,-1,-1},
+	resists = {150,160,150,160,160,160,145,150,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 500,
 	hideType = "hide_leathery",
@@ -18,7 +18,7 @@ rancor_pygmy = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 453,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.05,
 	ferocity = 10,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER + STALKER,
@@ -27,6 +27,7 @@ rancor_pygmy = Creature:new {
 
 	templates = {"object/mobile/rancor_hue.iff"},
 	hues = { 0, 1, 2, 3, 4, 5, 6, 7 },
+	controlDeviceTemplate = "object/intangible/pet/rancor_hue.iff",
 	scale = 0.5,
 	lootGroups = {
 		{
@@ -42,8 +43,8 @@ rancor_pygmy = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"stunattack",""},
-		{"intimidationattack",""}
+		{"stunattack","stateAccuracyBonus=100"},
+		{"intimidationattack","stateAccuracyBonus=100"}
 	}
 }
 

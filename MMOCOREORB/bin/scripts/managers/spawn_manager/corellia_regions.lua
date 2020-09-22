@@ -153,6 +153,8 @@ corellia_regions = {
 	{"southwest_forest", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
 	{"steam_geyser", 4520, 4329, {CIRCLE, 30}, NOSPAWNAREA + NOBUILDZONEAREA},
 	{"stronghold", 4664, -5781, {CIRCLE, 220}, NOSPAWNAREA + NOBUILDZONEAREA},
+	{"stronghold_bg", 4770, -5236, {CIRCLE, 220}, NOSPAWNAREA + NOBUILDZONEAREA},
+	{"stronghold_reb_cloner", 5293, -5618, {CIRCLE, 120}, NOSPAWNAREA + NOBUILDZONEAREA},
 	{"suntir_plains", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
 	{"swamp1", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
 	{"thaos_mountains_1", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
@@ -168,5 +170,10 @@ corellia_regions = {
 	{"wind_farm", 6270, 4395, {CIRCLE, 50}, NOSPAWNAREA + NOBUILDZONEAREA},
 	{"western_mountain_forest", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
 	{"western_plains", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
-	{"world_spawner", 0, 0, {CIRCLE, -1}, SPAWNAREA + WORLDSPAWNAREA, {"corellia_world", "global"}, 2048}
+	{"world_spawner", 0, 0, {CIRCLE, -1}, SPAWNAREA + WORLDSPAWNAREA, {"corellia_world", "global"}, 2048},
+	{"newbie_meatlump_bunker", -525, 5050, {CIRCLE, 34}, NOSPAWNAREA + NOBUILDZONEAREA},
+	{"newbie_ragtag_bunker", 340, -4400, {CIRCLE, 34}, NOSPAWNAREA + NOBUILDZONEAREA},
+	{"corsec_newbie", -386, -3586, {CIRCLE, 100}, NOSPAWNAREA + NOBUILDZONEAREA},
+
+
 }

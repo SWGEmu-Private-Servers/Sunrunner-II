@@ -46,7 +46,9 @@ lifeDayOraalarriConvoTemplate:addScreen(i_understand);
 
 no_gift = ConvoScreen:new {
 	id = "no_gift",
-	leftDialog = "@conversation/lifeday04b:s_b85028af", -- (Translated from Shyriiwook) I hope you have learned something of our ways. Since you have not been with our community for thirty cycles, I do not have a gift for you, but I hope you will keep the spirit of Life Day alive in your heart and return to us next year.
+	leftDialog = "",
+	--leftDialog = "@conversation/lifeday04b:s_b85028af",  (Translated from Shyriiwook) I hope you have learned something of our ways. Since you have not been with our community for thirty cycles, I do not have a gift for you, but I hope you will keep the spirit of Life Day alive in your heart and return to us next year.
+	customDialogText = "(Translated from Shyriiwook) I hope you have learned something of our ways. Since you have not been with our community for five cycles, I do not have a gift for you, but I hope you will keep the spirit of Life Day alive in your heart and return to us next year.",
 	stopConversation = "true",
 	options = {}
 }

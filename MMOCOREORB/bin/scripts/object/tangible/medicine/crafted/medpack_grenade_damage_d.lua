@@ -44,12 +44,12 @@
 object_tangible_medicine_crafted_medpack_grenade_damage_d = object_tangible_medicine_crafted_shared_medpack_grenade_damage_d:new {
 	gameObjectType = 8237,
 	templateType = RANGEDSTIMPACK,
-	useCount = 10,
+	useCount = 50,
 	medicineUse = 30,
 	rangeMod = 0.4,
 	area = 0,
 	range = 10,
-	effectiveness = 800,
+	effectiveness = 900,
 	medicineClass = STIM_D,
 	attributes = {0, 3},
 

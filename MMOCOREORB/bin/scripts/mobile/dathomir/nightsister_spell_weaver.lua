@@ -36,12 +36,10 @@ nightsister_spell_weaver = Creature:new {
 				{group = "nightsister_common", chance = 2300000},
 				{group = "armor_attachments", chance = 300000},
 				{group = "clothing_attachments", chance = 300000},
+				{group = "junk", chance = 2000000},
 				{group = "melee_weapons", chance = 2100000},
-				{group = "rifles", chance = 1000000},
-				{group = "pistols", chance = 1000000},
-				{group = "carbines", chance = 1000000},
-				{group = "wearables_common", chance = 500000},
-				{group = "tailor_components", chance = 500000}
+				{group = "wearables_common", chance = 1500000},
+				{group = "g_ns_clothes", chance = 500000}
 			}
 		}
 	},

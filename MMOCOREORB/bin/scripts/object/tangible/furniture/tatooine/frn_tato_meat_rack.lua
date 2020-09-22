@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_tatooine_frn_tato_meat_rack = object_tangible_furniture_tatooine_shared_frn_tato_meat_rack:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_furniture_tatooine_frn_tato_meat_rack, "object/tangible/furniture/tatooine/frn_tato_meat_rack.iff")

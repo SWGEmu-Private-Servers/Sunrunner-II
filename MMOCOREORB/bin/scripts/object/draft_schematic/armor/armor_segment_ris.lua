@@ -50,7 +50,7 @@ object_draft_schematic_armor_armor_segment_ris = object_draft_schematic_armor_sh
 	craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 20,
 	size = 1,
-	factoryCrateSize = 50,
+	factoryCrateSize = 1000,
 
 	xpType = "crafting_clothing_armor",
 	xp = 40,
@@ -63,12 +63,26 @@ object_draft_schematic_armor_armor_segment_ris = object_draft_schematic_armor_sh
 	customizationStringNames = {},
 	customizationDefaults = {},
 
-	ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
-	ingredientTitleNames = {"segment_layer_assembly_plate", "armor_layer_weld_tabs", "segment_mounting_tabs", "reinforcement_matrix", "flexor_matrix", "defensive_layer", "segment_enhancement", "defensive_layer_2"},
-	ingredientSlotType = {0, 0, 0, 1, 1, 3, 3, 3},
-	resourceTypes = {"aluminum_titanium", "ore_intrusive_chanlon", "fiberplast_rori", "object/tangible/component/armor/shared_bone_fragment_woolamander_harrower.iff", "object/tangible/component/armor/shared_hide_gurk_king.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff", "object/tangible/component/armor/shared_armor_layer.iff"},
-	resourceQuantities = {160, 160, 75, 1, 1, 1, 1, 1},
-	contribution = {100, 100, 100, 100, 100, 100, 100, 100},
+	--ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
+	--ingredientTitleNames = {"segment_layer_assembly_plate", "armor_layer_weld_tabs", "segment_mounting_tabs", "reinforcement_matrix", "flexor_matrix", "armor_layer_blast", "segment_enhancement", "defensive_layer"},
+	--ingredientSlotType = {0, 0, 0, 1, 1, 3, 1, 3},
+	--resourceTypes = {"aluminum_titanium", "ore_intrusive_chanlon", "fiberplast_rori", "object/tangible/component/armor/shared_bone_fragment_woolamander_harrower.iff", "object/tangible/component/armor/shared_hide_gurk_king.iff", "object/tangible/component/armor/shared_armor_layer_blast.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement_ris.iff", "object/tangible/component/armor/shared_armor_layer.iff"},
+	--resourceQuantities = {160, 160, 75, 1, 1, 1, 1, 1},
+	--contribution = {100, 100, 100, 100, 100, 100, 100, 100},
+
+	--ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
+	--ingredientTitleNames = {"segment_layer_assembly_plate", "armor_layer_weld_tabs", "segment_mounting_tabs", "armor_layer_electrical", "defensive_layer", "defensive_layer_2", "segment_enhancement"},
+	--ingredientSlotType = {0, 0, 0, 1, 1, 1, 1},
+	--resourceTypes = {"aluminum_titanium", "ore_intrusive_chanlon", "fiberplast_rori", "object/tangible/component/armor/shared_armor_layer_electrical.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement_ris.iff"},
+	--resourceQuantities = {160, 160, 75, 1, 1, 1, 1},
+	--contribution = {100, 100, 100, 100, 100, 100, 100},
+
+	ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
+	ingredientTitleNames = {"segment_layer_assembly_plate", "armor_layer_weld_tabs", "segment_mounting_tabs", "armor_layer_kinetic", "armor_layer_electrical", "segment_enhancement"},
+	ingredientSlotType = {0, 0, 0, 1, 1, 1},
+	resourceTypes = {"aluminum_titanium", "ore_intrusive_chanlon", "fiberplast_rori", "object/tangible/component/armor/shared_armor_layer_kinetic.iff", "object/tangible/component/armor/shared_armor_layer_electrical.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement_ris.iff"},
+	resourceQuantities = {160, 160, 75, 1, 1, 1},
+	contribution = {100, 100, 100, 100, 100, 100},
 
 
 	targetTemplate = "object/tangible/component/armor/armor_segment_ris.iff",

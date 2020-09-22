@@ -50,7 +50,7 @@ object_draft_schematic_armor_armor_segment_bone = object_draft_schematic_armor_s
 	craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 8,
 	size = 4,
-	factoryCrateSize = 50,
+	factoryCrateSize = 1000,
 
 	xpType = "crafting_general",
 	xp = 34,
@@ -66,7 +66,7 @@ object_draft_schematic_armor_armor_segment_bone = object_draft_schematic_armor_s
 	ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
 	ingredientTitleNames = {"armor_segment_bone", "segment_mounting_tabs", "segment_enhancement"},
 	ingredientSlotType = {0, 0, 3},
-	resourceTypes = {"bone", "metal", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
+	resourceTypes = {"bone", "metal", "object/tangible/component/armor/shared_base_armor_segment_enhancement_bone.iff"},
 	resourceQuantities = {14, 3, 1},
 	contribution = {100, 100, 100},
 

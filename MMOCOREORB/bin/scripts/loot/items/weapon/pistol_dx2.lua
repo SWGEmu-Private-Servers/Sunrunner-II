@@ -10,7 +10,7 @@ pistol_dx2 = {
 		{"maxdamage",73,103,0},
 		{"attackspeed",5.2,3.8,1},
 		{"woundchance",6.8,14.7,0},
-		{"hitpoints",750,750,0},
+		{"hitpoints",750,1500,0},
 		{"attackhealthcost",32,17,0},
 		{"attackactioncost",51,29,0},
 		{"attackmindcost",22,12,0},
@@ -24,7 +24,7 @@ pistol_dx2 = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 625,
+	randomDotChance = 999,
 	junkDealerTypeNeeded = JUNKARMS,
 	junkMinValue = 30,
 	junkMaxValue = 55

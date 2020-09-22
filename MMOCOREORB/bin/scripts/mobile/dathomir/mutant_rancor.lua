@@ -3,14 +3,14 @@ mutant_rancor = Creature:new {
 	socialGroup = "rancor",
 	faction = "",
 	level = 75,
-	chanceHit = 0.7,
-	damageMin = 495,
-	damageMax = 700,
+	chanceHit = 1.5,
+	damageMin = 550,
+	damageMax = 750,
 	baseXp = 7207,
-	baseHAM = 12000,
-	baseHAMmax = 15000,
+	baseHAM = 15000,
+	baseHAMmax = 19000,
 	armor = 1,
-	resists = {145,160,25,200,200,200,25,25,-1},
+	resists = {160,160,145,200,200,200,35,35,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 1000,
 	hideType = "hide_leathery",
@@ -36,7 +36,7 @@ mutant_rancor = Creature:new {
 				{group = "weapons_all", chance = 2500000},
 				{group = "wearables_all", chance = 1500000}
 			},
-			lootChance = 2500000
+			lootChance = 3500000
 		}
 	},
 	weapons = {},

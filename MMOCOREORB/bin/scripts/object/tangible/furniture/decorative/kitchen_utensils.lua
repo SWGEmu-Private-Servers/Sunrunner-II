@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_decorative_kitchen_utensils = object_tangible_furniture_decorative_shared_kitchen_utensils:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 	numberExperimentalProperties = {1, 1, 1, 2},
 	experimentalProperties = {"XX", "XX", "XX", "DR", "OQ"},
 	experimentalWeights = {1, 1, 1, 1, 1},

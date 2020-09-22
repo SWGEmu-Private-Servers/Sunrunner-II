@@ -49,7 +49,7 @@ ChargeShot2Command = {
 	healthCostMultiplier = 0.5,
 	actionCostMultiplier = 1.5,
 	mindCostMultiplier = 0.5,
-	accuracyBonus = 25,
+	accuracyBonus = 30,
 
 	animation = "charge",
 

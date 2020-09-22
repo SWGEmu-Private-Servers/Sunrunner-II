@@ -3,18 +3,17 @@
 rancor_padded_armor_segment = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Rancor Padded Armor Hide Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_padded_rancor.iff",
+	--padded 2
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"armor_effectiveness",5,15,10},
-		{"armor_integrity",2500,5000,0},
-		{"heateffectiveness",9,17,10},
-		{"coldeffectiveness",9,17,10},
-		{"armor_health_encumbrance",16,4,0},
-		{"armor_action_encumbrance",12,0,0},
-		{"armor_mind_encumbrance",16,4,0},
-		{"useCount",1,10,0},
+		{"armor_effectiveness",2,15,10},
+		{"armor_integrity",1000,3000,0},
+		{"electricaleffectiveness",9,10,10},
+		{"blasteffectiveness",9,15,10},
+		{"kineticeffectiveness",9,15,10},
+		{"useCount",1,24,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

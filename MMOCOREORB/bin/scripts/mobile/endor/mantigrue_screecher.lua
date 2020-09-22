@@ -2,15 +2,15 @@ mantigrue_screecher = Creature:new {
 	objectName = "@mob/creature_names:mantigrue_screecher",
 	socialGroup = "mantigrue",
 	faction = "",
-	level = 55,
-	chanceHit = 0.55,
-	damageMin = 420,
+	level = 62,
+	chanceHit = 1.5,
+	damageMin = 450,
 	damageMax = 550,
 	baseXp = 5281,
-	baseHAM = 11000,
-	baseHAMmax = 13000,
+	baseHAM = 13250,
+	baseHAMmax = 16000,
 	armor = 1,
-	resists = {135,135,10,10,10,-1,10,10,-1},
+	resists = {165,160,155,145,150,155,160,180,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 85,
 	hideType = "hide_wooly",
@@ -33,7 +33,7 @@ mantigrue_screecher = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"intimidationattack",""},
+		{"intimidationattack","stateAccuracyBonus=50"},
 		{"creatureareadisease",""}
 	}
 }

@@ -2,15 +2,15 @@ nightsister_ranger_quest = Creature:new {
 	objectName = "@mob/creature_names:nightsister_ranger",
 	socialGroup = "nightsister",
 	faction = "nightsister",
-	level = 81,
-	chanceHit = 0.75,
-	damageMin = 555,
-	damageMax = 820,
-	baseXp = 7761,
-	baseHAM = 12000,
-	baseHAMmax = 15000,
+	level = 120,
+	chanceHit = 25.5,
+	damageMin = 1355,
+	damageMax = 1820,
+	baseXp = 17761,
+	baseHAM = 34500,
+	baseHAMmax = 39700,
 	armor = 1,
-	resists = {30,30,30,100,100,100,100,100,-1},
+	resists = {145,160,40,170,200,200,200,200,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -36,7 +36,7 @@ nightsister_ranger_quest = Creature:new {
 	},
 	weapons = {"mixed_force_weapons"},
 	conversationTemplate = "",
-	attacks = merge(fencermid,swordsmanmid,tkamid,pikemanmid,brawlermaster,forcewielder)
+	attacks = merge(pikemanmaster,brawlermaster,fencermaster,swordsmanmaster,forcewielder)
 }
 
 CreatureTemplates:addCreatureTemplate(nightsister_ranger_quest, "nightsister_ranger_quest")

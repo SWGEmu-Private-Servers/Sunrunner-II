@@ -3,16 +3,16 @@ arachne_widow = Creature:new {
 	socialGroup = "arachne",
 	faction = "",
 	level = 58,
-	chanceHit = 0.53,
-	damageMin = 400,
-	damageMax = 510,
+	chanceHit = 1.5,
+	damageMin = 425,
+	damageMax = 575,
 	baseXp = 5647,
-	baseHAM = 11000,
-	baseHAMmax = 14000,
+	baseHAM = 13250,
+	baseHAMmax = 15000,
 	armor = 1,
-	resists = {140,140,5,170,180,5,180,-1,-1},
+	resists = {155,170,150,145,175,160,190,155,-1},
 	meatType = "meat_insect",
-	meatAmount = 30,
+	meatAmount = 70,
 	hideType = "",
 	hideAmount = 0,
 	boneType = "",
@@ -33,8 +33,8 @@ arachne_widow = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"stunattack",""},
-		{"strongpoison",""}
+		{"stunattack","stateAccuracyBonus=50"},
+		{"strongpoison","stateAccuracyBonus=25"}
 	}
 }
 

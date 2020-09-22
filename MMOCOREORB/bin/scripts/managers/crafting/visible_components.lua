@@ -113,4 +113,5 @@ visibleComponents = {
 		scope = {""},
 		stock = {"stock_t21"}
 	},
+
 }

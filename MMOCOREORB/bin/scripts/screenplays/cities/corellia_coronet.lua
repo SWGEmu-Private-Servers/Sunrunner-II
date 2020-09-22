@@ -460,4 +460,52 @@ function CorelliaCoronetScreenPlay:spawnMobiles()
 
 	-- Chassis dealer.
 	spawnMobile(self.planet, "chassis_dealer", 0, 0.1, 0.6, 72.9, -4, 1855672)
+
+	-- new newbie spawns
+	spawnMobile(self.planet, "meatlump_oaf", 330, -76.1, 29.1, -5069.3, -86, 0)
+	spawnMobile(self.planet, "meatlump_oaf", 330, -80.4, 29.7, -5073.8, -6, 0)
+	spawnMobile(self.planet, "meatlump_cretin", 330, -83.8, 29.9, -5068.8, 124, 0)
+	spawnMobile(self.planet, "meatlump_oaf", 330, -152.5, 34.7, -5020.1, 42, 0)
+	spawnMobile(self.planet, "ragtag_maniac", 330, -609.2, 24.9, -3903.5, -147, 0)
+	spawnMobile(self.planet, "ragtag_maniac", 330, -611.8, 24.9, -3913, 55, 0)
+	spawnMobile(self.planet, "ragtag_thug", 330, -606.6, 24.9, -3923.8, -115, 0)
+	spawnMobile(self.planet, "ragtag_thug", 330, -614.8, 24.9, -3924.3, 52, 0)
+	spawnMobile(self.planet, "ragtag_thug", 360, 178.5, 28, -4276.1, 91, 0)
+	spawnMobile(self.planet, "ragtag_mercenary", 360, 182.3, 28, -4258.6, -171, 0)
+	spawnMobile(self.planet, "ragtag_mercenary", 360, 159.9, 28, -4268.2, 139, 0)
+	spawnMobile(self.planet, "ragtag_thug", 360, 165.1, 28, -4281.3, 21, 0)
+	spawnMobile(self.planet, "ragtag_maniac", 360, 191.3, 28, -4275.2, -38, 0)
+	spawnMobile(self.planet, "ragtag_loon", 360, 177.8, 28, -4283.5, -46, 0)
+	spawnMobile(self.planet, "ragtag_loon", 360, 155.2, 28, -4257.6, -47, 0)
+	spawnMobile(self.planet, "ragtag_thug", 360, 201, 27.8, -4265.4, -5, 0)
+	spawnMobile(self.planet, "ragtag_thug", 330, 443.4, 2.9, -4645.3, -69, 0)
+	spawnMobile(self.planet, "ragtag_thug", 330, 445.4, 3, -4643.8, 37, 0)
+	spawnMobile(self.planet, "ragtag_thug", 330, 448.5, 3.3, -4639.5, -109, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -359.6, 29, -3630.7, 173, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -366.2, 29, -3627.8, -61, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -352.3, 29, -3622.3, -53, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -352.6, 29, -3614.2, 176, 0)
+	spawnMobile(self.planet, "corsec_trooper", 390, -338.7, 29, -3626.8, -3, 0)
+	spawnMobile(self.planet, "corsec_trooper", 390, -332.5, 29, -3598.6, -131, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -354.3, 29, -3601, -80, 0)
+	spawnMobile(self.planet, "corsec_trooper", 390, -370, 29, -3602.2, -26, 0)
+	spawnMobile(self.planet, "corsec_trooper", 390, -370, 29, -3595.9, -44, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -376, 29, -3588.2, -171, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -382.1, 29, -3592.1, 68, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -386.3, 29, -3586.7, 9, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -384.1, 29, -3579.3, -134, 0)
+	spawnMobile(self.planet, "corsec_trooper", 390, -376.5, 29, -3579.4, -111, 0)
+	spawnMobile(self.planet, "corsec_trooper", 390, -395, 29, -3587.2, 99, 0)
+	spawnMobile(self.planet, "corsec_trooper", 390, -360.6, 29, -3577.4, -174, 0)
+	spawnMobile(self.planet, "corsec_trooper", 390, -360.9, 29, -3580.7, 5, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -383.7, 29, -3618, -21, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -385.8, 29, -3615.8, 127, 0)
+	spawnMobile(self.planet, "corsec_cadet", 390, -382.6, 29, -3614.3, -141, 0)
+	spawnMobile(self.planet, "corsec_lieutenant", 600, -352.1, 29, -3606.3, -135, 0)
+
+
+
+
+
 end
+

@@ -55,7 +55,7 @@ crackdownScanPrivilegedPlayers = false
 -- discount percentage for side losing&winning the gcw.  negative value of increase in price (penality).  positive for a decrease (Bonus)
 
 winnerBonus = 0
-loserBonus = -30
+loserBonus = 0
 
 -- Spawn turrets and minefields when base is placed 1=true 0=false
 spawnDefenses = 1
@@ -63,7 +63,7 @@ spawnDefenses = 1
 -- Amount of time to delay vulnerability in seconds afer placing base
 initialVulnerabilityDelay = 0
 
-racialPenaltyEnabled = 1
+racialPenaltyEnabled = 0
 
 -- assign points to each type of base
 -- s01=Forward Outpost, s02 = Field Hospital , s03 = Tactical Center, s04 = Detach HQ
@@ -88,6 +88,8 @@ HQValues = {
 	{"object/building/general/bunker_imperial_weapons_research_facility_01.iff", 2},
 	{"object/building/general/bunker_imperial_detainment_center_01.iff", 2},
 	{"object/building/general/bunker_rebel_weapons_depot.iff", 2},
+	{"object/building/faction_perk/hq/hq_s05_rebel_pvp.iff", 30},
+	{"object/building/faction_perk/hq/hq_s05_imp_pvp.iff", 30},
 
 }
 
@@ -204,6 +206,8 @@ terminalSpawns = {
 			{ -5.3, -20.8, 34.26, 0, 0.707, 0, 0.707, 10 },
 		}
 	},
+	
+	
 	-- Imperial Detachment HQ
 	{ "hq_s04_imp",
 		{
@@ -216,7 +220,7 @@ terminalSpawns = {
 			{ 10.78, -13.76, 13.69, 0, 1, 0, 0, 8 },
 			{ 18.41, -13.76, 8.56, 0, 0.707, 0, -0.707, 9 },
 			{ 18.41, -13.76, 5.43, 0, 0.707, 0, -0.707, 9 },
-			{ 13.77, -13.76, -4.1, 0, 1, 0, 0, 10 },
+			{ 13.77, -13.76, -4.1, 0, 1, 0, 0, 10 },			
 		}
 	},
 	-- Rebel Detachment HQ
@@ -230,7 +234,38 @@ terminalSpawns = {
 			{ 18.57, -13.8, 8.89, 0, -0.707, 0, 0.707, 9 },
 			{ 18.57, -13.8, 5.07, 0, -0.707, 0, 0.707, 9 },
 			{ 17.21, -13.8, -3.71, 0, 1, 0, 0, 10 },
-			{ 13.81, -13.8, -3.71, 0, 1, 0, 0, 10 },
+			{ 13.81, -13.8, -3.71, 0, 1, 0, 0, 10 },			
+		}
+	},
+	
+	
+	-- Imperial Detachment HQ
+	{ "hq_s05_imp",
+		{
+			{ 5.5, 1, -20.5, 0, 0.707, 0, -0.707, 7 },
+			{ 10.5, 1, -7.5, 0, 0, 0, 0, 5 },
+			{ -5.5, 1, -20.5, 0, 0.707, 0, 0.707, 7 },
+			{ -20.5, 1, -2, 0, 0.707, 0, -0.707, 9 },
+			{ -15.2, 1, -7.5, 0, 0, 0, 0, 9 },
+			{ -14.5, 7, 11.3, 0, 0.707, 0, 0.707, 11 },
+			{ -14.5, 7, 7.7, 0, 0.707, 0, 0.707, 11 },
+			{ 3.5, 7, 11.5, 0, 0.707, 0, 0.707, 12 },
+			{ 15.5, 7, 8.5, 0, 0.707, 0, -0.707, 12 },
+			{ 13.5, 7, -15, 0, 0.707, 0, -0.707, 10 },
+		}
+	},
+	-- Rebel Detachment HQ
+	{ "hq_s05_rebel",
+		{
+			{ 5.5, 1, -20.5, 0, 0.707, 0, -0.707, 7 },
+			{ 10.5, 1, -7.5, 0, 0, 0, 0, 5 },
+			{ -5.5, 1, -20.5, 0, 0.707, 0, 0.707, 7 },
+			{ -20.5, 1, -2, 0, 0.707, 0, -0.707, 9 },
+			{ -13.2, 1, -7.5, 0, 0, 0, 0, 9 },
+			{ -14.5, 7, 11.9, 0, 0.707, 0, 0.707, 11 },
+			{ -14.5, 7, 7.7, 0, 0.707, 0, 0.707, 11 },
+			{ 3.5, 7, 11.5, 0, 0.707, 0, 0.707, 12 },
+			{ 15.5, 7, 8.5, 0, 0.707, 0, -0.707, 12 },
 		}
 	}
 }

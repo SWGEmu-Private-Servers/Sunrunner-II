@@ -139,5 +139,12 @@ naboo_regions = {
 	{"weapon_development_facility", -6510, -3280, {CIRCLE, 200}, NOSPAWNAREA + NOBUILDZONEAREA},
 	{"wreckage", 6314, 4248, {CIRCLE, 30}, NOSPAWNAREA + NOBUILDZONEAREA},
 	{"western_forest", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
-	{"world_spawner", 0, 0, {CIRCLE, -1}, SPAWNAREA + WORLDSPAWNAREA, {"naboo_world", "global"}, 2048}
+	{"world_spawner", 0, 0, {CIRCLE, -1}, SPAWNAREA + WORLDSPAWNAREA, {"naboo_world", "global"}, 2048},
+	{"naboo_battlefield",977,-1500, {CIRCLE, 500}, NOSPAWNAREA + NOBUILDZONEAREA},
+	{"naboo_battlefield_reb_cloner",529,-1452, {CIRCLE, 100}, NOSPAWNAREA + NOBUILDZONEAREA},
+	{"naboo_battlefield_imp_cloner",1508,-1561, {CIRCLE, 100}, NOSPAWNAREA + NOBUILDZONEAREA},
+	{"newbie_borvo_bunker", -4750, 4850, {CIRCLE, 94}, NOSPAWNAREA + NOBUILDZONEAREA},
+	{"newbie_gungan_bunker", -4180, 3880, {CIRCLE, 94}, NOSPAWNAREA + NOBUILDZONEAREA},
+	{"newbie_plasma_thief_cave",-4289, 4358, {CIRCLE, 100}, NOSPAWNAREA + NOBUILDZONEAREA},
+
 }

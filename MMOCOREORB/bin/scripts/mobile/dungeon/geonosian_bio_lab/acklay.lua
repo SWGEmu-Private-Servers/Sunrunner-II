@@ -5,13 +5,13 @@ acklay = Creature:new {
 	faction = "",
 	level = 157,
 	chanceHit = 92.5,
-	damageMin = 935,
-	damageMax = 1580,
-	baseXp = 14884,
-	baseHAM = 96000,
-	baseHAMmax = 118000,
+	damageMin = 1935,
+	damageMax = 2680,
+	baseXp = 20884,
+	baseHAM = 226000,
+	baseHAMmax = 258000,
 	armor = 2,
-	resists = {130,145,155,155,145,30,30,30,-1},
+	resists = {170,170,170,170,130,170,170,170,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -30,15 +30,18 @@ acklay = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "acklay", chance = 10000000}
-			}
+				{group = "acklay", chance = 9900000},
+				{group = "g_exar_key", chance = 100000},
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"posturedownattack","stateAccuracyBonus=50"},
-		{"creatureareacombo","stateAccuracyBonus=50"}
+		{"creatureareaattack","stateAccuracyBonus=50"},
+		{"creatureareacombo","stateAccuracyBonus=50"},
+		{"creatureareaknockdown","stateAccuracyBonus=50"}
 	}
 }
 

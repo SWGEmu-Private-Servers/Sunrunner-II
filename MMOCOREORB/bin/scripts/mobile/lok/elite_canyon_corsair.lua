@@ -36,7 +36,8 @@ elite_canyon_corsair = Creature:new {
 		{
 			groups = {
 				{group = "junk", chance = 4000000},
-				{group = "tailor_components", chance = 1000000},
+				{group = "tailor_components", chance = 500000},
+				{group = "g_pressuring_ring", chance = 500000},
 				{group = "color_crystals", chance = 400000},
 				{group = "power_crystals", chance = 400000},
 				{group = "melee_two_handed", chance = 600000},
@@ -44,7 +45,8 @@ elite_canyon_corsair = Creature:new {
 				{group = "pistols", chance = 600000},
 				{group = "clothing_attachments", chance = 450000},
 				{group = "armor_attachments", chance = 450000},
-				{group = "canyon_corsair_common", chance = 1500000}
+				{group = "canyon_corsair_common", chance = 1400000},
+				{group = "g_power_plant_air2", chance = 100000},
 			}
 		}
 	},

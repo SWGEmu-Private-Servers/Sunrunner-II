@@ -6,8 +6,8 @@ grooved_two_handed_sword = {
 	customObjectName = "",
 	directObjectTemplate = "object/weapon/melee/2h_sword/2h_sword_katana_quest.iff",
 	craftingValues = {
-		{"mindamage",17,17,0},
-		{"maxdamage",184,184,0},
+		{"mindamage",57,157,0},
+		{"maxdamage",294,484,0},
 		{"attackspeed",3.5,3.5,1},
 		{"woundchance",24,24,0},
 		{"zerorangemod",3,3,0},
@@ -20,7 +20,7 @@ grooved_two_handed_sword = {
 		{"attackmindcost",22,22,0},
 	},
 	skillMods = {
-		{ "intimidate", 5 }
+		{ "counterattack", 15 }
 	},
 	customizationStringNames = {},
 	customizationValues = {},
@@ -37,9 +37,9 @@ grooved_two_handed_sword = {
 	-- staticDotValues: Object map that can randomly or statically generate a dot (used for weapon objects.)
 	staticDotValues = {
 		{"attribute", 0, 0}, -- See CreatureAttributes.h in src for numbers.
-		{"strength", 125, 125},
+		{"strength", 195, 195},
 		{"duration", 60, 60},
-		{"potency", 50, 50},
+		{"potency", 120, 120},
 		{"uses", 9999, 9999}
 	}
 

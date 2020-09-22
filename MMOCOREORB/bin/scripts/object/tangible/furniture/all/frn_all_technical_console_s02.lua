@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_all_frn_all_technical_console_s02 = object_tangible_furniture_all_shared_frn_all_technical_console_s02:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 	numberExperimentalProperties = {1, 1, 1, 1},
 	experimentalProperties = {"XX", "XX", "XX", "OQ"},
 	experimentalWeights = {1, 1, 1, 1},

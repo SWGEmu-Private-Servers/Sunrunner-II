@@ -44,7 +44,7 @@
 object_tangible_food_foraged_foraged_fruit_s3 = object_tangible_food_foraged_shared_foraged_fruit_s3:new {
 	templateType = CONSUMABLE,
 	
-	duration = 100,
+	duration = 150,
 	filling = 0,
 	nutrition = 0,
 
@@ -60,7 +60,7 @@ object_tangible_food_foraged_foraged_fruit_s3 = object_tangible_food_foraged_sha
 	quantityMin = 0,
 	quantityMax = 0,
 	
-	modifiers = { "action", 100, "mind", 25 },
+	modifiers = { "action", 180, "mind", 75 },
 
 	buffName = "alever_tweth'pek",
 	buffCRC = 0,

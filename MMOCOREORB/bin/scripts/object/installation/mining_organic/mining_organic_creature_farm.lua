@@ -45,6 +45,7 @@ object_installation_mining_organic_mining_organic_creature_farm = object_install
 	lotSize = 1,
 	baseMaintenanceRate = 30,
 	basePowerRate = 25,
+	allowedZones = {"corellia", "dantooine", "dathomir", "endor", "lok", "naboo", "rori", "talus", "tatooine", "yavin4", "taanab", "nalhutta", "kuat", "ordmantell", "ghomrassen", "mustafar", "kashyyyk", "hoth"},
 	width = 3,
 	length = 3,
 	objectMenuComponent = "InstallationObjectMenuComponent",

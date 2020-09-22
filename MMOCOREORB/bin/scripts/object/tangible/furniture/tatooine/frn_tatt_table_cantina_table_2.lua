@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_tatooine_frn_tatt_table_cantina_table_2 = object_tangible_furniture_tatooine_shared_frn_tatt_table_cantina_table_2:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_furniture_tatooine_frn_tatt_table_cantina_table_2, "object/tangible/furniture/tatooine/frn_tatt_table_cantina_table_2.iff")

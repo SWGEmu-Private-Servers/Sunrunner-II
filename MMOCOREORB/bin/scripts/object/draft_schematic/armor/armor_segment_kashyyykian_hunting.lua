@@ -50,7 +50,7 @@ object_draft_schematic_armor_armor_segment_kashyyykian_hunting = object_draft_sc
 	craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 30,
 	size = 3,
-	factoryCrateSize = 50,
+	factoryCrateSize = 1000,
 
 	xpType = "crafting_clothing_armor",
 	xp = 35,
@@ -64,9 +64,9 @@ object_draft_schematic_armor_armor_segment_kashyyykian_hunting = object_draft_sc
 	customizationDefaults = {},
 
 	ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
-	ingredientTitleNames = {"armor_segment_kashyyykian_hunting", "armor_layer_track", "segment_mounting_tabs", "defensive_layer", "defensive_layer_2", "defensive_layer_3", "segment_enhancement"},
-	ingredientSlotType = {0, 0, 0, 3, 3, 3, 3},
-	resourceTypes = {"hide_leathery", "bone_avian", "softwood_evergreen", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
+	ingredientTitleNames = {"armor_segment_kashyyykian_hunting", "armor_layer_track", "segment_mounting_tabs", "armor_layer_electrical", "armor_layer_energy", "armor_layer_kinetic", "segment_enhancement"},
+	ingredientSlotType = {0, 0, 0, 1, 1, 1, 3},
+	resourceTypes = {"hide_leathery", "bone_avian", "softwood_evergreen", "object/tangible/component/armor/shared_armor_layer_electrical.iff", "object/tangible/component/armor/shared_armor_layer_energy.iff", "object/tangible/component/armor/shared_armor_layer_kinetic.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement_wook.iff"},
 	resourceQuantities = {15, 10, 5, 1, 1, 1, 1},
 	contribution = {100, 100, 100, 100, 100, 100, 100},
 

@@ -43,8 +43,40 @@
 
 object_weapon_ranged_rifle_rifle_lightning = object_weapon_ranged_rifle_shared_rifle_lightning:new {
 	
-	playerRaces = { "object/creature/player/bothan_male.iff",
+	playerRaces = { 	"object/creature/player/smc_female.iff",
+				"object/creature/player/smc_male.iff",
+				"object/creature/player/talz_male.iff",
+				"object/creature/player/talz_female.iff",
+				"object/creature/player/togruta_female.iff",
+				"object/creature/player/togruta_male.iff",
+				"object/creature/player/weequay_male.iff",
+				"object/creature/player/weequay_female.iff",
+				"object/creature/player/nautolan_male.iff",
+				"object/creature/player/nautolan_female.iff",
+				"object/creature/player/nightsister_female.iff",
+				"object/creature/player/nightsister_male.iff",
+				"object/creature/player/nikto_male.iff",
+				"object/creature/player/nikto_female.iff",
+				"object/creature/player/quarren_male.iff",
+				"object/creature/player/quarren_female.iff",
+				"object/creature/player/ishi_tib_male.iff",
+				"object/creature/player/ishi_tib_female.iff",
+				"object/creature/player/hutt_female.iff",
+				"object/creature/player/hutt_male.iff",
+				"object/creature/player/gran_male.iff",
+				"object/creature/player/gran_female.iff",
+				"object/creature/player/gotal_male.iff",
+				"object/creature/player/gotal_female.iff",
+				"object/creature/player/aqualish_female.iff",
+				"object/creature/player/aqualish_male.iff",
+				"object/creature/player/bith_female.iff",
+				"object/creature/player/bith_male.iff",
+				"object/creature/player/chiss_female.iff",
+				"object/creature/player/chiss_male.iff",
+				"object/creature/player/devaronian_male.iff",
+				"object/creature/player/devaronian_female.iff",
 				"object/creature/player/bothan_female.iff",
+				"object/creature/player/bothan_male.iff",
 				"object/creature/player/human_male.iff",
 				"object/creature/player/human_female.iff",
 				"object/creature/player/ithorian_male.iff",
@@ -83,7 +115,7 @@ object_weapon_ranged_rifle_rifle_lightning = object_weapon_ranged_rifle_shared_r
 	-- See http://www.ocdsoft.com/files/certifications.xls
 	certificationsRequired = { "cert_rifle_lightning" },
 	-- See http://www.ocdsoft.com/files/accuracy.xls
-	creatureAccuracyModifiers = { "heavy_rifle_lightning_accuracy" },
+	creatureAccuracyModifiers = { "thrown_accuracy" },
 
 	-- See http://www.ocdsoft.com/files/defense.xls
 	defenderDefenseModifiers = { "ranged_defense" },
@@ -92,7 +124,7 @@ object_weapon_ranged_rifle_rifle_lightning = object_weapon_ranged_rifle_shared_r
 	defenderSecondaryDefenseModifiers = { "block" },
 
 	-- See http://www.ocdsoft.com/files/speed.xls
-	speedModifiers = { "heavy_rifle_lightning_speed" },
+	speedModifiers = { "thrown_speed" },
 
 	-- Leave blank for now
 	damageModifiers = { },
@@ -125,8 +157,8 @@ object_weapon_ranged_rifle_rifle_lightning = object_weapon_ranged_rifle_shared_r
 	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "exp_durability", "expRange", "null", "expRange", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "roundsused", "hitpoints", "zerorangemod", "midrange", "midrangemod", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 276, 592, 6.3, 8, 30, 750, -10, 30, -5, 43, 62, 36},
-	experimentalMax = {0, 0, 410, 730, 4.7, 16, 65, 1500, 20, 30, 15, 28, 38, 24},
+	experimentalMin = {0, 0, 276, 592, 8.3, 8, 30, 750, -10, 30, -5, 43, 62, 36},
+	experimentalMax = {0, 0, 410, 730, 6.7, 16, 65, 1500, 20, 30, 15, 28, 38, 24},
 	experimentalPrecision = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }

@@ -46,6 +46,7 @@ object_installation_manufacture_structure_factory = object_installation_manufact
 	lotSize = 1,
 	baseMaintenanceRate = 50,
 	basePowerRate = 50,
+	allowedZones = {"corellia", "dantooine", "lok", "naboo", "rori", "talus", "tatooine", "taanab", "kuat"},
 	length = 5,
 	width = 5,
 	objectMenuComponent = "FactoryObjectMenuComponent",

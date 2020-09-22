@@ -4,7 +4,8 @@ desert_demon_common = {
 	maximumLevel = 0,
 	lootItems = {
 		{itemTemplate = "gambling_table_schematic", weight = 2000000},
-		{itemTemplate = "valley_view_painting", weight = 500000},
+		{itemTemplate = "valley_view_painting", weight = 250000},
+		{itemTemplate = "veh_power_plant_flare_s", weight = 250000},
 		{itemTemplate = "skill_buff_heavy_weapon_accuracy", weight = 750000},
 		{itemTemplate = "skill_buff_heavy_weapon_speed", weight = 750000},
 		{itemTemplate = "skill_buff_melee_accuracy", weight = 750000},

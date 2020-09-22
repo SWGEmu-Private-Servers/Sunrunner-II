@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_decorative_basket_closed = object_tangible_furniture_decorative_shared_basket_closed:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 	numberExperimentalProperties = {1, 1, 1, 1},
 	experimentalProperties = {"XX", "XX", "XX", "OQ"},
 	experimentalWeights = {1, 1, 1, 1},

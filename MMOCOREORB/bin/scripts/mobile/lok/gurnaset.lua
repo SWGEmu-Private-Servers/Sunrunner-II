@@ -28,6 +28,7 @@ gurnaset = Creature:new {
 
 	templates = {"object/mobile/gurnaset_hue.iff"},
 	hues = { 24, 25, 26, 27, 28, 29, 30, 31 },
+	controlDeviceTemplate = {"object/intangible/pet/gurnaset_hue.iff"},
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",

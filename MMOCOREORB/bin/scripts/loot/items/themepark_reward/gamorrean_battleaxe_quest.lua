@@ -5,11 +5,11 @@ gamorrean_battleaxe_quest = {
 	customObjectName = "",
 	directObjectTemplate = "object/weapon/melee/2h_sword/2h_sword_battleaxe_quest.iff",
 	craftingValues = {
-		{"mindamage",53,98,0},
-		{"maxdamage",123,228,0},
+		{"mindamage",83,178,0},
+		{"maxdamage",223,428,0},
 		{"attackspeed",6.5,4.5,1},
-		{"woundchance",6,14,0},
-		{"hitpoints",750,1500,0},
+		{"woundchance",16,34,0},
+		{"hitpoints",1500,1500,0},
 		{"zerorangemod",-26,-14,0},
 		{"maxrangemod",-26,-14,0},
 		{"midrange",3,3,0},
@@ -21,7 +21,7 @@ gamorrean_battleaxe_quest = {
 	},
 	customizationStringNames = {},
 	customizationValues = {},
-	skillMods = {{"block", 5}},
+	skillMods = {{"counterattack", 15}},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
 	randomDotChance = -1,
@@ -35,9 +35,9 @@ gamorrean_battleaxe_quest = {
 	-- staticDotValues: Object map that can randomly or statically generate a dot (used for weapon objects.)
 	staticDotValues = {
 		{"attribute", 6, 6}, -- See CreatureAttributes.h in src for numbers.
-		{"strength", 50, 50},
+		{"strength", 120, 120},
 		{"duration", 400, 400},
-		{"potency", 60, 60},
+		{"potency", 120, 120},
 		{"uses", 9999, 9999}
 	}
 

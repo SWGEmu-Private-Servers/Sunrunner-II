@@ -3,14 +3,14 @@ rancor = Creature:new {
 	socialGroup = "rancor",
 	faction = "",
 	level = 50,
-	chanceHit = 0.5,
-	damageMin = 420,
+	chanceHit = 1,
+	damageMin = 450,
 	damageMax = 550,
 	baseXp = 4916,
-	baseHAM = 10000,
-	baseHAMmax = 12000,
+	baseHAM = 12750,
+	baseHAMmax = 14750,
 	armor = 1,
-	resists = {130,130,-1,160,160,160,-1,-1,-1},
+	resists = {150,155,150,165,165,165,155,145,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 950,
 	hideType = "hide_leathery",
@@ -36,14 +36,14 @@ rancor = Creature:new {
 				{group = "weapons_all", chance = 2500000},
 				{group = "wearables_all", chance = 1500000}
 			},
-			lootChance = 2000000
+			lootChance = 3000000
 		}
 	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"stunattack",""},
-		{"intimidationattack",""}
+		{"stunattack","stateAccuracyBonus=50"},
+		{"intimidationattack","stateAccuracyBonus=50"}
 	}
 }
 

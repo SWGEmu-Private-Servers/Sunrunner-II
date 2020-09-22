@@ -2,15 +2,16 @@ great_plains_stalker = Creature:new {
 	objectName = "@mob/creature_names:great_plains_stalker",
 	socialGroup = "panther",
 	faction = "",
-	level = 51,
-	chanceHit = 0.5,
-	damageMin = 395,
-	damageMax = 500,
-	baseXp = 4916,
-	baseHAM = 10000,
-	baseHAMmax = 12000,
+	level = 61,
+	chanceHit = 1.5,
+	damageMin = 425,
+	damageMax = 580,
+	specialDamageMult = 2.5,
+	baseXp = 5500,
+	baseHAM = 13000,
+	baseHAMmax = 15500,
 	armor = 1,
-	resists = {135,135,5,5,5,5,5,-1,-1},
+	resists = {160,165,150,155,155,155,150,150,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 65,
 	hideType = "hide_bristley",
@@ -33,9 +34,10 @@ great_plains_stalker = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"blindattack",""},
-		{"stunattack",""}
+		{"dizzyattack","stateAccuracyBonus=50"},
+		{"creatureareacombo",""}
 	}
 }
 
 CreatureTemplates:addCreatureTemplate(great_plains_stalker, "great_plains_stalker")
+

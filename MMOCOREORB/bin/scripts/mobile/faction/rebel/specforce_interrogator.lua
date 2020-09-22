@@ -4,15 +4,15 @@ specforce_interrogator = Creature:new {
 	randomNameTag = true,
 	socialGroup = "rebel",
 	faction = "rebel",
-	level = 16,
-	chanceHit = 0.31,
-	damageMin = 170,
-	damageMax = 180,
+	level = 20,
+	chanceHit = 1,
+	damageMin = 210,
+	damageMax = 270,
 	baseXp = 960,
-	baseHAM = 2900,
-	baseHAMmax = 3500,
+	baseHAM = 3500,
+	baseHAMmax = 3900,
 	armor = 0,
-	resists = {0,0,0,0,0,0,0,-1,-1},
+	resists = {15,15,10,10,5,5,5,5,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -51,7 +51,7 @@ specforce_interrogator = Creature:new {
 	weapons = {"rebel_weapons_medium"},
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster)
+	attacks = merge(brawlermaster,marksmanmaster,tkanovice)
 }
 
 CreatureTemplates:addCreatureTemplate(specforce_interrogator, "specforce_interrogator")

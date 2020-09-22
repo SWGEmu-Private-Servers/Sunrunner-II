@@ -277,6 +277,13 @@ object_tangible_loot_misc_shared_briefcase_s01 = SharedTangibleObjectTemplate:ne
 
 ObjectTemplates:addClientTemplate(object_tangible_loot_misc_shared_briefcase_s01, "object/tangible/loot/misc/shared_briefcase_s01.iff")
 
+object_tangible_loot_misc_shared_briefcase_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/misc/shared_briefcase_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_loot_misc_shared_briefcase_s02, "object/tangible/loot/misc/shared_briefcase_s02.iff")
+
+
 object_tangible_loot_misc_shared_brown_rug = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/loot/misc/shared_brown_rug.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups

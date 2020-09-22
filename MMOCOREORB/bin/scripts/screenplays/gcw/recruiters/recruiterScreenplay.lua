@@ -144,60 +144,60 @@ function recruiterScreenplay:isInstallation(faction, strItem)
 	return factionRewardData.installations[strItem] ~= nil and factionRewardData.installations[strItem].type == factionRewardType.installation
 end
 
-function recruiterScreenplay:getWeaponsArmorOptions(faction, gcwDiscount, smugglerDiscount)
+function recruiterScreenplay:getWeaponsArmorOptions(faction, smugglerDiscount, rankDiscount) -- Displayed costs start here
 	local optionsTable = { }
 	local factionRewardData = self:getFactionDataTable(faction)
 	for k,v in pairs(factionRewardData.weaponsArmorList) do
 		if ( factionRewardData.weaponsArmor[v] ~= nil and factionRewardData.weaponsArmor[v].display ~= nil and factionRewardData.weaponsArmor[v].cost ~= nil ) then
-			local option = {self:generateSuiString(factionRewardData.weaponsArmor[v].display, math.ceil(factionRewardData.weaponsArmor[v].cost * gcwDiscount * smugglerDiscount)), 0}
+			local option = {self:generateSuiString(factionRewardData.weaponsArmor[v].display, math.ceil(factionRewardData.weaponsArmor[v].cost * smugglerDiscount * rankDiscount)), 0}
 			table.insert(optionsTable, option)
 		end
 	end
 	return optionsTable
 end
 
-function recruiterScreenplay:getFurnitureOptions(faction, gcwDiscount, smugglerDiscount)
+function recruiterScreenplay:getFurnitureOptions(faction, smugglerDiscount, rankDiscount)
 	local optionsTable = { }
 	local factionRewardData = self:getFactionDataTable(faction)
 	for k,v in pairs(factionRewardData.furnitureList) do
 		if ( factionRewardData.furniture[v] ~= nil and factionRewardData.furniture[v].display ~= nil and factionRewardData.furniture[v].cost ~= nil ) then
-			local option = {self:generateSuiString(factionRewardData.furniture[v].display, math.ceil(factionRewardData.furniture[v].cost * gcwDiscount * smugglerDiscount)), 0}
+			local option = {self:generateSuiString(factionRewardData.furniture[v].display, math.ceil(factionRewardData.furniture[v].cost * smugglerDiscount * rankDiscount)), 0}
 			table.insert(optionsTable, option)
 		end
 	end
 	return optionsTable
 end
 
-function recruiterScreenplay:getInstallationsOptions(faction, gcwDiscount, smugglerDiscount)
+function recruiterScreenplay:getInstallationsOptions(faction, smugglerDiscount, rankDiscount)
 	local optionsTable = { }
 	local factionRewardData = self:getFactionDataTable(faction)
 	for k,v in pairs(factionRewardData.installationsList) do
 		if ( factionRewardData.installations[v] ~= nil and factionRewardData.installations[v].display ~= nil and factionRewardData.installations[v].cost ~= nil ) then
-			local option = {self:generateSuiString(factionRewardData.installations[v].display, math.ceil(factionRewardData.installations[v].cost * gcwDiscount * smugglerDiscount)), 0}
+			local option = {self:generateSuiString(factionRewardData.installations[v].display, math.ceil(factionRewardData.installations[v].cost * smugglerDiscount * rankDiscount)), 0}
 			table.insert(optionsTable, option)
 		end
 	end
 	return optionsTable
 end
 
-function recruiterScreenplay:getHirelingsOptions(faction, gcwDiscount, smugglerDiscount)
+function recruiterScreenplay:getHirelingsOptions(faction, smugglerDiscount, rankDiscount)
 	local optionsTable = { }
 	local factionRewardData = self:getFactionDataTable(faction)
 	for k,v in pairs(factionRewardData.hirelingList) do
 		if ( factionRewardData.hirelings[v] ~= nil and factionRewardData.hirelings[v].display ~= nil and factionRewardData.hirelings[v].cost ~= nil ) then
-			local option = {self:generateSuiString(factionRewardData.hirelings[v].display, math.ceil(factionRewardData.hirelings[v].cost * gcwDiscount * smugglerDiscount)), 0}
+			local option = {self:generateSuiString(factionRewardData.hirelings[v].display, math.ceil(factionRewardData.hirelings[v].cost * smugglerDiscount * rankDiscount)), 0}
 			table.insert(optionsTable, option)
 		end
 	end
 	return optionsTable
 end
 
-function recruiterScreenplay:getUniformsOptions(faction, gcwDiscount, smugglerDiscount)
+function recruiterScreenplay:getUniformsOptions(faction, smugglerDiscount, rankDiscount)
 	local optionsTable = { }
 	local factionRewardData = self:getFactionDataTable(faction)
 	for k,v in pairs(factionRewardData.uniformList) do
 		if ( factionRewardData.uniforms[v] ~= nil and factionRewardData.uniforms[v].display ~= nil and factionRewardData.uniforms[v].cost ~= nil ) then
-			local option = {self:generateSuiString(factionRewardData.uniforms[v].display, math.ceil(factionRewardData.uniforms[v].cost * gcwDiscount * smugglerDiscount)), 0}
+			local option = {self:generateSuiString(factionRewardData.uniforms[v].display, math.ceil(factionRewardData.uniforms[v].cost * smugglerDiscount * rankDiscount)), 0}
 			table.insert(optionsTable, option)
 		end
 	end
@@ -297,23 +297,26 @@ function recruiterScreenplay:sendPurchaseSui(pNpc, pPlayer, screenID)
 	local faction = self:getRecruiterFaction(pNpc)
 	local gcwDiscount = getGCWDiscount(pPlayer)
 	local smugglerDiscount = self:getSmugglerDiscount(pPlayer)
+	local rankDiscount = self:getRankDiscount(pPlayer)
+
+	local discountString = self:generateDiscountString(pPlayer)
 
 	writeStringData(CreatureObject(pPlayer):getObjectID() .. ":faction_purchase", screenID)
 	local suiManager = LuaSuiManager()
 	local options = { }
 	if screenID == "fp_furniture" then
-		options = self:getFurnitureOptions(faction, gcwDiscount, smugglerDiscount)
+		options = self:getFurnitureOptions(faction, smugglerDiscount, rankDiscount)
 	elseif screenID == "fp_weapons_armor" then
-		options = self:getWeaponsArmorOptions(faction, gcwDiscount, smugglerDiscount)
+		options = self:getWeaponsArmorOptions(faction, smugglerDiscount, rankDiscount)
 	elseif screenID == "fp_installations" then
-		options = self:getInstallationsOptions(faction, gcwDiscount, smugglerDiscount)
+		options = self:getInstallationsOptions(faction, smugglerDiscount, rankDiscount)
 	elseif screenID == "fp_uniforms" then
-		options = self:getUniformsOptions(faction, gcwDiscount, smugglerDiscount)
+		options = self:getUniformsOptions(faction, smugglerDiscount, rankDiscount)
 	elseif screenID == "fp_hirelings" then
-		options = self:getHirelingsOptions(faction, gcwDiscount, smugglerDiscount)
+		options = self:getHirelingsOptions(faction, smugglerDiscount, rankDiscount)
 	end
 
-	suiManager:sendListBox(pNpc, pPlayer, "@faction_recruiter:faction_purchase", "@faction_recruiter:select_item_purchase", 2, "@cancel", "", "@ok", "recruiterScreenplay", "handleSuiPurchase", 32, options)
+	suiManager:sendListBox(pNpc, pPlayer, "@faction_recruiter:faction_purchase", discountString, 2, "@cancel", "", "@ok", "recruiterScreenplay", "handleSuiPurchase", 32, options)
 end
 
 function recruiterScreenplay:handleSuiPurchase(pCreature, pSui, eventIndex, arg0)
@@ -392,7 +395,7 @@ function recruiterScreenplay:awardItem(pPlayer, faction, itemString)
 		return self.errorCodes.ITEMCOST
 	end
 
-	itemCost = math.ceil(itemCost * getGCWDiscount(pPlayer) * self:getSmugglerDiscount(pPlayer))
+	itemCost = math.ceil(itemCost * self:getSmugglerDiscount(pPlayer) * self:getRankDiscount(pPlayer))
 
 	if (factionStanding < (itemCost + self.minimumFactionStanding)) then
 		return self.errorCodes.NOTENOUGHFACTION
@@ -469,7 +472,7 @@ function recruiterScreenplay:awardData(pPlayer, faction, itemString)
 		return self.errorCodes.ITEMCOST
 	end
 
-	itemCost = math.ceil(itemCost *  getGCWDiscount(pPlayer) * self:getSmugglerDiscount(pPlayer))
+	itemCost = math.ceil(itemCost *  getGCWDiscount(pPlayer) * self:getSmugglerDiscount(pPlayer) * self:getRankDiscount(pPlayer)) -- Actual cost is calculated here
 
 	if factionStanding < (itemCost + self.minimumFactionStanding) then
 		return self.errorCodes.NOTENOUGHFACTION
@@ -597,6 +600,26 @@ function recruiterScreenplay:getSmugglerDiscount(pPlayer)
 		return .90
 	end
 	return 1.0
+end
+
+function recruiterScreenplay:getRankDiscount(pPlayer)
+	local currRank = CreatureObject(pPlayer):getFactionRank()
+	local discount = 1 - ((currRank * 2) / 100)
+	return discount
+end
+
+function recruiterScreenplay:generateDiscountString(pPlayer)
+	
+	local rankDiscount = (1 - self:getRankDiscount(pPlayer)) * 100
+	rankDiscount = math.floor(rankDiscount + 0.5)
+	local smugglerDiscount = (1 - self:getSmugglerDiscount(pPlayer)) * 100
+	smugglerDiscount = math.floor(smugglerDiscount + 0.5)
+	local totalDiscount = math.floor((rankDiscount + smugglerDiscount))
+
+
+	local retString = "@faction_recruiter:select_item_purchase" .. "\n\nCurrent total discount: " .. totalDiscount .. "%\n\nDiscount from Smuggler: " .. smugglerDiscount .. "%\nDiscount from Rank: " .. rankDiscount .. "%"
+	return retString
+
 end
 
 function recruiterScreenplay:handleGoOnLeave(pPlayer)

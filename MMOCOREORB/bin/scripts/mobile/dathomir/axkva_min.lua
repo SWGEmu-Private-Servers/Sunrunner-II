@@ -1,5 +1,5 @@
 axkva_min = Creature:new {
-	objectName = "@mob/creature_names:axkva_min",
+	customName = "Axkva Min",
 	socialGroup = "nightsister",
 	faction = "nightsister",
 	level = 302,
@@ -8,10 +8,10 @@ axkva_min = Creature:new {
 	damageMax = 3000,
 	specialDamageMult = 7.5,
 	baseXp = 28549,
-	baseHAM = 385000,
-	baseHAMmax = 471000,
+	baseHAM = 420000,
+	baseHAMmax = 490000,
 	armor = 3,
-	resists = {100,135,135,100,100,100,100,100,-1},
+	resists = {190,190,180,200,200,200,200,170,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -26,26 +26,35 @@ axkva_min = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_dathomir_nightsister_axkva.iff"},
+	templates = {"object/mobile/axkva_min_static.iff"},
 	lootGroups = {
 		{
 			groups = {
-				{group = "power_crystals", chance = 900000},
-				{group = "nightsister_common", chance = 2600000},
-				{group = "pistols", chance = 1000000},
-				{group = "rifles", chance = 1000000},
-				{group = "carbines", chance = 1000000},
-				{group = "melee_weapons", chance = 2000000},
-				{group = "armor_attachments", chance = 500000},
-				{group = "clothing_attachments", chance = 500000},
-				{group = "wearables_rare", chance = 500000}
-			}
+				{group = "g_som_2h_sword_obsidian", chance = 1500000},
+				{group = "g_som_lance_obsidian", chance = 1500000},
+				{group = "axkva_min", chance = 2600000},
+				{group = "g_nightsister_bicep", chance = 1900000},
+				{group = "g_som_sword_obsidian", chance = 1500000},
+				{group = "g_axkva_motor", chance = 1000000}
+			},
+			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "axkva_min", chance = 10000000},
+				{group = "g_som_2h_sword_obsidian", chance = 1500000},
+				{group = "g_som_lance_obsidian", chance = 1500000},
+				{group = "axkva_min", chance = 2600000},
+				{group = "g_nightsister_bicep", chance = 1900000},
+				{group = "g_som_sword_obsidian", chance = 1500000},
+				{group = "g_axkva_motor", chance = 1000000}
 			},
-			lootChance = 5000000
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "g_axkva_motor", chance = 10000000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"mixed_force_weapons"},

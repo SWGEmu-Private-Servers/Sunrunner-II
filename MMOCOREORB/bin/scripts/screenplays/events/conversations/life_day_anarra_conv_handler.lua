@@ -6,9 +6,9 @@ function lifeDayAnarraConvoHandler:getInitialScreen(pPlayer, pNpc, pConvTemplate
 	local convoTemplate = LuaConversationTemplate(pConvTemplate)
 
 	local playerID = SceneObject(pPlayer):getObjectID()
-	if readScreenPlayData(pPlayer, readStringSharedMemory("lifeDayScreenplayName"), "complete") == "1" or readData(playerID .. ":lifeDayAnarra") == 1 then
+	if readScreenPlayData(pPlayer, readStringSharedMemory("lifeDayScreenplayName"), "completeagain") == "1" or readData(playerID .. ":lifeDayAnarra1") == 1 then
 		return convoTemplate:getScreen("tell_again")
-	elseif readData(playerID .. ":lifeDayState") == 2 then
+	elseif readData(playerID .. ":lifeDayState1") == 2 then
 		return convoTemplate:getScreen("renewel")
 	else
 		return convoTemplate:getScreen("elder_first")
@@ -29,9 +29,9 @@ function lifeDayAnarraConvoHandler:runScreenHandlers(pConvTemplate, pPlayer, pNp
 			clonedConversation:addOption("@conversation/lifeday04c:s_b8b7ef2b", "share_our_tale") -- Yes. Go on.
 		end
 	elseif screenID == "hope_you_will" or screenID == "thank_you" then
-		writeData(playerID .. ":lifeDayAnarra", 1)
-		if readData(playerID .. ":lifeDayRadrrl") == 1 and readData(playerID .. ":lifeDayTebeurra") == 1 then
-			writeData(playerID .. ":lifeDayState", 3)
+		writeData(playerID .. ":lifeDayAnarra1", 1)
+		if readData(playerID .. ":lifeDayRadrrl1") == 1 and readData(playerID .. ":lifeDayTebeurra1") == 1 then
+			writeData(playerID .. ":lifeDayState1", 3)
 		end
 	end
 	return pConvScreen

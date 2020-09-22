@@ -31,16 +31,18 @@ novatrooper = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "color_crystals", chance = 100000},
-				{group = "junk", chance = 6650000},
+			
+				{group = "g_rifle_deathtroopers", chance = 1500000},
+				{group = "g_pistol_deathhammer", chance = 1500000},		
+				{group = "junk", chance = 3300000},
 				{group = "rifles", chance = 550000},
 				{group = "pistols", chance = 550000},
 				{group = "melee_weapons", chance = 550000},
 				{group = "carbines", chance = 550000},
 				{group = "clothing_attachments", chance = 25000},
 				{group = "armor_attachments", chance = 25000},
-				{group = "wearables_common", chance = 500000},
-				{group = "wearables_uncommon", chance = 500000}
+				{group = "imperial_officer_common", chance = 450000},
+				{group = "wearables_rare", chance = 1000000}
 			}
 		}
 	},

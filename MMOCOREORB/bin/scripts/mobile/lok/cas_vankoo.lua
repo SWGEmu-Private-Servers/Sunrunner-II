@@ -2,13 +2,13 @@ cas_vankoo = Creature:new {
 	objectName = "@mob/creature_names:cas_vankoo",
 	socialGroup = "kimogila",
 	faction = "bandit",
-	level = 117,
+	level = 187,
 	chanceHit = 3.4,
-	damageMin = 725,
-	damageMax = 1160,
+	damageMin = 1225,
+	damageMax = 1860,
 	baseXp = 11109,
-	baseHAM = 50000,
-	baseHAMmax = 59000,
+	baseHAM = 96000,
+	baseHAMmax = 119000,
 	armor = 2,
 	resists = {75,75,0,10,10,10,10,0,0},
 	meatType = "",
@@ -36,7 +36,8 @@ cas_vankoo = Creature:new {
 				{group = "pistols", chance = 600000},
 				{group = "clothing_attachments", chance = 800000},
 				{group = "armor_attachments", chance = 800000},
-				{group = "wearables_all", chance = 1000000}
+				{group = "g_cas_vankoo_necklace", chance = 900000},
+				{group = "g_ig_key", chance = 100000}
 			}
 		}
 	},

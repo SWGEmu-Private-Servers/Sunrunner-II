@@ -141,6 +141,16 @@ function RaceTrack:checkServerRecordTime(pPlayer)
 		else
 			if resPos==1 then
 				CreatureObject(pPlayer):sendSystemMessage("@theme_park/racing/racing:beat_the_record")
+				local pInventory = CreatureObject(pPlayer):getSlottedObject("inventory")
+				local inventory = LuaSceneObject(pInventory)
+				local containerSize = inventory:getContainerObjectsSize()
+				if (SceneObject(pInventory):isContainerFullRecursive()) then
+					CreatureObject(pPlayer):sendSystemMessage("@error_message:inv_full")
+				else	
+					CreatureObject(pPlayer):sendSystemMessage("You have been awarded a podracer deed.")
+					pItem = giveItem(pInventory, "object/tangible/loot/misc/podracer_crate.iff", -1) 
+				end
+
 			else
 				CreatureObject(pPlayer):sendSystemMessage("Congratulations! You have beaten position ".. resPos .. " for this track! Record saved")
 			end

@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_all_frn_all_throwpillow_med_s03 = object_tangible_furniture_all_shared_frn_all_throwpillow_med_s03:new {
-		
+			objectMenuComponent = "CityDecorationMenuComponent",
 	numberExperimentalProperties = {1, 1, 2, 2},
 	experimentalProperties = {"XX", "XX", "OQ", "UT", "DR", "OQ"},
 	experimentalWeights = {1, 1, 1, 1, 1, 1},

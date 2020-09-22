@@ -31,8 +31,8 @@ rebel_commodore = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "color_crystals", chance = 500000},
-				{group = "junk", chance = 3550000},
+				{group = "g_pistol_westar_34", chance = 1500000},
+				{group = "junk", chance = 2550000},
 				{group = "rifles", chance = 1000000},
 				{group = "pistols", chance = 1000000},
 				{group = "melee_weapons", chance = 1000000},

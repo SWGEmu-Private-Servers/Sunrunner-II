@@ -3,20 +3,20 @@ bonecracker_bantha = Creature:new {
 	socialGroup = "bantha",
 	faction = "",
 	level = 24,
-	chanceHit = 0.35,
-	damageMin = 240,
-	damageMax = 250,
-	baseXp = 2443,
-	baseHAM = 7200,
-	baseHAMmax = 8800,
+	chanceHit = 1.25,
+	damageMin = 250,
+	damageMax = 260,
+	baseXp = 5043,
+	baseHAM = 7700,
+	baseHAMmax = 9300,
 	armor = 0,
-	resists = {10,125,10,140,-1,-1,-1,-1,-1},
+	resists = {130,125,150,160,120,140,130,130,-1},
 	meatType = "meat_herbivore",
-	meatAmount = 475,
+	meatAmount = 950,
 	hideType = "hide_wooly",
-	hideAmount = 345,
+	hideAmount = 690,
 	boneType = "bone_mammal",
-	boneAmount = 300,
+	boneAmount = 600,
 	milk = 0,
 	tamingChance = 0.05,
 	ferocity = 2,
@@ -32,8 +32,8 @@ bonecracker_bantha = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"intimidationattack",""},
-		{"stunattack",""}
+		{"intimidationattack","stateAccuracyBonus=100"},
+		{"stunattack","stateAccuracyBonus=100"}
 	}
 }
 

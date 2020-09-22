@@ -3,22 +3,22 @@ arachne_webmaster = Creature:new {
 	socialGroup = "arachne",
 	faction = "",
 	level = 50,
-	chanceHit = 0.5,
+	chanceHit = 1.5,
 	damageMin = 405,
 	damageMax = 520,
 	baseXp = 4916,
 	baseHAM = 9900,
 	baseHAMmax = 12100,
 	armor = 1,
-	resists = {135,135,-1,160,160,-1,160,-1,-1},
+	resists = {155,155,145,160,160,145,160,150,-1},
 	meatType = "meat_insect",
-	meatAmount = 30,
+	meatAmount = 90,
 	hideType = "",
 	hideAmount = 0,
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0.25,
+	tamingChance = 0.05,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + HERD + KILLER,
@@ -33,8 +33,8 @@ arachne_webmaster = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"stunattack",""},
-		{"strongpoison",""}
+		{"stunattack","stateAccuracyBonus=50"},
+		{"strongpoison","stateAccuracyBonus=50"}
 	}
 }
 

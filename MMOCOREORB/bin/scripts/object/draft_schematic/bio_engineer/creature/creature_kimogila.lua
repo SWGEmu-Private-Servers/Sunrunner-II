@@ -53,7 +53,7 @@ object_draft_schematic_bio_engineer_creature_creature_kimogila = object_draft_sc
    size = 1, 
 
    xpType = "crafting_bio_engineer_creature", 
-   xp = 320, 
+   xp = 420, 
 
    assemblySkill = "bio_engineer_assembly", 
    experimentingSkill = "bio_engineer_experimentation", 
@@ -66,8 +66,8 @@ object_draft_schematic_bio_engineer_creature_creature_kimogila = object_draft_sc
    ingredientTemplateNames = {"craft_creature_ingredients_n", "craft_creature_ingredients_n", "craft_creature_ingredients_n"},
    ingredientTitleNames = {"dna_template", "protein_base", "organic_nutrition_materials"},
    ingredientSlotType = {1, 0, 0},
-   resourceTypes = {"object/tangible/component/dna/shared_dna_template_generic.iff", "creature_food", "flora_food"},
-   resourceQuantities = {1, 90, 75},
+   resourceTypes = {"object/tangible/component/dna/shared_dna_template_generic.iff", "meat_carnivore_lok", "wheat_domesticated_lok"},
+   resourceQuantities = {1, 500, 425},
    contribution = {100, 100, 100},
 
 

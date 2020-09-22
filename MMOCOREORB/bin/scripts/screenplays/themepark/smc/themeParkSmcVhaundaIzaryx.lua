@@ -2,16 +2,13 @@ vhaunda_missions =
 {
 	{
 		missionType = "confiscate",
-		faction = FACTIONREBEL,
 		primarySpawns =
 		{
 			{ npcTemplate = "stormtrooper_squad_leader_quest", npcName = "LX-613" }
 		},
 		secondarySpawns =
 		{
-			{ npcTemplate = "stormtrooper", npcName = "" },
-			{ npcTemplate = "stormtrooper", npcName = "" },
-			{ npcTemplate = "stormtrooper", npcName = "" }
+
 		},
 		itemSpawns =
 		{
@@ -19,15 +16,16 @@ vhaunda_missions =
 		},
 		rewards =
 		{
-			{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-			{ rewardType = "credits", amount = 50 }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 175 },
+			{ rewardType = "credits", amount = 22500 },
+			{ rewardType = "loot",  lootGroup = "smc_potted_tree_small_group" }			
 		}
 	},
 	{
 		missionType = "assassinate",
 		primarySpawns =
 		{
-			{ npcTemplate = "singing_mountain_clan_arch_witch", npcName = "Peila" }
+			{ npcTemplate = "singing_mountain_clan_guardian", npcName = "Peila" }
 		},
 		secondarySpawns =
 		{
@@ -39,8 +37,8 @@ vhaunda_missions =
 		},
 		rewards =
 		{
-			{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-			{ rewardType = "credits", amount = 75 },
+			{ rewardType = "faction", faction = "mtn_clan", amount = 200 },
+			{ rewardType = "credits", amount = 25000 },
 			{ rewardType = "loot",  lootGroup = "theme_park_reward_smc_vhaunda_polearm" }
 		}
 	}
@@ -56,9 +54,9 @@ izaryx_missions =
 		},
 		secondarySpawns =
 		{
-			{ npcTemplate = "nightsister_rancor_tamer", npcName = "" },
-			{ npcTemplate = "nightsister_rancor_tamer", npcName = "" },
-			{ npcTemplate = "nightsister_sentry", npcName = "" }
+			{ npcTemplate = "nightsister_sentinel", npcName = "" },
+			{ npcTemplate = "nightsister_spell_weaver", npcName = "" },
+			{ npcTemplate = "nightsister_spell_weaver", npcName = "" }
 		},
 		itemSpawns =
 		{
@@ -66,23 +64,24 @@ izaryx_missions =
 		},
 		rewards =
 		{
-			{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-			{ rewardType = "credits", amount = 800 }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 225 },
+			{ rewardType = "credits", amount = 27500 },
+			{ rewardType = "loot",  lootGroup = "smc_potted_tree_medium_group" }
 		}
 	},
 	{
 		missionType = "assassinate",
 		primarySpawns =
 		{
-			{ npcTemplate = "nightsister_spell_weaver", npcName = "a Nightsister War-Party Leader" }
+			{ npcTemplate = "nightsister_protector", npcName = "a Nightsister War-Party Leader" }
 		},
 		secondarySpawns =
 		{
-			{ npcTemplate = "singing_mountain_clan_rancor_tamer", npcName = "a Singing Mountain Clan Scout" },
+			{ npcTemplate = "singing_mountain_clan_dragoon", npcName = "a Singing Mountain Clan Scout" },
 			{ npcTemplate = "nightsister_stalker", npcName = "" },
-			{ npcTemplate = "nightsister_stalker", npcName = "" },
-			{ npcTemplate = "nightsister_rancor_tamer", npcName = "" },
-			{ npcTemplate = "nightsister_rancor_tamer", npcName = "" }
+			{ npcTemplate = "nightsister_protector", npcName = "" },
+			{ npcTemplate = "nightsister_spell_weaver", npcName = "" },
+			{ npcTemplate = "nightsister_sentinel", npcName = "" }
 		},
 		itemSpawns =
 		{
@@ -90,8 +89,9 @@ izaryx_missions =
 		},
 		rewards =
 		{
-			{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-			{ rewardType = "credits", amount = 850 }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 250 },
+			{ rewardType = "credits", amount = 30000 },
+			{ rewardType = "loot",  lootGroup = "smc_rancor_doll_group" }			
 		}
 	}
 }

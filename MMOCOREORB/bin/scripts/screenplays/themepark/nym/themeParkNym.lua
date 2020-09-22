@@ -1,5 +1,5 @@
 local ObjectManager = require("managers.object.object_manager")
-THEME_PARK_NYM_BADGE = 108
+THEME_PARK_NYM_BADGE = 162
 
 npcMapNym =
 	{

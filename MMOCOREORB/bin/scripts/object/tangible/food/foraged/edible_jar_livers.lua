@@ -60,7 +60,7 @@ object_tangible_food_foraged_edible_jar_livers = object_tangible_food_foraged_sh
 	quantityMin = 0,
 	quantityMax = 0,
 	
-	modifiers = { "health", 100, "action", 50 },
+	modifiers = { "health", 175, "action", 125 },
 
 	buffName = "jar_livers",
 	buffCRC = 0,

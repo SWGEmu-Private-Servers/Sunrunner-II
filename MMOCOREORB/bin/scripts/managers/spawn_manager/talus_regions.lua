@@ -14,6 +14,7 @@
 require("scripts.managers.spawn_manager.regions")
 
 talus_regions = {
+
 	{"aakuan_champions_cave", 5928, 4656, {CIRCLE, 150}, NOSPAWNAREA + NOBUILDZONEAREA},
 	{"aakuan_tent", -3685, -550, {CIRCLE, 30}, NOSPAWNAREA + NOBUILDZONEAREA},
 	{"ageyn_foothills", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
@@ -219,5 +220,7 @@ talus_regions = {
 	{"yitsarin_river_canyon_5", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
 	{"yitsarin_river_canyon_6", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
 	{"yitsarin_river_canyon_7", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
-	{"yitsarin_river_canyon_8", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA}
+	{"yitsarin_river_canyon_8", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},	
+	{"silent_shades", -5491, 2893, {CIRCLE, 250}, NOSPAWNAREA + NOBUILDZONEAREA},
+
 }

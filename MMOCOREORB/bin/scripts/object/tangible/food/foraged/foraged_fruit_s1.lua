@@ -44,7 +44,7 @@
 object_tangible_food_foraged_foraged_fruit_s1 = object_tangible_food_foraged_shared_foraged_fruit_s1:new {
 	templateType = CONSUMABLE,
 	
-	duration = 150,
+	duration = 210,
 	filling = 0,
 	nutrition = 0,
 
@@ -60,7 +60,7 @@ object_tangible_food_foraged_foraged_fruit_s1 = object_tangible_food_foraged_sha
 	quantityMin = 0,
 	quantityMax = 0,
 	
-	modifiers = { "health", 50, "mind", 50 },
+	modifiers = { "health", 175, "mind", 175 },
 
 	buffName = "maroj_melon",
 	buffCRC = 0,

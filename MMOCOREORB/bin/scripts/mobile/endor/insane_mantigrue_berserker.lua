@@ -3,18 +3,18 @@ insane_mantigrue_berserker = Creature:new {
 	socialGroup = "mantigrue",
 	faction = "",
 	level = 50,
-	chanceHit = 0.43,
-	damageMin = 400,
-	damageMax = 510,
-	baseXp = 4916,
-	baseHAM = 9200,
-	baseHAMmax = 11200,
+	chanceHit = 1.25,
+	damageMin = 450,
+	damageMax = 600,
+	baseXp = 10216,
+	baseHAM = 10700,
+	baseHAMmax = 12700,
 	armor = 1,
-	resists = {150,150,200,150,-1,120,120,200,-1},
+	resists = {155,160,200,150,150,140,150,200,-1},
 	meatType = "meat_carnivore",
-	meatAmount = 85,
+	meatAmount = 170,
 	hideType = "hide_wooly",
-	hideAmount = 75,
+	hideAmount = 150,
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
@@ -32,8 +32,8 @@ insane_mantigrue_berserker = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"blindattack",""},
-		{"stunattack",""}
+		{"blindattack","stateAccuracyBonus=100"},
+		{"stunattack","stateAccuracyBonus=100"}
 	}
 }
 

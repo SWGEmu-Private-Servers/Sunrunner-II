@@ -8,6 +8,7 @@ theme_park_reward_imperial_redge = {
 		{itemTemplate = "armor_stormtrooper_helmet", weight = 3333333},
 		{itemTemplate = "armor_stormtrooper_chestplate", weight = 3333334},
 		{itemTemplate = "armor_stormtrooper_leggings", weight = 3333333}
+
 	}
 }
 

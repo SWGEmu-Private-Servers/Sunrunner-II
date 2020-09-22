@@ -33,7 +33,9 @@ donkuwah_tribesman = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "donkuwah_common", chance = 10000000}
+				{group = "donkuwah_common", chance = 9000000},
+				{group = "g_contamination_necklace", chance = 500000},
+				{group = "g_contamination_ring", chance = 500000}
 			},
 			lootChance = 1260000
 		}

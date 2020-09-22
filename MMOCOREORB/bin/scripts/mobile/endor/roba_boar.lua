@@ -3,14 +3,14 @@ roba_boar = Creature:new {
 	socialGroup = "roba",
 	faction = "",
 	level = 50,
-	chanceHit = 0.5,
+	chanceHit = 1.5,
 	damageMin = 395,
 	damageMax = 500,
 	baseXp = 4825,
-	baseHAM = 10000,
-	baseHAMmax = 12000,
+	baseHAM = 11500,
+	baseHAMmax = 13500,
 	armor = 1,
-	resists = {135,135,5,160,-1,160,-1,-1,-1},
+	resists = {150,155,165,150,145,155,150,145,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 15,
 	hideType = "hide_leathery",
@@ -18,7 +18,7 @@ roba_boar = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 15,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.05,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK,
@@ -27,13 +27,14 @@ roba_boar = Creature:new {
 
 	templates = {"object/mobile/roba_hue.iff"},
 	hues = { 8, 9, 10, 11, 12, 13, 14, 15 },
+	controlDeviceTemplate = "object/intangible/pet/roba_hue.iff",
 	scale = 1.25,
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"blindattack",""},
-		{"stunattack",""}
+		{"blindattack","stateAccuracyBonus=50"},
+		{"stunattack","stateAccuracyBonus=50"}
 	}
 }
 

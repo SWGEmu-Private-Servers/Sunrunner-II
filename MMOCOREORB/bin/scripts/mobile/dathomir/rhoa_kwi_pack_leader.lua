@@ -3,14 +3,14 @@ rhoa_kwi_pack_leader = Creature:new {
 	socialGroup = "kwi",
 	faction = "",
 	level = 50,
-	chanceHit = 0.47,
+	chanceHit = 1,
 	damageMin = 380,
 	damageMax = 470,
 	baseXp = 4916,
-	baseHAM = 9900,
-	baseHAMmax = 12100,
+	baseHAM = 11000,
+	baseHAMmax = 13100,
 	armor = 1,
-	resists = {135,165,0,160,0,0,0,0,-1},
+	resists = {150,165,140,160,150,145,150,145,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 120,
 	hideType = "hide_leathery",
@@ -33,8 +33,8 @@ rhoa_kwi_pack_leader = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"posturedownattack",""},
-		{"dizzyattack",""}
+		{"blindattack","stateAccuracyBonus=50"},
+		{"dizzyattack","stateAccuracyBonus=50"}
 	}
 }
 

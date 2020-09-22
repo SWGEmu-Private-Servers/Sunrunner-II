@@ -2,15 +2,15 @@ frenzied_graul = Creature:new {
 	objectName = "@mob/creature_names:frenzied_graul",
 	socialGroup = "graul",
 	faction = "",
-	level = 56,
-	chanceHit = 0.5,
-	damageMin = 445,
-	damageMax = 600,
-	baseXp = 5464,
-	baseHAM = 9500,
-	baseHAMmax = 11700,
+	level = 60,
+	chanceHit = 1.5,
+	damageMin = 350,
+	damageMax = 700,
+	baseXp = 6000,
+	baseHAM = 15750,
+	baseHAMmax = 18750,
 	armor = 1,
-	resists = {165,135,190,190,190,-1,5,5,-1},
+	resists = {165,160,190,180,180,155,165,150,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 1000,
 	hideType = "hide_leathery",
@@ -33,8 +33,8 @@ frenzied_graul = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"creatureareableeding",""},
-		{"stunattack",""}
+		{"creatureareableeding","stateAccuracyBonus=50"},
+		{"creatureareaknockdown","stateAccuracyBonus=50"}
 	}
 }
 

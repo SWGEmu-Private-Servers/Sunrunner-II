@@ -4,15 +4,15 @@ senior_specforce_wilderness_fighter = Creature:new {
 	randomNameTag = true,
 	socialGroup = "rebel",
 	faction = "rebel",
-	level = 20,
-	chanceHit = 0.33,
-	damageMin = 190,
-	damageMax = 200,
-	baseXp = 1803,
-	baseHAM = 5000,
-	baseHAMmax = 6100,
+	level = 32,
+	chanceHit = 1,
+	damageMin = 260,
+	damageMax = 410,
+	baseXp = 2903,
+	baseHAM = 7400,
+	baseHAMmax = 9400,
 	armor = 0,
-	resists = {15,15,0,0,0,0,-1,-1,-1},
+	resists = {140,35,30,25,30,20,140,30,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -52,7 +52,7 @@ senior_specforce_wilderness_fighter = Creature:new {
 	conversationTemplate = "",
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster)
+	attacks = merge(brawlermaster,marksmanmaster,tkanovice,riflemannovice,carbineernovice)
 }
 
 CreatureTemplates:addCreatureTemplate(senior_specforce_wilderness_fighter, "senior_specforce_wilderness_fighter")

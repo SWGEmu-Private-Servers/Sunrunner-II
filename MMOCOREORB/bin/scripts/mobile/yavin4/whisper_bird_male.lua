@@ -18,7 +18,7 @@ whisper_bird_male = Creature:new {
 	boneType = "bone_avian",
 	boneAmount = 40,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.01,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK + HERD,
@@ -26,6 +26,7 @@ whisper_bird_male = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/whisper_bird_hue.iff"},
+	controlDeviceTemplate = "object/intangible/pet/lantern_bird_hue.iff",
 	hues = { 16, 17, 18, 19, 20, 21, 22, 23 },
 	scale = 1.05,
 	lootGroups = {},

@@ -3,22 +3,22 @@ reclusive_cavern_spider_queen = Creature:new {
 	socialGroup = "spider_nightsister",
 	faction = "spider_nightsister",
 	level = 70,
-	chanceHit = 0.65,
+	chanceHit = 1.5,
 	damageMin = 510,
 	damageMax = 730,
 	baseXp = 6747,
-	baseHAM = 11000,
-	baseHAMmax = 14000,
+	baseHAM = 13500,
+	baseHAMmax = 16500,
 	armor = 1,
-	resists = {160,160,160,150,20,20,20,20,-1},
+	resists = {160,160,160,150,150,170,200,150,-1},
 	meatType = "meat_insect",
-	meatAmount = 45,
+	meatAmount = 145,
 	hideType = "",
 	hideAmount = 0,
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.04,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER + STALKER,
@@ -26,13 +26,14 @@ reclusive_cavern_spider_queen = Creature:new {
 	diet = CARNIVORE,
 
 	templates = {"object/mobile/gaping_spider_recluse.iff"},
+	controlDeviceTemplate = "object/intangible/pet/gaping_spider_hue.iff",
 	scale = 1.5,
 	lootGroups = {},
 	weapons = {"creature_spit_small_toxicgreen"},
 	conversationTemplate = "",
 	attacks = {
-		{"creatureareapoison",""},
-		{"strongpoison",""}
+		{"creatureareapoison","stateAccuracyBonus=50"},
+		{"strongpoison","stateAccuracyBonus=50"}
 	}
 }
 

@@ -57,7 +57,7 @@ object_draft_schematic_furniture_furniture_chair_kitchen = object_draft_schemati
 
 	assemblySkill = "structure_assembly",
 	experimentingSkill = "structure_experimentation",
-	customizationSkill = "structure_customization",
+	customizationSkill = "structure_experimentation",
 
 	customizationOptions = {},
 	customizationStringNames = {},
@@ -70,8 +70,10 @@ object_draft_schematic_furniture_furniture_chair_kitchen = object_draft_schemati
 	resourceQuantities = {35, 80},
 	contribution = {100, 100},
 
-	targetTemplate = "object/tangible/furniture/all/frn_all_chair_kitchen_s1.iff",
+	targetTemplate = "object/tangible/furniture/all/frn_all_chair_kitchen_hue_s1.iff",
 
-	additionalTemplates = {}
+	additionalTemplates = {"object/tangible/furniture/all/frn_all_chair_kitchen_hue_s1.iff",
+			       "object/tangible/furniture/all/frn_all_chair_kitchen_s2.iff",
+			      }
 }
 ObjectTemplates:addTemplate(object_draft_schematic_furniture_furniture_chair_kitchen, "object/draft_schematic/furniture/furniture_chair_kitchen.iff")

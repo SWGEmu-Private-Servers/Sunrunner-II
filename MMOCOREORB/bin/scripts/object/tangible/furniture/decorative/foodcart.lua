@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_decorative_foodcart = object_tangible_furniture_decorative_shared_foodcart:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_furniture_decorative_foodcart, "object/tangible/furniture/decorative/foodcart.iff")

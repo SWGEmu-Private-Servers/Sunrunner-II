@@ -33,7 +33,8 @@ renegade_corsec_trooper = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 6000000},
+				{group = "junk", chance = 5500000},
+				{group = "g_unerring_necklace", chance = 500000},
 				{group = "corsec_weapons", chance = 2500000},
 				{group = "tailor_components", chance = 1500000}
 			}

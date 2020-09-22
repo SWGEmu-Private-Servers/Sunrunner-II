@@ -44,6 +44,7 @@
 object_tangible_deed_vehicle_deed_landspeeder_x34_deed = object_tangible_deed_vehicle_deed_shared_landspeeder_x34_deed:new {
 
 	templateType = VEHICLEDEED,
+	objectMenuComponent = "CityDecorationMenuComponent",
 
 	controlDeviceObjectTemplate = "object/intangible/vehicle/landspeeder_x34_pcd.iff",
 	generatedObjectTemplate = "object/mobile/vehicle/landspeeder_x34.iff",

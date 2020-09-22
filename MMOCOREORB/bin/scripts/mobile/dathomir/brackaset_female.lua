@@ -18,7 +18,7 @@ brackaset_female = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 80,
 	milkType = "milk_wild",
-	milk = 50,
+	milk = 190,
 	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
@@ -35,7 +35,7 @@ brackaset_female = Creature:new {
 	        groups = {
 				{group = "brackaset_common", chance = 10000000}
 			},
-			lootChance = 1580000
+			lootChance = 5580000
 		}
 	   },
 	weapons = {},

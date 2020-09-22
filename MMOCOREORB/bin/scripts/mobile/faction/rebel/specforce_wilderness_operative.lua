@@ -4,15 +4,15 @@ specforce_wilderness_operative = Creature:new {
 	randomNameTag = true,
 	socialGroup = "rebel",
 	faction = "rebel",
-	level = 18,
-	chanceHit = 0.32,
-	damageMin = 170,
-	damageMax = 180,
-	baseXp = 1426,
-	baseHAM = 4100,
-	baseHAMmax = 5000,
+	level = 20,
+	chanceHit = 1,
+	damageMin = 195,
+	damageMax = 240,
+	baseXp = 1826,
+	baseHAM = 5100,
+	baseHAMmax = 6200,
 	armor = 0,
-	resists = {0,0,0,0,0,0,0,-1,-1},
+	resists = {25,20,10,10,10,25,35,15,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -53,7 +53,7 @@ specforce_wilderness_operative = Creature:new {
 	conversationTemplate = "",
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster)
+	attacks = merge(brawlermaster,marksmanmaster,tkanovice,riflemannovice,carbineernovice)
 }
 
 CreatureTemplates:addCreatureTemplate(specforce_wilderness_operative, "specforce_wilderness_operative")

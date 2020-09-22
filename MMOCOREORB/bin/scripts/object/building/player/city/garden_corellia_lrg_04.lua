@@ -44,7 +44,7 @@
 object_building_player_city_garden_corellia_lrg_04 = object_building_player_city_shared_garden_corellia_lrg_04:new {
 	lotSize = 0,
 	baseMaintenanceRate = 0,
-	allowedZones = {"corellia", "talus"},
+	allowedZones = {"dantooine", "lok", "tatooine", "naboo", "rori", "corellia", "talus", "taanab", "kuat"},
 	length = 7,
 	width = 7,
 	cityRankRequired = 3,

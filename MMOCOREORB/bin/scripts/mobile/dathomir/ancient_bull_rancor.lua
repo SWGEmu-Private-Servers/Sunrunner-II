@@ -3,14 +3,14 @@ ancient_bull_rancor = Creature:new {
 	socialGroup = "rancor",
 	faction = "",
 	level = 98,
-	chanceHit = 0.95,
-	damageMin = 620,
-	damageMax = 950,
+	chanceHit = 1.5,
+	damageMin = 700,
+	damageMax = 1000,
 	baseXp = 9336,
-	baseHAM = 20000,
-	baseHAMmax = 25000,
+	baseHAM = 30000,
+	baseHAMmax = 35000,
 	armor = 2,
-	resists = {150,165,0,200,200,200,0,0,-1},
+	resists = {175,175,165,200,200,200,160,160,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 1000,
 	hideType = "hide_leathery",
@@ -25,8 +25,7 @@ ancient_bull_rancor = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/bull_rancor.iff"},
-	hues = { 16, 17, 18, 19, 20, 21, 22, 23 },
+	templates = {"object/mobile/beast_master/bm_mutated_rancor.iff"},
 	scale = 1.25,
 	lootGroups = {
 		{
@@ -36,7 +35,7 @@ ancient_bull_rancor = Creature:new {
 				{group = "weapons_all", chance = 2500000},
 				{group = "wearables_all", chance = 1500000}
 			},
-			lootChance = 2960000
+			lootChance = 4960000
 		}
 	},
 	weapons = {},

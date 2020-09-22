@@ -1315,6 +1315,24 @@ tatooine_world = {
 			weighting = 2,
 			size = 35
 		},
+		{
+			lairTemplateName = "tatooine_massiff",
+			spawnLimit = -1,
+			minDifficulty = 46,
+			maxDifficulty = 54,
+			numberToSpawn = 0,
+			weighting = 5,
+			size = 5
+		},
+		{
+			lairTemplateName = "tatooine_dune_sea_krayt_dragon",
+			spawnLimit = 2,
+			minDifficulty = 116,
+			maxDifficulty = 120,
+			numberToSpawn = 0,
+			weighting = 2,
+			size = 5
+		},
 	}
 }
 

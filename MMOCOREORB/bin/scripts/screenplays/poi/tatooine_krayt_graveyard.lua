@@ -1,6 +1,8 @@
+local ObjectManager = require("managers.object.object_manager")
+
 KraytGraveyardScreenPlay = ScreenPlay:new {
 	numberOfActs = 1,
-
+        badgeToAward = BDG_KILL_ANCIENT_KRAYT_DRAGON
 }
 
 registerScreenPlay("KraytGraveyardScreenPlay", true)
@@ -34,7 +36,7 @@ function KraytGraveyardScreenPlay:spawnMobiles()
 	spawnMobile("tatooine", "krayt_dragon_grand", 1800, 7429.9, 7.1, 4477.3, 0, 0)
 
 	spawnMobile("tatooine", "krayt_dragon_ancient", 1800, 6836.7, 25.4, 4321.8, -150, 0)
-	spawnMobile("tatooine", "krayt_dragon_ancient", 1800, 7491.3, 8.4, 4484.8, -150, 0)
+	
 
 	spawnMobile("tatooine", "krayt_dragon_adolescent", 1800, 7525.1, 28.3, 4387.5, -74, 0)
 	spawnMobile("tatooine", "krayt_dragon_adolescent", 1800, 7269.8, 62.4, 4352.7, -77,0)
@@ -42,4 +44,35 @@ function KraytGraveyardScreenPlay:spawnMobiles()
 	spawnMobile("tatooine", "krayt_dragon_adolescent", 1800, 7003.0, 86.3, 4200.4, 10, 0)
 	spawnMobile("tatooine", "krayt_dragon_adolescent", 1800, 6726.8, 19.5, 4288.6, -91, 0)
 
+
+	local pCreature = spawnMobile("tatooine", "krayt_dragon_ancient", 1800, 7491.3, 8.4, 4484.8, -150, 0)
+	createObserver(OBJECTDESTRUCTION, "KraytGraveyardScreenPlay", "creatureKilled", pCreature)
+
+	
 end
+
+function KraytGraveyardScreenPlay:creatureKilled(pCreature, pPlayer)
+	if (pPlayer == nil) then
+	end
+
+	local badgeNum = 216
+
+	if (CreatureObject(pPlayer):isGrouped()) then
+			local groupSize = CreatureObject(pPlayer):getGroupSize()
+			for i = 0, groupSize - 1, 1 do
+					local pMember = CreatureObject(pPlayer):getGroupMember(i)
+					if pMember ~= nil and CreatureObject(pPlayer):isInRangeWithObject(pMember, 128) and SceneObject(pMember):isPlayerCreature() then
+							local pGhost = CreatureObject(pMember):getPlayerObject()
+							if (pGhost ~= nil and not PlayerObject(pGhost):hasBadge(badgeNum)) then
+									PlayerObject(pGhost):awardBadge(badgeNum)
+							end
+					end
+			end
+		else 
+			local pGhost = CreatureObject(pPlayer):getPlayerObject()
+			PlayerObject(pGhost):awardBadge(badgeNum)
+	end
+	return 0
+end
+
+

@@ -28,7 +28,8 @@ r4 = Creature:new {
 
 	templates = {
 		"object/mobile/r4.iff"
-	},		
+	},	
+	hues = { 0, 4, 8, 12, 16, 20, 35, 37, 40, 44, 48, 50, 56, 63 },	
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",

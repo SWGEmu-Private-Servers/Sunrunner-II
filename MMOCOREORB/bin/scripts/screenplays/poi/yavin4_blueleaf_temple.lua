@@ -17,7 +17,7 @@ BlueleafTempleScreenPlay = ScreenPlay:new {
 			groups = {
 				{group = "color_crystals", chance = 3100000},
 				{group = "junk", chance = 3500000},
-				{group = "heavy_weapons_consumable", chance = 600000},
+				{group = "g_magseal_accessories", chance = 600000},
 				{group = "rifles", chance = 600000},
 				{group = "carbines", chance = 600000},
 				{group = "pistols", chance = 600000},

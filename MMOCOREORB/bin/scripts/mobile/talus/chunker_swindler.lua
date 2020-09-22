@@ -32,7 +32,8 @@ chunker_swindler = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 1200000},
+				{group = "junk", chance = 600000},
+				{group = "g_carbine_moving_bracelet_r", chance = 600000},
 				{group = "rifles", chance = 700000},
 				{group = "melee_knife", chance = 700000},
 				{group = "pistols", chance = 700000},

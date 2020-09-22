@@ -6,18 +6,20 @@ padded_tantel_armor_helmet = {
 	customObjectName = "",
 	directObjectTemplate = "object/tangible/wearables/armor/tantel/armor_tantel_skreej_helmet_quest.iff",
 	craftingValues = {
-		{"armor_rating",0,0,0},
-		{"armor_integrity",100,100,0},
-		{"armor_effectiveness",-1,-1,0},
-		{"armor_health_encumbrance",0,0,0},
-		{"armor_action_encumbrance",0,0,0},
-		{"armor_mind_encumbrance",0,0,0},
+		{"armor_rating",1,1,0},
+		{"armor_integrity",35000,35000,0},
+		{"armor_effectiveness",59,59,10},
+		{"blasteffectiveness",49,49,10},
+		{"acideffectiveness",44,44,10},
+		{"armor_health_encumbrance",6,6,0},
+		{"armor_action_encumbrance",3,3,0},
+		{"armor_mind_encumbrance",54,54,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {},
 	skillMods = {
-		{"melee_defense",3},
-		{"resistance_poison",3}
+		{"melee_defense",6},
+		{"resistance_poison",6}
 	}
 }
 

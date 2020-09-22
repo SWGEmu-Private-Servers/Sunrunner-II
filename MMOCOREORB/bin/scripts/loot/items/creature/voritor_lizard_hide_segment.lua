@@ -3,16 +3,17 @@
 voritor_lizard_hide_segment = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Voritor Bone Armor Hide Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_bone_voritor_lizard.iff",
+	--bone 2
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"armor_effectiveness",2,14,10},
-		{"energyeffectiveness",2,14,10},
-		{"kineticeffectiveness",2,14,10},
-		{"armor_action_encumbrance",13,-2,0},
-		{"armor_mind_encumbrance",7,-6,0},
-		{"useCount",1,10,0},
+		{"armor_effectiveness",2,15,10},
+		{"armor_integrity",1000,3000,0},
+		{"electricaleffectiveness",2,12,10},
+		{"energyeffectiveness",2,16,10},
+		{"coldeffectiveness",2,12,10},
+		{"useCount",1,24,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

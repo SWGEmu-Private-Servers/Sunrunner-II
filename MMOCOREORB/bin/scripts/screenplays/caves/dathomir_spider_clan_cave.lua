@@ -1,7 +1,11 @@
+local ObjectManager = require("managers.object.object_manager")
+
 SpiderClanCaveScreenPlay = ScreenPlay:new {
 	numberOfActs = 1,
 
 	screenplayName = "SpiderClanCaveScreenPlay",
+
+        badgeToAward = BDG_KILL_GAPING_SPIDER_KIIN_DRAY,
 
 	lootContainers = {
 		5165581,
@@ -136,6 +140,7 @@ function SpiderClanCaveScreenPlay:notifyQueenDead(pQueen, pKiller)
 	if (readData("spiderclancave:kiindray") == 0) then
 		local pKiinDray = spawnMobile("dathomir", "kiin_dray", 0, -87.7, -100.8, -103.4, 174, 3695712)
 		createObserver(OBJECTDESTRUCTION, "SpiderClanCaveScreenPlay", "notifyKiinDrayDead", pKiinDray)
+		createObserver(OBJECTDESTRUCTION, "SpiderClanCaveScreenPlay", "creaturekilled", pKiinDray)
 		writeData("spiderclancave:kiindray", 1)
 	end
 
@@ -143,7 +148,34 @@ function SpiderClanCaveScreenPlay:notifyQueenDead(pQueen, pKiller)
 end
 
 function SpiderClanCaveScreenPlay:notifyKiinDrayDead(pKiinDray, pKiller)
+
 	deleteData("spiderclancave:kiindray")
 
 	return 1
 end
+
+function SpiderClanCaveScreenPlay:creaturekilled(pKiinDray, pPlayer)
+	if (pPlayer == nil) then
+	end
+
+	local badgeNum = 220
+
+	if (CreatureObject(pPlayer):isGrouped()) then
+			local groupSize = CreatureObject(pPlayer):getGroupSize()
+			for i = 0, groupSize - 1, 1 do
+					local pMember = CreatureObject(pPlayer):getGroupMember(i)
+					if pMember ~= nil and CreatureObject(pPlayer):isInRangeWithObject(pMember, 128) and SceneObject(pMember):isPlayerCreature() then
+							local pGhost = CreatureObject(pMember):getPlayerObject()
+							if (pGhost ~= nil and not PlayerObject(pGhost):hasBadge(badgeNum)) then
+									PlayerObject(pGhost):awardBadge(badgeNum)
+							end
+					end
+			end
+		else 
+			local pGhost = CreatureObject(pPlayer):getPlayerObject()
+			PlayerObject(pGhost):awardBadge(badgeNum)
+	end
+	return 0
+end
+
+

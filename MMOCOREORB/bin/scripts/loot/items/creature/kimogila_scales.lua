@@ -3,15 +3,20 @@
 kimogila_scales = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Kimogila Chitin Armor Scale Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_enhancement_kimogila.iff",
+	--chitin 3
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"heateffectiveness",3,8,10},
-		{"coldeffectiveness",3,8,10},
-		{"armor_action_encumbrance",4,-2,0},
-		{"armor_mind_encumbrance",4,-2,0},
-		{"useCount",1,10,0},
+		{"armor_effectiveness",6,16,10},
+		{"armor_integrity",2000,6000,0},
+		{"electricaleffectiveness",2,14,10},
+		{"heateffectiveness",2,14,10},
+		{"kineticeffectiveness",2,19,10},
+		{"armor_health_encumbrance",-10,-25,0},
+		{"armor_action_encumbrance",-10,-25,0},
+		{"armor_mind_encumbrance",-10,-25,0},
+		{"useCount",1,12,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

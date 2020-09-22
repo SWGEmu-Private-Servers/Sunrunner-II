@@ -33,7 +33,8 @@ gungan_thug = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 4000000},
+				{group = "junk", chance = 3500000},
+				{group = "g_structure_assem_bracelet_r", chance = 500000},
 				{group = "gungan_common", chance = 2000000},
 				{group = "tailor_components", chance = 2000000},
 				{group = "loot_kit_parts", chance = 2000000}

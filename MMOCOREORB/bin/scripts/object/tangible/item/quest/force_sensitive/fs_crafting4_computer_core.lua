@@ -42,7 +42,7 @@
 
 
 object_tangible_item_quest_force_sensitive_fs_crafting4_computer_core = object_tangible_item_quest_force_sensitive_shared_fs_crafting4_computer_core:new {
-	objectMenuComponent = "FsCrafting4ComputerCoreMenuComponent",
+	--objectMenuComponent = "FsCrafting4ComputerCoreMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_item_quest_force_sensitive_fs_crafting4_computer_core, "object/tangible/item/quest/force_sensitive/fs_crafting4_computer_core.iff")

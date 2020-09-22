@@ -33,7 +33,7 @@ ig_assassin_droid = Creature:new {
 				{group = "nyms_common", chance = 1000000},
 				{group = "pistols", chance = 1000000},
 				{group = "carbines", chance = 1000000},
-				{group = "tailor_components", chance = 500000}
+				{group = "g_droid_exp_necklace", chance = 500000}
 			}
 		}
 	},

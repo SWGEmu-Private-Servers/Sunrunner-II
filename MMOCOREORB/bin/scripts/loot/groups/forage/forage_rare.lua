@@ -5,7 +5,10 @@ forage_rare = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "treasure_map", weight = 10000000}
+		{itemTemplate = "treasure_map", weight = 2500000},
+		{itemTemplate = "skinner_ring", weight = 2500000},
+		{itemTemplate = "skinner_earring", weight = 2500000},
+		{itemTemplate = "skinner_necklace", weight = 2500000},
 	}
 }
 

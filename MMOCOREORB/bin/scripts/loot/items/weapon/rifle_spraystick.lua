@@ -10,7 +10,7 @@ rifle_spraystick = {
 		{"maxdamage",73,138,0},
 		{"attackspeed",3.6,2.4,0},
 		{"woundchance",9,19,0},
-		{"hitpoints",750,750,0},
+		{"hitpoints",750,1500,0},
 		{"attackhealthcost",18,7,0},
 		{"attackactioncost",52,28,0},
 		{"attackmindcost",52,28,0},
@@ -24,7 +24,7 @@ rifle_spraystick = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 750,
+	randomDotChance = 999,
 	junkDealerTypeNeeded = JUNKARMS,
 	junkMinValue = 25,
 	junkMaxValue = 45

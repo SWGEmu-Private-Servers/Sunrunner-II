@@ -5,14 +5,20 @@ carbines = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "carbine_cdef", weight = 3000000},
-		{itemTemplate = "carbine_dh17", weight = 1800000},
-		{itemTemplate = "carbine_dh17_snubnose", weight = 1500000},
-		{itemTemplate = "carbine_e11", weight = 1200000},
-		{itemTemplate = "carbine_ee3", weight = 1000000},
-		{itemTemplate = "carbine_laser", weight = 500000},
+		{itemTemplate = "carbine_cdef", weight = 1400000},
+		{itemTemplate = "carbine_dh17", weight = 800000},
+		{itemTemplate = "carbine_dh17_snubnose", weight = 900000},
+		{itemTemplate = "carbine_e11", weight = 900000},
+		{itemTemplate = "carbine_ee3", weight = 900000},
+		{itemTemplate = "carbine_laser", weight = 900000},
 		{itemTemplate = "carbine_elite", weight = 500000},
-		{itemTemplate = "carbine_dxr6", weight = 500000}
+		{itemTemplate = "carbine_dxr6", weight = 500000},
+		{itemTemplate = "carbine_e5", weight = 800000},
+		{itemTemplate = "carbine_bothan_bola", weight = 400000},
+		{itemTemplate = "carbine_czerka_dart", weight = 800000},
+		{itemTemplate = "carbine_alliance_needler", weight = 800000},
+		{itemTemplate = "carbine_proton", weight = 400000},		
+		
 	}
 }
 

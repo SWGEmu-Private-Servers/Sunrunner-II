@@ -3,20 +3,20 @@ elder_pulverizer = Creature:new {
 	socialGroup = "bol",
 	faction = "",
 	level = 30,
-	chanceHit = 0.35,
-	damageMin = 315,
-	damageMax = 340,
-	baseXp = 3005,
-	baseHAM = 8300,
-	baseHAMmax = 10100,
-	armor = 0,
-	resists = {125,125,15,15,115,-1,115,-1,-1},
+	chanceHit = 1.25,
+	damageMin = 340,
+	damageMax = 370,
+	baseXp = 6010,
+	baseHAM = 8800,
+	baseHAMmax = 10600,
+	armor = 1,
+	resists = {145,155,165,145,145,160,145,140,-1},
 	meatType = "meat_herbivore",
-	meatAmount = 450,
+	meatAmount = 900,
 	hideType = "hide_leathery",
-	hideAmount = 300,
+	hideAmount = 600,
 	boneType = "bone_mammal",
-	boneAmount = 180,
+	boneAmount = 360,
 	milk = 0,
 	tamingChance = 0.05,
 	ferocity = 6,
@@ -32,8 +32,8 @@ elder_pulverizer = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"dizzyattack",""},
-		{"knockdownattack",""}
+		{"dizzyattack","stateAccuracyBonus=100"},
+		{"knockdownattack","stateAccuracyBonus=100"}
 	}
 }
 

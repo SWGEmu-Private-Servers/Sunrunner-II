@@ -160,5 +160,6 @@ lok_regions = {
 	{"western_mountains", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
 	{"western_plains", 0, 0, {CIRCLE, 0}, UNDEFINEDAREA},
 	{"wind_farm", -2883, -236, {CIRCLE, 75}, NOSPAWNAREA + NOBUILDZONEAREA},
-	{"world_spawner", 0, 0, {CIRCLE, -1}, SPAWNAREA + WORLDSPAWNAREA, {"lok_world", "global_hard"}, 2048}
+	{"world_spawner", 0, 0, {CIRCLE, -1}, SPAWNAREA + WORLDSPAWNAREA, {"lok_world", "global_hard"}, 2048},
+	{"crimson_marauder_stronghold", -3000, 600, {CIRCLE, 500}, NOSPAWNAREA + NOBUILDZONEAREA},
 }

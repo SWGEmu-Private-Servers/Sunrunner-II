@@ -44,9 +44,9 @@
 object_tangible_medicine_crafted_medic_fire_blanket = object_tangible_medicine_crafted_shared_medic_fire_blanket:new {
 	gameObjectType = 8239,
 	templateType = CUREPACK,
-	useCount = 8,
+	useCount = 50,
 	medicineUse = 5,
-	effectiveness = 100,
+	effectiveness = 200,
 	state = ONFIRE,
 	commandToExecute = "extinguishfire",
 	area = 0,

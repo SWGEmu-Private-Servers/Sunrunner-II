@@ -42,7 +42,13 @@
 
 
 object_building_general_bunker_rebel_deep_chasm = object_building_general_shared_bunker_rebel_deep_chasm:new {
-
+	customObjectName = "Hutt Research Bunker",
+	spawningPoints = {
+			{ x = -4.6, z = -5.2, y = -10.5, ow = 0.707, ox = 0, oz = 0, oy = -0.707, cellID = 2 },
+			},
+	templateType = CLONINGBUILDING,
+	planetMapCategory = "cloningfacility",
+	facilityType = CLONER_STANDARD,
 }
 
 ObjectTemplates:addTemplate(object_building_general_bunker_rebel_deep_chasm, "object/building/general/bunker_rebel_deep_chasm.iff")

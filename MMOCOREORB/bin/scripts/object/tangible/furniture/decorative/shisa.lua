@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_decorative_shisa = object_tangible_furniture_decorative_shared_shisa:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_furniture_decorative_shisa, "object/tangible/furniture/decorative/shisa.iff")

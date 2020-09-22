@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_decorative_carved_bowl = object_tangible_furniture_decorative_shared_carved_bowl:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 	numberExperimentalProperties = {1, 1, 1, 2},
 	experimentalProperties = {"XX", "XX", "XX", "DR", "OQ"},
 	experimentalWeights = {1, 1, 1, 1, 1},

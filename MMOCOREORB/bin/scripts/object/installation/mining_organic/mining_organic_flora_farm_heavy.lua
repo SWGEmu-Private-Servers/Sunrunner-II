@@ -47,6 +47,7 @@ object_installation_mining_organic_mining_organic_flora_farm_heavy = object_inst
 	-- SOLAR = 1; CHEMICAL = 2; FLORA = 3; GAS = 4; GEOTHERMAL = 5; MINERAL = 6; WATER = 7; WIND = 8; FUSION = 9;
 	installationType = 3,
 	basePowerRate = 75,
+	allowedZones = {"corellia", "dantooine", "dathomir", "endor", "lok", "naboo", "rori", "talus", "tatooine", "yavin4", "taanab", "nalhutta", "kuat", "ordmantell", "ghomrassen", "mustafar", "kashyyyk", "hoth"},
 	width = 3,
 	length = 3,
 	objectMenuComponent = "InstallationObjectMenuComponent",

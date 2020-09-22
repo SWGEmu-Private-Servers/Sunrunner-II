@@ -28,7 +28,9 @@ mauler = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 4000000},
+				{group = "junk", chance = 3000000},
+				{group = "g_domesticator_necklace", chance = 500000},
+				{group = "g_domesticator_ring", chance = 500000},
 				{group = "tailor_components", chance = 1000000},
 				{group = "loot_kit_parts", chance = 2000000},
 				{group = "carbines", chance = 1000000},

@@ -2,15 +2,15 @@ greater_sludge_panther = Creature:new {
 	objectName = "@mob/creature_names:greater_sludge_panther",
 	socialGroup = "panther",
 	faction = "",
-	level = 25,
-	chanceHit = 0.35,
-	damageMin = 240,
-	damageMax = 250,
-	baseXp = 2637,
-	baseHAM = 7200,
-	baseHAMmax = 8800,
-	armor = 0,
-	resists = {135,10,10,-1,-1,-1,145,-1,-1},
+	level = 60,
+	chanceHit = 1.5,
+	damageMin = 350,
+	damageMax = 620,
+	baseXp = 6250,
+	baseHAM = 13450,
+	baseHAMmax = 17450,
+	armor = 1,
+	resists = {165,160,150,160,150,155,170,150,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 80,
 	hideType = "hide_leathery",
@@ -18,9 +18,9 @@ greater_sludge_panther = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 70,
 	milk = 0,
-	tamingChance = 0.25,
+	tamingChance = 0.03,
 	ferocity = 7,
-	pvpBitmask = ATTACKABLE,
+	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
@@ -33,7 +33,8 @@ greater_sludge_panther = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"posturedownattack",""}
+		{"creatureareableeding","stateAccuracyBonus=50"},
+		{"stunattack","stateAccuracyBonus=100"}
 	}
 }
 

@@ -39,7 +39,8 @@ blood_razor_officer = Creature:new {
 		{
 			groups = {
 				{group = "junk", chance = 3800000},
-				{group = "tailor_components", chance = 1000000},
+				{group = "tailor_components", chance = 500000},
+				{group = "g_perception_necklace", chance = 500000},
 				{group = "color_crystals", chance = 400000},
 				{group = "power_crystals", chance = 400000},
 				{group = "melee_unarmed", chance = 600000},

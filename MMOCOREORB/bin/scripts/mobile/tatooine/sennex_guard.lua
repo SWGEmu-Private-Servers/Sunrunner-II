@@ -42,7 +42,10 @@ sennex_guard = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 3000000},
+				{group = "junk", chance = 2000000},
+				{group = "g_smoldering_necklace", chance = 400000},
+				{group = "g_smoldering_bracelet_r", chance = 300000},
+				{group = "g_smoldering_bracelet_l", chance = 300000},				
 				{group = "wearables_common", chance = 1500000},
 				{group = "wearables_uncommon", chance = 500000},
 				{group = "heavy_weapons", chance = 2000000},

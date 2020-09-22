@@ -3,15 +3,16 @@
 brackaset_plating_segment = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Brackaset Mabari Armor Plate Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_chitin_brackaset.iff",
+	--mabari 1
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"armor_effectiveness",3,5,10},
-		{"blasteffectiveness",2,4,10},
-		{"armor_action_encumbrance",17,6,0},
-		{"armor_mind_encumbrance",20,5,0},
-		{"useCount",1,7,0},
+		{"armor_effectiveness",4,16,10},
+		{"electricaleffectiveness",2,4,10},
+		{"heateffectiveness",2,4,10},
+		{"kineticeffectiveness",2,12,10},
+		{"useCount",1,32,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

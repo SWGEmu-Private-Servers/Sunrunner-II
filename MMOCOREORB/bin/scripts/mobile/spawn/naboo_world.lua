@@ -1357,7 +1357,7 @@ naboo_world = {
 			minDifficulty = 34,
 			maxDifficulty = 38,
 			numberToSpawn = 0,
-			weighting = 8,
+			weighting = 4,
 			size = 30
 		},
 		{
@@ -1366,7 +1366,7 @@ naboo_world = {
 			minDifficulty = 34,
 			maxDifficulty = 38,
 			numberToSpawn = 0,
-			weighting = 8,
+			weighting = 4,
 			size = 30
 		},
 		{
@@ -1375,7 +1375,7 @@ naboo_world = {
 			minDifficulty = 34,
 			maxDifficulty = 38,
 			numberToSpawn = 0,
-			weighting = 15,
+			weighting = 5,
 			size = 30
 		},
 		{
@@ -1384,7 +1384,7 @@ naboo_world = {
 			minDifficulty = 37,
 			maxDifficulty = 41,
 			numberToSpawn = 0,
-			weighting = 10,
+			weighting = 3,
 			size = 30
 		},
 		{
@@ -1395,6 +1395,16 @@ naboo_world = {
 			numberToSpawn = 0,
 			weighting = 3,
 			size = 35
+		},
+
+		{
+			lairTemplateName = "naboo_sabertoothed_tuskcat",
+			spawnLimit = 2,
+			minDifficulty = 116,
+			maxDifficulty = 120,
+			numberToSpawn = 0,
+			weighting = 2,
+			size = 5
 		},
 	}
 }

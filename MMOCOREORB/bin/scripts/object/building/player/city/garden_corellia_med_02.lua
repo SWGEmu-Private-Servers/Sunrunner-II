@@ -45,7 +45,7 @@ object_building_player_city_garden_corellia_med_02 = object_building_player_city
 
 	lotSize = 0,
 	baseMaintenanceRate = 0,
-	allowedZones = {"corellia", "talus"},
+	allowedZones = {"dantooine", "lok", "tatooine", "naboo", "rori", "corellia", "talus", "taanab", "kuat"},
 	
 	length = 5,
 	

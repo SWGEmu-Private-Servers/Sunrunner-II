@@ -9,7 +9,7 @@ rebel_signet_ring = {
 	},
 	customizationStringNames = {},
 	customizationValues = {},
-	skillMods = {{"camouflage", 3}}
+	skillMods = {{"slope_move", 15}}
 }
 
 addLootItemTemplate("rebel_signet_ring", rebel_signet_ring)

@@ -6,14 +6,14 @@ function lifeDayOraalarriConvoHandler:getInitialScreen(pPlayer, pNpc, pConvTempl
 	local convoTemplate = LuaConversationTemplate(pConvTemplate)
 
 	local playerID = CreatureObject(pPlayer):getObjectID()
-	if readScreenPlayData(pPlayer, readStringSharedMemory("lifeDayScreenplayName"), "complete") == "1" then
+	if readScreenPlayData(pPlayer, readStringSharedMemory("lifeDayScreenplayName"), "completeagain") == "1" then
 		return convoTemplate:getScreen("return_complete")
-	elseif readData(playerID .. ":lifeDayState") == 1 or readData(playerID .. ":lifeDayState") == 2 then
+	elseif readData(playerID .. ":lifeDayState1") == 1 or readData(playerID .. ":lifeDayState1") == 2 then
 		return convoTemplate:getScreen("greetings")
-	elseif readData(playerID .. ":lifeDayState") == 3 then
+	elseif readData(playerID .. ":lifeDayState1") == 3 then
 		local pGhost = CreatureObject(pPlayer):getPlayerObject()
 
-		if pGhost ~= nil and PlayerObject(pGhost):getCharacterAgeInDays() >= 30  then
+		if pGhost ~= nil and PlayerObject(pGhost):getCharacterAgeInDays() >= 5  then
 			return convoTemplate:getScreen("have_spoken")
 		else
 			return convoTemplate:getScreen("no_gift")
@@ -30,7 +30,7 @@ function lifeDayOraalarriConvoHandler:runScreenHandlers(pConvTemplate, pPlayer, 
 	local clonedConversation = LuaConversationScreen(pConvScreen)
 
 	if screenID == "speak_to_others" then
-		writeData(SceneObject(pPlayer):getObjectID() .. ":lifeDayState", 2)
+		writeData(SceneObject(pPlayer):getObjectID() .. ":lifeDayState1", 2)
 	elseif screenID == "have_gifts" then
 		if CreatureObject(pPlayer):getSpecies() == 4 then
 			clonedConversation:addOption("@conversation/lifeday04b:s_afabf3ac", "gift_wookiee") -- What sort of gifts?

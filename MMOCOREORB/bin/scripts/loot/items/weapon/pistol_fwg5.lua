@@ -10,7 +10,7 @@ pistol_fwg5 = {
 		{"maxdamage",58,112,0},
 		{"attackspeed",5.3,3.8,1},
 		{"woundchance",5,11,0},
-		{"hitpoints",750,750,0},
+		{"hitpoints",750,1500,0},
 		{"attackhealthcost",17,8,0},
 		{"attackactioncost",44,27,0},
 		{"attackmindcost",25,14,0},
@@ -24,7 +24,7 @@ pistol_fwg5 = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 625,
+	randomDotChance = 999,
 	junkDealerTypeNeeded = JUNKARMS,
 	junkMinValue = 25,
 	junkMaxValue = 45

@@ -1,6 +1,10 @@
 local ObjectManager = require("managers.object.object_manager")
 
 DeathWatchBunkerScreenPlay = ScreenPlay:new {
+	numberOfActs = 1,
+
+    badgeToAward = BDG_KILL_DEATHWATCH_OVERLORD,
+
 	passkey = {
 		hall = "object/tangible/dungeon/death_watch_bunker/passkey_hall.iff",
 		storage = "object/tangible/dungeon/death_watch_bunker/passkey_storage.iff",
@@ -223,6 +227,34 @@ function DeathWatchBunkerScreenPlay:spawnMobiles()
 			end
 		end
 	end
+
+	local pCreature = spawnMobile("endor", "death_watch_overlord", 300, 118, -64, -94, -135, 5996349)
+	createObserver(OBJECTDESTRUCTION, "DeathWatchBunkerScreenPlay", "creatureKilled", pCreature)
+
+end
+
+function DeathWatchBunkerScreenPlay:creatureKilled(pCreature, pPlayer)
+	if (pPlayer == nil) then
+	end
+
+	local badgeNum = 221
+
+	if (CreatureObject(pPlayer):isGrouped()) then
+			local groupSize = CreatureObject(pPlayer):getGroupSize()
+			for i = 0, groupSize - 1, 1 do
+					local pMember = CreatureObject(pPlayer):getGroupMember(i)
+					if pMember ~= nil and CreatureObject(pPlayer):isInRangeWithObject(pMember, 128) and SceneObject(pMember):isPlayerCreature() then
+							local pGhost = CreatureObject(pMember):getPlayerObject()
+							if (pGhost ~= nil and not PlayerObject(pGhost):hasBadge(badgeNum)) then
+									PlayerObject(pGhost):awardBadge(badgeNum)
+							end
+					end
+			end
+		else 
+			local pGhost = CreatureObject(pPlayer):getPlayerObject()
+			PlayerObject(pGhost):awardBadge(badgeNum)
+	end
+	return 0
 end
 
 function DeathWatchBunkerScreenPlay:spawnObjects()

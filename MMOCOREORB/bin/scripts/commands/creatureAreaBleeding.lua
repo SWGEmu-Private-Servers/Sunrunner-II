@@ -43,6 +43,10 @@
 
 CreatureAreaBleedingCommand = {
         name = "creatureareableeding",
+	damageMultiplier = 3.25,
+
+	speedMultiplier = 1,
+
         combatSpam = "attack",
         animation = "creature_attack_special_2", 
 	animType = GENERATE_INTENSITY,
@@ -54,14 +58,14 @@ CreatureAreaBleedingCommand = {
 		true,
 		0,
 		100,
-		50, 
+		200, 
 		120
 	  )
 	},
 
 	areaRange = 25,
-	areaAction = true
+	areaAction = true,
+	poolsToDamage = RANDOM_ATTRIBUTE
 }
 
 AddCommand(CreatureAreaBleedingCommand)
-

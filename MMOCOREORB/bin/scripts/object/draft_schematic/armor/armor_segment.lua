@@ -50,7 +50,7 @@ object_draft_schematic_armor_armor_segment = object_draft_schematic_armor_shared
 	craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 20,
 	size = 6,
-	factoryCrateSize = 50,
+	factoryCrateSize = 1000,
 
 	xpType = "crafting_clothing_armor",
 	xp = 40,
@@ -64,9 +64,9 @@ object_draft_schematic_armor_armor_segment = object_draft_schematic_armor_shared
 	customizationDefaults = {},
 
 	ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
-	ingredientTitleNames = {"segment_layer_assembly_plate", "armor_layer_weld_tabs", "segment_mounting_tabs", "defensive_layer", "segment_enhancement"},
+	ingredientTitleNames = {"segment_layer_assembly_plate", "armor_layer_weld_tabs", "segment_mounting_tabs", "armor_layer_electrical", "segment_enhancement"},
 	ingredientSlotType = {0, 0, 0, 3, 3},
-	resourceTypes = {"petrochem_inert", "aluminum", "metal_nonferrous", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
+	resourceTypes = {"petrochem_inert", "aluminum", "metal_nonferrous", "object/tangible/component/armor/shared_armor_layer_electrical.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement_tantel.iff"},
 	resourceQuantities = {5, 10, 10, 1, 1},
 	contribution = {100, 100, 100, 100, 100},
 

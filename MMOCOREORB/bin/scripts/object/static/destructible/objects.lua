@@ -512,3 +512,9 @@ object_static_destructible_shared_gungan_sacred_head = SharedInstallationObjectT
 }
 
 ObjectTemplates:addClientTemplate(object_static_destructible_shared_gungan_sacred_head, "object/static/destructible/shared_gungan_sacred_head.iff")
+
+object_static_destructible_shared_destructible_cave_wall_damprock_high = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/static/destructible/shared_destructible_cave_wall_damprock_high.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_static_destructible_shared_destructible_cave_wall_damprock_high, "object/static/destructible/shared_destructible_cave_wall_damprock_high.iff")

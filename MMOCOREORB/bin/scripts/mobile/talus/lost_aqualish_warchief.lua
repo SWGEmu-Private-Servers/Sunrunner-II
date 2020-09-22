@@ -33,7 +33,8 @@ lost_aqualish_warchief = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 3000000},
+				{group = "junk", chance = 2500000},				
+				{group = "g_attentive_ring", chance = 500000},
 				{group = "wearables_common", chance = 1500000},
 				{group = "wearables_uncommon", chance = 500000},
 				{group = "heavy_weapons", chance = 2000000},

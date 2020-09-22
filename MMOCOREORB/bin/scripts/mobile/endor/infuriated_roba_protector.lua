@@ -3,14 +3,14 @@ infuriated_roba_protector = Creature:new {
 	socialGroup = "roba",
 	faction = "",
 	level = 57,
-	chanceHit = 0.55,
+	chanceHit = 1.5,
 	damageMin = 420,
 	damageMax = 550,
 	baseXp = 5555,
-	baseHAM = 11000,
-	baseHAMmax = 14000,
-	armor = 0,
-	resists = {135,135,15,120,15,120,15,-1,-1},
+	baseHAM = 12000,
+	baseHAMmax = 15000,
+	armor = 1,
+	resists = {155,145,145,150,165,160,155,145,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 120,
 	hideType = "hide_leathery",
@@ -18,7 +18,7 @@ infuriated_roba_protector = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 70,
 	milk = 0,
-	tamingChance = 0.05,
+	tamingChance = 0.03,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -32,8 +32,8 @@ infuriated_roba_protector = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"posturedownattack",""},
-		{"stunattack",""}
+		{"posturedownattack","stateAccuracyBonus=50"},
+		{"stunattack","stateAccuracyBonus=50"}
 	}
 }
 

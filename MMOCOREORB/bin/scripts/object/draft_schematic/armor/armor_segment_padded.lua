@@ -50,7 +50,7 @@ object_draft_schematic_armor_armor_segment_padded = object_draft_schematic_armor
 	craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 25,
 	size = 6,
-	factoryCrateSize = 50,
+	factoryCrateSize = 1000,
 
 	xpType = "crafting_clothing_armor",
 	xp = 50,
@@ -64,9 +64,9 @@ object_draft_schematic_armor_armor_segment_padded = object_draft_schematic_armor
 	customizationDefaults = {},
 
 	ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
-	ingredientTitleNames = {"segment_layer_assembly_plate", "armor_layer_weld_tabs", "segment_mounting_tabs", "defensive_layer", "defensive_layer_2", "segment_enhancement"},
+	ingredientTitleNames = {"segment_layer_assembly_plate", "armor_layer_weld_tabs", "segment_mounting_tabs", "armor_layer_blast", "armor_layer_kinetic", "segment_enhancement"},
 	ingredientSlotType = {0, 0, 0, 3, 3, 3},
-	resourceTypes = {"hide_wooly", "steel", "metal_ferrous", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
+	resourceTypes = {"hide_wooly", "steel", "metal_ferrous", "object/tangible/component/armor/shared_armor_layer_blast.iff", "object/tangible/component/armor/shared_armor_layer_kinetic.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement_padded.iff"},
 	resourceQuantities = {15, 10, 5, 1, 1, 1},
 	contribution = {100, 100, 100, 100, 100, 100},
 

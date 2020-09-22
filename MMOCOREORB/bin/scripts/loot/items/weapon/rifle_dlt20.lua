@@ -10,7 +10,7 @@ rifle_dlt20 = {
 		{"maxdamage",94,149,0},
 		{"attackspeed",8.4,6.1,0},
 		{"woundchance",4.3,11.2,0},
-		{"hitpoints",750,750,0},
+		{"hitpoints",750,1500,0},
 		{"attackhealthcost",22,14,0},
 		{"attackactioncost",43,23,0},
 		{"attackmindcost",47,21,0},
@@ -24,7 +24,7 @@ rifle_dlt20 = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 750,
+	randomDotChance = 999,
 	junkDealerTypeNeeded = JUNKARMS,
 	junkMinValue = 20,
 	junkMaxValue = 40

@@ -16,9 +16,9 @@ vurlene_missions =
 		},
 		rewards =
 		{
-			{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-			{ rewardType = "credits", amount = 75 },
-			{ rewardType = "loot",  lootGroup = "theme_park_reward_smc_vurlene_stims" }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 100 },
+			{ rewardType = "credits", amount = 20000 },
+			{ rewardType = "loot",  lootGroup = "smc_potted_plant_group_01" }
 		}
 	},
 	{
@@ -30,7 +30,8 @@ vurlene_missions =
 		},
 		secondarySpawns =
 		{
-
+			{ npcTemplate = "nightsister_spell_weaver", npcName = "" },
+			{ npcTemplate = "nightsister_initiate", npcName = "" }			
 		},
 		itemSpawns =
 		{
@@ -38,9 +39,8 @@ vurlene_missions =
 		},
 		rewards =
 		{
-			{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-			{ rewardType = "credits", amount = 75 },
-			{ rewardType = "loot",  lootGroup = "theme_park_reward_smc_vurlene_stims" }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 125 },
+			{ rewardType = "credits", amount = 20000 }
 		}
 	},
 	{
@@ -52,8 +52,8 @@ vurlene_missions =
 		},
 		secondarySpawns =
 		{
-			{ npcTemplate = "nightsister_initiate", npcName = "" },
-			{ npcTemplate = "nightsister_initiate", npcName = "" }
+			{ npcTemplate = "nightsister_spell_weaver", npcName = "" },
+			{ npcTemplate = "nightsister_sentinel", npcName = "" }
 		},
 		itemSpawns =
 		{
@@ -61,9 +61,9 @@ vurlene_missions =
 		},
 		rewards =
 		{
-			{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-			{ rewardType = "credits", amount = 100 },
-			{ rewardType = "loot",  lootGroup = "theme_park_reward_smc_vurlene_stims" }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 150 },
+			{ rewardType = "credits", amount = 22500 },
+			{ rewardType = "loot",  lootGroup = "smc_potted_plant_group_02" }
 		}
 	}
 }
@@ -79,7 +79,8 @@ aujante_klee_missions =
 		},
 		secondarySpawns =
 		{
-			{ npcTemplate = "nightsister_outcast", npcName = "" }
+			{ npcTemplate = "nightsister_protector", npcName = "" },
+			{ npcTemplate = "nightsister_spell_weaver", npcName = "" }			
 		},
 		itemSpawns =
 		{
@@ -87,8 +88,8 @@ aujante_klee_missions =
 		},
 		rewards =
 		{
-			{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-			{ rewardType = "credits", amount = 200 }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 400 },
+			{ rewardType = "credits", amount = 30000 }
 		}
 	},
 	{
@@ -100,7 +101,8 @@ aujante_klee_missions =
 		},
 		secondarySpawns =
 		{
-
+			{ npcTemplate = "nightsister_protector", npcName = "" },
+			{ npcTemplate = "nightsister_spell_weaver", npcName = "" }
 		},
 		itemSpawns =
 		{
@@ -109,7 +111,8 @@ aujante_klee_missions =
 		rewards =
 		{
 			{ rewardType = "faction", faction = "mtn_clan", amount = 450 },
-			{ rewardType = "credits", amount = 500 }
+			{ rewardType = "credits", amount = 40000 },
+			{ rewardType = "loot",  lootGroup = "smc_mask_group" }			
 		}
 	},
 	{
@@ -121,8 +124,8 @@ aujante_klee_missions =
 		},
 		secondarySpawns =
 		{
-			{ npcTemplate = "nightsister_stalker", npcName = "" },
-			{ npcTemplate = "nightsister_rancor_tamer", npcName = "" }
+			{ npcTemplate = "nightsister_protector", npcName = "" },
+			{ npcTemplate = "nightsister_protector", npcName = "" }
 		},
 		itemSpawns =
 		{
@@ -130,8 +133,9 @@ aujante_klee_missions =
 		},
 		rewards =
 		{
-			{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-			{ rewardType = "credits", amount = 300 }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 500 },
+			{ rewardType = "credits", amount = 40000 },
+			{ rewardType = "loot",  lootGroup = "smc_trilithon_group" }			
 		}
 	},
 	{
@@ -139,14 +143,14 @@ aujante_klee_missions =
 		planetName = "dathomir",
 		primarySpawns =
 		{
-			{ npcTemplate = "nightsister_spell_weaver", npcName = "Morathax" }
+			{ npcTemplate = "nightsister_protector", npcName = "Morathax" }
 		},
 		secondarySpawns =
 		{
-			{ npcTemplate = "nightsister_initiate", npcName = "" },
-			{ npcTemplate = "nightsister_initiate", npcName = "" },
-			{ npcTemplate = "nightsister_outcast", npcName = "" },
-			{ npcTemplate = "nightsister_outcast", npcName = "" }
+			{ npcTemplate = "nightsister_protector", npcName = "" },
+			{ npcTemplate = "nightsister_protector", npcName = "" },
+			{ npcTemplate = "nightsister_protector", npcName = "" },
+			{ npcTemplate = "nightsister_protector", npcName = "" }
 		},
 		itemSpawns =
 		{
@@ -154,8 +158,9 @@ aujante_klee_missions =
 		},
 		rewards =
 		{
-			{ rewardType = "faction", faction = "mtn_clan", amount = 410 },
-			{ rewardType = "credits", amount = 500 }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 550 },
+			{ rewardType = "credits", amount = 60000 },
+			{ rewardType = "loot",  lootGroup = "smc_floating_stones_group" }			
 		}
 	}
 }

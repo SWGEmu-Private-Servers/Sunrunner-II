@@ -8,7 +8,7 @@ probot_crafted_advanced = Creature:new {
 	damageMax = 191,
 	baseXp = 0,
 	baseHAM = 3000,
-	baseHAMmax = 3200,
+	baseHAMmax = 3000,
 	armor = 0,
 	resists = {0,0,0,0,0,0,0,-1,-1},
 	meatType = "",
@@ -29,8 +29,9 @@ probot_crafted_advanced = Creature:new {
 		"object/creature/npc/droid/crafted/probe_droid_advanced.iff"
 	},
 	lootGroups = {},
-	defaultAttack = "attack",
+	defaultAttack = "creaturerangedattack",
 	weapons = {"droid_probot_ranged"},
+	attacks = merge(brawlermaster,marksmanmaster,pistoleernovice),
 	conversationTemplate = "",
 }
 

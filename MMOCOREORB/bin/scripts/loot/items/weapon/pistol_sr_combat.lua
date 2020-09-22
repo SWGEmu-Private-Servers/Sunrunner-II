@@ -10,7 +10,7 @@ pistol_sr_combat = {
 		{"maxdamage",63,122,0},
 		{"attackspeed",5.7,4.3,0},
 		{"woundchance",6,13,0},
-		{"hitpoints",750,750,0},
+		{"hitpoints",750,1500,0},
 		{"attackhealthcost",36,20,0},
 		{"attackactioncost",54,29,0},
 		{"attackmindcost",23,12,0},
@@ -24,7 +24,7 @@ pistol_sr_combat = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 625,
+	randomDotChance = 999,
 	junkDealerTypeNeeded = JUNKARMS,
 	junkMinValue = 25,
 	junkMaxValue = 45

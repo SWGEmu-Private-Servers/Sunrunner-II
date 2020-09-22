@@ -50,7 +50,7 @@ object_draft_schematic_armor_armor_segment_kashyyykian_black_mtn_advanced = obje
 	craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 25,
 	size = 1,
-	factoryCrateSize = 50,
+	factoryCrateSize = 1000,
 
 	xpType = "crafting_clothing_armor",
 	xp = 50,
@@ -64,9 +64,9 @@ object_draft_schematic_armor_armor_segment_kashyyykian_black_mtn_advanced = obje
 	customizationDefaults = {},
 
 	ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
-	ingredientTitleNames = {"armor_segment_kashyyykian_black_mtn", "armor_layer_track", "segment_mounting_tabs", "defensive_layer", "defensive_layer_2", "segment_enhancement"},
-	ingredientSlotType = {0, 0, 0, 3, 3, 3},
-	resourceTypes = {"hide_leathery_dantooine", "softwood_conifer_endor", "wood_deciduous_yavin4", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
+	ingredientTitleNames = {"armor_segment_kashyyykian_black_mtn", "armor_layer_track", "segment_mounting_tabs", "armor_layer_acid", "armor_layer_kinetic", "segment_enhancement"},
+	ingredientSlotType = {0, 0, 0, 1, 1, 3},
+	resourceTypes = {"hide_leathery_dantooine", "softwood_conifer_endor", "wood_deciduous_yavin4", "object/tangible/component/armor/shared_armor_layer_acid.iff", "object/tangible/component/armor/shared_armor_layer_kinetic.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement_wook.iff"},
 	resourceQuantities = {16, 8, 25, 1, 1, 1},
 	contribution = {100, 100, 100, 100, 100, 100},
 

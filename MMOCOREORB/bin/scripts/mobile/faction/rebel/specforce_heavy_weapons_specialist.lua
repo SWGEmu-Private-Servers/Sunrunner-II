@@ -4,15 +4,15 @@ specforce_heavy_weapons_specialist = Creature:new {
 	randomNameTag = true,
 	socialGroup = "rebel",
 	faction = "rebel",
-	level = 18,
-	chanceHit = 0.32,
-	damageMin = 180,
-	damageMax = 190,
-	baseXp = 1426,
-	baseHAM = 4100,
-	baseHAMmax = 5000,
+	level = 30,
+	chanceHit = 1,
+	damageMin = 240,
+	damageMax = 390,
+	baseXp = 2726,
+	baseHAM = 7200,
+	baseHAMmax = 9000,
 	armor = 0,
-	resists = {0,0,0,0,0,0,0,-1,-1},
+	resists = {30,35,20,140,30,20,140,25,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -50,7 +50,7 @@ specforce_heavy_weapons_specialist = Creature:new {
 	weapons = {"imperial_weapons_medium"},
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster)
+	attacks = merge(brawlermaster,marksmanmaster,tkanovice,riflemanmaster,carbineermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(specforce_heavy_weapons_specialist, "specforce_heavy_weapons_specialist")

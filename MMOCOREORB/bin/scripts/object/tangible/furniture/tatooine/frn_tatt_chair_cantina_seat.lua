@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_tatooine_frn_tatt_chair_cantina_seat = object_tangible_furniture_tatooine_shared_frn_tatt_chair_cantina_seat:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 	numberExperimentalProperties = {1, 1, 1, 2},
 	experimentalProperties = {"XX", "XX", "XX", "DR", "OQ"},
 	experimentalWeights = {1, 1, 1, 1, 1},

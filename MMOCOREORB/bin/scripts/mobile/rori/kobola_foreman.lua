@@ -33,7 +33,8 @@ kobola_foreman = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 2400000},
+				{group = "junk", chance = 2000000},
+				{group = "g_venom_ring", chance = 400000},
 				{group = "tailor_components", chance = 2000000},
 				{group = "loot_kit_parts", chance = 2000000},
 				{group = "kobola_common", chance = 3600000}

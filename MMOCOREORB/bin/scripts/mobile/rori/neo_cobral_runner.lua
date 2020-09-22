@@ -34,7 +34,9 @@ neo_cobral_runner = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 2000000},
+				{group = "junk", chance = 1000000},
+				{group = "g_immobile_ring", chance = 500000},
+				{group = "g_immobile_necklace", chance = 500000},
 				{group = "wearables_common", chance = 2000000},
 				{group = "pistols", chance = 2000000},
 				{group = "tailor_components", chance = 2000000},

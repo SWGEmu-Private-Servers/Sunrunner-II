@@ -3,10 +3,10 @@ death_watch_overlord = Creature:new {
 	customName = "Drartih Oure (a Death Watch Overlord)",
 	socialGroup = "death_watch",
 	faction = "",
-	level = 221,
+	level = 291,
 	chanceHit = 19,
-	damageMin = 1245,
-	damageMax = 2200,
+	damageMin = 1845,
+	damageMax = 2800,
 	baseXp = 20948,
 	baseHAM = 350000,
 	baseHAMmax = 350000,
@@ -31,7 +31,14 @@ death_watch_overlord = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "death_watch_bunker_overlord_shared", chance =  10000000}
+				{group = "death_watch_bunker_overlord_shared", chance = 2000000},
+				{group = "g_pistol_mandalorian", chance = 1750000},
+				{group = "g_carbine_mandalorian", chance = 1000000},
+				{group = "g_rifle_mandalorian", chance = 2000000},
+				{group = "g_sword_mandalorian", chance = 1000000},
+				{group = "g_heavy_mandalorian", chance = 1000000},
+				{group = "g_decorative_mandalorian_skull_banner", chance = 1000000},			
+				{group = "g_merr_sonn_jetpack", chance = 250000},
 			},
 			lootChance = 10000000
 		},

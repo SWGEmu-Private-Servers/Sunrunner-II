@@ -62,7 +62,7 @@ object_tangible_medicine_crafted_medpack_disease_action_b = object_tangible_medi
 	experimentalGroupTitles = {"null", "null", "exp_effectiveness", "exp_charges", "exp_charges", "expEaseOfUse", "expEaseOfUse", "exp_effectiveness", "null"},
 	experimentalSubGroupTitles = {"null", "null", "power", "charges", "range", "skillmodmin", "potency", "duration", "hitpoints"},
 	experimentalMin = {0, 0, 10, 10, 15, 50, 25, 120, 1000},
-	experimentalMax = {0, 0, 40, 25, 30, 30, 100, 800, 1000},
+	experimentalMax = {0, 0, 40, 25, 30, 30, 150, 800, 1000},
 	experimentalPrecision = {0, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 4},
 }

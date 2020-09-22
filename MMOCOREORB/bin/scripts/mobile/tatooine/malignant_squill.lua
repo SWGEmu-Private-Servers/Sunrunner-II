@@ -3,14 +3,14 @@ malignant_squill = Creature:new {
 	socialGroup = "squill",
 	faction = "",
 	level = 50,
-	chanceHit = 0.5,
-	damageMin = 420,
-	damageMax = 550,
+	chanceHit = 1.5,
+	damageMin = 425,
+	damageMax = 500,
 	baseXp = 4916,
-	baseHAM = 9300,
-	baseHAMmax = 11300,
+	baseHAM = 12300,
+	baseHAMmax = 13800,
 	armor = 1,
-	resists = {5,5,110,5,200,5,5,5,-1},
+	resists = {145,155,165,165,200,140,155,140,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 25,
 	hideType = "hide_leathery",
@@ -33,8 +33,8 @@ malignant_squill = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"strongdisease",""},
-		{"stunattack",""}
+		{"strongdisease","stateAccuracyBonus=25"},
+		{"stunattack","stateAccuracyBonus=50"}
 	}
 }
 

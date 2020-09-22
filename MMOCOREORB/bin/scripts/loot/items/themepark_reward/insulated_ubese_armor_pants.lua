@@ -6,19 +6,19 @@ insulated_ubese_armor_pants = {
 	customObjectName = "",
 	directObjectTemplate = "object/tangible/wearables/armor/ubese/armor_ubese_pants_quest.iff",
 	craftingValues = {
-		{"armor_integrity",20000,20000,0},
+		{"armor_integrity",50000,50000,0},
 		{"armor_rating",1,1,0},
-		{"armor_effectiveness",15,15,0},
-		{"kineticeffectiveness",19,19,0},
+		{"armor_effectiveness",45,55,0},
+		{"kineticeffectiveness",76,80,0},
 		{"armor_health_encumbrance",26,26,0},
-		{"armor_action_encumbrance",90,90,0},
+		{"armor_action_encumbrance",50,50,0},
 		{"armor_mind_encumbrance",15,15,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {},
 	skillMods = {
-		{"dizzy_defense",5},
-		{"resistance_fire",5}
+		{"dizzy_defense",15},
+		{"resistance_fire",15}
 	}
 }
 

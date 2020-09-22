@@ -3,20 +3,20 @@ armodragon = Creature:new {
 	socialGroup = "lizard",
 	faction = "",
 	level = 34,
-	chanceHit = 0.41,
-	damageMin = 315,
-	damageMax = 340,
-	baseXp = 3370,
-	baseHAM = 8600,
-	baseHAMmax = 10500,
-	armor = 0,
-	resists = {125,140,20,20,20,-1,20,-1,-1},
+	chanceHit = 1.25,
+	damageMin = 330,
+	damageMax = 370,
+	baseXp = 6740,
+	baseHAM = 9600,
+	baseHAMmax = 11500,
+	armor = 1,
+	resists = {150,145,170,180,140,145,150,140,-1},
 	meatType = "meat_carnivore",
-	meatAmount = 125,
+	meatAmount = 250,
 	hideType = "hide_bristley",
-	hideAmount = 75,
+	hideAmount = 150,
 	boneType = "bone_mammal",
-	boneAmount = 68,
+	boneAmount = 136,
 	milk = 0,
 	tamingChance = 0.05,
 	ferocity = 6,
@@ -33,8 +33,8 @@ armodragon = Creature:new {
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {
-		{"dizzyattack",""},
-		{"posturedownattack",""}
+		{"dizzyattack","stateAccuracyBonus=100"},
+		{"posturedownattack","stateAccuracyBonus=100"}
 	}
 }
 

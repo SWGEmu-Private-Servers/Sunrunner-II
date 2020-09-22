@@ -46,7 +46,7 @@ object_tangible_medicine_pet_droid_damage_kit_b = object_tangible_medicine_pet_s
 	templateType = STIMPACK,
 	useCount = 10,
 	medicineUse = 0,
-	effectiveness = 600,
+	effectiveness = 900,
 	attributes = {0, 3, 6},
 
 	numberExperimentalProperties = {1, 1, 3, 2, 1},

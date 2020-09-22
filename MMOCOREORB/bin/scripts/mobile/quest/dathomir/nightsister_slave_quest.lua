@@ -4,15 +4,15 @@ nightsister_slave_quest = Creature:new {
 	randomNameTag = true,
 	socialGroup = "nightsister",
 	faction = "nightsister",
-	level = 15,
-	chanceHit = 0.31,
-	damageMin = 160,
-	damageMax = 170,
-	baseXp = 714,
-	baseHAM = 1500,
-	baseHAMmax = 1900,
-	armor = 0,
-	resists = {5,5,5,0,0,0,0,5,-1},
+	level = 115,
+	chanceHit = 25.5,
+	damageMin = 1170,
+	damageMax = 1750,
+	baseXp = 17614,
+	baseHAM = 41500,
+	baseHAMmax = 46700,
+	armor = 2,
+	resists = {150,150,40,40,35,160,150,45,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -38,7 +38,7 @@ nightsister_slave_quest = Creature:new {
 	},
 	weapons = {},
 	conversationTemplate = "",
-	attacks = brawlermid
+	attacks = merge(tkamaster,brawlermaster,rend)
 }
 
 CreatureTemplates:addCreatureTemplate(nightsister_slave_quest, "nightsister_slave_quest")

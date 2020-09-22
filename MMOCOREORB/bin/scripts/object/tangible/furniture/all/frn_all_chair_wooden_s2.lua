@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_all_frn_all_chair_wooden_s2 = object_tangible_furniture_all_shared_frn_all_chair_wooden_s2:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_furniture_all_frn_all_chair_wooden_s2, "object/tangible/furniture/all/frn_all_chair_wooden_s2.iff")

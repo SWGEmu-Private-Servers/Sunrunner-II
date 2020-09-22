@@ -57,7 +57,7 @@ object_draft_schematic_furniture_furniture_bed_small = object_draft_schematic_fu
 
 	assemblySkill = "structure_assembly",
 	experimentingSkill = "structure_experimentation",
-	customizationSkill = "structure_customization",
+	customizationSkill = "structure_experimentation",
 
 	customizationOptions = {},
 	customizationStringNames = {},
@@ -70,8 +70,12 @@ object_draft_schematic_furniture_furniture_bed_small = object_draft_schematic_fu
 	resourceQuantities = {100, 150},
 	contribution = {100, 100},
 
-	targetTemplate = "object/tangible/furniture/all/frn_all_bed_sm_s1.iff",
+	targetTemplate = "object/tangible/furniture/all/frn_all_bed_sm_hue_s1.iff",
 
-	additionalTemplates = {}
+	additionalTemplates = {
+		"object/tangible/furniture/all/shared_frn_all_bed_sm_hue_s1.iff",
+		"object/tangible/furniture/all/shared_frn_all_bed_sm_hue_s2.iff",
+		}
+
 }
 ObjectTemplates:addTemplate(object_draft_schematic_furniture_furniture_bed_small, "object/draft_schematic/furniture/furniture_bed_small.iff")

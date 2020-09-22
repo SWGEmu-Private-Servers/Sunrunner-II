@@ -50,7 +50,7 @@ object_draft_schematic_armor_armor_segment_bone_acklay = object_draft_schematic_
 	craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 18,
 	size = 1,
-	factoryCrateSize = 50,
+	factoryCrateSize = 1000,
 
 	xpType = "crafting_clothing_armor",
 	xp = 190,
@@ -64,9 +64,9 @@ object_draft_schematic_armor_armor_segment_bone_acklay = object_draft_schematic_
 	customizationDefaults = {},
 
 	ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_weapon_ingredients_n"},
-	ingredientTitleNames = {"armor_segment_bone", "segment_mounting_tabs", "segment_enhancement", "defensive_layer", "defensive_layer_2", "power_supply"},
+	ingredientTitleNames = {"armor_segment_bone", "segment_mounting_tabs", "segment_enhancement", "armor_layer_electrical", "armor_layer_energy", "power_supply"},
 	ingredientSlotType = {0, 0, 3, 3, 3, 1},
-	resourceTypes = {"bone_mammal_yavin4", "aluminum_chromium", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/weapon/shared_geonosian_power_cube_base.iff"},
+	resourceTypes = {"bone_mammal_yavin4", "aluminum_chromium", "object/tangible/component/armor/shared_base_armor_segment_enhancement_bone.iff", "object/tangible/component/armor/shared_armor_layer_electrical.iff", "object/tangible/component/armor/shared_armor_layer_energy.iff", "object/tangible/component/weapon/shared_geonosian_power_cube_base.iff"},
 	resourceQuantities = {32, 10, 1, 1, 1, 1},
 	combineTypes = {0, 0, 1, 1, 1, 1},
 	contribution = {100, 100, 100, 100, 100, 100},

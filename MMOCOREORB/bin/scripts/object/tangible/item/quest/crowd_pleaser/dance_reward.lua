@@ -45,12 +45,12 @@ object_tangible_item_quest_crowd_pleaser_dance_reward = object_tangible_item_que
 	templateType = XPPURCHASE,
 	attributeListComponent = "XpPurchaseAttributeListComponent",
 	objectMenuComponent = "XpPurchaseMenuComponent",
-	requiredSkill = "social_dancer_novice",
+	requiredSkill = "social_entertainer_dance_02",
 	grantType = "ability",
 	grantName = "startDance+theatrical",
 	xpType = "dance",
-	xpAmount = 400000,
-	noTrade = 1,
+	xpAmount = 25000,
+	--noTrade = 1,
 	noRemove = true
 }
 

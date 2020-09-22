@@ -44,7 +44,7 @@
 object_tangible_food_foraged_foraged_vegetable_s3 = object_tangible_food_foraged_shared_foraged_vegetable_s3:new {
 	templateType = CONSUMABLE,
 	
-	duration = 60,
+	duration = 90,
 	filling = 0,
 	nutrition = 0,
 

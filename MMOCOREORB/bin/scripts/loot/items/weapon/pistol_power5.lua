@@ -10,7 +10,7 @@ pistol_power5 = {
 		{"maxdamage",67,154,0},
 		{"attackspeed",5.2,3.4,0},
 		{"woundchance",6.2,12.4,0},
-		{"hitpoints",750,750,0},
+		{"hitpoints",750,1500,0},
 		{"attackhealthcost",23,11,0},
 		{"attackactioncost",53,26,0},
 		{"attackmindcost",21,12,0},
@@ -24,7 +24,7 @@ pistol_power5 = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 625,
+	randomDotChance = 999,
 	junkDealerTypeNeeded = JUNKARMS,
 	junkMinValue = 25,
 	junkMaxValue = 45

@@ -3,17 +3,20 @@
 krayt_dragon_scales = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Krayt Dragon Bone Armor Scale Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_enhancement_krayt.iff",
+	--bone 3
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"acideffectiveness",2,8,10},
-		{"heateffectiveness",2,8,10},
-		{"energyeffectiveness",2,8,10},
-		{"kineticeffectiveness",2,8,10},
-		{"coldeffectiveness",2,8,10},
-		{"blasteffectiveness",2,8,10},
-		{"useCount",1,10,0},
+		{"armor_effectiveness",8,18,10},
+		{"armor_integrity",2000,6000,0},
+		{"electricaleffectiveness",2,15,10},
+		{"energyeffectiveness",2,19,10},
+		{"coldeffectiveness",2,15,10},
+		{"armor_health_encumbrance",-10,-25,0},
+		{"armor_action_encumbrance",-10,-25,0},
+		{"armor_mind_encumbrance",-10,-25,0},
+		{"useCount",1,16,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

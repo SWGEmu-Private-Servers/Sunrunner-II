@@ -38,7 +38,8 @@ canyon_corsair_captain = Creature:new {
 		{
 			groups = {
 				{group = "junk", chance = 3650000},
-				{group = "tailor_components", chance = 1000000},
+				{group = "tailor_components", chance = 500000},
+				{group = "g_pressuring_ring", chance = 500000},
 				{group = "color_crystals", chance = 400000},
 				{group = "power_crystals", chance = 400000},
 				{group = "melee_two_handed", chance = 600000},

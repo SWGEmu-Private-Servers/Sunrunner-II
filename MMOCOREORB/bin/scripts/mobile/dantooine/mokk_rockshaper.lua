@@ -38,7 +38,9 @@ mokk_rockshaper = Creature:new {
 				{group = "armor_attachments", chance = 500000},
 				{group = "clothing_attachments", chance = 500000},
 				{group = "wearables_all", chance = 2000000},
-				{group = "color_crystals", chance = 500000}
+				{group = "color_crystals", chance = 450000},
+				{group = "g_rare_jewelry", chance = 50000},
+
 			}
 		}
 	},

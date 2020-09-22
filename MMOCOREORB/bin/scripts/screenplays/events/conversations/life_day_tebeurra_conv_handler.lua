@@ -6,9 +6,9 @@ function lifeDayTebeurraConvoHandler:getInitialScreen(pPlayer, pNpc, pConvTempla
 	local convoTemplate = LuaConversationTemplate(pConvTemplate)
 
 	local playerID = SceneObject(pPlayer):getObjectID()
-	if readScreenPlayData(pPlayer, readStringSharedMemory("lifeDayScreenplayName"), "complete") == "1" or readData(playerID .. ":lifeDayTebeurra") == 1 then
+	if readScreenPlayData(pPlayer, readStringSharedMemory("lifeDayScreenplayName"), "completeagain") == "1" or readData(playerID .. ":lifeDayTebeurra1") == 1 then
 		return convoTemplate:getScreen("hear_again")
-	elseif readData(playerID .. ":lifeDayState") == 2 then
+	elseif readData(playerID .. ":lifeDayState1") == 2 then
 		return convoTemplate:getScreen("life_day_began")
 	else
 		return convoTemplate:getScreen("elder_first")
@@ -23,9 +23,9 @@ function lifeDayTebeurraConvoHandler:runScreenHandlers(pConvTemplate, pPlayer, p
 
 	local playerID = SceneObject(pPlayer):getObjectID()
 	if screenID == "let_others" then
-		writeData(playerID .. ":lifeDayTebeurra", 1)
-		if readData(playerID .. ":lifeDayAnarra") == 1 and readData(playerID .. ":lifeDayRadrrl") == 1 then
-			writeData(playerID .. ":lifeDayState", 3)
+		writeData(playerID .. ":lifeDayTebeurra1", 1)
+		if readData(playerID .. ":lifeDayAnarra1") == 1 and readData(playerID .. ":lifeDayRadrrl1") == 1 then
+			writeData(playerID .. ":lifeDayState1", 3)
 		end
 	end
 	return pConvScreen

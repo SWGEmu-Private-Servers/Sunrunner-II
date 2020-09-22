@@ -57,7 +57,7 @@ object_draft_schematic_furniture_furniture_chair_metal = object_draft_schematic_
 
 	assemblySkill = "structure_assembly",
 	experimentingSkill = "structure_experimentation",
-	customizationSkill = "structure_customization",
+	customizationSkill = "structure_experimentation",
 
 	customizationOptions = {},
 	customizationStringNames = {},
@@ -70,7 +70,7 @@ object_draft_schematic_furniture_furniture_chair_metal = object_draft_schematic_
 	resourceQuantities = {25, 75},
 	contribution = {100, 100},
 
-	targetTemplate = "object/tangible/furniture/all/frn_all_chair_metal_s1.iff",
+	targetTemplate = "object/tangible/furniture/all/frn_all_chair_metal_hue_s1.iff",
 
 	additionalTemplates = {}
 }

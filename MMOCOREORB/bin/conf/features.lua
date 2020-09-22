@@ -1,3 +1,4 @@
+
 --Copyright (C) 2007 <SWGEmu>
  
 --This File is part of Core3.
@@ -67,7 +68,7 @@
 
 --Armor Protection
 --Values: "normal", "minisuits"
---feature("armorProtection", "minisuits")
+--feature("armorProtection", "normal")
 
 --GCW System
 --Values: "specialForces", "TEF"

@@ -184,7 +184,7 @@ function TreasureMapMenuComponent:openChestEvent(pChest, pCreature)
 	local hasOpenedChest = readData(playerID .. ":hasOpenedChest")
 
 	if (hasOpenedChest ~= 1) then
-		local credits = getRandomNumber(500, 5000)
+		local credits = getRandomNumber(25000, 75000)
 		CreatureObject(pCreature):addCashCredits(credits, true)
 		CreatureObject(pCreature):sendSystemMessage("You find " .. credits .. " credits in the chest.")
 		writeData(playerID .. ":hasOpenedChest", 1)
@@ -225,15 +225,15 @@ function TreasureMapMenuComponent:spawnTreasureDefenders(pObject, pPlayer, x, z,
 	if (mapType == 1 or mapType == 2) then
 		secondSpawnPoint = getSpawnPoint(zoneName, x, y, 10, 20)
 		thirdSpawnPoint = getSpawnPoint(zoneName, x, y, 10, 20)
-		local pMobile = spawnMobile(mapData.planet, "pirate_leader", 0, firstSpawnPoint[1], firstSpawnPoint[2], firstSpawnPoint[3], 0, 0)
+		local pMobile = spawnMobile(mapData.planet, "treasure_pirate_leader", 0, firstSpawnPoint[1], firstSpawnPoint[2], firstSpawnPoint[3], 0, 0)
 		TreasureMapMenuComponent:setDefenderAggro(pMobile, pPlayer)
 		spatialChat(pMobile, "@treasure_map/treasure_map:bark_" .. mapStringName[mapType])
-		local pMobile2 = spawnMobile(mapData.planet, "pirate_armsman", 0, secondSpawnPoint[1], secondSpawnPoint[2], secondSpawnPoint[3], 0, 0)
+		local pMobile2 = spawnMobile(mapData.planet, "treasure_pirate_armsman", 0, secondSpawnPoint[1], secondSpawnPoint[2], secondSpawnPoint[3], 0, 0)
 		TreasureMapMenuComponent:setDefenderAggro(pMobile2, pPlayer)
-		local pMobile3 = spawnMobile(mapData.planet, "pirate_armsman", 0, thirdSpawnPoint[1], thirdSpawnPoint[2], thirdSpawnPoint[3], 0, 0)
+		local pMobile3 = spawnMobile(mapData.planet, "treasure_pirate_armsman", 0, thirdSpawnPoint[1], thirdSpawnPoint[2], thirdSpawnPoint[3], 0, 0)
 		TreasureMapMenuComponent:setDefenderAggro(pMobile3, pPlayer)
 	elseif (mapType == 3) then
-		local pMobile = spawnMobile(mapData.planet, "bounty_hunter_thug", 0, firstSpawnPoint[1], firstSpawnPoint[2], firstSpawnPoint[3], 0, 0)
+		local pMobile = spawnMobile(mapData.planet, "treasure_bounty_hunter_thug", 0, firstSpawnPoint[1], firstSpawnPoint[2], firstSpawnPoint[3], 0, 0)
 		spatialChat(pMobile, "@treasure_map/treasure_map:bark_" .. mapStringName[mapType])
 		TreasureMapMenuComponent:setDefenderAggro(pMobile, pPlayer)
 	else

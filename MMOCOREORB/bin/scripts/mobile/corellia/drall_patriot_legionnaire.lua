@@ -33,7 +33,8 @@ drall_patriot_legionnaire = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 7000000},
+				{group = "junk", chance = 6500000},
+				{group = "g_steady_ring", chance = 500000},
 				{group = "loot_kit_parts", chance = 2000000},
 				{group = "tailor_components", chance = 1000000}
 			}

@@ -3,20 +3,20 @@ furious_ronto = Creature:new {
 	socialGroup = "ronto",
 	faction = "",
 	level = 27,
-	chanceHit = 0.37,
-	damageMin = 250,
-	damageMax = 260,
-	baseXp = 2730,
-	baseHAM = 8200,
-	baseHAMmax = 10000,
-	armor = 0,
-	resists = {115,125,-1,150,140,-1,15,-1,-1},
+	chanceHit = 1.25,
+	damageMin = 270,
+	damageMax = 290,
+	baseXp = 5230,
+	baseHAM = 8700,
+	baseHAMmax = 10500,
+	armor = 1,
+	resists = {145,135,140,160,140,130,135,140,-1},
 	meatType = "meat_herbivore",
-	meatAmount = 465,
+	meatAmount = 930,
 	hideType = "hide_leathery",
-	hideAmount = 320,
+	hideAmount = 640,
 	boneType = "bone_mammal",
-	boneAmount = 200,
+	boneAmount = 400,
 	milk = 0,
 	tamingChance = 0.05,
 	ferocity = 1,
@@ -32,8 +32,8 @@ furious_ronto = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"posturedownattack",""},
-		{"stunattack",""}
+		{"posturedownattack","stateAccuracyBonus=100"},
+		{"stunattack","stateAccuracyBonus=100"}
 	}
 }
 

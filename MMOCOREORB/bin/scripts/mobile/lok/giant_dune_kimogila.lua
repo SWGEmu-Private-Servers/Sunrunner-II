@@ -31,10 +31,11 @@ giant_dune_kimogila = Creature:new {
 	lootGroups = {
 	 {
 	        groups = {
-				{group = "giant_dune_kimo_common", chance = 3500000},
-				{group = "kimogila_common", chance = 6500000},
+				{group = "giant_dune_kimo_common", chance = 5500000},
+				{group = "kimogila_common", chance = 4400000},
+				{group = "g_ig_key", chance = 100000}
 			},
-			lootChance = 4060000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

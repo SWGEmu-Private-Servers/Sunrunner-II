@@ -1,5 +1,5 @@
 trainer_doctor = Creature:new {
-	objectName = "@mob/creature_names:trainer_doctor",
+	customName = "a Doctor",
 	randomNameType = NAME_GENERIC,
 	randomNameTag = true,
 	faction = "",
@@ -33,7 +33,7 @@ trainer_doctor = Creature:new {
 	},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "doctorTrainerConvoTemplate",
+	conversationTemplate = "combatmedicTrainerConvoTemplate",
 	attacks = {}
 }
 CreatureTemplates:addCreatureTemplate(trainer_doctor,"trainer_doctor")

@@ -3,14 +3,14 @@ merek_deaths_head = Creature:new {
 	socialGroup = "merek",
 	faction = "",
 	level = 56,
-	chanceHit = 0.55,
+	chanceHit = 1.5,
 	damageMin = 480,
 	damageMax = 670,
 	baseXp = 5464,
-	baseHAM = 9900,
-	baseHAMmax = 12100,
+	baseHAM = 11500,
+	baseHAMmax = 14500,
 	armor = 1,
-	resists = {10,10,10,10,10,10,10,10,-1},
+	resists = {155,155,145,145,145,145,145,145,-1},
 	meatType = "meat_wild",
 	meatAmount = 64,
 	hideType = "hide_leathery",
@@ -33,8 +33,8 @@ merek_deaths_head = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"strongpoison",""},
-		{"strongdisease",""}
+		{"strongpoison","stateAccuracyBonus=25"},
+		{"strongdisease","stateAccuracyBonus=25"}
 	}
 }
 

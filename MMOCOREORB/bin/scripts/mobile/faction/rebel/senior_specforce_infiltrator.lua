@@ -4,15 +4,15 @@ senior_specforce_infiltrator = Creature:new {
 	randomNameTag = true,
 	socialGroup = "rebel",
 	faction = "rebel",
-	level = 20,
-	chanceHit = 0.33,
-	damageMin = 190,
-	damageMax = 200,
-	baseXp = 1803,
-	baseHAM = 5000,
-	baseHAMmax = 6100,
+	level = 35,
+	chanceHit = 1,
+	damageMin = 220,
+	damageMax = 340,
+	baseXp = 3203,
+	baseHAM = 7900,
+	baseHAMmax = 9700,
 	armor = 0,
-	resists = {0,0,0,0,0,0,0,-1,-1},
+	resists = {35,35,20,15,20,30,20,20,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -51,7 +51,7 @@ senior_specforce_infiltrator = Creature:new {
 	weapons = {"imperial_weapons_medium"},
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster)
+	attacks = merge(brawlermaster,marksmanmaster,riflemanmaster,carbineermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(senior_specforce_infiltrator, "senior_specforce_infiltrator")

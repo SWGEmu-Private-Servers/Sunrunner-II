@@ -1,9 +1,13 @@
 --This is to be used for static spawns that are NOT part of caves, cities, dungeons, poi's, or other large screenplays.
+local ObjectManager = require("managers.object.object_manager")
+
 EndorStaticSpawnsScreenPlay = ScreenPlay:new 
 {
 	numberOfActs = 1,
 
 	screenplayName = "EndorStaticSpawnsScreenPlay",
+
+        badgeToAward = BDG_KILL_GORAX,
 }
 
 registerScreenPlay("EndorStaticSpawnsScreenPlay", true)
@@ -63,4 +67,24 @@ function EndorStaticSpawnsScreenPlay:spawnMobiles()
 	spawnMobile("endor", "merek_harvester", 300, 3915, 202, 5793, getRandomNumber(360), 0)
 	spawnMobile("endor", "merek_harvester", 300, 3942, 199, 5754, getRandomNumber(360), 0)
 	spawnMobile("endor", "merek_harvester", 300, 3938, 199, 5734, getRandomNumber(360), 0)
+
+	local pCreature = spawnMobile("endor", "gorax", 3600, getRandomNumber(15000) - 7500, getRandomNumber(500), getRandomNumber(15000) - 7500, 0, 0)
+	createObserver(OBJECTDESTRUCTION, "EndorStaticSpawnsScreenPlay", "creatureKilled", pCreature)
+
 end
+
+function EndorStaticSpawnsScreenPlay:creatureKilled(pCreature, pPlayer)
+		--print("In kill badge function...")
+    local pGhost = LuaCreatureObject(pPlayer):getPlayerObject()
+	if (pGhost == nil) then
+                --print("pGhost is nil! Returning...")
+		return 1
+	end 
+        if PlayerObject(pGhost):hasBadge(self.badgeToAward) == false then
+		--print("in award badge function")
+	PlayerObject(pGhost):awardBadge(self.badgeToAward)
+
+	return 0
+        end
+end
+

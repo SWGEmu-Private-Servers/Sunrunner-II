@@ -2,15 +2,15 @@ giant_sand_beetle = Creature:new {
 	objectName = "@mob/creature_names:giant_sand_beetle",
 	socialGroup = "beetle",
 	faction = "",
-	level = 30,
-	chanceHit = 0.39,
-	damageMin = 290,
-	damageMax = 300,
-	baseXp = 3097,
-	baseHAM = 8400,
-	baseHAMmax = 10700,
-	armor = 0,
-	resists = {20,135,20,20,-1,-1,20,20,-1},
+	level = 40,
+	chanceHit = 1.5,
+	damageMin = 325,
+	damageMax = 430,
+	baseXp = 3915,
+	baseHAM = 9300,
+	baseHAMmax = 11900,
+	armor = 1,
+	resists = {150,155,145,140,150,140,160,145,-1},
 	meatType = "meat_insect",
 	meatAmount = 15,
 	hideType = "hide_scaley",
@@ -18,7 +18,7 @@ giant_sand_beetle = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0.25,
+	tamingChance = 0.1,
 	ferocity = 4,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK,
@@ -26,15 +26,18 @@ giant_sand_beetle = Creature:new {
 	diet = CARNIVORE,
 
 	templates = {"object/mobile/giant_sand_beetle.iff"},
+	controlDeviceTemplate = "object/intangible/pet/rock_mite_hue.iff",
 	hues = { 8, 9, 10, 11, 12, 13, 14, 15 },
+
 	scale = 4,
 	lootGroups = {},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {
-		{"blindattack",""},
-		{"stunattack",""}
+		{"stunattack","stateAccuracyBonus=25"},
+		{"posturedownattack","stateAccuracyBonus=25"}
 	}
 }
 
 CreatureTemplates:addCreatureTemplate(giant_sand_beetle, "giant_sand_beetle")
+

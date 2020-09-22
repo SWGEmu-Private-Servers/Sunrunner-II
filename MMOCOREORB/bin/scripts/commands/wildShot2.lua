@@ -65,7 +65,7 @@ WildShot2Command = {
 		{}, 
 		{ "stun_defense" }, 
 		{ "jedi_state_defense", "resistance_states" },
-		50, 
+		100, 
 		0, 
 		30 
 	  )

@@ -124,10 +124,10 @@ object_mobile_vehicle_shared_jetpack = SharedCreatureObjectTemplate:new {
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_jetpack, "object/mobile/vehicle/shared_jetpack.iff")
 
-object_mobile_vehicle_shared_landspeeder_av21 = SharedCreatureObjectTemplate:new {
+--[[object_mobile_vehicle_shared_landspeeder_av21 = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/mobile/vehicle/shared_landspeeder_av21.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
+
 	acceleration = {10,3},
 	animationMapFilename = "",
 	appearanceFilename = "appearance/pv_landspeeder_av21.sat",
@@ -202,11 +202,11 @@ object_mobile_vehicle_shared_landspeeder_av21 = SharedCreatureObjectTemplate:new
 
 	clientObjectCRC = 2842025402,
 	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/creature/base/shared_base_creature.iff", "object/mobile/shared_mobile.iff", "object/mobile/vehicle/shared_vehicle_base.iff", "object/mobile/vehicle/shared_landspeeder_base.iff"}
-]]
+
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_landspeeder_av21, "object/mobile/vehicle/shared_landspeeder_av21.iff")
-
+]]
 object_mobile_vehicle_shared_landspeeder_base = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/mobile/vehicle/shared_landspeeder_base.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
@@ -290,10 +290,10 @@ object_mobile_vehicle_shared_landspeeder_base = SharedCreatureObjectTemplate:new
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_landspeeder_base, "object/mobile/vehicle/shared_landspeeder_base.iff")
 
-object_mobile_vehicle_shared_landspeeder_x31 = SharedCreatureObjectTemplate:new {
+--[[object_mobile_vehicle_shared_landspeeder_x31 = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/mobile/vehicle/shared_landspeeder_x31.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
+
 	acceleration = {7,2},
 	animationMapFilename = "",
 	appearanceFilename = "appearance/pv_landspeeder_luke.sat",
@@ -368,15 +368,15 @@ object_mobile_vehicle_shared_landspeeder_x31 = SharedCreatureObjectTemplate:new 
 
 	clientObjectCRC = 658152450,
 	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/creature/base/shared_base_creature.iff", "object/mobile/shared_mobile.iff", "object/mobile/vehicle/shared_vehicle_base.iff", "object/mobile/vehicle/shared_landspeeder_base.iff"}
-]]
+
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_landspeeder_x31, "object/mobile/vehicle/shared_landspeeder_x31.iff")
-
-object_mobile_vehicle_shared_landspeeder_x34 = SharedCreatureObjectTemplate:new {
+]]
+--[[object_mobile_vehicle_shared_landspeeder_x34 = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/mobile/vehicle/shared_landspeeder_x34.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
+
 	acceleration = {8,3},
 	animationMapFilename = "",
 	appearanceFilename = "appearance/pv_landspeeder_luke.sat",
@@ -451,15 +451,15 @@ object_mobile_vehicle_shared_landspeeder_x34 = SharedCreatureObjectTemplate:new 
 
 	clientObjectCRC = 1321433100,
 	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/creature/base/shared_base_creature.iff", "object/mobile/shared_mobile.iff", "object/mobile/vehicle/shared_vehicle_base.iff", "object/mobile/vehicle/shared_landspeeder_base.iff"}
-]]
+
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_landspeeder_x34, "object/mobile/vehicle/shared_landspeeder_x34.iff")
-
-object_mobile_vehicle_shared_landspeeder_xp38 = SharedCreatureObjectTemplate:new {
+]]
+--[[object_mobile_vehicle_shared_landspeeder_xp38 = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/mobile/vehicle/shared_landspeeder_xp38.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
+
 	acceleration = {9,3},
 	animationMapFilename = "",
 	appearanceFilename = "appearance/monstrosity.sat",
@@ -534,11 +534,11 @@ object_mobile_vehicle_shared_landspeeder_xp38 = SharedCreatureObjectTemplate:new
 
 	clientObjectCRC = 1064205223,
 	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/creature/base/shared_base_creature.iff", "object/mobile/shared_mobile.iff", "object/mobile/vehicle/shared_vehicle_base.iff", "object/mobile/vehicle/shared_landspeeder_base.iff"}
-]]
+
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_landspeeder_xp38, "object/mobile/vehicle/shared_landspeeder_xp38.iff")
-
+]]
 object_mobile_vehicle_shared_speederbike = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/mobile/vehicle/shared_speederbike.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
@@ -705,10 +705,10 @@ object_mobile_vehicle_shared_speederbike_base = SharedCreatureObjectTemplate:new
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_speederbike_base, "object/mobile/vehicle/shared_speederbike_base.iff")
 
-object_mobile_vehicle_shared_speederbike_flash = SharedCreatureObjectTemplate:new {
+--[[object_mobile_vehicle_shared_speederbike_flash = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/mobile/vehicle/shared_speederbike_flash.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
+
 	acceleration = {10,3},
 	animationMapFilename = "",
 	appearanceFilename = "appearance/pv_flash_speeder.sat",
@@ -783,11 +783,11 @@ object_mobile_vehicle_shared_speederbike_flash = SharedCreatureObjectTemplate:ne
 
 	clientObjectCRC = 5125428,
 	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/creature/base/shared_base_creature.iff", "object/mobile/shared_mobile.iff", "object/mobile/vehicle/shared_vehicle_base.iff", "object/mobile/vehicle/shared_landspeeder_base.iff"}
-]]
+
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_speederbike_flash, "object/mobile/vehicle/shared_speederbike_flash.iff")
-
+]]
 object_mobile_vehicle_shared_speederbike_swoop = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/mobile/vehicle/shared_speederbike_swoop.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups

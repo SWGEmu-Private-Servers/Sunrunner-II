@@ -29,9 +29,10 @@ r4_crafted_advanced = Creature:new {
 		"object/creature/npc/droid/crafted/r4_droid_advanced.iff"
 	},
 	lootGroups = {},
-	defaultAttack = "attack",
+	defaultAttack = "creaturerangedattack",
 	defaultWeapon = "object/weapon/ranged/droid/droid_astromech_ranged.iff",
 	conversationTemplate = "",
+	attacks = merge(marksmanmaster,brawlernovice)
 }
 
 CreatureTemplates:addCreatureTemplate(r4_crafted_advanced, "r4_crafted_advanced")

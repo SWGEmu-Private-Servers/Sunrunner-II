@@ -31,8 +31,8 @@ bh_spiderclan_auspex = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 2500000},
-				{group = "tailor_components", chance = 500000},
+				{group = "junk", chance = 2000000},
+				{group = "g_blistering_necklace", chance = 1000000},
 				{group = "loot_kit_parts", chance = 500000},
 				{group = "color_crystals", chance = 500000},
 				{group = "power_crystals", chance = 1000000},
@@ -46,8 +46,8 @@ bh_spiderclan_auspex = Creature:new {
 		},
 		{
 			groups = {
-				{group = "junk", chance = 2500000},
-				{group = "tailor_components", chance = 500000},
+				{group = "junk", chance = 2000000},
+				{group = "g_blistering_necklace", chance = 1000000},
 				{group = "loot_kit_parts", chance = 500000},
 				{group = "color_crystals", chance = 500000},
 				{group = "power_crystals", chance = 1000000},
@@ -61,8 +61,8 @@ bh_spiderclan_auspex = Creature:new {
 		},
 		{
 			groups = {
-				{group = "junk", chance = 2500000},
-				{group = "tailor_components", chance = 500000},
+				{group = "junk", chance = 2000000},
+				{group = "g_blistering_necklace", chance = 1000000},
 				{group = "loot_kit_parts", chance = 500000},
 				{group = "color_crystals", chance = 500000},
 				{group = "power_crystals", chance = 500000},

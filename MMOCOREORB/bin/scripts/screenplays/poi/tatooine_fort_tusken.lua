@@ -11,17 +11,18 @@ FortTuskenScreenPlay = ScreenPlay:new {
 		7875789
 	},
 
-	lootLevel = 26,
+	lootLevel = 42,
 
 	lootGroups = {
 		{
 			groups = {
-				{group = "color_crystals", chance = 3500000},
-				{group = "junk", chance = 3500000},
+				{group = "color_crystals", chance = 3100000},
+				{group = "tusken_common", chance = 3500000},
 				{group = "rifles", chance = 1000000},
 				{group = "pistols", chance = 1000000},
 				{group = "clothing_attachments", chance = 500000},
-				{group = "armor_attachments", chance = 500000}
+				{group = "armor_attachments", chance = 500000},
+				{group = "g_magseal_accessories", chance = 400000}
 			},
 			lootChance = 8000000
 		}

@@ -8,8 +8,9 @@ zideera_missions =
 			},
 			secondarySpawns =
 			{
-				{ npcTemplate = "nightsister_ranger", npcName = "" },
-				{ npcTemplate = "nightsister_ranger", npcName = "" }
+				{ npcTemplate = "nightsister_spell_weaver", npcName = "" },
+				{ npcTemplate = "nightsister_spell_weaver", npcName = "" },				
+				{ npcTemplate = "nightsister_protector", npcName = "" }
 			},
 			itemSpawns =
 			{
@@ -17,8 +18,9 @@ zideera_missions =
 			},
 			rewards =
 			{
-				{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-				{ rewardType = "credits", amount = 300 }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 300 },
+			{ rewardType = "credits", amount = 35000 },
+			{ rewardType = "loot",  lootGroup = "smc_potted_tree_large_group" }
 			}
 		},
 		{
@@ -29,9 +31,9 @@ zideera_missions =
 			},
 			secondarySpawns =
 			{
-				{ npcTemplate = "nightsister_rancor_tamer", npcName = "" },
-				{ npcTemplate = "nightsister_rancor_tamer", npcName = "" },
-				{ npcTemplate = "nightsister_stalker", npcName = "" }
+				{ npcTemplate = "nightsister_spell_weaver", npcName = "" },
+				{ npcTemplate = "nightsister_protector", npcName = "" },
+				{ npcTemplate = "nightsister_protector", npcName = "" }
 			},
 			itemSpawns =
 			{
@@ -39,8 +41,9 @@ zideera_missions =
 			},
 			rewards =
 			{
-				{ rewardType = "faction", faction = "mtn_clan", amount = 10 },
-				{ rewardType = "credits", amount = 450 }
+			{ rewardType = "faction", faction = "mtn_clan", amount = 350 },
+			{ rewardType = "credits", amount = 40000 },
+			{ rewardType = "loot",  lootGroup = "smc_wall_group" }
 			}
 		}
 	}

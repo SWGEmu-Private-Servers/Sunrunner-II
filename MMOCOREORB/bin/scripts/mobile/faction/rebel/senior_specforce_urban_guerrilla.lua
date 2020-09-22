@@ -4,15 +4,15 @@ senior_specforce_urban_guerrilla = Creature:new {
 	randomNameTag = true,
 	socialGroup = "rebel",
 	faction = "rebel",
-	level = 20,
-	chanceHit = 0.33,
-	damageMin = 190,
-	damageMax = 200,
-	baseXp = 1803,
-	baseHAM = 5000,
-	baseHAMmax = 6100,
+	level = 35,
+	chanceHit = 1,
+	damageMin = 240,
+	damageMax = 390,
+	baseXp = 3603,
+	baseHAM = 7800,
+	baseHAMmax = 9500,
 	armor = 0,
-	resists = {0,0,0,0,0,0,0,-1,-1},
+	resists = {140,145,30,25,30,30,35,25,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -52,7 +52,7 @@ senior_specforce_urban_guerrilla = Creature:new {
 	conversationTemplate = "",
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster)
+	attacks = merge(brawlermaster,marksmanmaster,tkanovice,riflemanmaster,carbineermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(senior_specforce_urban_guerrilla, "senior_specforce_urban_guerrilla")

@@ -50,7 +50,7 @@ object_draft_schematic_armor_armor_segment_zam = object_draft_schematic_armor_sh
 	craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 12,
 	size = 4,
-	factoryCrateSize = 50,
+	factoryCrateSize = 1000,
 
 	xpType = "crafting_clothing_armor",
 	xp = 35,
@@ -66,7 +66,7 @@ object_draft_schematic_armor_armor_segment_zam = object_draft_schematic_armor_sh
 	ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
 	ingredientTitleNames = {"armor_segment_zam", "segment_mounting_tabs", "segment_enhancement"},
 	ingredientSlotType = {0, 0, 3},
-	resourceTypes = {"metal", "metal", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
+	resourceTypes = {"metal", "metal", "object/tangible/component/armor/shared_base_armor_segment_enhancement_mabari.iff"},
 	resourceQuantities = {14, 3, 1},
 	contribution = {100, 100, 100},
 

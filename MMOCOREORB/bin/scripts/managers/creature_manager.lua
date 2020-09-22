@@ -231,3 +231,4 @@ aiSpeciesData = {
 	{ 228, "geonosian", false, false }, -- geonosian
 	{ 229, "varactyl", false, false }, -- veractyle
 }
+

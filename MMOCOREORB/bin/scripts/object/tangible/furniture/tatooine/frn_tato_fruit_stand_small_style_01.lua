@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_tatooine_frn_tato_fruit_stand_small_style_01 = object_tangible_furniture_tatooine_shared_frn_tato_fruit_stand_small_style_01:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_furniture_tatooine_frn_tato_fruit_stand_small_style_01, "object/tangible/furniture/tatooine/frn_tato_fruit_stand_small_style_01.iff")

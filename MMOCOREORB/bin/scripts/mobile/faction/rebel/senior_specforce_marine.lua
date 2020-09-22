@@ -4,15 +4,15 @@ senior_specforce_marine = Creature:new {
 	randomNameTag = true,
 	socialGroup = "rebel",
 	faction = "rebel",
-	level = 20,
-	chanceHit = 0.33,
-	damageMin = 190,
-	damageMax = 200,
-	baseXp = 1803,
-	baseHAM = 5000,
-	baseHAMmax = 6100,
+	level = 35,
+	chanceHit = 1,
+	damageMin = 220,
+	damageMax = 340,
+	baseXp = 3203,
+	baseHAM = 8200,
+	baseHAMmax = 9300,
 	armor = 0,
-	resists = {10,10,10,10,10,10,10,-1,-1},
+	resists = {40,35,15,15,30,20,30,15,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -52,7 +52,7 @@ senior_specforce_marine = Creature:new {
 	conversationTemplate = "",
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster)
+	attacks = merge(brawlermaster,marksmanmaster,tkanovice,riflemanmaster,carbineermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(senior_specforce_marine, "senior_specforce_marine")

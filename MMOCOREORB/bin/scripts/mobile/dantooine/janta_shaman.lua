@@ -33,8 +33,8 @@ janta_shaman = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 5500000},
-				{group = "janta_common", chance = 1500000},
+				{group = "junk", chance = 3500000},
+				{group = "janta_common", chance = 3500000},
 				{group = "loot_kit_parts", chance = 3000000}
 			}
 		}

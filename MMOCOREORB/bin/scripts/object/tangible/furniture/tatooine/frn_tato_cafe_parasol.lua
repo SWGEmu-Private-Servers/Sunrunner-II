@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_tatooine_frn_tato_cafe_parasol = object_tangible_furniture_tatooine_shared_frn_tato_cafe_parasol:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_furniture_tatooine_frn_tato_cafe_parasol, "object/tangible/furniture/tatooine/frn_tato_cafe_parasol.iff")

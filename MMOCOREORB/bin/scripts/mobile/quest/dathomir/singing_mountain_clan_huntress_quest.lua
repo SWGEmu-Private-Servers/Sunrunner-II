@@ -4,15 +4,15 @@ singing_mountain_clan_huntress_quest = Creature:new {
 	randomNameTag = true,
 	socialGroup = "mtn_clan",
 	faction = "mtn_clan",
-	level = 75,
-	chanceHit = 0.75,
-	damageMin = 520,
-	damageMax = 750,
-	baseXp = 7207,
-	baseHAM = 12000,
-	baseHAMmax = 15000,
+	level = 105,
+	chanceHit = 20.5,
+	damageMin = 975,
+	damageMax = 1350,
+	baseXp = 11207,
+	baseHAM = 27500,
+	baseHAMmax = 32750,
 	armor = 1,
-	resists = {35,35,75,-1,75,35,35,35,-1},
+	resists = {55,160,175,160,175,45,35,40,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -38,7 +38,7 @@ singing_mountain_clan_huntress_quest = Creature:new {
 	},
 	weapons = {"mixed_force_weapons"},
 	conversationTemplate = "",
-	attacks = merge(brawlermaster,pikemanmaster,swordsmanmaster)
+	attacks = merge(pikemanmaster,brawlermaster,fencermaster,swordsmanmaster,forcewielder)
 }
 
 CreatureTemplates:addCreatureTemplate(singing_mountain_clan_huntress_quest, "singing_mountain_clan_huntress_quest")

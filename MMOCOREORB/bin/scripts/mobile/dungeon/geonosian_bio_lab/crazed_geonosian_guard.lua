@@ -34,8 +34,12 @@ crazed_geonosian_guard = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "geonosian_common", chance = 5000000},
-				{group = "geonosian_relic", chance = 5000000}
+				{group = "geonosian_common", chance = 4000000},
+				{group = "geonosian_relic", chance = 4000000},
+				{group = "g_rifle_geo_drill", chance = 950000},
+				{group = "g_carbine_geo", chance = 950000},
+				{group = "g_geonosian_speeder", chance = 50000},
+				{group = "g_power_plant_geonosian", chance = 50000},
 			}
 		}
 	},

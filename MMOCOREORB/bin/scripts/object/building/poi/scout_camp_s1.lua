@@ -53,12 +53,13 @@ object_building_poi_scout_camp_s1 = object_building_poi_shared_scout_camp_s1:new
 		{"private_medical_rating", 65},
 		{"private_med_wound_health", 20},
 		{"private_med_wound_action", 20},
-		{"private_buff_mind", 100}
+		{"private_buff_mind", 100},
+		{"private_med_battle_fatigue", 15}
 	},
 
 	aggroMod = 0,
 	duration = 3600,
-	radius = 15,
+	radius = 30,
 	experience = 640,
 	skillRequired = 10,
 

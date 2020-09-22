@@ -72,8 +72,7 @@ object_draft_schematic_clothing_clothing_armor_ris_helmet = object_draft_schemat
 
    targetTemplate = "object/tangible/wearables/armor/ris/armor_ris_helmet.iff",
 
-   additionalTemplates = {
-             }
+   additionalTemplates = {}
 
 }
 ObjectTemplates:addTemplate(object_draft_schematic_clothing_clothing_armor_ris_helmet, "object/draft_schematic/clothing/clothing_armor_ris_helmet.iff")

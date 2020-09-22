@@ -57,7 +57,7 @@ object_draft_schematic_furniture_furniture_table_endtable_elegant = object_draft
 
 	assemblySkill = "structure_assembly",
 	experimentingSkill = "structure_experimentation",
-	customizationSkill = "structure_customization",
+	customizationSkill = "structure_experimentation",
 
 	customizationOptions = {},
 	customizationStringNames = {},
@@ -70,7 +70,7 @@ object_draft_schematic_furniture_furniture_table_endtable_elegant = object_draft
 	resourceQuantities = {75, 50},
 	contribution = {100, 100},
 
-	targetTemplate = "object/tangible/furniture/elegant/end_table_s01.iff",
+	targetTemplate = "object/tangible/furniture/elegant/end_table_hue_s01.iff",
 
 	additionalTemplates = {}
 }

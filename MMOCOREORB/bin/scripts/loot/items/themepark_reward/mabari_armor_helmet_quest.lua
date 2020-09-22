@@ -6,11 +6,11 @@ mabari_armor_helmet_quest = {
 	customObjectName = "",
 	directObjectTemplate = "object/tangible/wearables/armor/zam/armor_zam_wesell_helmet_quest.iff",
 	craftingValues = {
-		{"armor_integrity",15000,15000,0},
+		{"armor_integrity",35000,35000,0},
 		{"armor_rating",1,1,0},
-		{"armor_effectiveness",10,10,10},
-		{"heateffectiveness",19,19,10},
-		{"blasteffectiveness",4,4,10},
+		{"armor_effectiveness",59,59,10},
+		{"heateffectiveness",49,49,10},
+		{"blasteffectiveness",44,44,10},
 		{"armor_health_encumbrance",6,6,0},
 		{"armor_action_encumbrance",3,3,0},
 		{"armor_mind_encumbrance",54,54,0},
@@ -18,8 +18,8 @@ mabari_armor_helmet_quest = {
 	customizationStringNames = {},
 	customizationValues = {},
 	skillMods = {
-		{"blind_defense",5},
-		{"ranged_defense",3}
+		{"blind_defense",10},
+		{"ranged_defense",6}
 	}
 }
 

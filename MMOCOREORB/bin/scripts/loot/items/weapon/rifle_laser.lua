@@ -10,7 +10,7 @@ rifle_laser = {
 		{"maxdamage",186,356,0},
 		{"attackspeed",9.4,6.7,0},
 		{"woundchance",4.8,12.3,0},
-		{"hitpoints",750,750,0},
+		{"hitpoints",750,1500,0},
 		{"attackhealthcost",21,12,0},
 		{"attackactioncost",32,19,0},
 		{"attackmindcost",77,42,0},
@@ -24,7 +24,7 @@ rifle_laser = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 750,
+	randomDotChance = 999,
 	junkDealerTypeNeeded = JUNKARMS,
 	junkMinValue = 25,
 	junkMaxValue = 45

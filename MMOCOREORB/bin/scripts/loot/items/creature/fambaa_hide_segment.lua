@@ -3,16 +3,15 @@
 fambaa_hide_segment = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Fambaa Wookiee Armor Hide Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_padded_fambaa.iff",
+	--wook
 	craftingValues = {
-		{"armor_special_type",0,0,0},
-		{"armor_effectiveness",4,6,10},
-		{"coldeffectiveness",3,5,10},
-		{"armor_integrity",450,900,0},
+		{"armor_effectiveness",5,16,10},
+		{"armor_integrity",1650,4000,0},
 		{"armor_action_encumbrance",11,4,0},
 		{"armor_mind_encumbrance",13,4,0},
-		{"useCount",1,10,0},
+		{"useCount",1,24,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

@@ -84,6 +84,9 @@ GeonosianLab = ScreenPlay:new {
 		{ template = "object/static/destructible/destructible_tato_cave_rock_med.iff", x = -76.86, z = -22.03, y = -110.16, rot = 3, cell = 1627793 }, -- largecavehall1
 		{ template = "object/static/destructible/destructible_tato_cave_rock_med.iff", x = -76.9, z = -22.06, y = -109.21, rot = 22, cell = 1627793 } -- largecavehall1
 	},
+        
+	badgeToAward = BDG_KILL_GEONOSIAN_ACKLAY,
+
 }
 
 registerScreenPlay("GeonosianLab", true)
@@ -422,7 +425,9 @@ function GeonosianLab:spawnMobiles()
 	spawnMobile("yavin4", "cavern_spider",180,13.4,-22.0,-337.3,-179,1627822)
 
 	-- largeendcave (1627823)
-	spawnMobile("yavin4", "acklay",7200,101.1,-34.3,-321.6,-136,1627823, true) --Randomized respawn
+	local pCreature = spawnMobile("yavin4", "acklay",7200,101.1,-34.3,-321.6,-136,1627823, true) --Randomized respawn
+	createObserver(OBJECTDESTRUCTION, "GeonosianLab", "creatureKilled", pCreature)
+
 	spawnMobile("yavin4", "enhanced_kwi",180,48.0,-34.0,-334.4,0,1627823)
 	spawnMobile("yavin4", "cavern_spider",180,91.2,-33.9,-347.9,5,1627823)
 	spawnMobile("yavin4", "enhanced_kliknik",180,98.0,-34.1,-334.4,-53,1627823)
@@ -842,5 +847,29 @@ function GeonosianLab:hasPermission(pPlayer, permissionGroup)
 	end
 
 	return PlayerObject(pGhost):hasPermissionGroup(permissionGroup)
+end
+
+function GeonosianLab:creatureKilled(pCreature, pPlayer)
+	if (pPlayer == nil) then
+	end
+
+	local badgeNum = 219
+
+	if (CreatureObject(pPlayer):isGrouped()) then
+			local groupSize = CreatureObject(pPlayer):getGroupSize()
+			for i = 0, groupSize - 1, 1 do
+					local pMember = CreatureObject(pPlayer):getGroupMember(i)
+					if pMember ~= nil and CreatureObject(pPlayer):isInRangeWithObject(pMember, 128) and SceneObject(pMember):isPlayerCreature() then
+							local pGhost = CreatureObject(pMember):getPlayerObject()
+							if (pGhost ~= nil and not PlayerObject(pGhost):hasBadge(badgeNum)) then
+									PlayerObject(pGhost):awardBadge(badgeNum)
+							end
+					end
+			end
+		else 
+			local pGhost = CreatureObject(pPlayer):getPlayerObject()
+			PlayerObject(pGhost):awardBadge(badgeNum)
+	end
+	return 0
 end
 

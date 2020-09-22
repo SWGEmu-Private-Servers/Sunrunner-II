@@ -3,15 +3,16 @@
 kliknik_chitin_armor_segment = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Kliknik Chitin Armor Shell Segments",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_chitin_kliknick.iff",
+	--chitin 1
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"armor_effectiveness",1,5,10},
-		{"armor_integrity",500,1000,0},
-		{"armor_action_encumbrance",-6,-14,0},
-		{"armor_mind_encumbrance",-6,-14,0},
-		{"useCount",1,10,0},
+		{"armor_effectiveness",4,12,10},
+		{"electricaleffectiveness",2,4,10},
+		{"heateffectiveness",2,4,10},
+		{"kineticeffectiveness",2,8,10},
+		{"useCount",1,32,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

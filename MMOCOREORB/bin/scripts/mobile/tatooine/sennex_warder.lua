@@ -42,7 +42,10 @@ sennex_warder = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 3000000},
+				{group = "junk", chance = 2000000},
+				{group = "g_smoldering_necklace", chance = 400000},
+				{group = "g_smoldering_bracelet_r", chance = 300000},
+				{group = "g_smoldering_bracelet_l", chance = 300000},
 				{group = "wearables_common", chance = 2000000},
 				{group = "heavy_weapons", chance = 2000000},
 				{group = "tailor_components", chance = 1500000},

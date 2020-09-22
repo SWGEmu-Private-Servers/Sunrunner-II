@@ -3,20 +3,20 @@ sandreaver = Creature:new {
 	socialGroup = "dewback",
 	faction = "",
 	level = 26,
-	chanceHit = 0.36,
-	damageMin = 290,
-	damageMax = 300,
-	baseXp = 2637,
-	baseHAM = 8200,
-	baseHAMmax = 10000,
-	armor = 0,
-	resists = {10,10,10,-1,10,-1,10,-1,-1},
+	chanceHit = 1.25,
+	damageMin = 310,
+	damageMax = 330,
+	baseXp = 5237,
+	baseHAM = 8700,
+	baseHAMmax = 10500,
+	armor = 1,
+	resists = {130,130,140,160,120,120,130,140,-1},
 	meatType = "meat_reptilian",
-	meatAmount = 340,
+	meatAmount = 680,
 	hideType = "hide_leathery",
-	hideAmount = 260,
+	hideAmount = 520,
 	boneType = "bone_mammal",
-	boneAmount = 185,
+	boneAmount = 370,
 	milk = 0,
 	tamingChance = 0.05,
 	ferocity = 0,
@@ -33,7 +33,8 @@ sandreaver = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"dizzyattack",""}
+		{"dizzyattack","stateAccuracyBonus=100"},
+		{"blindattack","stateAccuracyBonus=100"}
 	}
 }
 

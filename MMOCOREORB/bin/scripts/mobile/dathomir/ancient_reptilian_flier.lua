@@ -27,7 +27,7 @@ ancient_reptilian_flier = Creature:new {
 
 	templates = {"object/mobile/reptilian_flier_hue.iff"},
 	hues = { 8, 9, 10, 11, 12, 13, 14, 15 },
-	controlDeviceTemplate = "object/intangible/pet/pet_control.iff",
+	controlDeviceTemplate = "object/intangible/pet/reptilian_flier_hue.iff",
 	scale = 1.1,
 	lootGroups = {},
 	weapons = {},

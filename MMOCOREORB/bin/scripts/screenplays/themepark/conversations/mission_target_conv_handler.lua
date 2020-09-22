@@ -52,16 +52,19 @@ function mission_target_conv_handler:getInitialScreen(pPlayer, pNpc, pConvTempla
 			nextScreenID = "dontknowyou_n"
 		end
 	elseif mission.missionType == "escort" then
+	
 		if correctNpc == true then
 			nextScreenID = "npc_takeme_n"
 		else
 			nextScreenID = "otherescort_n"
 		end
 	elseif mission.missionType == "retrieve" then
+	print("Seems retrieve mission is correct")
 		if correctNpc == true then
 			if activeMission ~= 2 and self.themePark:hasFullInventory(pPlayer) == true then
 				nextScreenID = "inv_full"
 			else
+				print("Trying to get smuggle_n screen")
 				nextScreenID = "npc_smuggle_n"
 			end
 		else

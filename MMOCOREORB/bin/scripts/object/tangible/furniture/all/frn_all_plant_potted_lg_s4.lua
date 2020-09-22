@@ -42,7 +42,7 @@
 
 
 object_tangible_furniture_all_frn_all_plant_potted_lg_s4 = object_tangible_furniture_all_shared_frn_all_plant_potted_lg_s4:new {
-
+	objectMenuComponent = "CityDecorationMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_furniture_all_frn_all_plant_potted_lg_s4, "object/tangible/furniture/all/frn_all_plant_potted_lg_s4.iff")

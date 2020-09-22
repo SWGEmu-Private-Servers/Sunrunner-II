@@ -34,7 +34,7 @@ function CaptainHeffConversationHandler:runScreenHandlers(pConvTemplate, pPlayer
 			SceneObject(pKey):destroyObjectFromDatabase()
 		end
 
-		PlayerObject(pGhost):awardBadge(39)
+		PlayerObject(pGhost):awardBadge(156)
 		PlayerObject(pGhost):increaseFactionStanding("imperial", 500)
 	end
 
@@ -50,7 +50,7 @@ function CaptainHeffConversationHandler:getInitialScreen(pPlayer, pNpc, pConvTem
 		return convoTemplate:getScreen("heff_bye")
 	end
 
-	if (PlayerObject(pGhost):hasBadge(39)) then
+	if (PlayerObject(pGhost):hasBadge(156)) then
 		return convoTemplate:getScreen("heff_done")
 	else
 		local pDatapad = SceneObject(pPlayer):getSlottedObject("datapad")

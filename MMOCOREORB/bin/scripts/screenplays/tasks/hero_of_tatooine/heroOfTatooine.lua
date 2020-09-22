@@ -271,7 +271,7 @@ function HeroOfTatooineScreenPlay:notifyMarkOfCourageLooted(pItem, pLooter)
 		return 1
 	end
 
-	PlayerObject(pGhost):awardBadge(7)
+	PlayerObject(pGhost):awardBadge(144)
 	CreatureObject(pLooter):setScreenPlayState(16, "hero_of_tatooine")
 
 	return 1
@@ -766,7 +766,7 @@ function HeroOfTatooineScreenPlay:completeEscort(pPlayer)
 		end
 	end
 
-	PlayerObject(pGhost):awardBadge(10)
+	PlayerObject(pGhost):awardBadge(147)
 	CreatureObject(pPlayer):setScreenPlayState(4, "hero_of_tatooine")
 	CreatureObject(pPlayer):setScreenPlayState(2, "hero_of_tatooine_altruism")
 	self:removeAltruismWaypoint(pPlayer)
@@ -1070,7 +1070,7 @@ function HeroOfTatooineScreenPlay:doSuccessHonorPhase(pPlayer)
 
 	CreatureObject(pPlayer):sendSystemMessage("@quest/hero_of_tatooine/system_messages:success")
 	CreatureObject(pPlayer):setScreenPlayState(2, "hero_of_tatooine_honor")
-	PlayerObject(pGhost):awardBadge(8)
+	PlayerObject(pGhost):awardBadge(145)
 	CreatureObject(pPlayer):setScreenPlayState(32, "hero_of_tatooine")
 
 	local pInventory = SceneObject(pPlayer):getSlottedObject("inventory")

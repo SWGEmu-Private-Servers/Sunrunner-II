@@ -6,9 +6,9 @@ nightsister_controllerfp_lance = {
 	customObjectName = "",
 	directObjectTemplate = "object/weapon/melee/polearm/lance_controllerfp_nightsister.iff",
 	craftingValues = {
-		{"mindamage",7,13,0},
-		{"maxdamage",133,246,0},
-		{"attackspeed",7.2,4.1,1},
+		{"mindamage",37,73,0},
+		{"maxdamage",193,496,0},
+		{"attackspeed",6.2,3.4,1},
 		{"woundchance",9,18,0},
 		{"hitpoints",750,1500,0},
 		{"zerorangemod",5,15,0},
@@ -24,7 +24,7 @@ nightsister_controllerfp_lance = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 500,
+	randomDotChance = 999,
 
 	-- staticDotChance: The chance of this weapon object dropping with a static dot on it. Higher number means less chance. Set to 0 to always have a static dot.
 	staticDotChance = 0,

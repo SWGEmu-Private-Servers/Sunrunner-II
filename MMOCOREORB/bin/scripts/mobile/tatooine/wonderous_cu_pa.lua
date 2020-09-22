@@ -3,22 +3,22 @@ wonderous_cu_pa = Creature:new {
 	socialGroup = "cu_pa",
 	faction = "",
 	level = 14,
-	chanceHit = 0.3,
-	damageMin = 150,
-	damageMax = 160,
-	baseXp = 714,
-	baseHAM = 2000,
-	baseHAMmax = 2400,
+	chanceHit = 1.25,
+	damageMin = 160,
+	damageMax = 170,
+	baseXp = 1428,
+	baseHAM = 2300,
+	baseHAMmax = 2700,
 	armor = 0,
-	resists = {0,0,0,0,0,0,0,-1,-1},
+	resists = {110,110,0,150,130,110,110,120,-1},
 	meatType = "meat_reptilian",
-	meatAmount = 215,
+	meatAmount = 430,
 	hideType = "hide_bristley",
-	hideAmount = 100,
+	hideAmount = 200,
 	boneType = "bone_mammal",
-	boneAmount = 115,
+	boneAmount = 230,
 	milkType = "milk_wild",
-	milk = 105,
+	milk = 210,
 	tamingChance = 0.05,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
@@ -33,7 +33,8 @@ wonderous_cu_pa = Creature:new {
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {
-		{"stunattack",""}
+		{"stunattack","stateAccuracyBonus=100"},
+		{"blindattack","stateAccuracyBonus=100"}
 	}
 }
 

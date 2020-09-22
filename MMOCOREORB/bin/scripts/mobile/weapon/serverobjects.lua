@@ -20,6 +20,8 @@ includeFile("weapon/creature_spit_spray_red.lua")
 includeFile("weapon/creature_spit_spray_toxicgreen.lua")
 includeFile("weapon/creature_spit_spray_yellow.lua")
 includeFile("weapon/droid_probot_ranged.lua")
+includeFile("weapon/droid_droideka_ranged.lua")
+includeFile("weapon/vehicle_snowspeeder.lua")
 
 -- npc weapons
 includeFile("weapon/groups/dark_trooper_weapons.lua")
@@ -82,3 +84,36 @@ includeFile("weapon/groups/tusken_weapons.lua")
 
 -- tutorial
 includeFile("weapon/groups/tutorial_bandit.lua")
+
+--new NPCs
+includeFile("weapon/groups/ig106_weapons.lua")
+includeFile("weapon/groups/wook_weapons.lua")
+includeFile("weapon/groups/sentrydroid_weapons.lua")
+includeFile("weapon/groups/dark_jedi_weapons_kyrisa.lua")
+includeFile("weapon/groups/battle_droid_e5.lua")
+includeFile("weapon/groups/magnaguard_staff.lua")
+includeFile("weapon/groups/strider_grunt_weapons.lua")
+includeFile("weapon/groups/strider_brute_weapons.lua")
+includeFile("weapon/groups/strider_infiltrator_weapons.lua")
+includeFile("weapon/groups/strider_observer_weapons.lua")
+includeFile("weapon/groups/strider_protector_weapons.lua")
+includeFile("weapon/groups/acidic_axe.lua")
+includeFile("weapon/groups/ig_rifle_deathtrooper.lua")
+includeFile("weapon/groups/master_sharpshooter_weapons.lua")
+includeFile("weapon/groups/feared_duelist_weapons.lua")
+includeFile("weapon/groups/heavy_lava_cannon.lua")
+includeFile("weapon/groups/hardened_commander_weapons.lua")
+includeFile("weapon/groups/specforce_agent_weapons.lua")
+includeFile("weapon/groups/demolitionist_weapons.lua")
+includeFile("weapon/groups/daunting_enforcer_weapons.lua")
+includeFile("weapon/groups/oneh_stun_baton.lua")
+includeFile("weapon/groups/prison_guard_weapons.lua")
+includeFile("weapon/groups/detainment_officer_weapons.lua")
+includeFile("weapon/groups/security_officer_weapons.lua")
+includeFile("weapon/groups/brenarka_weapons.lua")
+includeFile("weapon/groups/trando_hunter_rifle.lua")
+includeFile("weapon/groups/admiral_sait_weapons.lua")
+
+
+
+

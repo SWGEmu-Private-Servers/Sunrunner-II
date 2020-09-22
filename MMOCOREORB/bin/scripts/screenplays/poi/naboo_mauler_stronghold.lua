@@ -14,7 +14,7 @@ MaulerStrongholdScreenPlay = ScreenPlay:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "color_crystals", chance = 100000},
+				{group = "g_magseal_accessories", chance = 100000},
 				{group = "junk", chance = 8600000},
 				{group = "rifles", chance = 500000},
 				{group = "pistols", chance = 500000},

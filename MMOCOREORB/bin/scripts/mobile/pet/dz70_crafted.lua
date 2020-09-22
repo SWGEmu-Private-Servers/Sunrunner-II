@@ -3,7 +3,7 @@ dz70_crafted = Creature:new {
 	socialGroup = "",
 	faction = "",
 	level = 4,
-	chanceHit = 0.24,
+	chanceHit = 1.24,
 	damageMin = 112,
 	damageMax = 118,
 	baseXp = 0,
@@ -29,8 +29,9 @@ dz70_crafted = Creature:new {
 		"object/creature/npc/droid/crafted/dz_70_fugitive_tracker_droid.iff"
 	},
 	lootGroups = {},
-	defaultAttack = "attack",
+	defaultAttack = "creaturerangedattack",
 	weapons = {"droid_probot_ranged"},
+	attacks = merge(brawlernovice,marksmannovice,pistoleernovice),
 	conversationTemplate = "",
 }
 

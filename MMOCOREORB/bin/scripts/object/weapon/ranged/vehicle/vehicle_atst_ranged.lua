@@ -79,10 +79,10 @@ object_weapon_ranged_vehicle_vehicle_atst_ranged = object_weapon_ranged_vehicle_
 	pointBlankRange = 0,
 	pointBlankAccuracy = 0,
 
-	idealRange = 25,
+	idealRange = 40,
 	idealAccuracy = 50,
 
-	maxRange = 65,
+	maxRange = 64,
 	maxRangeAccuracy = 0,
 
 	minDamage = 100,

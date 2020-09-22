@@ -4,15 +4,15 @@ specforce_marine = Creature:new {
 	randomNameTag = true,
 	socialGroup = "rebel",
 	faction = "rebel",
-	level = 18,
-	chanceHit = 0.32,
-	damageMin = 170,
-	damageMax = 180,
+	level = 20,
+	chanceHit = 1,
+	damageMin = 205,
+	damageMax = 280,
 	baseXp = 1426,
 	baseHAM = 4100,
 	baseHAMmax = 5000,
 	armor = 0,
-	resists = {0,0,0,0,0,0,0,-1,-1},
+	resists = {25,30,15,10,15,15,25,15,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -51,7 +51,7 @@ specforce_marine = Creature:new {
 	weapons = {"imperial_weapons_medium"},
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster)
+	attacks = merge(brawlermaster,marksmanmaster,tkanovice)
 }
 
 CreatureTemplates:addCreatureTemplate(specforce_marine, "specforce_marine")

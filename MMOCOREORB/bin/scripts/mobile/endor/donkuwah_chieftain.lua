@@ -32,7 +32,8 @@ donkuwah_chieftain = Creature:new {
 		{
 			groups = {
 				{group = "donkuwah_common", chance = 9000000},
-				{group = "wearables_uncommon", chance = 1000000},
+				{group = "g_contamination_necklace", chance = 500000},
+				{group = "g_contamination_ring", chance = 500000}
 			},
 			lootChance = 2160000
 		}

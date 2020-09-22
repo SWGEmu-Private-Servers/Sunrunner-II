@@ -14,7 +14,7 @@ kliknik_queen_harvester = Creature:new {
 	meatType = "meat_carnivore",
 	meatAmount = 15,
 	hideType = "hide_scaley",
-	hideAmount = 4,
+	hideAmount = 80,
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
@@ -33,7 +33,7 @@ kliknik_queen_harvester = Creature:new {
 	        groups = {
 				{group = "kliknik_common", chance = 10000000}
 			},
-			lootChance = 1600000
+			lootChance = 5600000
 		}
 	},
 	weapons = {"creature_spit_small_yellow"},

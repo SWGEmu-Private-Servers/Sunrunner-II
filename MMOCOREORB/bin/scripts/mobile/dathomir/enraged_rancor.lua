@@ -3,14 +3,14 @@ enraged_rancor = Creature:new {
 	socialGroup = "rancor",
 	faction = "",
 	level = 80,
-	chanceHit = 0.75,
-	damageMin = 570,
+	chanceHit = 1.5,
+	damageMin = 600,
 	damageMax = 850,
 	baseXp = 7668,
-	baseHAM = 12000,
-	baseHAMmax = 15000,
+	baseHAM = 15500,
+	baseHAMmax = 19500,
 	armor = 1,
-	resists = {30,160,30,200,200,200,30,30,-1},
+	resists = {160,165,150,200,200,200,140,140,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 950,
 	hideType = "hide_leathery",
@@ -36,7 +36,7 @@ enraged_rancor = Creature:new {
 				{group = "weapons_all", chance = 2500000},
 				{group = "wearables_all", chance = 1500000}
 			},
-			lootChance = 2600000
+			lootChance = 3600000
 		}
 	},
 	weapons = {},

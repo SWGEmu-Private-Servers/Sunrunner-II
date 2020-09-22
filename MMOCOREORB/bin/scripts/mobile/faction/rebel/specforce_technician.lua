@@ -5,14 +5,14 @@ specforce_technician = Creature:new {
 	socialGroup = "rebel",
 	faction = "rebel",
 	level = 18,
-	chanceHit = 0.32,
-	damageMin = 170,
-	damageMax = 180,
+	chanceHit = 0.9,
+	damageMin = 190,
+	damageMax = 235,
 	baseXp = 1257,
-	baseHAM = 4100,
-	baseHAMmax = 5000,
+	baseHAM = 4900,
+	baseHAMmax = 5700,
 	armor = 0,
-	resists = {0,0,0,0,0,0,0,-1,-1},
+	resists = {15,20,5,10,10,25,15,10,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -51,7 +51,8 @@ specforce_technician = Creature:new {
 	weapons = {"imperial_weapons_medium"},
 	reactionStf = "@npc_reaction/military",
 	personalityStf = "@hireling/hireling_military",
-	attacks = merge(brawlermaster,marksmanmaster)
+	attacks = merge(brawlermaster,marksmanmaster,tkanovice,riflemannovice,carbineernovice)
 }
 
 CreatureTemplates:addCreatureTemplate(specforce_technician, "specforce_technician")
+
